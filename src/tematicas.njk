@@ -1,0 +1,15 @@
+---
+layout: base.njk
+permalink: "/tematicas/index.html"
+---
+Index tematicas
+
+<ul>
+{% for tematica in collections.tematicas %}
+    <li>
+        <a href="{{tematica.url}}">
+            {{tematica.data.title}}
+        </a>
+    </li>
+{% endfor %}
+</ul>

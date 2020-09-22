@@ -1,0 +1,13 @@
+---
+title: Municipios
+---
+<ul>
+    {% for municipio in collections.municipios %}
+        {% set municipioData = municipio.data.pagination.items[0] %}
+        <li>
+            <a href="{{ municipio.url }}">
+                {{ municipioData.departamento | title }}, {{ municipioData.municipio | title}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

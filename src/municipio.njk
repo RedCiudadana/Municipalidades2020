@@ -1,0 +1,11 @@
+---
+pagination:
+  data: municipios
+  size: 1
+  addAllPagesToCollections: true
+permalink: "/{{ pagination.items[0].departamento | slug }}/{{ pagination.items[0].municipio | slug }}/index.html"
+tags:
+  - municipios
+---
+Nombre municipio:
+{{ pagination.items[0].municipio }}

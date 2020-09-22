@@ -1,27 +1,55 @@
+// Theme colors
+
+$primary: #52CCAE;
+$light: #F1F5FB;
+$body-color: #58595B;
+$dark: #B8C6CE;
+$spacer: 2rem;
+
+// Theme fonts
+
 @font-face {
-  font-family: "Baloo 2";
+  font-family: "Aileron";
   font-style: normal;
   font-weight: normal;
-  src: local("Baloo 2 Regular"), local("Baloo-2-Regular"),
-    url("../fonts/baloo-2-v1-latin-regular.woff2") format("woff2");
+  src: local("Aileron Regular"), local("Aileron-Regular"),
+    url("../fonts/Aileron-Regular.otf") format("opentype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Baloo 2";
+  font-family: "Aileron";
   font-style: normal;
-  font-weight: 500;
-  src: local("Baloo 2 Medium"), local("Baloo-2-Medium"),
-    url("../fonts/baloo-2-v1-latin-500.woff2") format("woff2");
+  font-weight: medium;
+  src: local("Aileron SemiBold"), local("Aileron-SemiBold"),
+    url("../fonts/Aileron-SemiBold.otf") format("opentype");
   font-display: swap;
 }
 
-@import "theme";
-@import "reset";
-@import "layout";
-@import "sitenav";
-@import "typography";
-@import "buttons";
-@import "card";
-@import "prism";
-@import "utilities";
+@font-face {
+  font-family: "Aileron";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Aileron Bold"), local("Aileron-Bold"),
+    url("../fonts/Aileron-Bold.otf") format("opentype");
+  font-display: swap;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background-color: $light;
+    color: $body-color;
+}
+
+.btn-white {
+    @extend .btn-light;
+    @extend .bg-white;
+    @extend .border-light;
+}
+
+.btn-white:hover {
+    background-color: $primary !important;
+    color: white !important;
+    border-color: white !important;
+}

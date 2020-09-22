@@ -1,0 +1,3402 @@
+[
+  {
+    "2013": "67,49%",
+    "2016": "56,93%",
+    "2018": "65,37%",
+    "id": 102,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Santa Catarina Pinula",
+    "Promedio": "63,26%"
+  },
+  {
+    "2013": "52,85%",
+    "2016": "54,61%",
+    "2018": "64,02%",
+    "id": 108,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Mixco",
+    "Promedio": "57,16%"
+  },
+  {
+    "2013": "60,61%",
+    "2016": "62,10%",
+    "2018": "62,53%",
+    "id": 1501,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "Salamá",
+    "Promedio": "61,75%"
+  },
+  {
+    "2013": "56,87%",
+    "2016": "47,54%",
+    "2018": "60,75%",
+    "id": 308,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "San Lucas Sacatepéquez",
+    "Promedio": "55,05%"
+  },
+  {
+    "2013": "39,33%",
+    "2016": "20,93%",
+    "2018": "60,43%",
+    "id": 117,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "San Miguel Petapa",
+    "Promedio": "40,23%"
+  },
+  {
+    "2013": "48,66%",
+    "2016": "58,38%",
+    "2018": "59,82%",
+    "id": 902,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Salcajá",
+    "Promedio": "55,62%"
+  },
+  {
+    "2013": "51,81%",
+    "2016": "57,90%",
+    "2018": "59,36%",
+    "id": 101,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Guatemala",
+    "Promedio": "56,36%"
+  },
+  {
+    "2013": "29,36%",
+    "2016": "46,51%",
+    "2018": "58,80%",
+    "id": 1201,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Marcos",
+    "Promedio": "44,89%"
+  },
+  {
+    "2013": "27,61%",
+    "2016": "42,45%",
+    "2018": "56,91%",
+    "id": 103,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "San José Pinula",
+    "Promedio": "42,32%"
+  },
+  {
+    "2013": "48,43%",
+    "2016": "44,94%",
+    "2018": "56,91%",
+    "id": 716,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San Marcos La Laguna",
+    "Promedio": "50,09%"
+  },
+  {
+    "2013": "35,84%",
+    "2016": "26,00%",
+    "2018": "56,81%",
+    "id": 106,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Chinautla",
+    "Promedio": "39,55%"
+  },
+  {
+    "2013": "12,43%",
+    "2016": "36,91%",
+    "2018": "56,26%",
+    "id": 1202,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Pedro Sacatepéquez",
+    "Promedio": "35,20%"
+  },
+  {
+    "2013": "28,76%",
+    "2016": "25,80%",
+    "2018": "56,25%",
+    "id": 407,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Patzún",
+    "Promedio": "36,94%"
+  },
+  {
+    "2013": "43,92%",
+    "2016": "47,64%",
+    "2018": "55,76%",
+    "id": 1602,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Santa Cruz Verapaz",
+    "Promedio": "49,11%"
+  },
+  {
+    "2013": "26,13%",
+    "2016": "35,12%",
+    "2018": "55,64%",
+    "id": 113,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Fraijanes",
+    "Promedio": "38,96%"
+  },
+  {
+    "2013": "48,86%",
+    "2016": "55,14%",
+    "2018": "55,59%",
+    "id": 115,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Villa Nueva",
+    "Promedio": "53,20%"
+  },
+  {
+    "2013": "48,51%",
+    "2016": "42,24%",
+    "2018": "55,59%",
+    "id": 1203,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Antonio Sacatepéquez",
+    "Promedio": "48,78%"
+  },
+  {
+    "2013": "35,06%",
+    "2016": "42,32%",
+    "2018": "54,82%",
+    "id": 1507,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "San Jerónimo",
+    "Promedio": "44,07%"
+  },
+  {
+    "2013": "41,68%",
+    "2016": "44,25%",
+    "2018": "54,79%",
+    "id": 316,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Santa Catarina Barahona",
+    "Promedio": "46,91%"
+  },
+  {
+    "2013": "30,12%",
+    "2016": "43,93%",
+    "2018": "54,67%",
+    "id": 306,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Santiago Sacatepéquez",
+    "Promedio": "42,91%"
+  },
+  {
+    "2013": "40,53%",
+    "2016": "41,51%",
+    "2018": "54,45%",
+    "id": 415,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Zaragoza",
+    "Promedio": "45,50%"
+  },
+  {
+    "2013": "27,76%",
+    "2016": "32,92%",
+    "2018": "54,20%",
+    "id": 609,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Taxisco",
+    "Promedio": "38,29%"
+  },
+  {
+    "2013": "44,16%",
+    "2016": "48,74%",
+    "2018": "54,13%",
+    "id": 303,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Pastores",
+    "Promedio": "49,01%"
+  },
+  {
+    "2013": "49,32%",
+    "2016": "38,87%",
+    "2018": "53,89%",
+    "id": 1610,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "San Juan Chamelco",
+    "Promedio": "47,36%"
+  },
+  {
+    "2013": "35,18%",
+    "2016": "51,67%",
+    "2018": "53,85%",
+    "id": 2216,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "San José Acatempa",
+    "Promedio": "46,90%"
+  },
+  {
+    "2013": "38,40%",
+    "2016": "40,98%",
+    "2018": "53,16%",
+    "id": 1108,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "Nuevo San Carlos",
+    "Promedio": "44,18%"
+  },
+  {
+    "2013": "30,39%",
+    "2016": "38,13%",
+    "2018": "52,73%",
+    "id": 1210,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Tejutla",
+    "Promedio": "40,42%"
+  },
+  {
+    "2013": "42,00%",
+    "2016": "39,00%",
+    "2018": "52,62%",
+    "id": 114,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Amatitlán",
+    "Promedio": "44,54%"
+  },
+  {
+    "2013": "18,57%",
+    "2016": "44,95%",
+    "2018": "52,60%",
+    "id": 1803,
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "municipio": "El Estor",
+    "Promedio": "38,71%"
+  },
+  {
+    "2013": "45,68%",
+    "2016": "40,20%",
+    "2018": "52,53%",
+    "id": 1303,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Malacatancito",
+    "Promedio": "46,14%"
+  },
+  {
+    "2013": "29,91%",
+    "2016": "30,42%",
+    "2018": "52,41%",
+    "id": 707,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Santa Clara La Laguna",
+    "Promedio": "37,58%"
+  },
+  {
+    "2013": "47,29%",
+    "2016": "40,56%",
+    "2018": "52,12%",
+    "id": 608,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Chiquimulilla",
+    "Promedio": "46,66%"
+  },
+  {
+    "2013": "48,19%",
+    "2016": "37,22%",
+    "2018": "52,05%",
+    "id": 2007,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Esquipulas",
+    "Promedio": "45,82%"
+  },
+  {
+    "2013": "39,34%",
+    "2016": "30,55%",
+    "2018": "52,01%",
+    "id": 2006,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Olopa",
+    "Promedio": "40,63%"
+  },
+  {
+    "2013": "36,37%",
+    "2016": "37,43%",
+    "2018": "51,80%",
+    "id": 903,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Olintepeque",
+    "Promedio": "41,87%"
+  },
+  {
+    "2013": "26,47%",
+    "2016": "30,66%",
+    "2018": "51,56%",
+    "id": 905,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Sibilia",
+    "Promedio": "36,23%"
+  },
+  {
+    "2013": "46,86%",
+    "2016": "42,24%",
+    "2018": "51,48%",
+    "id": 403,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "San Martín Jilotepeque",
+    "Promedio": "46,86%"
+  },
+  {
+    "2013": "14,69%",
+    "2016": "32,97%",
+    "2018": "51,44%",
+    "id": 1421,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Pachalum",
+    "Promedio": "33,03%"
+  },
+  {
+    "2013": "39,83%",
+    "2016": "31,58%",
+    "2018": "51,28%",
+    "id": 1018,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Zunilito",
+    "Promedio": "40,90%"
+  },
+  {
+    "2013": "42,62%",
+    "2016": "40,17%",
+    "2018": "51,26%",
+    "id": 1208,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Sibinal",
+    "Promedio": "44,68%"
+  },
+  {
+    "2013": "54,48%",
+    "2016": "37,21%",
+    "2018": "51,14%",
+    "id": 1617,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Raxruhá",
+    "Promedio": "47,61%"
+  },
+  {
+    "2013": "40,15%",
+    "2016": "26,35%",
+    "2018": "51,12%",
+    "id": 307,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "San Bartolomé Milpas Altas",
+    "Promedio": "39,21%"
+  },
+  {
+    "2013": "26,81%",
+    "2016": "28,06%",
+    "2018": "51,08%",
+    "id": 205,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "El Jícaro",
+    "Promedio": "35,32%"
+  },
+  {
+    "2013": "49,20%",
+    "2016": "37,95%",
+    "2018": "51,06%",
+    "id": 924,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Palestina de los Altos",
+    "Promedio": "46,07%"
+  },
+  {
+    "2013": "",
+    "2016": "37,55%",
+    "2018": "50,90%",
+    "id": 1230,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "La Blanca",
+    "Promedio": "44,23%"
+  },
+  {
+    "2013": "16,99%",
+    "2016": "28,74%",
+    "2018": "50,86%",
+    "id": 915,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Huitán",
+    "Promedio": "32,20%"
+  },
+  {
+    "2013": "28,81%",
+    "2016": "34,19%",
+    "2018": "50,86%",
+    "id": 1413,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Nebaj",
+    "Promedio": "37,95%"
+  },
+  {
+    "2013": "18,90%",
+    "2016": "51,40%",
+    "2018": "50,84%",
+    "id": 1606,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "San Miguel Tucurú",
+    "Promedio": "40,38%"
+  },
+  {
+    "2013": "46,40%",
+    "2016": "39,10%",
+    "2018": "50,73%",
+    "id": 1902,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Estanzuela",
+    "Promedio": "45,41%"
+  },
+  {
+    "2013": "24,22%",
+    "2016": "36,19%",
+    "2018": "50,69%",
+    "id": 2214,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Moyuta",
+    "Promedio": "37,03%"
+  },
+  {
+    "2013": "34,45%",
+    "2016": "27,42%",
+    "2018": "50,20%",
+    "id": 112,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Chuarrancho",
+    "Promedio": "37,36%"
+  },
+  {
+    "2013": "30,76%",
+    "2016": "26,60%",
+    "2018": "50,13%",
+    "id": 411,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Acatenango",
+    "Promedio": "35,83%"
+  },
+  {
+    "2013": "19,28%",
+    "2016": "26,00%",
+    "2018": "49,96%",
+    "id": 910,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "San Mateo",
+    "Promedio": "31,75%"
+  },
+  {
+    "2013": "36,09%",
+    "2016": "47,68%",
+    "2018": "49,95%",
+    "id": 1508,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "Purulhá",
+    "Promedio": "44,57%"
+  },
+  {
+    "2013": "50,08%",
+    "2016": "34,05%",
+    "2018": "49,91%",
+    "id": 116,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Villa Canales",
+    "Promedio": "44,68%"
+  },
+  {
+    "2013": "28,99%",
+    "2016": "30,65%",
+    "2018": "49,83%",
+    "id": 1206,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Concepción Tutuapa",
+    "Promedio": "36,49%"
+  },
+  {
+    "2013": "36,67%",
+    "2016": "33,82%",
+    "2018": "49,78%",
+    "id": 923,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "La Esperanza",
+    "Promedio": "40,09%"
+  },
+  {
+    "2013": "29,81%",
+    "2016": "38,63%",
+    "2018": "49,75%",
+    "id": 2107,
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "municipio": "Mataquescuintla",
+    "Promedio": "39,40%"
+  },
+  {
+    "2013": "25,50%",
+    "2016": "29,85%",
+    "2018": "49,74%",
+    "id": 1901,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Zacapa",
+    "Promedio": "35,03%"
+  },
+  {
+    "2013": "56,04%",
+    "2016": "32,98%",
+    "2018": "49,53%",
+    "id": 1609,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "San Pedro Carchá",
+    "Promedio": "46,18%"
+  },
+  {
+    "2013": "49,46%",
+    "2016": "41,67%",
+    "2018": "49,49%",
+    "id": 614,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Nueva Santa Rosa",
+    "Promedio": "46,87%"
+  },
+  {
+    "2013": "18,67%",
+    "2016": "20,86%",
+    "2018": "49,30%",
+    "id": 1704,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "San Andrés",
+    "Promedio": "29,61%"
+  },
+  {
+    "2013": "32,29%",
+    "2016": "27,63%",
+    "2018": "49,16%",
+    "id": 601,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Cuilapa",
+    "Promedio": "36,36%"
+  },
+  {
+    "2013": "54,36%",
+    "2016": "40,43%",
+    "2018": "48,99%",
+    "id": 204,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "San Cristóbal Acasaguastlán",
+    "Promedio": "47,93%"
+  },
+  {
+    "2013": "38,63%",
+    "2016": "33,11%",
+    "2018": "48,93%",
+    "id": 509,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "San José",
+    "Promedio": "40,22%"
+  },
+  {
+    "2013": "45,90%",
+    "2016": "39,51%",
+    "2018": "48,80%",
+    "id": 2010,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "San Jacinto",
+    "Promedio": "44,74%"
+  },
+  {
+    "2013": "30,72%",
+    "2016": "24,83%",
+    "2018": "48,75%",
+    "id": 610,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Santa María Ixhuatán",
+    "Promedio": "34,77%"
+  },
+  {
+    "2013": "31,68%",
+    "2016": "39,69%",
+    "2018": "48,66%",
+    "id": 2004,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Jocotán",
+    "Promedio": "40,01%"
+  },
+  {
+    "2013": "48,95%",
+    "2016": "42,90%",
+    "2018": "48,59%",
+    "id": 1227,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Esquipulas Palo Gordo",
+    "Promedio": "46,81%"
+  },
+  {
+    "2013": "49,57%",
+    "2016": "44,54%",
+    "2018": "48,51%",
+    "id": 1607,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Panzós",
+    "Promedio": "47,54%"
+  },
+  {
+    "2013": "33,79%",
+    "2016": "23,27%",
+    "2018": "48,43%",
+    "id": 1211,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Rafael Pie de la Cuesta",
+    "Promedio": "35,16%"
+  },
+  {
+    "2013": "30,58%",
+    "2016": "37,64%",
+    "2018": "48,37%",
+    "id": 510,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Iztapa",
+    "Promedio": "38,86%"
+  },
+  {
+    "2013": "",
+    "2016": "22,09%",
+    "2018": "48,29%",
+    "id": 514,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Sipacate",
+    "Promedio": "35,19%"
+  },
+  {
+    "2013": "23,94%",
+    "2016": "29,23%",
+    "2018": "47,93%",
+    "id": 914,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Cantel",
+    "Promedio": "33,70%"
+  },
+  {
+    "2013": "",
+    "2016": "36,85%",
+    "2018": "47,65%",
+    "id": 1333,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Petatán",
+    "Promedio": "42,25%"
+  },
+  {
+    "2013": "25,09%",
+    "2016": "32,09%",
+    "2018": "47,65%",
+    "id": 2106,
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "municipio": "Monjas",
+    "Promedio": "34,94%"
+  },
+  {
+    "2013": "35,31%",
+    "2016": "24,83%",
+    "2018": "47,63%",
+    "id": 2003,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "San Juan Ermita",
+    "Promedio": "35,92%"
+  },
+  {
+    "2013": "37,33%",
+    "2016": "35,96%",
+    "2018": "47,62%",
+    "id": 1906,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Usumatlán",
+    "Promedio": "40,30%"
+  },
+  {
+    "2013": "50,30%",
+    "2016": "49,26%",
+    "2018": "47,52%",
+    "id": 1506,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "Santa Cruz El Chol",
+    "Promedio": "49,03%"
+  },
+  {
+    "2013": "36,00%",
+    "2016": "28,39%",
+    "2018": "47,50%",
+    "id": 401,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Chimaltenango",
+    "Promedio": "37,30%"
+  },
+  {
+    "2013": "33,86%",
+    "2016": "20,93%",
+    "2018": "47,49%",
+    "id": 801,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "Totonicapán",
+    "Promedio": "34,09%"
+  },
+  {
+    "2013": "24,69%",
+    "2016": "31,66%",
+    "2018": "47,37%",
+    "id": 208,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "San Antonio La Paz",
+    "Promedio": "34,57%"
+  },
+  {
+    "2013": "37,25%",
+    "2016": "40,18%",
+    "2018": "47,36%",
+    "id": 105,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "Palencia",
+    "Promedio": "41,60%"
+  },
+  {
+    "2013": "38,39%",
+    "2016": "27,76%",
+    "2018": "47,36%",
+    "id": 603,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Santa Rosa de Lima",
+    "Promedio": "37,84%"
+  },
+  {
+    "2013": "49,83%",
+    "2016": "44,02%",
+    "2018": "47,12%",
+    "id": 1614,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Chahal",
+    "Promedio": "46,99%"
+  },
+  {
+    "2013": "31,72%",
+    "2016": "34,41%",
+    "2018": "47,04%",
+    "id": 412,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "San Pedro Yepocapa",
+    "Promedio": "37,72%"
+  },
+  {
+    "2013": "38,65%",
+    "2016": "26,66%",
+    "2018": "46,93%",
+    "id": 1205,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Miguel Ixtahuacán",
+    "Promedio": "37,41%"
+  },
+  {
+    "2013": "37,54%",
+    "2016": "26,30%",
+    "2018": "46,77%",
+    "id": 2002,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "San José La Arada",
+    "Promedio": "36,87%"
+  },
+  {
+    "2013": "21,93%",
+    "2016": "35,73%",
+    "2018": "46,68%",
+    "id": 312,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Ciudad Vieja",
+    "Promedio": "34,78%"
+  },
+  {
+    "2013": "42,05%",
+    "2016": "29,64%",
+    "2018": "46,56%",
+    "id": 511,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Palín",
+    "Promedio": "39,42%"
+  },
+  {
+    "2013": "39,44%",
+    "2016": "43,55%",
+    "2018": "46,16%",
+    "id": 605,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "San Rafael Las Flores",
+    "Promedio": "43,05%"
+  },
+  {
+    "2013": "27,41%",
+    "2016": "9,19%",
+    "2018": "45,96%",
+    "id": 607,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "San Juan Tecuaco",
+    "Promedio": "27,52%"
+  },
+  {
+    "2013": "48,24%",
+    "2016": "49,23%",
+    "2018": "45,91%",
+    "id": 1223,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Ixchiguán",
+    "Promedio": "47,79%"
+  },
+  {
+    "2013": "24,66%",
+    "2016": "27,77%",
+    "2018": "45,88%",
+    "id": 301,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Antigua Guatemala",
+    "Promedio": "32,77%"
+  },
+  {
+    "2013": "41,59%",
+    "2016": "28,92%",
+    "2018": "45,81%",
+    "id": 1804,
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "municipio": "Morales",
+    "Promedio": "38,77%"
+  },
+  {
+    "2013": "37,09%",
+    "2016": "25,71%",
+    "2018": "45,74%",
+    "id": 2101,
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "municipio": "Jalapa",
+    "Promedio": "36,18%"
+  },
+  {
+    "2013": "37,63%",
+    "2016": "27,41%",
+    "2018": "45,69%",
+    "id": 802,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "San Cristóbal Totonicapán",
+    "Promedio": "36,91%"
+  },
+  {
+    "2013": "",
+    "2016": "29,00%",
+    "2018": "45,59%",
+    "id": 1714,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "El Chal",
+    "Promedio": "37,30%"
+  },
+  {
+    "2013": "29,98%",
+    "2016": "33,16%",
+    "2018": "45,52%",
+    "id": 703,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Santa María Visitación",
+    "Promedio": "36,22%"
+  },
+  {
+    "2013": "45,12%",
+    "2016": "34,29%",
+    "2018": "45,36%",
+    "id": 901,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Quetzaltenango",
+    "Promedio": "41,59%"
+  },
+  {
+    "2013": "",
+    "2016": "25,79%",
+    "2018": "45,17%",
+    "id": 1911,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "San Jorge",
+    "Promedio": "35,48%"
+  },
+  {
+    "2013": "14,77%",
+    "2016": "32,79%",
+    "2018": "45,11%",
+    "id": 109,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "San Pedro Sacatepéquez",
+    "Promedio": "30,89%"
+  },
+  {
+    "2013": "34,82%",
+    "2016": "38,55%",
+    "2018": "45,08%",
+    "id": 2011,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Ipala",
+    "Promedio": "39,48%"
+  },
+  {
+    "2013": "35,45%",
+    "2016": "46,24%",
+    "2018": "45,06%",
+    "id": 1408,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "San Antonio Ilotenango",
+    "Promedio": "42,25%"
+  },
+  {
+    "2013": "42,77%",
+    "2016": "31,77%",
+    "2018": "44,91%",
+    "id": 1302,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Chiantla",
+    "Promedio": "39,82%"
+  },
+  {
+    "2013": "25,03%",
+    "2016": "32,06%",
+    "2018": "44,78%",
+    "id": 1411,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "San Juan Cotzal",
+    "Promedio": "33,96%"
+  },
+  {
+    "2013": "34,59%",
+    "2016": "40,18%",
+    "2018": "44,77%",
+    "id": 1712,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "Poptún",
+    "Promedio": "39,85%"
+  },
+  {
+    "2013": "28,86%",
+    "2016": "34,15%",
+    "2018": "44,74%",
+    "id": 2105,
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "municipio": "San Carlos Alzatate",
+    "Promedio": "35,92%"
+  },
+  {
+    "2013": "38,10%",
+    "2016": "24,52%",
+    "2018": "44,65%",
+    "id": 505,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Masagua",
+    "Promedio": "35,76%"
+  },
+  {
+    "2013": "30,78%",
+    "2016": "27,36%",
+    "2018": "44,60%",
+    "id": 921,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Génova",
+    "Promedio": "34,25%"
+  },
+  {
+    "2013": "37,18%",
+    "2016": "24,87%",
+    "2018": "44,49%",
+    "id": 1225,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Cristóbal Cucho",
+    "Promedio": "35,51%"
+  },
+  {
+    "2013": "33,56%",
+    "2016": "39,90%",
+    "2018": "44,18%",
+    "id": 305,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Santo Domingo Xenacoj",
+    "Promedio": "39,21%"
+  },
+  {
+    "2013": "39,80%",
+    "2016": "39,63%",
+    "2018": "44,11%",
+    "id": 1207,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Tacaná",
+    "Promedio": "41,18%"
+  },
+  {
+    "2013": "60,47%",
+    "2016": "47,85%",
+    "2018": "44,09%",
+    "id": 1601,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Cobán",
+    "Promedio": "50,80%"
+  },
+  {
+    "2013": "39,53%",
+    "2016": "37,12%",
+    "2018": "43,92%",
+    "id": 718,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San Pedro La Laguna",
+    "Promedio": "40,19%"
+  },
+  {
+    "2013": "37,59%",
+    "2016": "30,82%",
+    "2018": "43,84%",
+    "id": 2203,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Santa Catarina Mita",
+    "Promedio": "37,42%"
+  },
+  {
+    "2013": "32,21%",
+    "2016": "30,60%",
+    "2018": "43,74%",
+    "id": 2209,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "El Adelanto",
+    "Promedio": "35,52%"
+  },
+  {
+    "2013": "28,87%",
+    "2016": "28,20%",
+    "2018": "43,70%",
+    "id": 410,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Santa Cruz Balanyá",
+    "Promedio": "33,59%"
+  },
+  {
+    "2013": "15,14%",
+    "2016": "28,88%",
+    "2018": "43,57%",
+    "id": 405,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Santa Apolonia",
+    "Promedio": "29,20%"
+  },
+  {
+    "2013": "1,87%",
+    "2016": "29,93%",
+    "2018": "43,56%",
+    "id": 1218,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Ocós",
+    "Promedio": "25,12%"
+  },
+  {
+    "2013": "17,66%",
+    "2016": "44,86%",
+    "2018": "43,56%",
+    "id": 1710,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "Sayaxché",
+    "Promedio": "35,36%"
+  },
+  {
+    "2013": "15,20%",
+    "2016": "33,92%",
+    "2018": "43,53%",
+    "id": 1703,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "San Benito",
+    "Promedio": "30,88%"
+  },
+  {
+    "2013": "22,16%",
+    "2016": "25,42%",
+    "2018": "43,49%",
+    "id": 1015,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Santa Bárbara",
+    "Promedio": "30,36%"
+  },
+  {
+    "2013": "52,71%",
+    "2016": "45,80%",
+    "2018": "43,49%",
+    "id": 1615,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Fray Bartolomé de las Casas",
+    "Promedio": "47,33%"
+  },
+  {
+    "2013": "43,55%",
+    "2016": "18,63%",
+    "2018": "43,46%",
+    "id": 803,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "San Francisco El Alto",
+    "Promedio": "35,21%"
+  },
+  {
+    "2013": "19,42%",
+    "2016": "32,29%",
+    "2018": "43,31%",
+    "id": 917,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Colomba",
+    "Promedio": "31,67%"
+  },
+  {
+    "2013": "39,39%",
+    "2016": "29,02%",
+    "2018": "42,90%",
+    "id": 920,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Coatepeque",
+    "Promedio": "37,10%"
+  },
+  {
+    "2013": "26,65%",
+    "2016": "29,54%",
+    "2018": "42,87%",
+    "id": 1903,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Río Hondo",
+    "Promedio": "33,02%"
+  },
+  {
+    "2013": "39,18%",
+    "2016": "23,92%",
+    "2018": "42,83%",
+    "id": 2005,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Camotán",
+    "Promedio": "35,31%"
+  },
+  {
+    "2013": "42,82%",
+    "2016": "25,38%",
+    "2018": "42,69%",
+    "id": 206,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "Sansare",
+    "Promedio": "36,96%"
+  },
+  {
+    "2013": "49,39%",
+    "2016": "49,71%",
+    "2018": "42,64%",
+    "id": 1604,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Tactic",
+    "Promedio": "47,25%"
+  },
+  {
+    "2013": "32,43%",
+    "2016": "17,04%",
+    "2018": "42,55%",
+    "id": 606,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Oratorio",
+    "Promedio": "30,67%"
+  },
+  {
+    "2013": "44,67%",
+    "2016": "19,60%",
+    "2018": "42,40%",
+    "id": 2202,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "El Progreso",
+    "Promedio": "35,56%"
+  },
+  {
+    "2013": "36,23%",
+    "2016": "14,71%",
+    "2018": "42,20%",
+    "id": 911,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Concepción Chiquirichapa",
+    "Promedio": "31,05%"
+  },
+  {
+    "2013": "29,10%",
+    "2016": "15,57%",
+    "2018": "41,99%",
+    "id": 2201,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Jutiapa",
+    "Promedio": "28,89%"
+  },
+  {
+    "2013": "31,85%",
+    "2016": "41,12%",
+    "2018": "41,83%",
+    "id": 1401,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Santa Cruz del Quiché",
+    "Promedio": "38,27%"
+  },
+  {
+    "2013": "39,06%",
+    "2016": "35,37%",
+    "2018": "41,68%",
+    "id": 2206,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Yupiltepeque",
+    "Promedio": "38,70%"
+  },
+  {
+    "2013": "28,92%",
+    "2016": "21,18%",
+    "2018": "41,38%",
+    "id": 1308,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Pedro Soloma",
+    "Promedio": "30,49%"
+  },
+  {
+    "2013": "45,59%",
+    "2016": "40,11%",
+    "2018": "41,34%",
+    "id": 1204,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Comitancillo",
+    "Promedio": "42,35%"
+  },
+  {
+    "2013": "29,96%",
+    "2016": "21,45%",
+    "2018": "41,17%",
+    "id": 1910,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Huité",
+    "Promedio": "30,86%"
+  },
+  {
+    "2013": "22,34%",
+    "2016": "35,25%",
+    "2018": "40,79%",
+    "id": 1209,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Tajumulco",
+    "Promedio": "32,79%"
+  },
+  {
+    "2013": "32,93%",
+    "2016": "32,89%",
+    "2018": "40,78%",
+    "id": 508,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Guanagazapa",
+    "Promedio": "35,53%"
+  },
+  {
+    "2013": "32,85%",
+    "2016": "35,73%",
+    "2018": "40,60%",
+    "id": 201,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "Guastatoya",
+    "Promedio": "36,39%"
+  },
+  {
+    "2013": "31,16%",
+    "2016": "35,03%",
+    "2018": "40,53%",
+    "id": 309,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Santa Lucía Milpas Altas",
+    "Promedio": "35,57%"
+  },
+  {
+    "2013": "18,69%",
+    "2016": "20,62%",
+    "2018": "40,48%",
+    "id": 1307,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Jacaltenango",
+    "Promedio": "26,60%"
+  },
+  {
+    "2013": "35,86%",
+    "2016": "32,41%",
+    "2018": "40,38%",
+    "id": 909,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "San Juan Ostuncalco",
+    "Promedio": "36,22%"
+  },
+  {
+    "2013": "42,10%",
+    "2016": "32,69%",
+    "2018": "40,37%",
+    "id": 2210,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Zapotitlán",
+    "Promedio": "38,39%"
+  },
+  {
+    "2013": "42,05%",
+    "2016": "25,38%",
+    "2018": "40,33%",
+    "id": 808,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "San Bartolo Aguas Calientes",
+    "Promedio": "35,92%"
+  },
+  {
+    "2013": "46,99%",
+    "2016": "44,28%",
+    "2018": "40,32%",
+    "id": 602,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Barberena",
+    "Promedio": "43,86%"
+  },
+  {
+    "2013": "22,68%",
+    "2016": "31,70%",
+    "2018": "40,13%",
+    "id": 1304,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Cuilco",
+    "Promedio": "31,50%"
+  },
+  {
+    "2013": "24,98%",
+    "2016": "20,08%",
+    "2018": "40,08%",
+    "id": 1010,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Antonio Suchitepéquez",
+    "Promedio": "28,38%"
+  },
+  {
+    "2013": "53,87%",
+    "2016": "24,08%",
+    "2018": "40,05%",
+    "id": 1801,
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "municipio": "Puerto Barrios",
+    "Promedio": "39,33%"
+  },
+  {
+    "2013": "41,98%",
+    "2016": "13,00%",
+    "2018": "40,03%",
+    "id": 2001,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Chiquimula",
+    "Promedio": "31,67%"
+  },
+  {
+    "2013": "34,27%",
+    "2016": "28,28%",
+    "2018": "40,00%",
+    "id": 1709,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "San Luis",
+    "Promedio": "34,18%"
+  },
+  {
+    "2013": "43,73%",
+    "2016": "29,89%",
+    "2018": "39,91%",
+    "id": 313,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "San Miguel Dueñas",
+    "Promedio": "37,84%"
+  },
+  {
+    "2013": "32,40%",
+    "2016": "30,21%",
+    "2018": "39,88%",
+    "id": 1107,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "Champerico",
+    "Promedio": "34,16%"
+  },
+  {
+    "2013": "28,81%",
+    "2016": "30,28%",
+    "2018": "39,64%",
+    "id": 408,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "San Miguel Pochuta",
+    "Promedio": "32,91%"
+  },
+  {
+    "2013": "16,74%",
+    "2016": "28,57%",
+    "2018": "39,38%",
+    "id": 110,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "San Juan Sacatepéquez",
+    "Promedio": "28,23%"
+  },
+  {
+    "2013": "23,41%",
+    "2016": "28,42%",
+    "2018": "39,24%",
+    "id": 1103,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "Santa Cruz Muluá",
+    "Promedio": "30,36%"
+  },
+  {
+    "2013": "39,56%",
+    "2016": "28,04%",
+    "2018": "38,85%",
+    "id": 1701,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "Flores",
+    "Promedio": "35,48%"
+  },
+  {
+    "2013": "32,58%",
+    "2016": "22,53%",
+    "2018": "38,75%",
+    "id": 2104,
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "municipio": "San Manuel Chaparrón",
+    "Promedio": "31,29%"
+  },
+  {
+    "2013": "39,92%",
+    "2016": "31,31%",
+    "2018": "38,70%",
+    "id": 302,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Jocotenango",
+    "Promedio": "36,64%"
+  },
+  {
+    "2013": "26,23%",
+    "2016": "25,37%",
+    "2018": "38,65%",
+    "id": 1612,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Santa María Cahabón",
+    "Promedio": "30,08%"
+  },
+  {
+    "2013": "12,97%",
+    "2016": "24,72%",
+    "2018": "38,55%",
+    "id": 1104,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "San Martín Zapotitlán",
+    "Promedio": "25,41%"
+  },
+  {
+    "2013": "38,44%",
+    "2016": "19,07%",
+    "2018": "38,42%",
+    "id": 804,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "San Andrés Xecul",
+    "Promedio": "31,98%"
+  },
+  {
+    "2013": "11,53%",
+    "2016": "46,48%",
+    "2018": "38,42%",
+    "id": 1220,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "El Quetzal",
+    "Promedio": "32,14%"
+  },
+  {
+    "2013": "34,51%",
+    "2016": "22,79%",
+    "2018": "38,23%",
+    "id": 1504,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "Cubulco",
+    "Promedio": "31,84%"
+  },
+  {
+    "2013": "42,71%",
+    "2016": "33,21%",
+    "2018": "38,22%",
+    "id": 1217,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Ayutla",
+    "Promedio": "38,05%"
+  },
+  {
+    "2013": "20,27%",
+    "2016": "31,77%",
+    "2018": "38,02%",
+    "id": 706,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Santa Catarina Ixtahuacán",
+    "Promedio": "30,02%"
+  },
+  {
+    "2013": "26,88%",
+    "2016": "25,00%",
+    "2018": "37,98%",
+    "id": 203,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "San Agustín Acasaguastlán",
+    "Promedio": "29,95%"
+  },
+  {
+    "2013": "49,38%",
+    "2016": "18,89%",
+    "2018": "37,93%",
+    "id": 310,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Magdalena Milpas Altas",
+    "Promedio": "35,40%"
+  },
+  {
+    "2013": "25,96%",
+    "2016": "33,74%",
+    "2018": "37,93%",
+    "id": 502,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Santa Lucía Cotzulmalguapa",
+    "Promedio": "32,54%"
+  },
+  {
+    "2013": "34,96%",
+    "2016": "39,01%",
+    "2018": "37,84%",
+    "id": 104,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "San José del Golfo",
+    "Promedio": "37,27%"
+  },
+  {
+    "2013": "30,09%",
+    "2016": "23,92%",
+    "2018": "37,84%",
+    "id": 1708,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "Dolores",
+    "Promedio": "30,62%"
+  },
+  {
+    "2013": "30,60%",
+    "2016": "38,00%",
+    "2018": "37,82%",
+    "id": 1406,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Chichicastenango",
+    "Promedio": "35,47%"
+  },
+  {
+    "2013": "43,57%",
+    "2016": "46,38%",
+    "2018": "37,72%",
+    "id": 1603,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "San Cristóbal Verapaz",
+    "Promedio": "42,56%"
+  },
+  {
+    "2013": "37,95%",
+    "2016": "37,08%",
+    "2018": "37,71%",
+    "id": 404,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "San Juan Comalapa",
+    "Promedio": "37,58%"
+  },
+  {
+    "2013": "28,29%",
+    "2016": "18,66%",
+    "2018": "37,65%",
+    "id": 1001,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Mazatenango",
+    "Promedio": "28,20%"
+  },
+  {
+    "2013": "26,33%",
+    "2016": "15,53%",
+    "2018": "37,65%",
+    "id": 2008,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Concepción las Minas",
+    "Promedio": "26,50%"
+  },
+  {
+    "2013": "38,50%",
+    "2016": "39,27%",
+    "2018": "37,64%",
+    "id": 1503,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "Rabinal",
+    "Promedio": "38,47%"
+  },
+  {
+    "2013": "20,41%",
+    "2016": "19,54%",
+    "2018": "37,54%",
+    "id": 503,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "La Democracia",
+    "Promedio": "25,83%"
+  },
+  {
+    "2013": "17,59%",
+    "2016": "16,75%",
+    "2018": "37,53%",
+    "id": 1002,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Cuyotenango",
+    "Promedio": "23,96%"
+  },
+  {
+    "2013": "32,33%",
+    "2016": "17,46%",
+    "2018": "37,51%",
+    "id": 904,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "San Carlos Sija",
+    "Promedio": "29,10%"
+  },
+  {
+    "2013": "24,82%",
+    "2016": "20,27%",
+    "2018": "37,46%",
+    "id": 613,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Pueblo Nuevo Viñas",
+    "Promedio": "27,52%"
+  },
+  {
+    "2013": "29,75%",
+    "2016": "7,42%",
+    "2018": "37,39%",
+    "id": 918,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "San Francisco La Unión",
+    "Promedio": "24,85%"
+  },
+  {
+    "2013": "48,28%",
+    "2016": "31,26%",
+    "2018": "37,37%",
+    "id": 1613,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Chisec",
+    "Promedio": "38,97%"
+  },
+  {
+    "2013": "31,02%",
+    "2016": "27,09%",
+    "2018": "37,31%",
+    "id": 1904,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Gualán",
+    "Promedio": "31,81%"
+  },
+  {
+    "2013": "23,43%",
+    "2016": "16,88%",
+    "2018": "37,30%",
+    "id": 1013,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Chicacao",
+    "Promedio": "25,87%"
+  },
+  {
+    "2013": "13,31%",
+    "2016": "29,94%",
+    "2018": "37,20%",
+    "id": 1608,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Senahú",
+    "Promedio": "26,82%"
+  },
+  {
+    "2013": "5,66%",
+    "2016": "25,60%",
+    "2018": "37,18%",
+    "id": 1404,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Zacualpa",
+    "Promedio": "22,81%"
+  },
+  {
+    "2013": "17,65%",
+    "2016": "17,72%",
+    "2018": "36,93%",
+    "id": 1008,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Samayac",
+    "Promedio": "24,10%"
+  },
+  {
+    "2013": "34,34%",
+    "2016": "25,57%",
+    "2018": "36,78%",
+    "id": 1909,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "La Unión",
+    "Promedio": "32,23%"
+  },
+  {
+    "2013": "35,45%",
+    "2016": "15,12%",
+    "2018": "36,74%",
+    "id": 2009,
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "municipio": "Quezaltepeque",
+    "Promedio": "29,10%"
+  },
+  {
+    "2013": "13,74%",
+    "2016": "27,16%",
+    "2018": "36,73%",
+    "id": 1106,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "San Andrés Villa Seca",
+    "Promedio": "25,88%"
+  },
+  {
+    "2013": "38,42%",
+    "2016": "30,09%",
+    "2018": "36,67%",
+    "id": 111,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "San Raymundo",
+    "Promedio": "35,06%"
+  },
+  {
+    "2013": "36,31%",
+    "2016": "31,17%",
+    "2018": "36,37%",
+    "id": 2103,
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "municipio": "San Luis Jilotepeque",
+    "Promedio": "34,62%"
+  },
+  {
+    "2013": "35,90%",
+    "2016": "23,41%",
+    "2018": "36,28%",
+    "id": 2208,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Jerez",
+    "Promedio": "31,86%"
+  },
+  {
+    "2013": "21,33%",
+    "2016": "23,92%",
+    "2018": "36,12%",
+    "id": 1219,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Pablo",
+    "Promedio": "27,12%"
+  },
+  {
+    "2013": "",
+    "2016": "29,62%",
+    "2018": "36,01%",
+    "id": 1021,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San José La Máquina",
+    "Promedio": "32,82%"
+  },
+  {
+    "2013": "19,40%",
+    "2016": "25,07%",
+    "2018": "35,96%",
+    "id": 1309,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Idelfonso Ixtahuacán",
+    "Promedio": "26,81%"
+  },
+  {
+    "2013": "17,54%",
+    "2016": "37,32%",
+    "2018": "35,79%",
+    "id": 2212,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Jalpatagua",
+    "Promedio": "30,22%"
+  },
+  {
+    "2013": "30,56%",
+    "2016": "29,85%",
+    "2018": "35,42%",
+    "id": 1020,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Río Bravo",
+    "Promedio": "31,94%"
+  },
+  {
+    "2013": "20,42%",
+    "2016": "33,72%",
+    "2018": "35,39%",
+    "id": 1216,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Catarina",
+    "Promedio": "29,84%"
+  },
+  {
+    "2013": "23,18%",
+    "2016": "28,57%",
+    "2018": "35,08%",
+    "id": 1325,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Sebastián Coatán",
+    "Promedio": "28,94%"
+  },
+  {
+    "2013": "31,06%",
+    "2016": "33,05%",
+    "2018": "35,06%",
+    "id": 2217,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Quesada",
+    "Promedio": "33,06%"
+  },
+  {
+    "2013": "31,57%",
+    "2016": "33,75%",
+    "2018": "35,04%",
+    "id": 107,
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "municipio": "San Pedro Ayampuc",
+    "Promedio": "33,45%"
+  },
+  {
+    "2013": "12,64%",
+    "2016": "16,83%",
+    "2018": "34,94%",
+    "id": 1305,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Nentón",
+    "Promedio": "21,47%"
+  },
+  {
+    "2013": "46,17%",
+    "2016": "24,05%",
+    "2018": "34,90%",
+    "id": 2204,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Agua Blanca",
+    "Promedio": "35,04%"
+  },
+  {
+    "2013": "39,95%",
+    "2016": "29,66%",
+    "2018": "34,85%",
+    "id": 612,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Santa Cruz Naranjo",
+    "Promedio": "34,82%"
+  },
+  {
+    "2013": "41,56%",
+    "2016": "34,85%",
+    "2018": "34,71%",
+    "id": 1502,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "San Miguel Chicaj",
+    "Promedio": "37,04%"
+  },
+  {
+    "2013": "23,17%",
+    "2016": "14,23%",
+    "2018": "34,70%",
+    "id": 1802,
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "municipio": "Livingston",
+    "Promedio": "24,03%"
+  },
+  {
+    "2013": "38,31%",
+    "2016": "28,59%",
+    "2018": "34,57%",
+    "id": 1016,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Juan Bautista",
+    "Promedio": "33,82%"
+  },
+  {
+    "2013": "31,81%",
+    "2016": "24,58%",
+    "2018": "34,38%",
+    "id": 1229,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San Lorenzo",
+    "Promedio": "30,26%"
+  },
+  {
+    "2013": "49,02%",
+    "2016": "20,84%",
+    "2018": "34,29%",
+    "id": 507,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "La Gomera",
+    "Promedio": "34,72%"
+  },
+  {
+    "2013": "38,13%",
+    "2016": "20,33%",
+    "2018": "34,13%",
+    "id": 416,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "El Tejar",
+    "Promedio": "30,86%"
+  },
+  {
+    "2013": "34,77%",
+    "2016": "32,57%",
+    "2018": "34,06%",
+    "id": 1605,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Tamahú",
+    "Promedio": "33,80%"
+  },
+  {
+    "2013": "27,72%",
+    "2016": "26,95%",
+    "2018": "33,97%",
+    "id": 719,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Santiago Atitlán",
+    "Promedio": "29,55%"
+  },
+  {
+    "2013": "16,49%",
+    "2016": "18,37%",
+    "2018": "33,97%",
+    "id": 1212,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Nuevo Progreso",
+    "Promedio": "22,94%"
+  },
+  {
+    "2013": "36,77%",
+    "2016": "36,20%",
+    "2018": "33,93%",
+    "id": 1505,
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "municipio": "Granados",
+    "Promedio": "35,63%"
+  },
+  {
+    "2013": "33,21%",
+    "2016": "26,96%",
+    "2018": "33,87%",
+    "id": 906,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Cabricán",
+    "Promedio": "31,35%"
+  },
+  {
+    "2013": "25,23%",
+    "2016": "30,97%",
+    "2018": "33,84%",
+    "id": 1215,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Malacatán",
+    "Promedio": "30,01%"
+  },
+  {
+    "2013": "23,36%",
+    "2016": "15,56%",
+    "2018": "33,83%",
+    "id": 1011,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Miguel Panán",
+    "Promedio": "24,25%"
+  },
+  {
+    "2013": "54,04%",
+    "2016": "37,87%",
+    "2018": "33,80%",
+    "id": 701,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Sololá",
+    "Promedio": "41,90%"
+  },
+  {
+    "2013": "23,39%",
+    "2016": "37,12%",
+    "2018": "33,42%",
+    "id": 2213,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Conguaco",
+    "Promedio": "31,31%"
+  },
+  {
+    "2013": "20,47%",
+    "2016": "9,38%",
+    "2018": "33,31%",
+    "id": 1003,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Francisco Zapotitlán",
+    "Promedio": "21,05%"
+  },
+  {
+    "2013": "21,30%",
+    "2016": "20,20%",
+    "2018": "33,25%",
+    "id": 1316,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Juan Atitán",
+    "Promedio": "24,92%"
+  },
+  {
+    "2013": "36,84%",
+    "2016": "36,96%",
+    "2018": "32,93%",
+    "id": 604,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Casillas",
+    "Promedio": "35,58%"
+  },
+  {
+    "2013": "25,93%",
+    "2016": "30,57%",
+    "2018": "32,70%",
+    "id": 1329,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Gaspar Ixchil",
+    "Promedio": "29,73%"
+  },
+  {
+    "2013": "22,87%",
+    "2016": "15,88%",
+    "2018": "32,55%",
+    "id": 513,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Nueva Concepción",
+    "Promedio": "23,77%"
+  },
+  {
+    "2013": "19,03%",
+    "2016": "21,04%",
+    "2018": "32,40%",
+    "id": 1312,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "La Democracia",
+    "Promedio": "24,16%"
+  },
+  {
+    "2013": "34,48%",
+    "2016": "18,55%",
+    "2018": "32,33%",
+    "id": 912,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "San Martín Sacatepéquez",
+    "Promedio": "28,45%"
+  },
+  {
+    "2013": "19,02%",
+    "2016": "13,19%",
+    "2018": "32,06%",
+    "id": 1017,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Santo Tomas La Unión",
+    "Promedio": "21,42%"
+  },
+  {
+    "2013": "41,95%",
+    "2016": "29,00%",
+    "2018": "32,02%",
+    "id": 2207,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Atescatempa",
+    "Promedio": "34,32%"
+  },
+  {
+    "2013": "47,51%",
+    "2016": "34,71%",
+    "2018": "31,65%",
+    "id": 709,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San Andrés Semetabaj",
+    "Promedio": "37,96%"
+  },
+  {
+    "2013": "32,29%",
+    "2016": "23,88%",
+    "2018": "31,52%",
+    "id": 1907,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Cabañas",
+    "Promedio": "29,23%"
+  },
+  {
+    "2013": "26,27%",
+    "2016": "24,05%",
+    "2018": "31,48%",
+    "id": 1319,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Colotenango",
+    "Promedio": "27,27%"
+  },
+  {
+    "2013": "31,65%",
+    "2016": "32,33%",
+    "2018": "31,23%",
+    "id": 713,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San Lucas Tolimán",
+    "Promedio": "31,74%"
+  },
+  {
+    "2013": "19,18%",
+    "2016": "22,58%",
+    "2018": "31,20%",
+    "id": 1706,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "San Francisco",
+    "Promedio": "24,32%"
+  },
+  {
+    "2013": "28,70%",
+    "2016": "23,33%",
+    "2018": "31,08%",
+    "id": 406,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Tecpán Guatemala",
+    "Promedio": "27,70%"
+  },
+  {
+    "2013": "20,84%",
+    "2016": "17,64%",
+    "2018": "31,02%",
+    "id": 314,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Alotenango",
+    "Promedio": "23,17%"
+  },
+  {
+    "2013": "42,53%",
+    "2016": "21,88%",
+    "2018": "30,92%",
+    "id": 1327,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Aguacatán",
+    "Promedio": "31,78%"
+  },
+  {
+    "2013": "25,25%",
+    "2016": "44,19%",
+    "2018": "30,89%",
+    "id": 1616,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "Santa Catalina La Tinta",
+    "Promedio": "33,44%"
+  },
+  {
+    "2013": "29,09%",
+    "2016": "13,90%",
+    "2018": "30,41%",
+    "id": 807,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "Santa Lucía La Reforma",
+    "Promedio": "24,47%"
+  },
+  {
+    "2013": "44,73%",
+    "2016": "29,04%",
+    "2018": "30,40%",
+    "id": 1905,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "Teculután",
+    "Promedio": "34,72%"
+  },
+  {
+    "2013": "5,94%",
+    "2016": "30,71%",
+    "2018": "30,36%",
+    "id": 1707,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "Santa Ana",
+    "Promedio": "22,34%"
+  },
+  {
+    "2013": "29,64%",
+    "2016": "22,95%",
+    "2018": "30,35%",
+    "id": 1306,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Pedro Necta",
+    "Promedio": "27,65%"
+  },
+  {
+    "2013": "28,63%",
+    "2016": "25,70%",
+    "2018": "30,31%",
+    "id": 1324,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Antonio Huista",
+    "Promedio": "28,21%"
+  },
+  {
+    "2013": "26,59%",
+    "2016": "35,29%",
+    "2018": "30,14%",
+    "id": 1322,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Concepción Huista",
+    "Promedio": "30,67%"
+  },
+  {
+    "2013": "45,91%",
+    "2016": "29,41%",
+    "2018": "29,66%",
+    "id": 315,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "San Antonio Aguas Calientes",
+    "Promedio": "34,99%"
+  },
+  {
+    "2013": "26,72%",
+    "2016": "11,86%",
+    "2018": "29,63%",
+    "id": 2205,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Asunción Mita",
+    "Promedio": "22,74%"
+  },
+  {
+    "2013": "34,42%",
+    "2016": "29,84%",
+    "2018": "29,53%",
+    "id": 1418,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Canillá",
+    "Promedio": "31,26%"
+  },
+  {
+    "2013": "38,59%",
+    "2016": "32,39%",
+    "2018": "29,51%",
+    "id": 1102,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "San Sebastián",
+    "Promedio": "33,50%"
+  },
+  {
+    "2013": "38,58%",
+    "2016": "28,15%",
+    "2018": "29,49%",
+    "id": 704,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Santa Lucía Utatlán",
+    "Promedio": "32,07%"
+  },
+  {
+    "2013": "24,54%",
+    "2016": "29,60%",
+    "2018": "29,45%",
+    "id": 512,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "San Vicente Pacaya",
+    "Promedio": "27,86%"
+  },
+  {
+    "2013": "26,35%",
+    "2016": "22,99%",
+    "2018": "29,45%",
+    "id": 611,
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "municipio": "Guazacapán",
+    "Promedio": "26,26%"
+  },
+  {
+    "2013": "37,33%",
+    "2016": "23,69%",
+    "2018": "29,45%",
+    "id": 1419,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Chicamán",
+    "Promedio": "30,16%"
+  },
+  {
+    "2013": "23,33%",
+    "2016": "27,29%",
+    "2018": "29,40%",
+    "id": 1412,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Joyabaj",
+    "Promedio": "26,67%"
+  },
+  {
+    "2013": "29,96%",
+    "2016": "39,54%",
+    "2018": "29,33%",
+    "id": 1420,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Ixcán",
+    "Promedio": "32,94%"
+  },
+  {
+    "2013": "25,46%",
+    "2016": "29,20%",
+    "2018": "29,32%",
+    "id": 922,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Flores Costa Cuca",
+    "Promedio": "27,99%"
+  },
+  {
+    "2013": "22,24%",
+    "2016": "14,18%",
+    "2018": "29,29%",
+    "id": 1004,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Bernardino",
+    "Promedio": "21,90%"
+  },
+  {
+    "2013": "37,62%",
+    "2016": "5,64%",
+    "2018": "28,97%",
+    "id": 2215,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Pasaco",
+    "Promedio": "24,08%"
+  },
+  {
+    "2013": "21,01%",
+    "2016": "16,48%",
+    "2018": "28,93%",
+    "id": 1713,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "Las Cruces",
+    "Promedio": "22,14%"
+  },
+  {
+    "2013": "19,98%",
+    "2016": "22,25%",
+    "2018": "28,78%",
+    "id": 1326,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Barillas",
+    "Promedio": "23,67%"
+  },
+  {
+    "2013": "21,88%",
+    "2016": "20,37%",
+    "2018": "28,42%",
+    "id": 806,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "Santa María Chiquimula",
+    "Promedio": "23,56%"
+  },
+  {
+    "2013": "18,10%",
+    "2016": "14,71%",
+    "2018": "28,40%",
+    "id": 2211,
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "municipio": "Comapa",
+    "Promedio": "20,40%"
+  },
+  {
+    "2013": "35,33%",
+    "2016": "32,06%",
+    "2018": "28,26%",
+    "id": 1214,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "El Rodeo",
+    "Promedio": "31,88%"
+  },
+  {
+    "2013": "33,07%",
+    "2016": "29,10%",
+    "2018": "28,18%",
+    "id": 402,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "San José Poaquil",
+    "Promedio": "30,12%"
+  },
+  {
+    "2013": "24,03%",
+    "2016": "26,40%",
+    "2018": "28,00%",
+    "id": 916,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Zunil",
+    "Promedio": "26,14%"
+  },
+  {
+    "2013": "11,11%",
+    "2016": "17,93%",
+    "2018": "27,96%",
+    "id": 1007,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Lorenzo",
+    "Promedio": "19,00%"
+  },
+  {
+    "2013": "33,96%",
+    "2016": "28,06%",
+    "2018": "27,66%",
+    "id": 1332,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Unión Cantinil",
+    "Promedio": "29,89%"
+  },
+  {
+    "2013": "28,04%",
+    "2016": "16,60%",
+    "2018": "27,56%",
+    "id": 207,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "Sanarate",
+    "Promedio": "24,07%"
+  },
+  {
+    "2013": "19,98%",
+    "2016": "26,95%",
+    "2018": "27,49%",
+    "id": 1331,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Santa Ana Huista",
+    "Promedio": "24,81%"
+  },
+  {
+    "2013": "40,09%",
+    "2016": "26,63%",
+    "2018": "27,12%",
+    "id": 414,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Parramos",
+    "Promedio": "31,28%"
+  },
+  {
+    "2013": "16,97%",
+    "2016": "27,28%",
+    "2018": "27,03%",
+    "id": 1105,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "San Felipe Retalhuleu",
+    "Promedio": "23,76%"
+  },
+  {
+    "2013": "16,59%",
+    "2016": "14,50%",
+    "2018": "26,72%",
+    "id": 907,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Cajolá",
+    "Promedio": "19,27%"
+  },
+  {
+    "2013": "39,83%",
+    "2016": "31,96%",
+    "2018": "26,68%",
+    "id": 311,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Santa María de Jesús",
+    "Promedio": "32,82%"
+  },
+  {
+    "2013": "39,53%",
+    "2016": "24,14%",
+    "2018": "26,47%",
+    "id": 1711,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "Melchor de Mencos",
+    "Promedio": "30,05%"
+  },
+  {
+    "2013": "41,09%",
+    "2016": "23,73%",
+    "2018": "26,30%",
+    "id": 1410,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Cunén",
+    "Promedio": "30,37%"
+  },
+  {
+    "2013": "35,25%",
+    "2016": "29,24%",
+    "2018": "26,29%",
+    "id": 1407,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Patzité",
+    "Promedio": "30,26%"
+  },
+  {
+    "2013": "31,54%",
+    "2016": "24,41%",
+    "2018": "25,98%",
+    "id": 1318,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Mateo Ixtatán",
+    "Promedio": "27,31%"
+  },
+  {
+    "2013": "16,73%",
+    "2016": "25,92%",
+    "2018": "25,96%",
+    "id": 409,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "Patzicía",
+    "Promedio": "22,87%"
+  },
+  {
+    "2013": "42,82%",
+    "2016": "24,10%",
+    "2018": "25,76%",
+    "id": 705,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Nahualá",
+    "Promedio": "30,89%"
+  },
+  {
+    "2013": "28,58%",
+    "2016": "23,87%",
+    "2018": "25,55%",
+    "id": 1313,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Miguel Acatán",
+    "Promedio": "26,00%"
+  },
+  {
+    "2013": "26,36%",
+    "2016": "17,60%",
+    "2018": "25,47%",
+    "id": 1314,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Rafael La Independencia",
+    "Promedio": "23,14%"
+  },
+  {
+    "2013": "49,35%",
+    "2016": "27,43%",
+    "2018": "24,85%",
+    "id": 702,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San José Chacayá",
+    "Promedio": "33,88%"
+  },
+  {
+    "2013": "28,26%",
+    "2016": "27,58%",
+    "2018": "24,79%",
+    "id": 1805,
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "municipio": "Los Amates",
+    "Promedio": "26,88%"
+  },
+  {
+    "2013": "33,69%",
+    "2016": "9,55%",
+    "2018": "24,54%",
+    "id": 202,
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "municipio": "Morazán",
+    "Promedio": "22,59%"
+  },
+  {
+    "2013": "38,78%",
+    "2016": "35,55%",
+    "2018": "24,50%",
+    "id": 304,
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "municipio": "Sumpango",
+    "Promedio": "32,94%"
+  },
+  {
+    "2013": "29,34%",
+    "2016": "24,05%",
+    "2018": "24,35%",
+    "id": 1006,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Santo Domingo Suchitepéquez",
+    "Promedio": "25,91%"
+  },
+  {
+    "2013": "4,85%",
+    "2016": "12,15%",
+    "2018": "24,20%",
+    "id": 1409,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "San Pedro Jocopilas",
+    "Promedio": "13,73%"
+  },
+  {
+    "2013": "22,34%",
+    "2016": "23,41%",
+    "2018": "24,01%",
+    "id": 1317,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Santa Eulalia",
+    "Promedio": "23,25%"
+  },
+  {
+    "2013": "20,09%",
+    "2016": "20,99%",
+    "2018": "23,96%",
+    "id": 1321,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Tectitán",
+    "Promedio": "21,68%"
+  },
+  {
+    "2013": "29,81%",
+    "2016": "21,63%",
+    "2018": "23,96%",
+    "id": 1330,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Santiago Chimaltenango",
+    "Promedio": "25,13%"
+  },
+  {
+    "2013": "34,38%",
+    "2016": "31,29%",
+    "2018": "23,73%",
+    "id": 919,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "El Palmar",
+    "Promedio": "29,80%"
+  },
+  {
+    "2013": "37,59%",
+    "2016": "39,00%",
+    "2018": "23,56%",
+    "id": 1301,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Huehuetenango",
+    "Promedio": "33,38%"
+  },
+  {
+    "2013": "42,50%",
+    "2016": "27,86%",
+    "2018": "23,35%",
+    "id": 717,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San Juan La Laguna",
+    "Promedio": "31,24%"
+  },
+  {
+    "2013": "44,34%",
+    "2016": "28,83%",
+    "2018": "23,28%",
+    "id": 710,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Panajachel",
+    "Promedio": "32,15%"
+  },
+  {
+    "2013": "23,78%",
+    "2016": "16,90%",
+    "2018": "22,93%",
+    "id": 2102,
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "municipio": "San Pedro Pinula",
+    "Promedio": "21,20%"
+  },
+  {
+    "2013": "31,07%",
+    "2016": "28,89%",
+    "2018": "22,90%",
+    "id": 506,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Tiquisate",
+    "Promedio": "27,62%"
+  },
+  {
+    "2013": "21,78%",
+    "2016": "24,27%",
+    "2018": "22,89%",
+    "id": 1109,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "El Asintal",
+    "Promedio": "22,98%"
+  },
+  {
+    "2013": "34,26%",
+    "2016": "22,41%",
+    "2018": "22,75%",
+    "id": 1101,
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "municipio": "Retalhuleu",
+    "Promedio": "26,47%"
+  },
+  {
+    "2013": "29,26%",
+    "2016": "32,55%",
+    "2018": "22,61%",
+    "id": 1908,
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "municipio": "San Diego",
+    "Promedio": "28,14%"
+  },
+  {
+    "2013": "26,05%",
+    "2016": "35,70%",
+    "2018": "22,57%",
+    "id": 1416,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Sacapulas",
+    "Promedio": "28,11%"
+  },
+  {
+    "2013": "45,08%",
+    "2016": "32,18%",
+    "2018": "22,45%",
+    "id": 504,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Siquinalá",
+    "Promedio": "33,24%"
+  },
+  {
+    "2013": "33,14%",
+    "2016": "20,21%",
+    "2018": "21,67%",
+    "id": 708,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Concepción",
+    "Promedio": "25,01%"
+  },
+  {
+    "2013": "38,50%",
+    "2016": "15,41%",
+    "2018": "21,67%",
+    "id": 1315,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Todos Santos Cuchumatán",
+    "Promedio": "25,19%"
+  },
+  {
+    "2013": "51,78%",
+    "2016": "26,78%",
+    "2018": "21,56%",
+    "id": 805,
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "municipio": "Momostenango",
+    "Promedio": "33,37%"
+  },
+  {
+    "2013": "28,46%",
+    "2016": "6,92%",
+    "2018": "21,41%",
+    "id": 1009,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Pablo Jocopilas",
+    "Promedio": "18,93%"
+  },
+  {
+    "2013": "21,81%",
+    "2016": "8,29%",
+    "2018": "21,41%",
+    "id": 1311,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "La Libertad",
+    "Promedio": "17,17%"
+  },
+  {
+    "2013": "16,95%",
+    "2016": "22,15%",
+    "2018": "21,29%",
+    "id": 1402,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Chiché",
+    "Promedio": "20,13%"
+  },
+  {
+    "2013": "51,66%",
+    "2016": "23,98%",
+    "2018": "21,29%",
+    "id": 1415,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "San Miguel Uspantán",
+    "Promedio": "32,31%"
+  },
+  {
+    "2013": "38,88%",
+    "2016": "24,20%",
+    "2018": "21,27%",
+    "id": 712,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San Antonio Palopó",
+    "Promedio": "28,12%"
+  },
+  {
+    "2013": "40,83%",
+    "2016": "33,12%",
+    "2018": "21,24%",
+    "id": 1705,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "La Libertad",
+    "Promedio": "31,73%"
+  },
+  {
+    "2013": "23,25%",
+    "2016": "12,54%",
+    "2018": "20,77%",
+    "id": 1320,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Sebastián Huehuetenango",
+    "Promedio": "18,85%"
+  },
+  {
+    "2013": "27,91%",
+    "2016": "19,47%",
+    "2018": "20,43%",
+    "id": 1005,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San José El Ídolo",
+    "Promedio": "22,60%"
+  },
+  {
+    "2013": "37,56%",
+    "2016": "15,23%",
+    "2018": "20,17%",
+    "id": 1403,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Chinique",
+    "Promedio": "24,32%"
+  },
+  {
+    "2013": "25,24%",
+    "2016": "23,97%",
+    "2018": "19,85%",
+    "id": 1226,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Sipacapa",
+    "Promedio": "23,02%"
+  },
+  {
+    "2013": "20,06%",
+    "2016": "20,47%",
+    "2018": "19,37%",
+    "id": 1405,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "Chajul",
+    "Promedio": "19,97%"
+  },
+  {
+    "2013": "42,66%",
+    "2016": "18,73%",
+    "2018": "19,21%",
+    "id": 501,
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "municipio": "Escuintla",
+    "Promedio": "26,87%"
+  },
+  {
+    "2013": "25,30%",
+    "2016": "14,78%",
+    "2018": "19,21%",
+    "id": 1221,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "La Reforma",
+    "Promedio": "19,76%"
+  },
+  {
+    "2013": "24,33%",
+    "2016": "20,12%",
+    "2018": "18,69%",
+    "id": 1019,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Pueblo Nuevo",
+    "Promedio": "21,05%"
+  },
+  {
+    "2013": "20,82%",
+    "2016": "17,70%",
+    "2018": "18,67%",
+    "id": 1014,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "Patulul",
+    "Promedio": "19,06%"
+  },
+  {
+    "2013": "26,85%",
+    "2016": "26,37%",
+    "2018": "17,82%",
+    "id": 1228,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Río Blanco",
+    "Promedio": "23,68%"
+  },
+  {
+    "2013": "41,53%",
+    "2016": "19,62%",
+    "2018": "17,78%",
+    "id": 1213,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "El Tumbador",
+    "Promedio": "26,31%"
+  },
+  {
+    "2013": "33,14%",
+    "2016": "20,06%",
+    "2018": "17,62%",
+    "id": 715,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "San Pablo La Laguna",
+    "Promedio": "23,61%"
+  },
+  {
+    "2013": "14,41%",
+    "2016": "23,26%",
+    "2018": "16,97%",
+    "id": 1611,
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "municipio": "San Agustín Lanquín",
+    "Promedio": "18,21%"
+  },
+  {
+    "2013": "13,66%",
+    "2016": "15,93%",
+    "2018": "16,86%",
+    "id": 1328,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Rafael Pétzal",
+    "Promedio": "15,48%"
+  },
+  {
+    "2013": "29,33%",
+    "2016": "33,83%",
+    "2018": "16,65%",
+    "id": 711,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Santa Catarina Palopó",
+    "Promedio": "26,60%"
+  },
+  {
+    "2013": "34,32%",
+    "2016": "11,98%",
+    "2018": "16,32%",
+    "id": 1323,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "San Juan Ixcoy",
+    "Promedio": "20,87%"
+  },
+  {
+    "2013": "31,65%",
+    "2016": "27,55%",
+    "2018": "16,25%",
+    "id": 413,
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "municipio": "San Andrés Itzapa",
+    "Promedio": "25,15%"
+  },
+  {
+    "2013": "32,24%",
+    "2016": "21,23%",
+    "2018": "15,77%",
+    "id": 714,
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "municipio": "Santa Cruz La Laguna",
+    "Promedio": "23,08%"
+  },
+  {
+    "2013": "25,65%",
+    "2016": "18,87%",
+    "2018": "15,52%",
+    "id": 1310,
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "municipio": "Santa Bárbara",
+    "Promedio": "20,01%"
+  },
+  {
+    "2013": "14,38%",
+    "2016": "15,91%",
+    "2018": "15,41%",
+    "id": 1222,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "Pajapita",
+    "Promedio": "15,23%"
+  },
+  {
+    "2013": "29,67%",
+    "2016": "10,81%",
+    "2018": "15,31%",
+    "id": 913,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "Almolonga",
+    "Promedio": "18,60%"
+  },
+  {
+    "2013": "37,27%",
+    "2016": "30,41%",
+    "2018": "14,89%",
+    "id": 1414,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "San Andrés Sajcabajá",
+    "Promedio": "27,52%"
+  },
+  {
+    "2013": "24,17%",
+    "2016": "10,64%",
+    "2018": "14,24%",
+    "id": 1417,
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "municipio": "San Bartolomé Jocotenango",
+    "Promedio": "16,35%"
+  },
+  {
+    "2013": "28,09%",
+    "2016": "15,24%",
+    "2018": "13,74%",
+    "id": 1012,
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "municipio": "San Gabriel",
+    "Promedio": "19,02%"
+  },
+  {
+    "2013": "21,37%",
+    "2016": "4,95%",
+    "2018": "12,77%",
+    "id": 1702,
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "municipio": "San José",
+    "Promedio": "13,03%"
+  },
+  {
+    "2013": "16,52%",
+    "2016": "23,97%",
+    "2018": "12,26%",
+    "id": 1224,
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "municipio": "San José Ojetenam",
+    "Promedio": "17,58%"
+  },
+  {
+    "2013": "30,13%",
+    "2016": "7,17%",
+    "2018": "12,18%",
+    "id": 908,
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "municipio": "San Miguel Sigüila",
+    "Promedio": "16,49%"
+  }
+]
