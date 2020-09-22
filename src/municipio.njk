@@ -3,9 +3,69 @@ pagination:
   data: municipios
   size: 1
   addAllPagesToCollections: true
+  alias: municipio
 permalink: "/{{ pagination.items[0].departamento | slug }}/{{ pagination.items[0].municipio | slug }}/index.html"
 tags:
   - municipios
 ---
-Nombre municipio:
-{{ pagination.items[0].municipio }}
+{% extends "src/_includes/baseToExtend.njk" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12 py-2">
+      Municipios \ {{ municipio.municipio }}
+    </div>
+    <div class="col-12 mb-2">
+      <div class="bg-white w-100 row m-0 p-0">
+        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+          Municipalidades
+        </a>
+        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+          TODO AIP
+        </a>
+        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+          TODO Comparar
+        </a>
+        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold">
+          TODO Share button
+        </a>
+      </div>
+    </div>
+    <div class="col-12 mb-2">
+      <div class="bg-white w-100 row m-0 p-0">
+        <div class="col-12 col-lg-7 p-4 text-center text-lg-left">
+          <h3>
+            Municipalidad de {{ municipio.municipio }}
+          </h3>
+          <div class="bg-light py-1 px-2 my-1">
+            <p class="m-0 h5">
+              Departamento: <span class="text-secondary font-weight-normal">{{municipio.municipio}}</span>
+            </p>
+          </div>
+          <div class="bg-light py-1 px-2 my-1">
+            <p class="m-0 h5">
+              Página web: <span class="text-secondary font-weight-normal">www.municoban.gob.gt/</span>
+            </p>
+          </div>
+          <div class="bg-light py-1 px-2 my-1">
+            <p class="m-0 h5">
+              E-mail: <span class="text-secondary font-weight-normal">info@municoban.gob.gt</span>
+            </p>
+          </div>
+          <div class="bg-light py-1 px-2 my-1">
+            <p class="m-0 h5">
+              Teléfonos: <span class="text-secondary font-weight-normal">(502)2233-2344</span>
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-lg-5 p-4 text-center">
+          <img src="/img/map.png" alt="Ubicacion geografia de la municipalidad de {{municipio.municipio}}" class="img-fluid mt-3">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ municipio | dump }}
+{% endblock %}

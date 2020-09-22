@@ -1,13 +1,45 @@
 ---
 title: Municipios
+layout: base.njk
+pagination:
+  data: collections.municipios
+  size: 8
+  alias: municipios
 ---
-<ul>
-    {% for municipio in collections.municipios %}
-        {% set municipioData = municipio.data.pagination.items[0] %}
-        <li>
-            <a href="{{ municipio.url }}">
-                {{ municipioData.departamento | title }}, {{ municipioData.municipio | title}}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>
+                Municipios
+            </h1>
+            <p class="h5 text-secondary">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat 
+            </p>
+        </div>
+    </div>
+</div>
+<div class="bg-white w-100 py-5">
+    <div class="container">
+        <div class="row">
+        {%- for municipio in municipios %}
+            {% set municipioData = municipio.data.municipio %}
+            <div class="col-12 col-sm-6 col-md-3 py-1">
+                <div class="row h-100 m-0 border">
+                    <img class="w-100 h-auto" src="/img/map-placeholder.png" alt="Mapas">
+                    <div class="col-12 p-2 pb-0 m-0">
+                        <h6 style="height: 2rem">
+                            {{ municipioData.departamento | title }}, {{ municipioData.municipio | title}}
+                        </h6>
+                        <p>
+                            Población: 1000 habitantes
+                        </p>
+                    </div>
+                    <a href="{{municipio.url}}" class="btn btn-primary btn-sm text-white mx-2 mb-2 mt-auto">
+                        Ver más
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>

@@ -73,7 +73,9 @@
     </nav>
 
     <main>
-      {{ content | safe }}
+    {% block content %}
+      {{ content | safe }}  
+    {% endblock %}  
     </main>
 
     {# Footer #}

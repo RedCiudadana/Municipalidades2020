@@ -15,6 +15,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/css");
   eleventyConfig.addPassthroughCopy("./src/fonts");
   eleventyConfig.addPassthroughCopy("./src/img");
+  eleventyConfig.addPassthroughCopy("./src/mi-guatemala");
   eleventyConfig.addPassthroughCopy("./src/favicon.png");
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);

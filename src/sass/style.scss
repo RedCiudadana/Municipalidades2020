@@ -1,8 +1,9 @@
 // Theme colors
 
 $primary: #52CCAE;
+$secondary: #717883;
 $light: #F1F5FB;
-$body-color: #58595B;
+$body-color: $secondary;
 $dark: #B8C6CE;
 $spacer: 2rem;
 
@@ -36,6 +37,21 @@ $spacer: 2rem;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: #58595B;
+}
 
 body {
     background-color: $light;
