@@ -12,7 +12,7 @@ $spacer: 2rem;
 @font-face {
   font-family: "Aileron";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   src: local("Aileron Regular"), local("Aileron-Regular"),
     url("../fonts/Aileron-Regular.otf") format("opentype");
   font-display: swap;
@@ -21,7 +21,7 @@ $spacer: 2rem;
 @font-face {
   font-family: "Aileron";
   font-style: normal;
-  font-weight: medium;
+  font-weight: 600;
   src: local("Aileron SemiBold"), local("Aileron-SemiBold"),
     url("../fonts/Aileron-SemiBold.otf") format("opentype");
   font-display: swap;
@@ -30,11 +30,13 @@ $spacer: 2rem;
 @font-face {
   font-family: "Aileron";
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   src: local("Aileron Bold"), local("Aileron-Bold"),
     url("../fonts/Aileron-Bold.otf") format("opentype");
   font-display: swap;
 }
+
+$font-family-sans-serif: "Aileron", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
@@ -51,6 +53,7 @@ h6,
 .h5,
 .h6 {
   color: #58595B;
+  font-weight: bold;
 }
 
 body {
