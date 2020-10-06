@@ -47,96 +47,23 @@ layout: base.njk
     </div>
 </div>
 <div class="container py-5">
-    <div class="row">
-        <div class="col-12">
-            <h1>
-                Tematicas
-            </h1>
-            <p class="h5 font-weight-normal">
-                Seleccione una de las siguientes tematicas de su interes.
-            </p>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
-            <a href="#" class="btn btn-lg btn-white rounded-pill border-dark w-100">
-                Ingresos económicos
-            </a>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        Tematicas
+      </h1>
+      <p class="h5 text-secondary font-weight-normal">
+        Seleccione una de las siguientes tematicas de su interes. 
+      </p>
     </div>
+    {% for tematica in collections.tematicas %}
+    <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
+        <a href="{{tematica.url}}" class="btn btn-lg btn-white rounded-pill border-dark w-100">
+            {{ tematica.data.title }}
+        </a>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 <div class="bg-white w-100">
     <div class="container py-5">

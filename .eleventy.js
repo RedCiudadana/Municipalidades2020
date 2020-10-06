@@ -5,9 +5,11 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const packageVersion = require("./package.json").version;
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginRss);
 
   eleventyConfig.addWatchTarget("./src/sass/");
@@ -17,9 +19,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/mi-guatemala");
   eleventyConfig.addPassthroughCopy("./src/favicon.png");
+  eleventyConfig.addPassthroughCopy("./src/js");
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
+
+  eleventyConfig.addFilter("paginationSlice", (pagination) => {
+    let pages = pagination.pages;
+    let pageNumber = pagination.pageNumber;
+    let start = pageNumber - 5;
+    
+    if (start < 0) {
+      start = 0;
+    }
+
+    return pages.slice(start, pageNumber + 5);
+  })
 
   eleventyConfig.addFilter("slug", (str) => {
     if (!str) {

@@ -4,66 +4,606 @@ pagination:
   size: 1
   addAllPagesToCollections: true
   alias: municipio
-permalink: "/{{ pagination.items[0].departamento | slug }}/{{ pagination.items[0].municipio | slug }}/index.html"
+  permalink: "/{{ pagination.items[0].departamento | slug }}/{{ pagination.items[0].municipio | slug }}/index.html"
 tags:
   - municipios
 ---
 {% extends "src/_includes/baseToExtend.njk" %}
 
+{% block head %}
+  <script src="https://unpkg.com/deck.gl@^8.1.0/dist.min.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+{% endblock %}
+
 {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col-12 py-2">
-      Municipios \ {{ municipio.municipio }}
-    </div>
-    <div class="col-12 mb-2">
-      <div class="bg-white w-100 row m-0 p-0">
-        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
-          Municipalidades
-        </a>
-        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
-          TODO AIP
-        </a>
-        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
-          TODO Comparar
-        </a>
-        <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold">
-          TODO Share button
-        </a>
+  <style>
+    #map-container {
+      width: 100%;
+      height: 200px;
+    }
+  </style>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-2">
+        <a href="/municipios/1">Municipios</a> \
+        {{ municipio.municipio }}
       </div>
-    </div>
-    <div class="col-12 mb-2">
-      <div class="bg-white w-100 row m-0 p-0">
-        <div class="col-12 col-lg-7 p-4 text-center text-lg-left">
-          <h3>
-            Municipalidad de {{ municipio.municipio }}
-          </h3>
-          <div class="bg-light py-1 px-2 my-1">
-            <p class="m-0 h5">
-              Departamento: <span class="text-secondary font-weight-normal">{{municipio.municipio}}</span>
-            </p>
+      <div class="col-12 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+            Municipalidades
+          </a>
+          {# <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+            TODO AIP
+          </a>
+          <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+            TODO Comparar
+          </a>
+          <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold">
+            TODO Share button
+          </a> #}
+        </div>
+      </div>
+      <div class="col-12 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 col-lg-7 p-4 text-center text-lg-left">
+            <h3>
+              Municipalidad de
+              {{ municipio.municipio }}
+            </h3>
+            <div class="bg-light py-1 px-2 my-1">
+              <p class="m-0 h5">
+                Departamento:
+                <span class="text-secondary font-weight-normal">{{municipio.municipio}}</span>
+              </p>
+            </div>
+            <div class="bg-light py-1 px-2 my-1">
+              <p class="m-0 h5">
+                Página web:
+                <span class="text-secondary font-weight-normal">www.municoban.gob.gt/</span>
+              </p>
+            </div>
+            <div class="bg-light py-1 px-2 my-1">
+              <p class="m-0 h5">
+                E-mail:
+                <span class="text-secondary font-weight-normal">info@municoban.gob.gt</span>
+              </p>
+            </div>
+            <div class="bg-light py-1 px-2 my-1">
+              <p class="m-0 h5">
+                Teléfonos:
+                <span class="text-secondary font-weight-normal">(502)2233-2344</span>
+              </p>
+            </div>
           </div>
-          <div class="bg-light py-1 px-2 my-1">
-            <p class="m-0 h5">
-              Página web: <span class="text-secondary font-weight-normal">www.municoban.gob.gt/</span>
-            </p>
-          </div>
-          <div class="bg-light py-1 px-2 my-1">
-            <p class="m-0 h5">
-              E-mail: <span class="text-secondary font-weight-normal">info@municoban.gob.gt</span>
-            </p>
-          </div>
-          <div class="bg-light py-1 px-2 my-1">
-            <p class="m-0 h5">
-              Teléfonos: <span class="text-secondary font-weight-normal">(502)2233-2344</span>
-            </p>
+          <div class="col-12 col-lg-5 px-4 pb-4 pt-md-4">
+            <div id="map-container"></div>
           </div>
         </div>
-        <div class="col-12 col-lg-5 p-4 text-center">
-          <img src="/img/map.png" alt="Ubicacion geografia de la municipalidad de {{municipio.municipio}}" class="img-fluid mt-3">
+      </div>
+      <div class="col-12 col-md-6 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 col-md-8 p-4 order-2 order-md-1 text-center">
+            <h6>
+              Alcalde Jorge Aroldo Córdova Molina
+            </h6>
+            <h6 class="text-primary">
+              ja@municoban.gob.gt
+            </h6>
+            <img src="/img/facebook.png" class="mr-1" alt="Facebook">
+            <img src="/img/twitter.png" alt="Twitter">
+          </div>
+          <div class="col-12 col-md-4 order-1 order-md-2 pr-2 pt-3 text-center">
+            <img src="/img/person.png" alt="Persona" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 col-md-8 p-4 order-2 order-md-1 text-center">
+            <h6>
+              Alcalde Jorge Aroldo Córdova Molina
+            </h6>
+            <h6 class="text-primary">
+              ja@municoban.gob.gt
+            </h6>
+            <img src="/img/facebook.png" class="mr-1" alt="Facebook">
+            <img src="/img/twitter.png" alt="Twitter">
+          </div>
+          <div class="col-12 col-md-4 order-1 order-md-2 pr-2 pt-3 text-center">
+            <img src="/img/person.png" alt="Persona" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3">
+            <h4 class="text-white m-0 font-weight-normal">
+              Economia
+            </h4>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Edad
+                  </h3>
+                  <h1>
+                    45.4
+                  </h1>
+                  <h5>
+                    Edad media
+                  </h5>
+                  <p class="text-secondary">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quisquam modi et fugiat debitis. Odit, aut nesciunt est perspiciatis recusandae.
+                  </p>
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población por rango de edad
+                  </h6>
+                  <canvas id="chart-1"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población por categoria de edad
+                  </h6>
+                  <canvas id="chart-2"></canvas>
+                </div>
+                <div class="col-12 col-lg-8 p-3 border">
+                  <h6>
+                    Población por rango de edad
+                  </h6>
+                  <canvas height="80px" id="chart-3"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Género
+                  </h6>
+                  <canvas id="chart-4"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3">
+            <h4 class="text-white m-0 font-weight-normal">
+              Economia
+            </h4>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-4 p-2 px-3 border">
+                  <h3>
+                    Ingresos
+                  </h3>
+                  <h2>
+                    Q.1485.00
+                  </h2>
+                  <h5>
+                    Ingreso familiar promedio
+                  </h5>
+                  <h2>
+                    Q.1485.00
+                  </h2>
+                  <h5>
+                    Ingreso por Municipio
+                  </h5>
+                </div>
+                <div class="col-12 col-lg-8 p-3 border">
+                  <h6>
+                    Porcentaje de ingresos
+                  </h6>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <canvas id="chart-5"></canvas>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <p class="text-secondary">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi voluptatum illum iusto temporibus nulla
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h3>
+                    Edad
+                  </h3>
+                  <h1>
+                    40%
+                  </h1>
+                  <h5>
+                    Personas por debajo del<br>
+                    umbral de pobreza
+                  </h5>
+                  <p class="text-secondary">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumUt wisi enim ad minim veniam, quis nos  
+                  </p>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border text-center">
+                  <h6>
+                    Niños ( menores de 18 años) 
+                  </h6>
+                  <canvas class="mt-4" id="chart-6"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border text-center">
+                  <h6>
+                    Mayores ( de 65 años o más)
+                  </h6>
+                  <canvas class="mt-4" id="chart-7"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+  {# Deck.gl #}
+  <script>
+    const COUNTRIES = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson'; //eslint-disable-line
+    const AIR_PORTS = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson';
+
+    const INITIAL_VIEW_STATE = {
+      latitude: 14.61,
+      longitude: -90.50,
+      zoom: 10
+    };
+
+    const deckgl = new deck.DeckGL({
+      mapboxApiAccessToken: 'pk.eyJ1IjoiZGV2cmVkY2l1ZGFkYW5hIiwiYSI6ImNrN3MwaGtybTA5dDMzbXBqb3JramttcWgifQ.WgnJEeEHlNhbeM4hxR7zjg',
+      mapStyle: 'mapbox://styles/mapbox/light-v9',
+      container: 'map-container',
+      initialViewState: INITIAL_VIEW_STATE,
+      controller: true,
+      layers: [new deck.ScatterplotLayer({
+          opacity: 0.8,
+          stroked: true,
+          filled: true,
+          radiusMinPixels: 100,
+          radiusMaxPixels: 10,
+          radiusScale: 6,
+          lineWidthMinPixels: 1,
+          data: [
+            {
+              position: [
+                -90.515278, 14.627266
+              ],
+              color: [
+                255, 0, 0
+              ],
+              radius: 60
+            }
+          ],
+          getColor: d => d.color,
+          getRadius: d => d.radius
+        })]
+    });
+  </script>
+  <script>
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)){ return; }
+        js = d.createElement(s); js.id = id;
+        js.onload = function(){
+          new Chart(document.getElementById("chart-1"), {
+            "type": "bar",
+            "data": {
+              "labels": [
+                "0-9",
+                "10-19",
+                "20-29",
+                "30-39",
+                "40-49",
+                "50-59",
+                "60-79",
+                "80+"
+              ],
+              "datasets": [
+                {
+                  "label": "Población %",
+                  "data": [
+                    4,
+                    8,
+                    12,
+                    8,
+                    3,
+                    30,
+                    12,
+                    8
+                  ],
+                  "fill": false,
+                  "backgroundColor": "#52CCAE",
+                  "borderColor": [
+                    "rgb(255, 99, 132)",
+                    "rgb(255, 159, 64)",
+                    "rgb(255, 205, 86)",
+                    "rgb(75, 192, 192)",
+                    "rgb(54, 162, 235)",
+                    "rgb(153, 102, 255)",
+                    "rgb(201, 203, 207)"
+                  ],
+                  "borderWidth": 0
+                }
+              ]
+            },
+            "options": {
+              "scales": {
+                "xAxes": [
+                  {
+                    "display": true,
+                    "gridLines": {
+                      "lineWidth": 0
+                    }
+                  }
+                ],
+                "yAxes": [
+                  {
+                    "display": false,
+                    "lineWidth": 0,
+                    "ticks": {
+                      "beginAtZero": true,
+                      "suggestedMax": 50
+                    },
+                    "gridLines": {
+                      "lineWidth": 0
+                    }
+                  }
+                ]
+              }
+            }
+          });
+          new Chart(document.getElementById("chart-2"), {
+            "type": "doughnut",
+            "data": {
+              "labels": [
+                "-18",
+                "18-70",
+                "70+"
+              ],
+              "datasets": [
+                {
+                  "label": "Población %",
+                  "data": [
+                    30,
+                    50,
+                    20
+                  ],
+                  "fill": false,
+                  "backgroundColor": [
+                    "#52CCAE",
+                    "#97E0CE",
+                    "#D5F3EB"
+                  ],
+                  "borderWidth": 0
+                }
+              ]
+            },
+            "options": {
+              legend: {
+                position: 'right'
+              }
+            }
+          });
+          new Chart(document.getElementById("chart-3"), {
+            "type": "bar",
+            "data": {
+              "labels": [
+                "ipsum",
+                "ipsum",
+                "ipsum",
+                "ipsum",
+                "ipsum",
+                "ipsum",
+                "ipsum",
+                "ipsum",
+                "ipsum",
+                "ipsum"
+              ],
+              "datasets": [
+                {
+                  "maxBarThickness": 50,
+                  "label": "Población %",
+                  "data": [
+                    30,
+                    50,
+                    20,
+                    15,
+                    30,
+                    50,
+                    20,
+                    15,
+                    40,
+                    30
+                  ],
+                  "fill": false,
+                  "backgroundColor": "#52CCAE",
+                  "borderWidth": 0
+                }
+              ]
+            },
+            "options": {
+              "scales": {
+                "xAxes": [
+                  {
+                    "display": true,
+                    "gridLines": {
+                      "lineWidth": 0
+                    }
+                  }
+                ],
+                "yAxes": [
+                  {
+                    "display": false,
+                    "lineWidth": 0,
+                    "ticks": {
+                      "beginAtZero": true,
+                      "suggestedMax": 50
+                    },
+                    "gridLines": {
+                      "lineWidth": 0
+                    }
+                  }
+                ]
+              }
+            }
+          });
+          new Chart(document.getElementById("chart-4"), { 
+            "type": "doughnut",
+            "data": {
+              "labels": [
+                "Femenino",
+                "Masculino"
+              ],
+              "datasets": [
+                {
+                  "label": "Población %",
+                  "data": [
+                    70,
+                    50
+                  ],
+                  "fill": false,
+                  "backgroundColor": [
+                    "#52CCAE",
+                    "#97E0CE",
+                    "#D5F3EB"
+                  ],
+                  "borderWidth": 0
+                }
+              ]
+            },
+            "options": {
+              legend: {
+                position: 'right'
+              }
+            }
+          });
+          new Chart(document.getElementById("chart-5"), {
+            "type": "bar",
+            "data": {
+              "labels": [
+                "100-500",
+                "500-1000",
+                "1000-1500",
+                "2000-2500",
+                "2500-3000"
+              ],
+              "datasets": [
+                {
+                  "label": "Población %",
+                  "data": [
+                    4,
+                    8,
+                    12,
+                    8,
+                    8
+                  ],
+                  "fill": false,
+                  "backgroundColor": "#52CCAE",
+                  "borderWidth": 0
+                }
+              ]
+            },
+            "options": {
+              "legend": {
+                "display": false
+              },
+              "scales": {
+                "xAxes": [
+                  {
+                    "display": true,
+                    "gridLines": {
+                      "lineWidth": 0
+                    }
+                  }
+                ],
+                "yAxes": [
+                  {
+                    "display": false,
+                    "lineWidth": 0,
+                    "ticks": {
+                      "beginAtZero": true,
+                      "suggestedMax": 50
+                    },
+                    "gridLines": {
+                      "lineWidth": 0
+                    }
+                  }
+                ]
+              }
+            }
+          });
+          new Chart(document.getElementById("chart-6"), { 
+            "type": "doughnut",
+            "data": {
+              "labels": [
+                "Pobreza",
+                "No pobreza"
+              ],
+              "datasets": [
+                {
+                  "label": "Población %",
+                  "data": [
+                    70,
+                    50
+                  ],
+                  "fill": false,
+                  "backgroundColor": [
+                    "#52CCAE",
+                    "#97E0CE",
+                    "#D5F3EB"
+                  ],
+                  "borderWidth": 0
+                }
+              ]
+            },
+            "options": {
+              legend: {
+                position: 'right'
+              }
+            }
+          });
+          new Chart(document.getElementById("chart-7"), { 
+            "type": "doughnut",
+            "data": {
+              "labels": [
+                "Pobreza",
+                "No pobreza"
+              ],
+              "datasets": [
+                {
+                  "label": "Población %",
+                  "data": [
+                    50,
+                    70
+                  ],
+                  "fill": false,
+                  "backgroundColor": [
+                    "#52CCAE",
+                    "#97E0CE",
+                    "#D5F3EB"
+                  ],
+                  "borderWidth": 0
+                }
+              ]
+            },
+            "options": {
+              legend: {
+                position: 'right'
+              }
+            }
+          });
+        };
+        js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'chart-jssdk'));
+  </script>
 {% endblock %}

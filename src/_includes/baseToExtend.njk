@@ -46,6 +46,9 @@
       title="RSS Feed for {{ meta.siteName }}"
       href="/feed/"
     />
+
+    {% block head %}
+    {% endblock %}
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -67,9 +70,9 @@
             <a class="nav-link font-weight-normal text-uppercase pl-4" href="/tematicas/index.html">
               Tematicas
             </a>
-            <a class="nav-link font-weight-normal text-uppercase pl-4" href="/comparar/index.html">
+            {# <a class="nav-link font-weight-normal text-uppercase pl-4" href="/comparar/index.html">
               Comparar
-            </a>
+            </a> #}
           </div>
         </div>
       </div>
@@ -153,6 +156,10 @@
         </div>
       </div>
     </div>
+
+    {% block body_javascripts %}
+      {# Insertar código javascript o imports para paginacion customs #}
+    {% endblock %}
 
     {# Bootstrap javascripts #}
     {# TODO: Uses a bundle? Clean javascript? #}

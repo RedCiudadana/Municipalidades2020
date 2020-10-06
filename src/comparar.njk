@@ -4,151 +4,161 @@ title: Comparar
 {% extends "src/_includes/baseToExtend.njk" %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12">
-      <h1>
-        Compara
-      </h1>
-      <p class="h5 text-secondary font-weight-normal">
-        Seleccione los departamentos que desea consultar
-      </p>
-    </div>
-    <div class="col-12 col-md-6 text-center py-1">
-        <select class="w-100 py-1 px-2 border" name="departamento" id="departamento">
-            <option value="Guatemala">Guatemala</option>
-            <option value="Zacapa">Zacapa</option>
-        </select>
-    </div>
-    <div class="col-12 col-md-6 text-center py-1">
-        <select class="w-100 py-1 px-2 border" name="departamento" id="departamento">
-            <option value="Ciudad de Guatemala">Ciudad de Guatemala</option>
-            <option value="Zacapa">Zacapa</option>
-        </select>
-    </div>
-    <div class="col-12 mt-2">
+<div id="app">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <h1>
+          Compara
+        </h1>
         <p class="h5 text-secondary font-weight-normal">
-            Seleccione una de las siguientes tematicas
+          Seleccione los departamentos que desea consultar
         </p>
-    </div>
-    <div class="col-12 col-md-9 text-center py-1">
-        <select class="w-100 py-1 px-2 border" name="departamento" id="departamento">
-            <option value="Economia">Economia</option>
-            <option value="Salud">Salud</option>
+      </div>
+      <div class="col-12 col-md-6 text-center py-1">
+        {% raw %}
+        <select v-model="departamentoSelected" class="w-100 py-1 px-2 border" name="departamento" id="departamento">
+          <option disabled value="">Please select one</option>
+          <option v-for="departamento in departamentos">{{departamento}}</option>
         </select>
-    </div>
-    <div class="col-12 col-md-3 text-center py-1 text-white">
-        <button class="btn btn-primary btn-block">
-            Comprar
-        </button>
+        departamento:
+        {{departamentoSelected}}
+        {% endraw %}
+      </div>
+      <div class="col-12 col-md-6 text-center py-1">
+        {% raw %}
+        <select v-model="municipioSelected" class="w-100 py-1 px-2 border" name="municipio" id="municipio">
+          <option disabled value="">Please select one</option>
+          <option v-for="municipio in municipiosByDepartamento">{{municipio.municipio}}</option>
+        </select>
+        municipio:
+        {{municipioSelected}}
+        {% endraw %}
+      </div>
+      <div class="col-12 mt-2">
+          <p class="h5 text-secondary font-weight-normal">
+              Seleccione una de las siguientes tematicas
+          </p>
+      </div>
+      <div class="col-12 col-md-9 text-center py-1">
+          <select class="w-100 py-1 px-2 border" name="departamento" id="departamento">
+              <option value="Economia">Economia</option>
+              <option value="Salud">Salud</option>
+          </select>
+      </div>
+      <div class="col-12 col-md-3 text-center py-1 text-white">
+          <button class="btn btn-primary btn-block">
+              Comparar
+          </button>
+      </div>
     </div>
   </div>
-</div>
-<div class="bg-white w-100">
-  <div class="container py-4">
-    <div class="row mb-3">
-      <div class="col-12">
-        <h3 class="text-secondary mb-2">
-          Zacapa
-        </h3>
-      </div>
-      <div class="col-12">
-        <div class="border rounded-sm">
-          <div class="w-100 bg-secondary p-2 px-3">
-            <h4 class="text-white m-0">
-              Desnutrición
-            </h4>
-          </div>
-          <div class="w-100">
-            <div class="row m-0 p-0">
-                <div class="col-3 p-2 px-3 border">
-                    <h3>
-                        Edad
-                    </h3>
-                    <h1>
-                        45.4
-                    </h1>
-                    <h5>
-                        Edad media
-                    </h5>
-                    <p class="text-secondary">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quisquam modi et fugiat debitis. Odit, aut nesciunt est perspiciatis recusandae.
-                    </p>
-                </div>
-                <div class="col-5 p-3 border">
-                    <h6>
-                        Población por rango de edad
-                    </h6>
-                </div>
-                <div class="col-4 p-3 border">
-                    <h6>
-                        Población por categoria de edad
-                    </h6>
-                </div>
-                <div class="col-8 p-3 border">
-                    <h6>
-                        Población por rango de edad
-                    </h6>
-                </div>
-                <div class="col-4 p-3 border">
-                    <h6>
-                        Género
-                    </h6>
-                </div>
+  <div class="bg-white w-100">
+    <div class="container py-4">
+      <div class="row mb-3">
+        <div class="col-12">
+          <h3 class="text-secondary mb-2">
+            Zacapa
+          </h3>
+        </div>
+        <div class="col-12">
+          <div class="border rounded-sm">
+            <div class="w-100 bg-secondary p-2 px-3">
+              <h4 class="text-white m-0">
+                Desnutrición
+              </h4>
+            </div>
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                  <div class="col-3 p-2 px-3 border">
+                      <h3>
+                          Edad
+                      </h3>
+                      <h1>
+                          45.4
+                      </h1>
+                      <h5>
+                          Edad media
+                      </h5>
+                      <p class="text-secondary">
+                          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quisquam modi et fugiat debitis. Odit, aut nesciunt est perspiciatis recusandae.
+                      </p>
+                  </div>
+                  <div class="col-5 p-3 border">
+                      <h6>
+                          Población por rango de edad
+                      </h6>
+                  </div>
+                  <div class="col-4 p-3 border">
+                      <h6>
+                          Población por categoria de edad
+                      </h6>
+                  </div>
+                  <div class="col-8 p-3 border">
+                      <h6>
+                          Población por rango de edad
+                      </h6>
+                  </div>
+                  <div class="col-4 p-3 border">
+                      <h6>
+                          Género
+                      </h6>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h3 class="text-secondary mb-2">
-          Zacapa
-        </h3>
-      </div>
-      <div class="col-12">
-        <div class="border rounded-sm">
-          <div class="w-100 bg-secondary p-2 px-3">
-            <h4 class="text-white m-0">
-              Desnutrición
-            </h4>
-          </div>
-          <div class="w-100">
-            <div class="row m-0 p-0">
-                <div class="col-3 p-2 px-3 border">
-                    <h3>
-                        Edad
-                    </h3>
-                    <h1>
-                        45.4
-                    </h1>
-                    <h5>
-                        Edad media
-                    </h5>
-                    <p class="text-secondary">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quisquam modi et fugiat debitis. Odit, aut nesciunt est perspiciatis recusandae.
-                    </p>
-                </div>
-                <div class="col-5 p-3 border">
-                    <h6>
-                        Población por rango de edad
-                    </h6>
-                </div>
-                <div class="col-4 p-3 border">
-                    <h6>
-                        Población por categoria de edad
-                    </h6>
-                </div>
-                <div class="col-8 p-3 border">
-                    <h6>
-                        Población por rango de edad
-                    </h6>
-                </div>
-                <div class="col-4 p-3 border">
-                    <h6>
-                        Género
-                    </h6>
-                </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-secondary mb-2">
+            Zacapa
+          </h3>
+        </div>
+        <div class="col-12">
+          <div class="border rounded-sm">
+            <div class="w-100 bg-secondary p-2 px-3">
+              <h4 class="text-white m-0">
+                Desnutrición
+              </h4>
+            </div>
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                  <div class="col-3 p-2 px-3 border">
+                      <h3>
+                          Edad
+                      </h3>
+                      <h1>
+                          45.4
+                      </h1>
+                      <h5>
+                          Edad media
+                      </h5>
+                      <p class="text-secondary">
+                          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quisquam modi et fugiat debitis. Odit, aut nesciunt est perspiciatis recusandae.
+                      </p>
+                  </div>
+                  <div class="col-5 p-3 border">
+                      <h6>
+                          Población por rango de edad
+                      </h6>
+                  </div>
+                  <div class="col-4 p-3 border">
+                      <h6>
+                          Población por categoria de edad
+                      </h6>
+                  </div>
+                  <div class="col-8 p-3 border">
+                      <h6>
+                          Población por rango de edad
+                      </h6>
+                  </div>
+                  <div class="col-4 p-3 border">
+                      <h6>
+                          Género
+                      </h6>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
@@ -158,12 +168,38 @@ title: Comparar
 </div>
 {% endblock %}
 
-<ul>
-{% for tematica in collections.tematicas %}
-    <li>
-        <a href="{{tematica.url}}">
-            {{tematica.data.title}}
-        </a>
-    </li>
-{% endfor %}
-</ul>
+{% block body_javascripts %}
+<script src="/js/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!',
+      municipios: JSON.parse('{{ municipios | dump | safe }}'),
+      departamentoSelected: null,
+      municipioSelected: null
+    },
+    computed: {
+      departamentos: function() {
+        return this.municipios.reduce((municipios, municipio) => {
+            if (municipios.indexOf(municipio.departamento) < 0) {
+                municipios.push(municipio.departamento);
+            }
+
+            return municipios;
+        }, []);
+      },
+      municipiosByDepartamento: function() {
+        // Cada vez que se selecciona un departamento reiniciamos la variable
+        this.municipioSelected = null;
+        if (this.departamentoSelected === null) {
+          return [];
+        }
+        return this.municipios.filter((municipio) => {
+          return this.departamentoSelected === municipio.departamento;
+        });
+      }
+    }
+  })
+</script>
+{% endblock %}

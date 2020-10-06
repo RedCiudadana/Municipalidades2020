@@ -5,6 +5,7 @@ pagination:
   data: collections.municipios
   size: 8
   alias: municipios
+permalink: "municipios/{{ pagination.pageNumber + 1 }}/index.html"
 ---
 <div class="container py-5">
   <div class="row">
@@ -43,4 +44,70 @@ pagination:
       {% endfor %}
     </div>
   </div>
+  <nav aria-labelledby="my-pagination w-100">
+    <ol class="pagination pagination-sm justify-content-center mt-3">
+      <li class="page-item">
+        {% if page.url != pagination.href.first %}
+        <a class="page-link" href="{{ pagination.href.first }}">
+          Primera
+        </a>
+        {% else %}
+        <a class="page-link text-secondary" href="#">
+          Primera
+        </a>
+        {% endif %}
+      </li>
+      <li class="page-item">
+        {% if pagination.href.previous %}
+        <a class="page-link" href="{{ pagination.href.previous }}">
+          Anterior
+        </a>
+        {% else %}
+        <a class="page-link text-secondary" href="#">
+          Anterior
+        </a>
+        {% endif %}
+      </li>
+      <li class="page-item">
+        <a class="page-link">
+          {{ pagination.pageNumber + 1 }}
+        </a>
+      </li>
+      {# {% set currentPages = pagination | paginationSlice %}
+      {%- for pageEntry in  currentPages %}
+      <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %} active{% endif %}">
+        <a
+          class="page-link" 
+          href="{{ pagination.hrefs[ loop.index0 ] }}"
+          {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}
+        >
+          {{ pageEntry.pageNumber }}
+          {{ loop.index - 1}}
+        </a>
+      </li>
+      {%- endfor %} #}
+      <li class="page-item">
+        {% if pagination.href.next %}
+        <a class="page-link" href="{{ pagination.href.next }}">
+          Siguiente
+        </a>
+        {% else %}
+        <a class="page-link text-secondary" href="#">
+          Siguiente
+        </a>
+        {% endif %}
+      </li>
+      <li class="page-item">
+        {% if page.url != pagination.href.last %}
+        <a class="page-link" href="{{ pagination.href.last }}">
+          Última
+        </a>
+        {% else %}
+        <a class="page-link text-secondary" href="#">
+          Última
+        </a>
+        {% endif %}
+      </li>
+    </ol>
+  </nav>
 </div>
