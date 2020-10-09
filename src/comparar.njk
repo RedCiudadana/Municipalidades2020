@@ -16,24 +16,14 @@ title: Comparar
         </p>
       </div>
       <div class="col-12 col-md-6 text-center py-1">
-        {% raw %}
-        <select v-model="departamentoSelected" class="w-100 py-1 px-2 border" name="departamento" id="departamento">
-          <option disabled value="">Please select one</option>
-          <option v-for="departamento in departamentos">{{departamento}}</option>
+        <select class="w-100 py-1 px-2 border" name="departamento" id="departamento">
+          <option disabled value="">Seleccionar departamento</option>
         </select>
-        departamento:
-        {{departamentoSelected}}
-        {% endraw %}
       </div>
       <div class="col-12 col-md-6 text-center py-1">
-        {% raw %}
         <select v-model="municipioSelected" class="w-100 py-1 px-2 border" name="municipio" id="municipio">
-          <option disabled value="">Please select one</option>
-          <option v-for="municipio in municipiosByDepartamento">{{municipio.municipio}}</option>
+          <option disabled value="">Seleccionar municipio</option>
         </select>
-        municipio:
-        {{municipioSelected}}
-        {% endraw %}
       </div>
       <div class="col-12 mt-2">
           <p class="h5 text-secondary font-weight-normal">
@@ -169,37 +159,58 @@ title: Comparar
 {% endblock %}
 
 {% block body_javascripts %}
-<script src="/js/vue.js"></script>
 <script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      message: 'Hello Vue!',
-      municipios: JSON.parse('{{ municipios | dump | safe }}'),
-      departamentoSelected: null,
-      municipioSelected: null
-    },
-    computed: {
-      departamentos: function() {
-        return this.municipios.reduce((municipios, municipio) => {
-            if (municipios.indexOf(municipio.departamento) < 0) {
-                municipios.push(municipio.departamento);
-            }
+  // Cargar municipios a documento
+  window.municipios = JSON.parse('{{ municipios | dump | safe }}');
 
-            return municipios;
-        }, []);
-      },
-      municipiosByDepartamento: function() {
-        // Cada vez que se selecciona un departamento reiniciamos la variable
-        this.municipioSelected = null;
-        if (this.departamentoSelected === null) {
-          return [];
-        }
-        return this.municipios.filter((municipio) => {
-          return this.departamentoSelected === municipio.departamento;
-        });
+  // Obtener <select> de departamentos y municipios
+  var departamentoSelect = document.getElementById('departamento');
+  var municipioSelect = document.getElementById('municipio');
+
+  // Obtener listado de solo municipios
+  var departamentos = this.municipios.reduce((municipios, municipio) => {
+      if (municipios.indexOf(municipio.departamento) < 0) {
+          municipios.push(municipio.departamento);
       }
+
+      return municipios;
+  }, []);
+
+  // Agregar departamentos como options
+  departamentos.forEach(function(departamento) {
+    var option = document.createElement('option');
+    option.value = departamento;
+    option.innerHTML = departamento;
+    departamentoSelect.appendChild(option);
+  });
+
+  // Reiniciar select a "Seleccionar departamento"
+  departamentoSelect.selectedIndex = 0;
+
+  // Event listeners
+
+  // [CHANGE] Select departamento
+  departamentoSelect.addEventListener('change', function(event) {
+    // Eliminar opciones anteriores
+    let L = municipioSelect.options.length - 1;
+    for(i = L; i > 0; i--) {
+      municipioSelect.remove(i);
     }
-  })
+
+    var departamentoSelected = event.target.value;
+
+    // Agregar municipio filtrados
+    window.municipios.forEach((municipio) => {
+      if (departamentoSelected === municipio.departamento) {
+        var option = document.createElement('option');
+        option.value = municipio.municipio;
+        option.innerHTML = municipio.municipio;
+        municipioSelect.appendChild(option);
+      }
+    });
+
+    // Reiniciar select a "Seleccionar municipio"
+    municipioSelect.selectedIndex = 0;
+  });
 </script>
 {% endblock %}
