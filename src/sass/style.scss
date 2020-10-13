@@ -72,3 +72,15 @@ body {
     color: white !important;
     border-color: white !important;
 }
+
+#searchResults {
+  max-height: 10rem;
+  overflow: auto;
+  background: white;
+  // border: gray;
+  // border-radius: 2px;
+  // border-width: 1px;
+  // border-style: solid;
+  width: 100%;
+  position: relative;
+}

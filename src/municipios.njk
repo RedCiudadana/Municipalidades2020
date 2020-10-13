@@ -8,7 +8,7 @@ pagination:
 permalink: "municipios/{{ pagination.pageNumber + 1 }}/index.html"
 ---
 <div class="container py-5">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-12 text-center">
       <h1>
         Municipios
@@ -16,6 +16,15 @@ permalink: "municipios/{{ pagination.pageNumber + 1 }}/index.html"
       <p class="h5 text-secondary font-weight-normal">
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
       </p>
+    </div>
+    <div class="col-12 col-lg-6 p-0">
+      <div class="field">
+        <input class="form-control" type="search" placeholder="Search..." id="searchField" />
+      </div>
+      <div id="searchResultsContainer" class="w-100 rounded bg-white shadow-sm">
+        <ol id="searchResults">
+        </ol>
+      </div>
     </div>
   </div>
 </div>
@@ -111,3 +120,41 @@ permalink: "municipios/{{ pagination.pageNumber + 1 }}/index.html"
     </ol>
   </nav>
 </div>
+<!--Only 5.7kb GZipped. You may want to bundle this with your application code. -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+      <script>
+        (function(window, document) {
+        "use strict";
+
+        const search = e => {
+          const results = window.searchIndex.search(e.target.value);
+
+          const ol = document.getElementById("searchResults");
+          const searchResultsContainer = document.getElementById("searchResultsContainer");
+          ol.innerHTML = "";
+          searchResultsContainer.style.position = 'none';
+          if (results && results.length > 0) {
+            searchResultsContainer.style.position = 'absolute';
+            results.map(r => {
+              const { id, departamento, municipio } = r.doc;
+
+              // this is where you'll go wild with your own HTML injection.
+              const li = document.createElement("li");
+              ol.appendChild(li);
+
+              const a = document.createElement("a");
+              a.setAttribute("href", id);
+              a.textContent = `${departamento}, ${municipio}`;
+              li.appendChild(a);
+            });
+          }
+        };
+
+        fetch("/search-index.json").then(response =>
+          response.json().then(rawIndex => {
+            window.searchIndex = elasticlunr.Index.load(rawIndex);
+            document.getElementById("searchField").addEventListener("input", search);
+          })
+        );
+      })(window, document);
+      </script>

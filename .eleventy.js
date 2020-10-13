@@ -6,6 +6,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const packageVersion = require("./package.json").version;
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const searchFilter = require("./src/filters/searchFilter");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -60,6 +61,8 @@ module.exports = function (eleventyConfig) {
     title = title.replace(/"(.*)"/g, '\\"$1\\"');
     return title;
   });
+
+  eleventyConfig.addFilter("search", searchFilter);
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
