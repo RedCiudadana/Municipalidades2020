@@ -4,16 +4,13 @@ pagination:
   size: 1
   addAllPagesToCollections: true
   alias: municipio
-  permalink: "/{{ pagination.items[0].departamento | slug }}/{{ pagination.items[0].municipio | slug }}/index.html"
+permalink: "/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/index.html"
 tags:
   - municipios
 ---
 {% extends "src/_includes/baseToExtend.njk" %}
 
 {% block head %}
-  <script src="https://unpkg.com/deck.gl@^8.1.0/dist.min.js"></script>
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 {% endblock %}
 
@@ -48,80 +45,82 @@ tags:
       </div>
       <div class="col-12 mb-2">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 col-lg-7 p-4 text-center text-lg-left">
+          <div class="col-12 col-lg-3 p-4 d-flex">
+            <img src="/img/munilogo.png" alt="Municipalidad de Guatemala" class="my-auto">
+          </div>
+          <div class="col-12 col-lg-5 p-4 text-center text-lg-left">
             <h3>
               Municipalidad de
               {{ municipio.municipio }}
             </h3>
-            <div class="bg-light py-1 px-2 my-1">
-              <p class="m-0 h5">
+            <div class="pb-2 border-bottom">
+              <p class="m-0 h6">
                 Departamento:
                 <span class="text-secondary font-weight-normal">{{municipio.municipio}}</span>
               </p>
             </div>
-            <div class="bg-light py-1 px-2 my-1">
-              <p class="m-0 h5">
+            <div class="pt-1 pb-2 border-bottom">
+              <p class="m-0 h6">
                 Página web:
                 <span class="text-secondary font-weight-normal">www.municoban.gob.gt/</span>
               </p>
             </div>
-            <div class="bg-light py-1 px-2 my-1">
-              <p class="m-0 h5">
+            <div class="pt-1 pb-2 border-bottom">
+              <p class="m-0 h6">
                 E-mail:
                 <span class="text-secondary font-weight-normal">info@municoban.gob.gt</span>
               </p>
             </div>
-            <div class="bg-light py-1 px-2 my-1">
-              <p class="m-0 h5">
+            <div class="pt-1 pb-2">
+              <p class="m-0 h6">
                 Teléfonos:
                 <span class="text-secondary font-weight-normal">(502)2233-2344</span>
               </p>
             </div>
           </div>
-          <div class="col-12 col-lg-5 px-4 pb-4 pt-md-4">
-            <div id="map-container"></div>
+          <div class="col-12 col-lg-4 p-4">
+            <h6>
+              Contacto
+            </h6>
+            <ul class="list-unstyled">
+              <li>
+                Página web: <a href="http://www.muniguate.com/">http://www.muniguate.com/</a>
+              </li>
+              <li>
+                Twitter: <a href="https://twitter.com/muniguate">@MuniGuate</a>
+              </li>
+              <li>
+                Facebook: <a href="https://twitter.com/muniguate">@MuniGuate</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6 mb-2">
-        <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 col-md-8 p-4 order-2 order-md-1 text-center">
-            <h6>
-              Alcalde Jorge Aroldo Córdova Molina
-            </h6>
-            <h6 class="text-primary">
-              ja@municoban.gob.gt
-            </h6>
-            <img src="/img/facebook.png" class="mr-1" alt="Facebook">
-            <img src="/img/twitter.png" alt="Twitter">
+      <div class="col-12">
+        <div class="bg-primary w-100 row m-0 p-0 mb-2 justify-content-center">
+          <div class="col-12 pt-2 text-center">
+            <h3 class="text-white">
+              Datos Municipales
+            </h3>
+            <h5 class="text-white">
+              Seleccionar las temáticas que más te interesa:
+            </h5>
           </div>
-          <div class="col-12 col-md-4 order-1 order-md-2 pr-2 pt-3 text-center">
-            <img src="/img/person.png" alt="Persona" class="img-fluid">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 mb-2">
-        <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 col-md-8 p-4 order-2 order-md-1 text-center">
-            <h6>
-              Alcalde Jorge Aroldo Córdova Molina
-            </h6>
-            <h6 class="text-primary">
-              ja@municoban.gob.gt
-            </h6>
-            <img src="/img/facebook.png" class="mr-1" alt="Facebook">
-            <img src="/img/twitter.png" alt="Twitter">
-          </div>
-          <div class="col-12 col-md-4 order-1 order-md-2 pr-2 pt-3 text-center">
-            <img src="/img/person.png" alt="Persona" class="img-fluid">
+          <div class="col-12 col-lg-4 mb-2">
+            <select class="form-control" name="tematica" id="tematica">
+              <option value="General">General</option>
+              {% for tematica in collections.tematicas %}
+                <option value="{{ tematica.data.title }}">{{ tematica.data.title }}</option>
+              {% endfor %}
+            </select>
           </div>
         </div>
       </div>
       <div class="col-12 mb-2">
         <div class="bg-white w-100 row m-0 p-0">
           <div class="col-12 bg-secondary py-2 px-3">
-            <h4 class="text-white m-0 font-weight-normal">
-              Economia
+            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+              General
             </h4>
           </div>
           <div class="col-12 p-0">
@@ -246,48 +245,17 @@ tags:
       </div>
     </div>
   </div>
-
-  {# Deck.gl #}
+  {# Page JS #}
   <script>
-    const COUNTRIES = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson'; //eslint-disable-line
-    const AIR_PORTS = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson';
+    let tematicaSelect = document.getElementById('tematica');
 
-    const INITIAL_VIEW_STATE = {
-      latitude: 14.61,
-      longitude: -90.50,
-      zoom: 10
-    };
+    tematicaSelect.addEventListener('change', function(event) {
+      var value = event.target.value;
 
-    const deckgl = new deck.DeckGL({
-      mapboxApiAccessToken: 'pk.eyJ1IjoiZGV2cmVkY2l1ZGFkYW5hIiwiYSI6ImNrN3MwaGtybTA5dDMzbXBqb3JramttcWgifQ.WgnJEeEHlNhbeM4hxR7zjg',
-      mapStyle: 'mapbox://styles/mapbox/light-v9',
-      container: 'map-container',
-      initialViewState: INITIAL_VIEW_STATE,
-      controller: true,
-      layers: [new deck.ScatterplotLayer({
-          opacity: 0.8,
-          stroked: true,
-          filled: true,
-          radiusMinPixels: 100,
-          radiusMaxPixels: 10,
-          radiusScale: 6,
-          lineWidthMinPixels: 1,
-          data: [
-            {
-              position: [
-                -90.515278, 14.627266
-              ],
-              color: [
-                255, 0, 0
-              ],
-              radius: 60
-            }
-          ],
-          getColor: d => d.color,
-          getRadius: d => d.radius
-        })]
+      document.getElementById('titleTematicaContainer').innerHTML = value;
     });
   </script>
+  {# ChartJS #}
   <script>
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
