@@ -16,12 +16,22 @@ title: Comparar
         </p>
       </div>
       <div class="col-12 col-md-6 text-center py-1">
-        <select class="w-100 py-1 px-2 border" name="departamento" id="departamento">
+        <select class="w-100 py-1 px-2 border" name="departamento" id="departamento1">
           <option disabled value="">Seleccionar departamento</option>
         </select>
       </div>
       <div class="col-12 col-md-6 text-center py-1">
-        <select v-model="municipioSelected" class="w-100 py-1 px-2 border" name="municipio" id="municipio">
+        <select class="w-100 py-1 px-2 border" name="municipio" id="municipio1">
+          <option disabled value="">Seleccionar municipio</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6 text-center py-1">
+        <select class="w-100 py-1 px-2 border" name="departamento" id="departamento2">
+          <option disabled value="">Seleccionar departamento</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6 text-center py-1">
+        <select class="w-100 py-1 px-2 border" name="municipio" id="municipio2">
           <option disabled value="">Seleccionar municipio</option>
         </select>
       </div>
@@ -31,13 +41,13 @@ title: Comparar
           </p>
       </div>
       <div class="col-12 col-md-9 text-center py-1">
-          <select class="w-100 py-1 px-2 border" name="departamento" id="departamento">
+          <select class="w-100 py-1 px-2 border" name="tematica" id="tematica">
               <option value="Economia">Economia</option>
               <option value="Salud">Salud</option>
           </select>
       </div>
       <div class="col-12 col-md-3 text-center py-1 text-white">
-          <button class="btn btn-primary btn-block">
+          <button class="btn btn-primary btn-block" id="button-comparar">
               Comparar
           </button>
       </div>
@@ -47,14 +57,14 @@ title: Comparar
     <div class="container py-4">
       <div class="row mb-3">
         <div class="col-12">
-          <h3 class="text-secondary mb-2">
+          <h3 class="text-secondary mb-2" id="title-municipio1">
             Zacapa
           </h3>
         </div>
         <div class="col-12">
           <div class="border rounded-sm">
             <div class="w-100 bg-secondary p-2 px-3">
-              <h4 class="text-white m-0">
+              <h4 class="text-white m-0" id="title-tematica1">
                 Desnutrición
               </h4>
             </div>
@@ -101,14 +111,14 @@ title: Comparar
       </div>
       <div class="row">
         <div class="col-12">
-          <h3 class="text-secondary mb-2">
+          <h3 class="text-secondary mb-2" id="title-municipio2">
             Zacapa
           </h3>
         </div>
         <div class="col-12">
           <div class="border rounded-sm">
             <div class="w-100 bg-secondary p-2 px-3">
-              <h4 class="text-white m-0">
+              <h4 class="text-white m-0" id="title-tematica2">
                 Desnutrición
               </h4>
             </div>
@@ -164,8 +174,10 @@ title: Comparar
   window.municipios = JSON.parse('{{ municipios | dump | safe }}');
 
   // Obtener <select> de departamentos y municipios
-  var departamentoSelect = document.getElementById('departamento');
-  var municipioSelect = document.getElementById('municipio');
+  var departamentoSelect1 = document.getElementById('departamento1');
+  var municipioSelect1 = document.getElementById('municipio1');
+  var departamentoSelect2 = document.getElementById('departamento2');
+  var municipioSelect2 = document.getElementById('municipio2');
 
   // Obtener listado de solo municipios
   var departamentos = this.municipios.reduce((municipios, municipio) => {
@@ -181,20 +193,22 @@ title: Comparar
     var option = document.createElement('option');
     option.value = departamento;
     option.innerHTML = departamento;
-    departamentoSelect.appendChild(option);
+    departamentoSelect1.add(option);
+    departamentoSelect2.add(option.cloneNode(true));
   });
 
   // Reiniciar select a "Seleccionar departamento"
-  departamentoSelect.selectedIndex = 0;
+  departamentoSelect1.selectedIndex = 0;
+  departamentoSelect2.selectedIndex = 0;
 
   // Event listeners
 
-  // [CHANGE] Select departamento
-  departamentoSelect.addEventListener('change', function(event) {
+  // [CHANGE] Select departamento 1
+  departamentoSelect1.addEventListener('change', function(event) {
     // Eliminar opciones anteriores
-    let L = municipioSelect.options.length - 1;
+    let L = municipioSelect1.options.length - 1;
     for(i = L; i > 0; i--) {
-      municipioSelect.remove(i);
+      municipioSelect1.remove(i);
     }
 
     var departamentoSelected = event.target.value;
@@ -205,12 +219,61 @@ title: Comparar
         var option = document.createElement('option');
         option.value = municipio.municipio;
         option.innerHTML = municipio.municipio;
-        municipioSelect.appendChild(option);
+        municipioSelect1.appendChild(option);
       }
     });
 
     // Reiniciar select a "Seleccionar municipio"
-    municipioSelect.selectedIndex = 0;
+    municipioSelect1.selectedIndex = 0;
+  });
+
+  // [CHANGE] Select departamento
+  departamentoSelect2.addEventListener('change', function(event) {
+    // Eliminar opciones anteriores
+    let L = municipioSelect2.options.length - 1;
+    for(i = L; i > 0; i--) {
+      municipioSelect2.remove(i);
+    }
+
+    var departamentoSelected = event.target.value;
+
+    // Agregar municipio filtrados
+    window.municipios.forEach((municipio) => {
+      if (departamentoSelected === municipio.departamento) {
+        var option = document.createElement('option');
+        option.value = municipio.municipio;
+        option.innerHTML = municipio.municipio;
+        municipioSelect2.appendChild(option);
+      }
+    });
+
+    // Reiniciar select a "Seleccionar municipio"
+    municipioSelect2.selectedIndex = 0;
+  });
+
+  document.getElementById('button-comparar').addEventListener('click', function(event) {
+    let departamento1 = document.getElementById('departamento1');
+    let municipio1 = document.getElementById('municipio1');
+    let departamento2 = document.getElementById('departamento2');
+    let municipio2 = document.getElementById('municipio2');
+    let tematica = document.getElementById('tematica');
+
+    if (!(
+      departamento1.value && 
+      departamento2.value && 
+      municipio1.value && 
+      municipio2.value
+    )) {
+      console.log('nothing to do');
+      return;
+    }
+
+    // busqueda de datos
+
+    document.getElementById('title-municipio1').innerHTML = municipio1.value;
+    document.getElementById('title-municipio2').innerHTML = municipio2.value;
+    document.getElementById('title-tematica1').innerHTML = tematica.value;
+    document.getElementById('title-tematica2').innerHTML = tematica.value;
   });
 </script>
 {% endblock %}
