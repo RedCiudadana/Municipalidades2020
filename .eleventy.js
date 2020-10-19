@@ -82,6 +82,23 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
+  eleventyConfig.addCollection("chartTematicasByMunicipios", function (collectionApi) {
+    let newCollection = [];
+    var tematicas = collectionApi.getFilteredByTag("tematicas");
+
+    collectionApi.getFilteredByTag("municipios").forEach((municipio) => {
+      tematicas.forEach((tematica) => {
+
+        newCollection.push({
+          tematica: tematica.data.title,
+          municipio: municipio.data.municipio
+        });
+      })
+    });
+
+    return newCollection;
+  });
+
   return {
     passthroughFileCopy: true,
     dir: {

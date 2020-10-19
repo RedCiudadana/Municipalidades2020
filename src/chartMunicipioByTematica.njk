@@ -1,0 +1,104 @@
+---
+pagination:
+    data: collections.chartTematicasByMunicipios
+    size: 1
+    alias: chart
+permalink: "chart/{{chart.municipio.departamento | slug}}/{{chart.municipio.municipio | slug}}/{{chart.tematica | slug}}/index.html"
+---
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{chart.tematica}} - {{chart.municipio.departamento}}, {{chart.municipio.municipio}}</title>
+    <link rel="icon" href="{{ '/favicon.png' | url }}" />
+    <link href="{{ '/css/style.css' | url }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="w-100 bg-secondary py-2 px-3">
+        <h6 class="text-white">
+            {{chart.tematica}} - {{chart.municipio.departamento}}, {{chart.municipio.municipio}}
+        </h6>
+    </div>
+    <canvas id="chart-1"></canvas>
+    {# ChartJS #}
+    <script>
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)){ return; }
+        js = d.createElement(s); js.id = id;
+        js.onload = function(){
+            new Chart(document.getElementById("chart-1"), {
+            "type": "bar",
+            "data": {
+                "labels": [
+                "0-9",
+                "10-19",
+                "20-29",
+                "30-39",
+                "40-49",
+                "50-59",
+                "60-79",
+                "80+"
+                ],
+                "datasets": [
+                {
+                    "label": "Población %",
+                    "data": [
+                    4,
+                    8,
+                    12,
+                    8,
+                    3,
+                    30,
+                    12,
+                    8
+                    ],
+                    "fill": false,
+                    "backgroundColor": "#52CCAE",
+                    "borderColor": [
+                    "rgb(255, 99, 132)",
+                    "rgb(255, 159, 64)",
+                    "rgb(255, 205, 86)",
+                    "rgb(75, 192, 192)",
+                    "rgb(54, 162, 235)",
+                    "rgb(153, 102, 255)",
+                    "rgb(201, 203, 207)"
+                    ],
+                    "borderWidth": 0
+                }
+                ]
+            },
+            "options": {
+                "scales": {
+                "xAxes": [
+                    {
+                    "display": true,
+                    "gridLines": {
+                        "lineWidth": 0
+                    }
+                    }
+                ],
+                "yAxes": [
+                    {
+                    "display": false,
+                    "lineWidth": 0,
+                    "ticks": {
+                        "beginAtZero": true,
+                        "suggestedMax": 50
+                    },
+                    "gridLines": {
+                        "lineWidth": 0
+                    }
+                    }
+                ]
+                }
+            }
+            });
+        };
+        js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'chart-jssdk'));
+    </script>
+</body>
+</html>
