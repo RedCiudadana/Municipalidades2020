@@ -9,6 +9,8 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const searchFilter = require("./src/filters/searchFilter");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setWatchJavaScriptDependencies(false);
+
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginRss);
