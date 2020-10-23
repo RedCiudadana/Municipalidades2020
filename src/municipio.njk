@@ -1123,6 +1123,41 @@ tags:
           }
         };
 
+        var basePieChartConfig = {
+          "type": "pie",
+            "data": {
+            "labels": [],
+              "datasets": [
+                {
+                  "label": "",
+                  "data": [],
+                  "fill": false,
+                  // generados con https://mdigi.tools/color-shades/#52ccae
+                  "backgroundColor": [
+                    "#effaf7",
+                    "#cef0e8",
+                    "#ade7d9",
+                    "#8cddc9",
+                    "#6bd3ba",
+                    "#4acaaa",
+                    "#35b595",
+                    "#2c947a",
+                    "#22735f",
+                    "#185244",
+                    "#0f3129",
+                    "#05100e"
+                  ],
+                  "borderWidth": 0
+                }
+              ]
+          },
+          "options": {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        };
+
         let chartConfig1 = JSON.parse(JSON.stringify(baseBarChartConfig));
         chartConfig1.data.datasets[0].label = "Población %";
         chartConfig1.data.datasets[0].data = [
@@ -1207,10 +1242,8 @@ tags:
           "2018",
           "2019"
         ];
-        console.log(chartConfigGestionEducacion1);
         new Chart(document.getElementById("chart-educacion-1"), chartConfigGestionEducacion1);
 
-        console.log(baseBarChartConfig);
         let chartConfigGestionEducacion2 = JSON.parse(JSON.stringify(baseBarChartConfig));
         chartConfigGestionEducacion2.data.datasets[0].label = "Logro Municipal en Matemática";
         chartConfigGestionEducacion2.data.datasets[0].data = [
@@ -1227,6 +1260,80 @@ tags:
           "2019"
         ];
         new Chart(document.getElementById("chart-educacion-2"), chartConfigGestionEducacion2);
+
+        // Finanzas
+        let chartConfigFinanzas1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigFinanzas1.data.datasets[0].label = "Presupuesto Municipal 2019";
+        chartConfigFinanzas1.data.datasets[0].data = [
+          11.06,
+          12,
+          15,
+          20
+        ];
+        chartConfigFinanzas1.data.labels = [
+          "2016",
+          "2017",
+          "2018",
+          "2019"
+        ];
+        new Chart(document.getElementById("chart-finanzas-1"), chartConfigFinanzas1);
+
+        let chartConfigFinanzas2 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigFinanzas2.data.datasets[0].label = "Ejecucion Presupuestaria del 2019";
+        chartConfigFinanzas2.data.datasets[0].data = [
+          11.06,
+          12,
+          15,
+          20
+        ];
+        chartConfigFinanzas2.data.labels = [
+          "2016",
+          "2017",
+          "2018",
+          "2019"
+        ];
+        new Chart(document.getElementById("chart-finanzas-2"), chartConfigFinanzas2);
+
+        let chartConfigFinanzas3 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigFinanzas3.data.datasets[0].label = "Recaudación Municipal";
+        chartConfigFinanzas3.data.datasets[0].data = [
+          11.06,
+          12,
+          15,
+          20
+        ];
+        chartConfigFinanzas3.data.labels = [
+          "2016",
+          "2017",
+          "2018",
+          "2019"
+        ];
+        new Chart(document.getElementById("chart-finanzas-3"), chartConfigFinanzas3);
+
+        let chartConfigFinanzas4 = JSON.parse(JSON.stringify(basePieChartConfig));
+        chartConfigFinanzas4.data.datasets[0].label = "Recaudación Municipal";
+        chartConfigFinanzas4.data.datasets[0].data = [
+          0.00,
+          27522932.61,
+          287421230.84,
+          512717509.58,
+          1197918.81,
+          1922076.98,
+          29000000.00,
+          105334267.49,
+        ];
+        chartConfigFinanzas4.data.labels = [
+          "DISMINUCIÓN DE OTROS ACTIVOS FINANCIEROS",
+          "INGRESOS DE OPERACION",
+          "INGRESOS NO TRIBUTARIOS",
+          "INGRESOS TRIBUTARIOS",
+          "RENTAS DE LA PROPIEDAD",
+          "TRANSFERENCIAS CORRIENTES",
+          "TRANSFERENCIAS DE CAPITAL",
+          "VTA. DE BIENES Y SERV. DE LA ADM. PÚBLICA"
+        ];
+        chartConfigFinanzas4.options.legend.display = false;
+        new Chart(document.getElementById("chart-finanzas-4"), chartConfigFinanzas4);
       }
       js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
       fjs.parentNode.insertBefore(js, fjs);
