@@ -1,0 +1,194 @@
+---
+pagination:
+  data: municipios
+  size: 1
+  addAllPagesToCollections: true
+  alias: municipio
+permalink: "/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/corporacion.html"
+tags:
+  - municipios
+---
+{% extends "src/_includes/baseToExtend.njk" %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+  <style>
+    #map-container {
+      width: 100%;
+      height: 200px;
+    }
+  </style>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-2">
+        <a href="/municipios/1">Municipios</a>
+        \
+        {{ municipio.municipio }}
+      </div>
+      <div class="col-12 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/index.html" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+            Municipalidades
+          </a>
+          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/corporacion.html" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+            Corporación municipal
+          </a>
+          {# <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+                TODO AIP
+            </a>
+            <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+                TODO Comparar
+            </a>
+            <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold">
+                TODO Share button
+            </a> #}
+        </div>
+      </div>
+      <div class="col-12 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex">
+            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+              Corporación
+            </h4>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 p-3 border">
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Partido Político</th>
+                        <th scope="col">Cui</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ricardo Quiñonez Lemus</td>
+                        <td>Alcalde</td>
+                        <td>UNIONISTA</td>
+                        <td>1996-83832-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Carlos Alejandro Soberanis Toledo</td>
+                        <td>Sindico I</td>
+                        <td>UNIONISTA</td>
+                        <td>2613-90236-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Maria Elena Cruz Urrutia</td>
+                        <td>Sindico II</td>
+                        <td>UNIONISTA</td>
+                        <td>1999-02364-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Jaime Castillo Castellanos</td>
+                        <td>Sindico III</td>
+                        <td>UNIONISTA</td>
+                        <td>1999-26336-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Marco Antonio Palacios Lopez</td>
+                        <td>Sindico Suplente</td>
+                        <td>UNIONISTA</td>
+                        <td>1999-01228-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Victor Manuel Alejandro Martinez Ruiz</td>
+                        <td>Concejal I</td>
+                        <td>UNIONISTA</td>
+                        <td>1999-66206-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Alessandra Maria Gallio Abud De Davidson</td>
+                        <td>Concejal II</td>
+                        <td>UNIONISTA</td>
+                        <td>1999-40304-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Keving Roberto Rene Aldana Alvarez</td>
+                        <td>Concejal III</td>
+                        <td>UNIONISTA</td>
+                        <td>2458-83517-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Luis German Pineda Castellan</td>
+                        <td>Concejal IV</td>
+                        <td>UNIONISTA</td>
+                        <td>2596-89270-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Alejandra Maria Paiz Samayoa</td>
+                        <td>Concejal V</td>
+                        <td>UNIONISTA</td>
+                        <td>1999-88978-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Richard Lee Abularach</td>
+                        <td>Concejal VI</td>
+                        <td>CREO</td>
+                        <td>2618-90522-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Pablo Poroj Gomez</td>
+                        <td>Concejal VII</td>
+                        <td>CREO</td>
+                        <td>2510-74609-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Jose Pablo Mendoza Franco</td>
+                        <td>Concejal VIII</td>
+                        <td>CREO</td>
+                        <td>2396-65783-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Maria Tatiana Acuña Orellana</td>
+                        <td>Concejal IX</td>
+                        <td>CREO</td>
+                        <td>2616-84302-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Vilma Lyli Caravantes Tobias Dubois</td>
+                        <td>Concejal X</td>
+                        <td>SEMILLA</td>
+                        <td>1716-59899-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Adriana Regina Palmieri Di Pollina Fernandez</td>
+                        <td>Concejal Suplente I</td>
+                        <td>UNIONISTA</td>
+                        <td>2272-42165-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Argelia Gordillo Martinez</td>
+                        <td>Concejal Suplente II</td>
+                        <td>UNIONISTA</td>
+                        <td>2533-46304-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Ismail Salomon Pineda</td>
+                        <td>Concejal Suplente III</td>
+                        <td>CREO</td>
+                        <td>2377-94721-0101</td>
+                      </tr>
+                      <tr>
+                        <td>Julio Cesar Loarca Zea</td>
+                        <td>Concejal Suplente IV</td>
+                        <td>CREO</td>
+                        <td>2601-12097-0101</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <small>Fuente: Tribunal Supremo Electoral (TSE)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

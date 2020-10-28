@@ -11,7 +11,7 @@ tags:
 {% extends "src/_includes/baseToExtend.njk" %}
 
 {% block head %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous"/>
 {% endblock %}
 
 {% block content %}
@@ -24,13 +24,17 @@ tags:
   <div class="container">
     <div class="row">
       <div class="col-12 py-2">
-        <a href="/municipios/1">Municipios</a> \
+        <a href="/municipios/1">Municipios</a>
+        \
         {{ municipio.municipio }}
       </div>
       <div class="col-12 mb-2">
         <div class="bg-white w-100 row m-0 p-0">
-          <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/index.html" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
             Municipalidades
+          </a>
+          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/corporacion.html" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+            Corporación municipal
           </a>
           {# <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
             TODO AIP
@@ -84,13 +88,16 @@ tags:
             </h6>
             <ul class="list-unstyled">
               <li>
-                Página web: <a href="http://www.muniguate.com/">http://www.muniguate.com/</a>
+                Página web:
+                <a href="http://www.muniguate.com/">http://www.muniguate.com/</a>
               </li>
               <li>
-                Twitter: <a href="https://twitter.com/muniguate">@MuniGuate</a>
+                Twitter:
+                <a href="https://twitter.com/muniguate">@MuniGuate</a>
               </li>
               <li>
-                Facebook: <a href="https://twitter.com/muniguate">@MuniGuate</a>
+                Facebook:
+                <a href="https://twitter.com/muniguate">@MuniGuate</a>
               </li>
             </ul>
           </div>
@@ -157,41 +164,29 @@ tags:
               <div class="row m-0 p-0">
                 <div class="col-12 col-lg-3 p-2 px-3 border">
                   <h3>
-                    Edad
+                    Número de Habitantes
                   </h3>
                   <h1>
                     45.4
                   </h1>
-                  <h5>
-                    Edad media
-                  </h5>
-                  <p class="text-secondary">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quisquam modi et fugiat debitis. Odit, aut nesciunt est perspiciatis recusandae.
-                  </p>
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
                   <h6>
-                    Población por rango de edad
+                    Rangos de Edad
                   </h6>
-                  <canvas id="chart-1"></canvas>
+                  <canvas id="chart-general-1"></canvas>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
-                    Población por categoria de edad
+                    Sexo
                   </h6>
-                  <canvas id="chart-2"></canvas>
+                  <canvas id="chart-general-2"></canvas>
                 </div>
-                <div class="col-12 col-lg-8 p-3 border">
+                <div class="col-12 col-lg-12 p-3 border">
                   <h6>
-                    Población por rango de edad
+                    Grupos Étnicos
                   </h6>
-                  <canvas height="80px" id="chart-3"></canvas>
-                </div>
-                <div class="col-12 col-lg-4 p-3 border">
-                  <h6>
-                    Género
-                  </h6>
-                  <canvas id="chart-4"></canvas>
+                  <canvas height="80px" id="chart-general-3"></canvas>
                 </div>
               </div>
             </div>
@@ -270,7 +265,7 @@ tags:
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Ricardo  Quiñonez Lemus</td>
+                        <td>Ricardo Quiñonez Lemus</td>
                         <td>Alcalde</td>
                         <td>UNIONISTA</td>
                         <td>1996-83832-0101</td>
@@ -288,7 +283,7 @@ tags:
                         <td>1999-02364-0101</td>
                       </tr>
                       <tr>
-                        <td>Jaime  Castillo Castellanos</td>
+                        <td>Jaime Castillo Castellanos</td>
                         <td>Sindico III</td>
                         <td>UNIONISTA</td>
                         <td>1999-26336-0101</td>
@@ -330,7 +325,7 @@ tags:
                         <td>1999-88978-0101</td>
                       </tr>
                       <tr>
-                        <td>Richard  Lee Abularach</td>
+                        <td>Richard Lee Abularach</td>
                         <td>Concejal VI</td>
                         <td>CREO</td>
                         <td>2618-90522-0101</td>
@@ -366,13 +361,13 @@ tags:
                         <td>2272-42165-0101</td>
                       </tr>
                       <tr>
-                        <td>Argelia  Gordillo Martinez</td>
+                        <td>Argelia Gordillo Martinez</td>
                         <td>Concejal Suplente II</td>
                         <td>UNIONISTA</td>
                         <td>2533-46304-0101</td>
                       </tr>
                       <tr>
-                        <td>Ismail  Salomon Pineda</td>
+                        <td>Ismail Salomon Pineda</td>
                         <td>Concejal Suplente III</td>
                         <td>CREO</td>
                         <td>2377-94721-0101</td>
@@ -1055,101 +1050,118 @@ tags:
   {# Page JS #}
   <script>
     let tematicaSelect = document.getElementById('tematica');
-    let tematicaSluged = 'rango-de-edad'.toLowerCase().replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '');
+    let tematicaSluged = 'rango-de-edad'
+      .toLowerCase()
+      .replace(/ /g, '-')
+      .replace(/[^\w-]+/g, '');
 
-    document.getElementById('code-embed').innerHTML = `&lt;embed src="${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/" type="text/html" class="w-100" height="500">`;
-    document.getElementById('embed-embed').src = `${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/`;
+    document
+      .getElementById('code-embed')
+      .innerHTML = `&lt;embed src="${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/" type="text/html" class="w-100" height="500">`;
+    document
+      .getElementById('embed-embed')
+      .src = `${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/`;
 
-    tematicaSelect.addEventListener('change', function(event) {
+    tematicaSelect.addEventListener('change', function (event) {
       var value = event.target.value;
 
-      document.getElementById('titleTematicaContainer').innerHTML = value;
+      document
+        .getElementById('titleTematicaContainer')
+        .innerHTML = value;
 
-      tematicaSluged = value.toLowerCase().replace(/ /g, '-')
+      tematicaSluged = value
+        .toLowerCase()
+        .replace(/ /g, '-')
         .replace(/[^\w-]+/g, '');
-      
-      document.getElementById('code-embed').innerHTML = `<embed src="${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/" type="text/html" class="w-100" height="500">`;
-      document.getElementById('embed-embed').src = `${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/`;
+
+      document
+        .getElementById('code-embed')
+        .innerHTML = `<embed src="${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/" type="text/html" class="w-100" height="500">`;
+      document
+        .getElementById('embed-embed')
+        .src = `${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/`;
     });
   </script>
   {# ChartJS #}
   <script>
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)){ return; }
-      js = d.createElement(s); js.id = id;
-      js.onload = function(){
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.onload = function () {
         var baseBarChartConfig = {
           "type": "bar",
           "data": {
-              "labels": [
-              ],
-              "datasets": [
-                  {
-                      "label": "",
-                      "data": [],
-                      "fill": false,
-                      "backgroundColor": "#52CCAE",
-                      "borderColor": "#52CCAE",
-                      "borderWidth": 0
-                  }
-              ]
+            "labels": [],
+            "datasets": [
+              {
+                "label": "",
+                "data": [],
+                "fill": false,
+                "backgroundColor": "#52CCAE",
+                "borderColor": "#52CCAE",
+                "borderWidth": 0
+              }
+            ]
           },
           "options": {
-              "scales": {
-                  "xAxes": [
-                      {
-                          "display": true,
-                          "gridLines": {
-                              "lineWidth": 1
-                          }
-                      }
-                  ],
-                  "yAxes": [
-                      {
-                          "display": true,
-                          "lineWidth": 1,
-                          "ticks": {
-                              "beginAtZero": true,
-                              "suggestedMax": 100
-                          },
-                          "gridLines": {
-                              "lineWidth": 1
-                          }
-                      }
-                  ]
-              }
+            "scales": {
+              "xAxes": [
+                {
+                  "display": true,
+                  "gridLines": {
+                    "lineWidth": 1
+                  }
+                }
+              ],
+              "yAxes": [
+                {
+                  "display": true,
+                  "lineWidth": 1,
+                  "ticks": {
+                    "beginAtZero": true,
+                    "suggestedMax": 100
+                  },
+                  "gridLines": {
+                    "lineWidth": 1
+                  }
+                }
+              ]
+            }
           }
         };
 
         var basePieChartConfig = {
           "type": "pie",
-            "data": {
+          "data": {
             "labels": [],
-              "datasets": [
-                {
-                  "label": "",
-                  "data": [],
-                  "fill": false,
-                  // generados con https://mdigi.tools/color-shades/#52ccae
-                  "backgroundColor": [
-                    "#effaf7",
-                    "#cef0e8",
-                    "#ade7d9",
-                    "#8cddc9",
-                    "#6bd3ba",
-                    "#4acaaa",
-                    "#35b595",
-                    "#2c947a",
-                    "#22735f",
-                    "#185244",
-                    "#0f3129",
-                    "#05100e"
-                  ],
-                  "borderWidth": 0
-                }
-              ]
+            "datasets": [
+              {
+                "label": "",
+                "data": [],
+                "fill": false,
+                // generados con https://mdigi.tools/color-shades/#52ccae
+                "backgroundColor": [
+                  "#effaf7",
+                  "#cef0e8",
+                  "#ade7d9",
+                  "#8cddc9",
+                  "#6bd3ba",
+                  "#4acaaa",
+                  "#35b595",
+                  "#2c947a",
+                  "#22735f",
+                  "#185244",
+                  "#0f3129",
+                  "#05100e"
+                ],
+                "borderWidth": 0
+              }
+            ]
           },
           "options": {
             legend: {
@@ -1159,17 +1171,23 @@ tags:
         };
 
         let chartConfig1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfig1.data.datasets[0].label = "Población %";
-        chartConfig1.data.datasets[0].data = [
-          4,
-          8,
-          12,
-          8,
-          3,
-          30,
-          12,
-          8
-        ];
+        chartConfig1
+          .data
+          .datasets[0]
+          .label = "Población por edad %";
+        chartConfig1
+          .data
+          .datasets[0]
+          .data = [
+            4,
+            8,
+            12,
+            8,
+            3,
+            30,
+            12,
+            8
+          ];
         chartConfig1.data.labels = [
           "0-9",
           "10-19",
@@ -1180,148 +1198,174 @@ tags:
           "60-79",
           "80+"
         ];
-        new Chart(document.getElementById("chart-1"), chartConfig1);
+        new Chart(document.getElementById("chart-general-1"), chartConfig1);
+
+        let chartConfigGeneral2 = JSON.parse(JSON.stringify(basePieChartConfig));
+        chartConfigGeneral2
+          .data
+          .datasets[0]
+          .label = "Sexo";
+        chartConfigGeneral2
+          .data
+          .datasets[0]
+          .data = [
+            4545,
+            5141,
+          ];
+        chartConfigGeneral2.data.labels = [
+          "Mujer",
+          "Varon",
+        ];
+        chartConfigGeneral2.options.legend.display = true;
+        new Chart(document.getElementById("chart-general-2"), chartConfigGeneral2);
+
+         let chartGeneral3 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartGeneral3
+          .data
+          .datasets[0]
+          .label = "Grupo étnicos %";
+        chartGeneral3
+          .data
+          .datasets[0]
+          .data = [
+            4,
+            8,
+            12,
+            8,
+            3,
+            30,
+            12
+          ];
+        chartGeneral3.data.labels = [
+          "Grupo A",
+          "Grupo B",
+          "Grupo C",
+          "Grupo D",
+          "Grupo E",
+          "Grupo F",
+          "Grupo G"
+        ];
+        new Chart(document.getElementById("chart-general-3"), chartGeneral3);
 
         // Gestion municipal
         let chartConfigGestionMunicipal1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigGestionMunicipal1.data.datasets[0].label = "Indice gestión municipal %";
-        chartConfigGestionMunicipal1.data.datasets[0].data = [
-          67.49,
-          56.93,
-          65.37
-        ];
-        chartConfigGestionMunicipal1.data.labels = [
-          "2013",
-          "2016",
-          "2018"
-        ];
+        chartConfigGestionMunicipal1
+          .data
+          .datasets[0]
+          .label = "Indice gestión municipal %";
+        chartConfigGestionMunicipal1
+          .data
+          .datasets[0]
+          .data = [67.49, 56.93, 65.37];
+        chartConfigGestionMunicipal1.data.labels = ["2013", "2016", "2018"];
         new Chart(document.getElementById("chart-gestion-municipal-1"), chartConfigGestionMunicipal1);
 
         // Transparencia
         let chartConfigGestionTransparencia1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigGestionTransparencia1.data.datasets[0].label = "Indice de Acceso a la Información Pública";
-        chartConfigGestionTransparencia1.data.datasets[0].data = [
-          59,
-          81.25,
-          72.50
-        ];
-        chartConfigGestionTransparencia1.data.labels = [
-          "2015",
-          "2017",
-          "2019"
-        ];
+        chartConfigGestionTransparencia1
+          .data
+          .datasets[0]
+          .label = "Indice de Acceso a la Información Pública";
+        chartConfigGestionTransparencia1
+          .data
+          .datasets[0]
+          .data = [59, 81.25, 72.50];
+        chartConfigGestionTransparencia1.data.labels = ["2015", "2017", "2019"];
         new Chart(document.getElementById("chart-transparencia-1"), chartConfigGestionTransparencia1);
 
         // Pobreza
         let chartConfigGestionPobreza1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigGestionPobreza1.data.datasets[0].label = "Índice de pobreza Multidimensional";
-        chartConfigGestionPobreza1.data.datasets[0].data = [
-          51.9,
-          49.8,
-          52.9
-        ];
-        chartConfigGestionPobreza1.data.labels = [
-          "2006",
-          "2011",
-          "2014"
-        ];
+        chartConfigGestionPobreza1
+          .data
+          .datasets[0]
+          .label = "Índice de pobreza Multidimensional";
+        chartConfigGestionPobreza1
+          .data
+          .datasets[0]
+          .data = [51.9, 49.8, 52.9];
+        chartConfigGestionPobreza1.data.labels = ["2006", "2011", "2014"];
         new Chart(document.getElementById("chart-pobreza-1"), chartConfigGestionPobreza1);
 
         // Educación
         let chartConfigGestionEducacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigGestionEducacion1.data.datasets[0].label = "Logro Municipal en Lectura";
-        chartConfigGestionEducacion1.data.datasets[0].data = [
-          38.71,
-          40,
-          42,
-          45
-        ];
-        chartConfigGestionEducacion1.data.labels = [
-          "2016",
-          "2017",
-          "2018",
-          "2019"
-        ];
+        chartConfigGestionEducacion1
+          .data
+          .datasets[0]
+          .label = "Logro Municipal en Lectura";
+        chartConfigGestionEducacion1
+          .data
+          .datasets[0]
+          .data = [38.71, 40, 42, 45];
+        chartConfigGestionEducacion1.data.labels = ["2016", "2017", "2018", "2019"];
         new Chart(document.getElementById("chart-educacion-1"), chartConfigGestionEducacion1);
 
         let chartConfigGestionEducacion2 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigGestionEducacion2.data.datasets[0].label = "Logro Municipal en Matemática";
-        chartConfigGestionEducacion2.data.datasets[0].data = [
-          11,
-          06,
-          12,
-          15,
-          20
-        ];
-        chartConfigGestionEducacion2.data.labels = [
-          "2016",
-          "2017",
-          "2018",
-          "2019"
-        ];
+        chartConfigGestionEducacion2
+          .data
+          .datasets[0]
+          .label = "Logro Municipal en Matemática";
+        chartConfigGestionEducacion2
+          .data
+          .datasets[0]
+          .data = [11, 06, 12, 15, 20];
+        chartConfigGestionEducacion2.data.labels = ["2016", "2017", "2018", "2019"];
         new Chart(document.getElementById("chart-educacion-2"), chartConfigGestionEducacion2);
 
         // Finanzas
         let chartConfigFinanzas1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigFinanzas1.data.datasets[0].label = "Presupuesto Municipal 2019";
-        chartConfigFinanzas1.data.datasets[0].data = [
-          11.06,
-          12,
-          15,
-          20
-        ];
-        chartConfigFinanzas1.data.labels = [
-          "2016",
-          "2017",
-          "2018",
-          "2019"
-        ];
+        chartConfigFinanzas1
+          .data
+          .datasets[0]
+          .label = "Presupuesto Municipal 2019";
+        chartConfigFinanzas1
+          .data
+          .datasets[0]
+          .data = [11.06, 12, 15, 20];
+        chartConfigFinanzas1.data.labels = ["2016", "2017", "2018", "2019"];
         new Chart(document.getElementById("chart-finanzas-1"), chartConfigFinanzas1);
 
         let chartConfigFinanzas2 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigFinanzas2.data.datasets[0].label = "Ejecucion Presupuestaria del 2019";
-        chartConfigFinanzas2.data.datasets[0].data = [
-          11.06,
-          12,
-          15,
-          20
-        ];
-        chartConfigFinanzas2.data.labels = [
-          "2016",
-          "2017",
-          "2018",
-          "2019"
-        ];
+        chartConfigFinanzas2
+          .data
+          .datasets[0]
+          .label = "Ejecucion Presupuestaria del 2019";
+        chartConfigFinanzas2
+          .data
+          .datasets[0]
+          .data = [11.06, 12, 15, 20];
+        chartConfigFinanzas2.data.labels = ["2016", "2017", "2018", "2019"];
         new Chart(document.getElementById("chart-finanzas-2"), chartConfigFinanzas2);
 
         let chartConfigFinanzas3 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigFinanzas3.data.datasets[0].label = "Recaudación Municipal";
-        chartConfigFinanzas3.data.datasets[0].data = [
-          11.06,
-          12,
-          15,
-          20
-        ];
-        chartConfigFinanzas3.data.labels = [
-          "2016",
-          "2017",
-          "2018",
-          "2019"
-        ];
+        chartConfigFinanzas3
+          .data
+          .datasets[0]
+          .label = "Recaudación Municipal";
+        chartConfigFinanzas3
+          .data
+          .datasets[0]
+          .data = [11.06, 12, 15, 20];
+        chartConfigFinanzas3.data.labels = ["2016", "2017", "2018", "2019"];
         new Chart(document.getElementById("chart-finanzas-3"), chartConfigFinanzas3);
 
         let chartConfigFinanzas4 = JSON.parse(JSON.stringify(basePieChartConfig));
-        chartConfigFinanzas4.data.datasets[0].label = "Recaudación Municipal";
-        chartConfigFinanzas4.data.datasets[0].data = [
-          0.00,
-          27522932.61,
-          287421230.84,
-          512717509.58,
-          1197918.81,
-          1922076.98,
-          29000000.00,
-          105334267.49,
-        ];
+        chartConfigFinanzas4
+          .data
+          .datasets[0]
+          .label = "Recaudación Municipal";
+        chartConfigFinanzas4
+          .data
+          .datasets[0]
+          .data = [
+            0.00,
+            27522932.61,
+            287421230.84,
+            512717509.58,
+            1197918.81,
+            1922076.98,
+            29000000.00,
+            105334267.49
+          ];
         chartConfigFinanzas4.data.labels = [
           "DISMINUCIÓN DE OTROS ACTIVOS FINANCIEROS",
           "INGRESOS DE OPERACION",
@@ -1336,7 +1380,9 @@ tags:
         new Chart(document.getElementById("chart-finanzas-4"), chartConfigFinanzas4);
       }
       js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
-      fjs.parentNode.insertBefore(js, fjs);
+      fjs
+        .parentNode
+        .insertBefore(js, fjs);
     }(document, 'script', 'chart-jssdk'));
   </script>
 {% endblock %}
