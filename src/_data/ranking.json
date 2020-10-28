@@ -1,0 +1,3402 @@
+[
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 102,
+    "municipio": "Santa Catarina Pinula",
+    "Ranking de la Gestión Municipal 2013": "0,6749",
+    "Ranking de la Gestión Municipal 2016": "0,5693",
+    "Ranking de la Gestión Municipal 2018": "0,6537",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 108,
+    "municipio": "Mixco",
+    "Ranking de la Gestión Municipal 2013": "0,5285",
+    "Ranking de la Gestión Municipal 2016": "0,5461",
+    "Ranking de la Gestión Municipal 2018": "0,6402",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1501,
+    "municipio": "Salamá",
+    "Ranking de la Gestión Municipal 2013": "0,6061",
+    "Ranking de la Gestión Municipal 2016": "0,6210",
+    "Ranking de la Gestión Municipal 2018": "0,6253",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 308,
+    "municipio": "San Lucas Sacatepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,5687",
+    "Ranking de la Gestión Municipal 2016": "0,4754",
+    "Ranking de la Gestión Municipal 2018": "0,6075",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 117,
+    "municipio": "San Miguel Petapa",
+    "Ranking de la Gestión Municipal 2013": "0,3933",
+    "Ranking de la Gestión Municipal 2016": "0,2093",
+    "Ranking de la Gestión Municipal 2018": "0,6043",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 902,
+    "municipio": "Salcajá",
+    "Ranking de la Gestión Municipal 2013": "0,4866",
+    "Ranking de la Gestión Municipal 2016": "0,5838",
+    "Ranking de la Gestión Municipal 2018": "0,5982",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 101,
+    "municipio": "Guatemala",
+    "Ranking de la Gestión Municipal 2013": "0,5181",
+    "Ranking de la Gestión Municipal 2016": "0,5790",
+    "Ranking de la Gestión Municipal 2018": "0,5936",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1201,
+    "municipio": "San Marcos",
+    "Ranking de la Gestión Municipal 2013": "0,2936",
+    "Ranking de la Gestión Municipal 2016": "0,4651",
+    "Ranking de la Gestión Municipal 2018": "0,5880",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 103,
+    "municipio": "San José Pinula",
+    "Ranking de la Gestión Municipal 2013": "0,2761",
+    "Ranking de la Gestión Municipal 2016": "0,4245",
+    "Ranking de la Gestión Municipal 2018": "0,5691",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 716,
+    "municipio": "San Marcos La Laguna",
+    "Ranking de la Gestión Municipal 2013": "0,4843",
+    "Ranking de la Gestión Municipal 2016": "0,4494",
+    "Ranking de la Gestión Municipal 2018": "0,5691",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 106,
+    "municipio": "Chinautla",
+    "Ranking de la Gestión Municipal 2013": "0,3584",
+    "Ranking de la Gestión Municipal 2016": "0,2600",
+    "Ranking de la Gestión Municipal 2018": "0,5681",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1202,
+    "municipio": "San Pedro Sacatepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,1243",
+    "Ranking de la Gestión Municipal 2016": "0,3691",
+    "Ranking de la Gestión Municipal 2018": "0,5626",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 407,
+    "municipio": "Patzún",
+    "Ranking de la Gestión Municipal 2013": "0,2876",
+    "Ranking de la Gestión Municipal 2016": "0,2580",
+    "Ranking de la Gestión Municipal 2018": "0,5625",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1602,
+    "municipio": "Santa Cruz Verapaz",
+    "Ranking de la Gestión Municipal 2013": "0,4392",
+    "Ranking de la Gestión Municipal 2016": "0,4764",
+    "Ranking de la Gestión Municipal 2018": "0,5576",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 113,
+    "municipio": "Fraijanes",
+    "Ranking de la Gestión Municipal 2013": "0,2613",
+    "Ranking de la Gestión Municipal 2016": "0,3512",
+    "Ranking de la Gestión Municipal 2018": "0,5564",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 115,
+    "municipio": "Villa Nueva",
+    "Ranking de la Gestión Municipal 2013": "0,4886",
+    "Ranking de la Gestión Municipal 2016": "0,5514",
+    "Ranking de la Gestión Municipal 2018": "0,5559",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1203,
+    "municipio": "San Antonio Sacatepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,4851",
+    "Ranking de la Gestión Municipal 2016": "0,4224",
+    "Ranking de la Gestión Municipal 2018": "0,5559",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1507,
+    "municipio": "San Jerónimo",
+    "Ranking de la Gestión Municipal 2013": "0,3506",
+    "Ranking de la Gestión Municipal 2016": "0,4232",
+    "Ranking de la Gestión Municipal 2018": "0,5482",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 316,
+    "municipio": "Santa Catarina Barahona",
+    "Ranking de la Gestión Municipal 2013": "0,4168",
+    "Ranking de la Gestión Municipal 2016": "0,4425",
+    "Ranking de la Gestión Municipal 2018": "0,5479",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 306,
+    "municipio": "Santiago Sacatepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,3012",
+    "Ranking de la Gestión Municipal 2016": "0,4393",
+    "Ranking de la Gestión Municipal 2018": "0,5467",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 415,
+    "municipio": "Zaragoza",
+    "Ranking de la Gestión Municipal 2013": "0,4053",
+    "Ranking de la Gestión Municipal 2016": "0,4151",
+    "Ranking de la Gestión Municipal 2018": "0,5445",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 609,
+    "municipio": "Taxisco",
+    "Ranking de la Gestión Municipal 2013": "0,2776",
+    "Ranking de la Gestión Municipal 2016": "0,3292",
+    "Ranking de la Gestión Municipal 2018": "0,5420",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 303,
+    "municipio": "Pastores",
+    "Ranking de la Gestión Municipal 2013": "0,4416",
+    "Ranking de la Gestión Municipal 2016": "0,4874",
+    "Ranking de la Gestión Municipal 2018": "0,5413",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1610,
+    "municipio": "San Juan Chamelco",
+    "Ranking de la Gestión Municipal 2013": "0,4932",
+    "Ranking de la Gestión Municipal 2016": "0,3887",
+    "Ranking de la Gestión Municipal 2018": "0,5389",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2216,
+    "municipio": "San José Acatempa",
+    "Ranking de la Gestión Municipal 2013": "0,3518",
+    "Ranking de la Gestión Municipal 2016": "0,5167",
+    "Ranking de la Gestión Municipal 2018": "0,5385",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1108,
+    "municipio": "Nuevo San Carlos",
+    "Ranking de la Gestión Municipal 2013": "0,3840",
+    "Ranking de la Gestión Municipal 2016": "0,4098",
+    "Ranking de la Gestión Municipal 2018": "0,5316",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1210,
+    "municipio": "Tejutla",
+    "Ranking de la Gestión Municipal 2013": "0,3039",
+    "Ranking de la Gestión Municipal 2016": "0,3813",
+    "Ranking de la Gestión Municipal 2018": "0,5273",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 114,
+    "municipio": "Amatitlán",
+    "Ranking de la Gestión Municipal 2013": "0,4200",
+    "Ranking de la Gestión Municipal 2016": "0,3900",
+    "Ranking de la Gestión Municipal 2018": "0,5262",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "id": 1803,
+    "municipio": "El Estor",
+    "Ranking de la Gestión Municipal 2013": "0,1857",
+    "Ranking de la Gestión Municipal 2016": "0,4495",
+    "Ranking de la Gestión Municipal 2018": "0,5260",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1303,
+    "municipio": "Malacatancito",
+    "Ranking de la Gestión Municipal 2013": "0,4568",
+    "Ranking de la Gestión Municipal 2016": "0,4020",
+    "Ranking de la Gestión Municipal 2018": "0,5253",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 707,
+    "municipio": "Santa Clara La Laguna",
+    "Ranking de la Gestión Municipal 2013": "0,2991",
+    "Ranking de la Gestión Municipal 2016": "0,3042",
+    "Ranking de la Gestión Municipal 2018": "0,5241",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 608,
+    "municipio": "Chiquimulilla",
+    "Ranking de la Gestión Municipal 2013": "0,4729",
+    "Ranking de la Gestión Municipal 2016": "0,4056",
+    "Ranking de la Gestión Municipal 2018": "0,5212",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2007,
+    "municipio": "Esquipulas",
+    "Ranking de la Gestión Municipal 2013": "0,4819",
+    "Ranking de la Gestión Municipal 2016": "0,3722",
+    "Ranking de la Gestión Municipal 2018": "0,5205",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2006,
+    "municipio": "Olopa",
+    "Ranking de la Gestión Municipal 2013": "0,3934",
+    "Ranking de la Gestión Municipal 2016": "0,3055",
+    "Ranking de la Gestión Municipal 2018": "0,5201",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 903,
+    "municipio": "Olintepeque",
+    "Ranking de la Gestión Municipal 2013": "0,3637",
+    "Ranking de la Gestión Municipal 2016": "0,3743",
+    "Ranking de la Gestión Municipal 2018": "0,5180",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 905,
+    "municipio": "Sibilia",
+    "Ranking de la Gestión Municipal 2013": "0,2647",
+    "Ranking de la Gestión Municipal 2016": "0,3066",
+    "Ranking de la Gestión Municipal 2018": "0,5156",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 403,
+    "municipio": "San Martín Jilotepeque",
+    "Ranking de la Gestión Municipal 2013": "0,4686",
+    "Ranking de la Gestión Municipal 2016": "0,4224",
+    "Ranking de la Gestión Municipal 2018": "0,5148",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1421,
+    "municipio": "Pachalum",
+    "Ranking de la Gestión Municipal 2013": "0,1469",
+    "Ranking de la Gestión Municipal 2016": "0,3297",
+    "Ranking de la Gestión Municipal 2018": "0,5144",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1018,
+    "municipio": "Zunilito",
+    "Ranking de la Gestión Municipal 2013": "0,3983",
+    "Ranking de la Gestión Municipal 2016": "0,3158",
+    "Ranking de la Gestión Municipal 2018": "0,5128",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1208,
+    "municipio": "Sibinal",
+    "Ranking de la Gestión Municipal 2013": "0,4262",
+    "Ranking de la Gestión Municipal 2016": "0,4017",
+    "Ranking de la Gestión Municipal 2018": "0,5126",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1617,
+    "municipio": "Raxruhá",
+    "Ranking de la Gestión Municipal 2013": "0,5448",
+    "Ranking de la Gestión Municipal 2016": "0,3721",
+    "Ranking de la Gestión Municipal 2018": "0,5114",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 307,
+    "municipio": "San Bartolomé Milpas Altas",
+    "Ranking de la Gestión Municipal 2013": "0,4015",
+    "Ranking de la Gestión Municipal 2016": "0,2635",
+    "Ranking de la Gestión Municipal 2018": "0,5112",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 205,
+    "municipio": "El Jícaro",
+    "Ranking de la Gestión Municipal 2013": "0,2681",
+    "Ranking de la Gestión Municipal 2016": "0,2806",
+    "Ranking de la Gestión Municipal 2018": "0,5108",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 924,
+    "municipio": "Palestina de los Altos",
+    "Ranking de la Gestión Municipal 2013": "0,4920",
+    "Ranking de la Gestión Municipal 2016": "0,3795",
+    "Ranking de la Gestión Municipal 2018": "0,5106",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1230,
+    "municipio": "La Blanca",
+    "Ranking de la Gestión Municipal 2013": "",
+    "Ranking de la Gestión Municipal 2016": "0,3755",
+    "Ranking de la Gestión Municipal 2018": "0,5090",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 915,
+    "municipio": "Huitán",
+    "Ranking de la Gestión Municipal 2013": "0,1699",
+    "Ranking de la Gestión Municipal 2016": "0,2874",
+    "Ranking de la Gestión Municipal 2018": "0,5086",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1413,
+    "municipio": "Nebaj",
+    "Ranking de la Gestión Municipal 2013": "0,2881",
+    "Ranking de la Gestión Municipal 2016": "0,3419",
+    "Ranking de la Gestión Municipal 2018": "0,5086",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1606,
+    "municipio": "San Miguel Tucurú",
+    "Ranking de la Gestión Municipal 2013": "0,1890",
+    "Ranking de la Gestión Municipal 2016": "0,5140",
+    "Ranking de la Gestión Municipal 2018": "0,5084",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1902,
+    "municipio": "Estanzuela",
+    "Ranking de la Gestión Municipal 2013": "0,4640",
+    "Ranking de la Gestión Municipal 2016": "0,3910",
+    "Ranking de la Gestión Municipal 2018": "0,5073",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2214,
+    "municipio": "Moyuta",
+    "Ranking de la Gestión Municipal 2013": "0,2422",
+    "Ranking de la Gestión Municipal 2016": "0,3619",
+    "Ranking de la Gestión Municipal 2018": "0,5069",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 112,
+    "municipio": "Chuarrancho",
+    "Ranking de la Gestión Municipal 2013": "0,3445",
+    "Ranking de la Gestión Municipal 2016": "0,2742",
+    "Ranking de la Gestión Municipal 2018": "0,5020",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 411,
+    "municipio": "Acatenango",
+    "Ranking de la Gestión Municipal 2013": "0,3076",
+    "Ranking de la Gestión Municipal 2016": "0,2660",
+    "Ranking de la Gestión Municipal 2018": "0,5013",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 910,
+    "municipio": "San Mateo",
+    "Ranking de la Gestión Municipal 2013": "0,1928",
+    "Ranking de la Gestión Municipal 2016": "0,2600",
+    "Ranking de la Gestión Municipal 2018": "0,4996",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1508,
+    "municipio": "Purulhá",
+    "Ranking de la Gestión Municipal 2013": "0,3609",
+    "Ranking de la Gestión Municipal 2016": "0,4768",
+    "Ranking de la Gestión Municipal 2018": "0,4995",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 116,
+    "municipio": "Villa Canales",
+    "Ranking de la Gestión Municipal 2013": "0,5008",
+    "Ranking de la Gestión Municipal 2016": "0,3405",
+    "Ranking de la Gestión Municipal 2018": "0,4991",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1206,
+    "municipio": "Concepción Tutuapa",
+    "Ranking de la Gestión Municipal 2013": "0,2899",
+    "Ranking de la Gestión Municipal 2016": "0,3065",
+    "Ranking de la Gestión Municipal 2018": "0,4983",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 923,
+    "municipio": "La Esperanza",
+    "Ranking de la Gestión Municipal 2013": "0,3667",
+    "Ranking de la Gestión Municipal 2016": "0,3382",
+    "Ranking de la Gestión Municipal 2018": "0,4978",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "id": 2107,
+    "municipio": "Mataquescuintla",
+    "Ranking de la Gestión Municipal 2013": "0,2981",
+    "Ranking de la Gestión Municipal 2016": "0,3863",
+    "Ranking de la Gestión Municipal 2018": "0,4975",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1901,
+    "municipio": "Zacapa",
+    "Ranking de la Gestión Municipal 2013": "0,2550",
+    "Ranking de la Gestión Municipal 2016": "0,2985",
+    "Ranking de la Gestión Municipal 2018": "0,4974",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1609,
+    "municipio": "San Pedro Carchá",
+    "Ranking de la Gestión Municipal 2013": "0,5604",
+    "Ranking de la Gestión Municipal 2016": "0,3298",
+    "Ranking de la Gestión Municipal 2018": "0,4953",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 614,
+    "municipio": "Nueva Santa Rosa",
+    "Ranking de la Gestión Municipal 2013": "0,4946",
+    "Ranking de la Gestión Municipal 2016": "0,4167",
+    "Ranking de la Gestión Municipal 2018": "0,4949",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1704,
+    "municipio": "San Andrés",
+    "Ranking de la Gestión Municipal 2013": "0,1867",
+    "Ranking de la Gestión Municipal 2016": "0,2086",
+    "Ranking de la Gestión Municipal 2018": "0,4930",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 601,
+    "municipio": "Cuilapa",
+    "Ranking de la Gestión Municipal 2013": "0,3229",
+    "Ranking de la Gestión Municipal 2016": "0,2763",
+    "Ranking de la Gestión Municipal 2018": "0,4916",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 204,
+    "municipio": "San Cristóbal Acasaguastlán",
+    "Ranking de la Gestión Municipal 2013": "0,5436",
+    "Ranking de la Gestión Municipal 2016": "0,4043",
+    "Ranking de la Gestión Municipal 2018": "0,4899",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 509,
+    "municipio": "San José",
+    "Ranking de la Gestión Municipal 2013": "0,3863",
+    "Ranking de la Gestión Municipal 2016": "0,3311",
+    "Ranking de la Gestión Municipal 2018": "0,4893",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2010,
+    "municipio": "San Jacinto",
+    "Ranking de la Gestión Municipal 2013": "0,4590",
+    "Ranking de la Gestión Municipal 2016": "0,3951",
+    "Ranking de la Gestión Municipal 2018": "0,4880",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 610,
+    "municipio": "Santa María Ixhuatán",
+    "Ranking de la Gestión Municipal 2013": "0,3072",
+    "Ranking de la Gestión Municipal 2016": "0,2483",
+    "Ranking de la Gestión Municipal 2018": "0,4875",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2004,
+    "municipio": "Jocotán",
+    "Ranking de la Gestión Municipal 2013": "0,3168",
+    "Ranking de la Gestión Municipal 2016": "0,3969",
+    "Ranking de la Gestión Municipal 2018": "0,4866",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1227,
+    "municipio": "Esquipulas Palo Gordo",
+    "Ranking de la Gestión Municipal 2013": "0,4895",
+    "Ranking de la Gestión Municipal 2016": "0,4290",
+    "Ranking de la Gestión Municipal 2018": "0,4859",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1607,
+    "municipio": "Panzós",
+    "Ranking de la Gestión Municipal 2013": "0,4957",
+    "Ranking de la Gestión Municipal 2016": "0,4454",
+    "Ranking de la Gestión Municipal 2018": "0,4851",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1211,
+    "municipio": "San Rafael Pie de la Cuesta",
+    "Ranking de la Gestión Municipal 2013": "0,3379",
+    "Ranking de la Gestión Municipal 2016": "0,2327",
+    "Ranking de la Gestión Municipal 2018": "0,4843",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 510,
+    "municipio": "Iztapa",
+    "Ranking de la Gestión Municipal 2013": "0,3058",
+    "Ranking de la Gestión Municipal 2016": "0,3764",
+    "Ranking de la Gestión Municipal 2018": "0,4837",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 514,
+    "municipio": "Sipacate",
+    "Ranking de la Gestión Municipal 2013": "",
+    "Ranking de la Gestión Municipal 2016": "0,2209",
+    "Ranking de la Gestión Municipal 2018": "0,4829",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 914,
+    "municipio": "Cantel",
+    "Ranking de la Gestión Municipal 2013": "0,2394",
+    "Ranking de la Gestión Municipal 2016": "0,2923",
+    "Ranking de la Gestión Municipal 2018": "0,4793",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1333,
+    "municipio": "Petatán",
+    "Ranking de la Gestión Municipal 2013": "",
+    "Ranking de la Gestión Municipal 2016": "0,3685",
+    "Ranking de la Gestión Municipal 2018": "0,4765",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "id": 2106,
+    "municipio": "Monjas",
+    "Ranking de la Gestión Municipal 2013": "0,2509",
+    "Ranking de la Gestión Municipal 2016": "0,3209",
+    "Ranking de la Gestión Municipal 2018": "0,4765",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2003,
+    "municipio": "San Juan Ermita",
+    "Ranking de la Gestión Municipal 2013": "0,3531",
+    "Ranking de la Gestión Municipal 2016": "0,2483",
+    "Ranking de la Gestión Municipal 2018": "0,4763",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1906,
+    "municipio": "Usumatlán",
+    "Ranking de la Gestión Municipal 2013": "0,3733",
+    "Ranking de la Gestión Municipal 2016": "0,3596",
+    "Ranking de la Gestión Municipal 2018": "0,4762",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1506,
+    "municipio": "Santa Cruz El Chol",
+    "Ranking de la Gestión Municipal 2013": "0,5030",
+    "Ranking de la Gestión Municipal 2016": "0,4926",
+    "Ranking de la Gestión Municipal 2018": "0,4752",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 401,
+    "municipio": "Chimaltenango",
+    "Ranking de la Gestión Municipal 2013": "0,3600",
+    "Ranking de la Gestión Municipal 2016": "0,2839",
+    "Ranking de la Gestión Municipal 2018": "0,4750",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 801,
+    "municipio": "Totonicapán",
+    "Ranking de la Gestión Municipal 2013": "0,3386",
+    "Ranking de la Gestión Municipal 2016": "0,2093",
+    "Ranking de la Gestión Municipal 2018": "0,4749",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 208,
+    "municipio": "San Antonio La Paz",
+    "Ranking de la Gestión Municipal 2013": "0,2469",
+    "Ranking de la Gestión Municipal 2016": "0,3166",
+    "Ranking de la Gestión Municipal 2018": "0,4737",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 105,
+    "municipio": "Palencia",
+    "Ranking de la Gestión Municipal 2013": "0,3725",
+    "Ranking de la Gestión Municipal 2016": "0,4018",
+    "Ranking de la Gestión Municipal 2018": "0,4736",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 603,
+    "municipio": "Santa Rosa de Lima",
+    "Ranking de la Gestión Municipal 2013": "0,3839",
+    "Ranking de la Gestión Municipal 2016": "0,2776",
+    "Ranking de la Gestión Municipal 2018": "0,4736",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1614,
+    "municipio": "Chahal",
+    "Ranking de la Gestión Municipal 2013": "0,4983",
+    "Ranking de la Gestión Municipal 2016": "0,4402",
+    "Ranking de la Gestión Municipal 2018": "0,4712",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 412,
+    "municipio": "San Pedro Yepocapa",
+    "Ranking de la Gestión Municipal 2013": "0,3172",
+    "Ranking de la Gestión Municipal 2016": "0,3441",
+    "Ranking de la Gestión Municipal 2018": "0,4704",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1205,
+    "municipio": "San Miguel Ixtahuacán",
+    "Ranking de la Gestión Municipal 2013": "0,3865",
+    "Ranking de la Gestión Municipal 2016": "0,2666",
+    "Ranking de la Gestión Municipal 2018": "0,4693",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2002,
+    "municipio": "San José La Arada",
+    "Ranking de la Gestión Municipal 2013": "0,3754",
+    "Ranking de la Gestión Municipal 2016": "0,2630",
+    "Ranking de la Gestión Municipal 2018": "0,4677",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 312,
+    "municipio": "Ciudad Vieja",
+    "Ranking de la Gestión Municipal 2013": "0,2193",
+    "Ranking de la Gestión Municipal 2016": "0,3573",
+    "Ranking de la Gestión Municipal 2018": "0,4668",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 511,
+    "municipio": "Palín",
+    "Ranking de la Gestión Municipal 2013": "0,4205",
+    "Ranking de la Gestión Municipal 2016": "0,2964",
+    "Ranking de la Gestión Municipal 2018": "0,4656",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 605,
+    "municipio": "San Rafael Las Flores",
+    "Ranking de la Gestión Municipal 2013": "0,3944",
+    "Ranking de la Gestión Municipal 2016": "0,4355",
+    "Ranking de la Gestión Municipal 2018": "0,4616",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 607,
+    "municipio": "San Juan Tecuaco",
+    "Ranking de la Gestión Municipal 2013": "0,2741",
+    "Ranking de la Gestión Municipal 2016": "0,0919",
+    "Ranking de la Gestión Municipal 2018": "0,4596",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1223,
+    "municipio": "Ixchiguán",
+    "Ranking de la Gestión Municipal 2013": "0,4824",
+    "Ranking de la Gestión Municipal 2016": "0,4923",
+    "Ranking de la Gestión Municipal 2018": "0,4591",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 301,
+    "municipio": "Antigua Guatemala",
+    "Ranking de la Gestión Municipal 2013": "0,2466",
+    "Ranking de la Gestión Municipal 2016": "0,2777",
+    "Ranking de la Gestión Municipal 2018": "0,4588",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "id": 1804,
+    "municipio": "Morales",
+    "Ranking de la Gestión Municipal 2013": "0,4159",
+    "Ranking de la Gestión Municipal 2016": "0,2892",
+    "Ranking de la Gestión Municipal 2018": "0,4581",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "id": 2101,
+    "municipio": "Jalapa",
+    "Ranking de la Gestión Municipal 2013": "0,3709",
+    "Ranking de la Gestión Municipal 2016": "0,2571",
+    "Ranking de la Gestión Municipal 2018": "0,4574",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 802,
+    "municipio": "San Cristóbal Totonicapán",
+    "Ranking de la Gestión Municipal 2013": "0,3763",
+    "Ranking de la Gestión Municipal 2016": "0,2741",
+    "Ranking de la Gestión Municipal 2018": "0,4569",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1714,
+    "municipio": "El Chal",
+    "Ranking de la Gestión Municipal 2013": "",
+    "Ranking de la Gestión Municipal 2016": "0,2900",
+    "Ranking de la Gestión Municipal 2018": "0,4559",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 703,
+    "municipio": "Santa María Visitación",
+    "Ranking de la Gestión Municipal 2013": "0,2998",
+    "Ranking de la Gestión Municipal 2016": "0,3316",
+    "Ranking de la Gestión Municipal 2018": "0,4552",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 901,
+    "municipio": "Quetzaltenango",
+    "Ranking de la Gestión Municipal 2013": "0,4512",
+    "Ranking de la Gestión Municipal 2016": "0,3429",
+    "Ranking de la Gestión Municipal 2018": "0,4536",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1911,
+    "municipio": "San Jorge",
+    "Ranking de la Gestión Municipal 2013": "",
+    "Ranking de la Gestión Municipal 2016": "0,2579",
+    "Ranking de la Gestión Municipal 2018": "0,4517",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 109,
+    "municipio": "San Pedro Sacatepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,1477",
+    "Ranking de la Gestión Municipal 2016": "0,3279",
+    "Ranking de la Gestión Municipal 2018": "0,4511",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2011,
+    "municipio": "Ipala",
+    "Ranking de la Gestión Municipal 2013": "0,3482",
+    "Ranking de la Gestión Municipal 2016": "0,3855",
+    "Ranking de la Gestión Municipal 2018": "0,4508",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1408,
+    "municipio": "San Antonio Ilotenango",
+    "Ranking de la Gestión Municipal 2013": "0,3545",
+    "Ranking de la Gestión Municipal 2016": "0,4624",
+    "Ranking de la Gestión Municipal 2018": "0,4506",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1302,
+    "municipio": "Chiantla",
+    "Ranking de la Gestión Municipal 2013": "0,4277",
+    "Ranking de la Gestión Municipal 2016": "0,3177",
+    "Ranking de la Gestión Municipal 2018": "0,4491",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1411,
+    "municipio": "San Juan Cotzal",
+    "Ranking de la Gestión Municipal 2013": "0,2503",
+    "Ranking de la Gestión Municipal 2016": "0,3206",
+    "Ranking de la Gestión Municipal 2018": "0,4478",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1712,
+    "municipio": "Poptún",
+    "Ranking de la Gestión Municipal 2013": "0,3459",
+    "Ranking de la Gestión Municipal 2016": "0,4018",
+    "Ranking de la Gestión Municipal 2018": "0,4477",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "id": 2105,
+    "municipio": "San Carlos Alzatate",
+    "Ranking de la Gestión Municipal 2013": "0,2886",
+    "Ranking de la Gestión Municipal 2016": "0,3415",
+    "Ranking de la Gestión Municipal 2018": "0,4474",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 505,
+    "municipio": "Masagua",
+    "Ranking de la Gestión Municipal 2013": "0,3810",
+    "Ranking de la Gestión Municipal 2016": "0,2452",
+    "Ranking de la Gestión Municipal 2018": "0,4465",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 921,
+    "municipio": "Génova",
+    "Ranking de la Gestión Municipal 2013": "0,3078",
+    "Ranking de la Gestión Municipal 2016": "0,2736",
+    "Ranking de la Gestión Municipal 2018": "0,4460",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1225,
+    "municipio": "San Cristóbal Cucho",
+    "Ranking de la Gestión Municipal 2013": "0,3718",
+    "Ranking de la Gestión Municipal 2016": "0,2487",
+    "Ranking de la Gestión Municipal 2018": "0,4449",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 305,
+    "municipio": "Santo Domingo Xenacoj",
+    "Ranking de la Gestión Municipal 2013": "0,3356",
+    "Ranking de la Gestión Municipal 2016": "0,3990",
+    "Ranking de la Gestión Municipal 2018": "0,4418",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1207,
+    "municipio": "Tacaná",
+    "Ranking de la Gestión Municipal 2013": "0,3980",
+    "Ranking de la Gestión Municipal 2016": "0,3963",
+    "Ranking de la Gestión Municipal 2018": "0,4411",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1601,
+    "municipio": "Cobán",
+    "Ranking de la Gestión Municipal 2013": "0,6047",
+    "Ranking de la Gestión Municipal 2016": "0,4785",
+    "Ranking de la Gestión Municipal 2018": "0,4409",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 718,
+    "municipio": "San Pedro La Laguna",
+    "Ranking de la Gestión Municipal 2013": "0,3953",
+    "Ranking de la Gestión Municipal 2016": "0,3712",
+    "Ranking de la Gestión Municipal 2018": "0,4392",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2203,
+    "municipio": "Santa Catarina Mita",
+    "Ranking de la Gestión Municipal 2013": "0,3759",
+    "Ranking de la Gestión Municipal 2016": "0,3082",
+    "Ranking de la Gestión Municipal 2018": "0,4384",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2209,
+    "municipio": "El Adelanto",
+    "Ranking de la Gestión Municipal 2013": "0,3221",
+    "Ranking de la Gestión Municipal 2016": "0,3060",
+    "Ranking de la Gestión Municipal 2018": "0,4374",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 410,
+    "municipio": "Santa Cruz Balanyá",
+    "Ranking de la Gestión Municipal 2013": "0,2887",
+    "Ranking de la Gestión Municipal 2016": "0,2820",
+    "Ranking de la Gestión Municipal 2018": "0,4370",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 405,
+    "municipio": "Santa Apolonia",
+    "Ranking de la Gestión Municipal 2013": "0,1514",
+    "Ranking de la Gestión Municipal 2016": "0,2888",
+    "Ranking de la Gestión Municipal 2018": "0,4357",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1218,
+    "municipio": "Ocós",
+    "Ranking de la Gestión Municipal 2013": "0,0187",
+    "Ranking de la Gestión Municipal 2016": "0,2993",
+    "Ranking de la Gestión Municipal 2018": "0,4356",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1710,
+    "municipio": "Sayaxché",
+    "Ranking de la Gestión Municipal 2013": "0,1766",
+    "Ranking de la Gestión Municipal 2016": "0,4486",
+    "Ranking de la Gestión Municipal 2018": "0,4356",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1703,
+    "municipio": "San Benito",
+    "Ranking de la Gestión Municipal 2013": "0,1520",
+    "Ranking de la Gestión Municipal 2016": "0,3392",
+    "Ranking de la Gestión Municipal 2018": "0,4353",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1015,
+    "municipio": "Santa Bárbara",
+    "Ranking de la Gestión Municipal 2013": "0,2216",
+    "Ranking de la Gestión Municipal 2016": "0,2542",
+    "Ranking de la Gestión Municipal 2018": "0,4349",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1615,
+    "municipio": "Fray Bartolomé de las Casas",
+    "Ranking de la Gestión Municipal 2013": "0,5271",
+    "Ranking de la Gestión Municipal 2016": "0,4580",
+    "Ranking de la Gestión Municipal 2018": "0,4349",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 803,
+    "municipio": "San Francisco El Alto",
+    "Ranking de la Gestión Municipal 2013": "0,4355",
+    "Ranking de la Gestión Municipal 2016": "0,1863",
+    "Ranking de la Gestión Municipal 2018": "0,4346",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 917,
+    "municipio": "Colomba",
+    "Ranking de la Gestión Municipal 2013": "0,1942",
+    "Ranking de la Gestión Municipal 2016": "0,3229",
+    "Ranking de la Gestión Municipal 2018": "0,4331",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 920,
+    "municipio": "Coatepeque",
+    "Ranking de la Gestión Municipal 2013": "0,3939",
+    "Ranking de la Gestión Municipal 2016": "0,2902",
+    "Ranking de la Gestión Municipal 2018": "0,4290",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1903,
+    "municipio": "Río Hondo",
+    "Ranking de la Gestión Municipal 2013": "0,2665",
+    "Ranking de la Gestión Municipal 2016": "0,2954",
+    "Ranking de la Gestión Municipal 2018": "0,4287",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2005,
+    "municipio": "Camotán",
+    "Ranking de la Gestión Municipal 2013": "0,3918",
+    "Ranking de la Gestión Municipal 2016": "0,2392",
+    "Ranking de la Gestión Municipal 2018": "0,4283",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 206,
+    "municipio": "Sansare",
+    "Ranking de la Gestión Municipal 2013": "0,4282",
+    "Ranking de la Gestión Municipal 2016": "0,2538",
+    "Ranking de la Gestión Municipal 2018": "0,4269",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1604,
+    "municipio": "Tactic",
+    "Ranking de la Gestión Municipal 2013": "0,4939",
+    "Ranking de la Gestión Municipal 2016": "0,4971",
+    "Ranking de la Gestión Municipal 2018": "0,4264",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 606,
+    "municipio": "Oratorio",
+    "Ranking de la Gestión Municipal 2013": "0,3243",
+    "Ranking de la Gestión Municipal 2016": "0,1704",
+    "Ranking de la Gestión Municipal 2018": "0,4255",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2202,
+    "municipio": "El Progreso",
+    "Ranking de la Gestión Municipal 2013": "0,4467",
+    "Ranking de la Gestión Municipal 2016": "0,1960",
+    "Ranking de la Gestión Municipal 2018": "0,4240",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 911,
+    "municipio": "Concepción Chiquirichapa",
+    "Ranking de la Gestión Municipal 2013": "0,3623",
+    "Ranking de la Gestión Municipal 2016": "0,1471",
+    "Ranking de la Gestión Municipal 2018": "0,4220",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2201,
+    "municipio": "Jutiapa",
+    "Ranking de la Gestión Municipal 2013": "0,2910",
+    "Ranking de la Gestión Municipal 2016": "0,1557",
+    "Ranking de la Gestión Municipal 2018": "0,4199",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1401,
+    "municipio": "Santa Cruz del Quiché",
+    "Ranking de la Gestión Municipal 2013": "0,3185",
+    "Ranking de la Gestión Municipal 2016": "0,4112",
+    "Ranking de la Gestión Municipal 2018": "0,4183",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2206,
+    "municipio": "Yupiltepeque",
+    "Ranking de la Gestión Municipal 2013": "0,3906",
+    "Ranking de la Gestión Municipal 2016": "0,3537",
+    "Ranking de la Gestión Municipal 2018": "0,4168",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1308,
+    "municipio": "San Pedro Soloma",
+    "Ranking de la Gestión Municipal 2013": "0,2892",
+    "Ranking de la Gestión Municipal 2016": "0,2118",
+    "Ranking de la Gestión Municipal 2018": "0,4138",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1204,
+    "municipio": "Comitancillo",
+    "Ranking de la Gestión Municipal 2013": "0,4559",
+    "Ranking de la Gestión Municipal 2016": "0,4011",
+    "Ranking de la Gestión Municipal 2018": "0,4134",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1910,
+    "municipio": "Huité",
+    "Ranking de la Gestión Municipal 2013": "0,2996",
+    "Ranking de la Gestión Municipal 2016": "0,2145",
+    "Ranking de la Gestión Municipal 2018": "0,4117",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1209,
+    "municipio": "Tajumulco",
+    "Ranking de la Gestión Municipal 2013": "0,2234",
+    "Ranking de la Gestión Municipal 2016": "0,3525",
+    "Ranking de la Gestión Municipal 2018": "0,4079",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 508,
+    "municipio": "Guanagazapa",
+    "Ranking de la Gestión Municipal 2013": "0,3293",
+    "Ranking de la Gestión Municipal 2016": "0,3289",
+    "Ranking de la Gestión Municipal 2018": "0,4078",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 201,
+    "municipio": "Guastatoya",
+    "Ranking de la Gestión Municipal 2013": "0,3285",
+    "Ranking de la Gestión Municipal 2016": "0,3573",
+    "Ranking de la Gestión Municipal 2018": "0,4060",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 309,
+    "municipio": "Santa Lucía Milpas Altas",
+    "Ranking de la Gestión Municipal 2013": "0,3116",
+    "Ranking de la Gestión Municipal 2016": "0,3503",
+    "Ranking de la Gestión Municipal 2018": "0,4053",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1307,
+    "municipio": "Jacaltenango",
+    "Ranking de la Gestión Municipal 2013": "0,1869",
+    "Ranking de la Gestión Municipal 2016": "0,2062",
+    "Ranking de la Gestión Municipal 2018": "0,4048",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 909,
+    "municipio": "San Juan Ostuncalco",
+    "Ranking de la Gestión Municipal 2013": "0,3586",
+    "Ranking de la Gestión Municipal 2016": "0,3241",
+    "Ranking de la Gestión Municipal 2018": "0,4038",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2210,
+    "municipio": "Zapotitlán",
+    "Ranking de la Gestión Municipal 2013": "0,4210",
+    "Ranking de la Gestión Municipal 2016": "0,3269",
+    "Ranking de la Gestión Municipal 2018": "0,4037",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 808,
+    "municipio": "San Bartolo Aguas Calientes",
+    "Ranking de la Gestión Municipal 2013": "0,4205",
+    "Ranking de la Gestión Municipal 2016": "0,2538",
+    "Ranking de la Gestión Municipal 2018": "0,4033",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 602,
+    "municipio": "Barberena",
+    "Ranking de la Gestión Municipal 2013": "0,4699",
+    "Ranking de la Gestión Municipal 2016": "0,4428",
+    "Ranking de la Gestión Municipal 2018": "0,4032",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1304,
+    "municipio": "Cuilco",
+    "Ranking de la Gestión Municipal 2013": "0,2268",
+    "Ranking de la Gestión Municipal 2016": "0,3170",
+    "Ranking de la Gestión Municipal 2018": "0,4013",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1010,
+    "municipio": "San Antonio Suchitepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,2498",
+    "Ranking de la Gestión Municipal 2016": "0,2008",
+    "Ranking de la Gestión Municipal 2018": "0,4008",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "id": 1801,
+    "municipio": "Puerto Barrios",
+    "Ranking de la Gestión Municipal 2013": "0,5387",
+    "Ranking de la Gestión Municipal 2016": "0,2408",
+    "Ranking de la Gestión Municipal 2018": "0,4005",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2001,
+    "municipio": "Chiquimula",
+    "Ranking de la Gestión Municipal 2013": "0,4198",
+    "Ranking de la Gestión Municipal 2016": "0,1300",
+    "Ranking de la Gestión Municipal 2018": "0,4003",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1709,
+    "municipio": "San Luis",
+    "Ranking de la Gestión Municipal 2013": "0,3427",
+    "Ranking de la Gestión Municipal 2016": "0,2828",
+    "Ranking de la Gestión Municipal 2018": "0,4000",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 313,
+    "municipio": "San Miguel Dueñas",
+    "Ranking de la Gestión Municipal 2013": "0,4373",
+    "Ranking de la Gestión Municipal 2016": "0,2989",
+    "Ranking de la Gestión Municipal 2018": "0,3991",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1107,
+    "municipio": "Champerico",
+    "Ranking de la Gestión Municipal 2013": "0,3240",
+    "Ranking de la Gestión Municipal 2016": "0,3021",
+    "Ranking de la Gestión Municipal 2018": "0,3988",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 408,
+    "municipio": "San Miguel Pochuta",
+    "Ranking de la Gestión Municipal 2013": "0,2881",
+    "Ranking de la Gestión Municipal 2016": "0,3028",
+    "Ranking de la Gestión Municipal 2018": "0,3964",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 110,
+    "municipio": "San Juan Sacatepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,1674",
+    "Ranking de la Gestión Municipal 2016": "0,2857",
+    "Ranking de la Gestión Municipal 2018": "0,3938",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1103,
+    "municipio": "Santa Cruz Muluá",
+    "Ranking de la Gestión Municipal 2013": "0,2341",
+    "Ranking de la Gestión Municipal 2016": "0,2842",
+    "Ranking de la Gestión Municipal 2018": "0,3924",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1701,
+    "municipio": "Flores",
+    "Ranking de la Gestión Municipal 2013": "0,3956",
+    "Ranking de la Gestión Municipal 2016": "0,2804",
+    "Ranking de la Gestión Municipal 2018": "0,3885",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "id": 2104,
+    "municipio": "San Manuel Chaparrón",
+    "Ranking de la Gestión Municipal 2013": "0,3258",
+    "Ranking de la Gestión Municipal 2016": "0,2253",
+    "Ranking de la Gestión Municipal 2018": "0,3875",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 302,
+    "municipio": "Jocotenango",
+    "Ranking de la Gestión Municipal 2013": "0,3992",
+    "Ranking de la Gestión Municipal 2016": "0,3131",
+    "Ranking de la Gestión Municipal 2018": "0,3870",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1612,
+    "municipio": "Santa María Cahabón",
+    "Ranking de la Gestión Municipal 2013": "0,2623",
+    "Ranking de la Gestión Municipal 2016": "0,2537",
+    "Ranking de la Gestión Municipal 2018": "0,3865",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1104,
+    "municipio": "San Martín Zapotitlán",
+    "Ranking de la Gestión Municipal 2013": "0,1297",
+    "Ranking de la Gestión Municipal 2016": "0,2472",
+    "Ranking de la Gestión Municipal 2018": "0,3855",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 804,
+    "municipio": "San Andrés Xecul",
+    "Ranking de la Gestión Municipal 2013": "0,3844",
+    "Ranking de la Gestión Municipal 2016": "0,1907",
+    "Ranking de la Gestión Municipal 2018": "0,3842",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1220,
+    "municipio": "El Quetzal",
+    "Ranking de la Gestión Municipal 2013": "0,1153",
+    "Ranking de la Gestión Municipal 2016": "0,4648",
+    "Ranking de la Gestión Municipal 2018": "0,3842",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1504,
+    "municipio": "Cubulco",
+    "Ranking de la Gestión Municipal 2013": "0,3451",
+    "Ranking de la Gestión Municipal 2016": "0,2279",
+    "Ranking de la Gestión Municipal 2018": "0,3823",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1217,
+    "municipio": "Ayutla",
+    "Ranking de la Gestión Municipal 2013": "0,4271",
+    "Ranking de la Gestión Municipal 2016": "0,3321",
+    "Ranking de la Gestión Municipal 2018": "0,3822",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 706,
+    "municipio": "Santa Catarina Ixtahuacán",
+    "Ranking de la Gestión Municipal 2013": "0,2027",
+    "Ranking de la Gestión Municipal 2016": "0,3177",
+    "Ranking de la Gestión Municipal 2018": "0,3802",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 203,
+    "municipio": "San Agustín Acasaguastlán",
+    "Ranking de la Gestión Municipal 2013": "0,2688",
+    "Ranking de la Gestión Municipal 2016": "0,2500",
+    "Ranking de la Gestión Municipal 2018": "0,3798",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 310,
+    "municipio": "Magdalena Milpas Altas",
+    "Ranking de la Gestión Municipal 2013": "0,4938",
+    "Ranking de la Gestión Municipal 2016": "0,1889",
+    "Ranking de la Gestión Municipal 2018": "0,3793",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 502,
+    "municipio": "Santa Lucía Cotzulmalguapa",
+    "Ranking de la Gestión Municipal 2013": "0,2596",
+    "Ranking de la Gestión Municipal 2016": "0,3374",
+    "Ranking de la Gestión Municipal 2018": "0,3793",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 104,
+    "municipio": "San José del Golfo",
+    "Ranking de la Gestión Municipal 2013": "0,3496",
+    "Ranking de la Gestión Municipal 2016": "0,3901",
+    "Ranking de la Gestión Municipal 2018": "0,3784",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1708,
+    "municipio": "Dolores",
+    "Ranking de la Gestión Municipal 2013": "0,3009",
+    "Ranking de la Gestión Municipal 2016": "0,2392",
+    "Ranking de la Gestión Municipal 2018": "0,3784",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1406,
+    "municipio": "Chichicastenango",
+    "Ranking de la Gestión Municipal 2013": "0,3060",
+    "Ranking de la Gestión Municipal 2016": "0,3800",
+    "Ranking de la Gestión Municipal 2018": "0,3782",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1603,
+    "municipio": "San Cristóbal Verapaz",
+    "Ranking de la Gestión Municipal 2013": "0,4357",
+    "Ranking de la Gestión Municipal 2016": "0,4638",
+    "Ranking de la Gestión Municipal 2018": "0,3772",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 404,
+    "municipio": "San Juan Comalapa",
+    "Ranking de la Gestión Municipal 2013": "0,3795",
+    "Ranking de la Gestión Municipal 2016": "0,3708",
+    "Ranking de la Gestión Municipal 2018": "0,3771",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1001,
+    "municipio": "Mazatenango",
+    "Ranking de la Gestión Municipal 2013": "0,2829",
+    "Ranking de la Gestión Municipal 2016": "0,1866",
+    "Ranking de la Gestión Municipal 2018": "0,3765",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2008,
+    "municipio": "Concepción las Minas",
+    "Ranking de la Gestión Municipal 2013": "0,2633",
+    "Ranking de la Gestión Municipal 2016": "0,1553",
+    "Ranking de la Gestión Municipal 2018": "0,3765",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1503,
+    "municipio": "Rabinal",
+    "Ranking de la Gestión Municipal 2013": "0,3850",
+    "Ranking de la Gestión Municipal 2016": "0,3927",
+    "Ranking de la Gestión Municipal 2018": "0,3764",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 503,
+    "municipio": "La Democracia",
+    "Ranking de la Gestión Municipal 2013": "0,2041",
+    "Ranking de la Gestión Municipal 2016": "0,1954",
+    "Ranking de la Gestión Municipal 2018": "0,3754",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1002,
+    "municipio": "Cuyotenango",
+    "Ranking de la Gestión Municipal 2013": "0,1759",
+    "Ranking de la Gestión Municipal 2016": "0,1675",
+    "Ranking de la Gestión Municipal 2018": "0,3753",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 904,
+    "municipio": "San Carlos Sija",
+    "Ranking de la Gestión Municipal 2013": "0,3233",
+    "Ranking de la Gestión Municipal 2016": "0,1746",
+    "Ranking de la Gestión Municipal 2018": "0,3751",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 613,
+    "municipio": "Pueblo Nuevo Viñas",
+    "Ranking de la Gestión Municipal 2013": "0,2482",
+    "Ranking de la Gestión Municipal 2016": "0,2027",
+    "Ranking de la Gestión Municipal 2018": "0,3746",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 918,
+    "municipio": "San Francisco La Unión",
+    "Ranking de la Gestión Municipal 2013": "0,2975",
+    "Ranking de la Gestión Municipal 2016": "0,0742",
+    "Ranking de la Gestión Municipal 2018": "0,3739",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1613,
+    "municipio": "Chisec",
+    "Ranking de la Gestión Municipal 2013": "0,4828",
+    "Ranking de la Gestión Municipal 2016": "0,3126",
+    "Ranking de la Gestión Municipal 2018": "0,3737",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1904,
+    "municipio": "Gualán",
+    "Ranking de la Gestión Municipal 2013": "0,3102",
+    "Ranking de la Gestión Municipal 2016": "0,2709",
+    "Ranking de la Gestión Municipal 2018": "0,3731",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1013,
+    "municipio": "Chicacao",
+    "Ranking de la Gestión Municipal 2013": "0,2343",
+    "Ranking de la Gestión Municipal 2016": "0,1688",
+    "Ranking de la Gestión Municipal 2018": "0,3730",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1608,
+    "municipio": "Senahú",
+    "Ranking de la Gestión Municipal 2013": "0,1331",
+    "Ranking de la Gestión Municipal 2016": "0,2994",
+    "Ranking de la Gestión Municipal 2018": "0,3720",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1404,
+    "municipio": "Zacualpa",
+    "Ranking de la Gestión Municipal 2013": "0,0566",
+    "Ranking de la Gestión Municipal 2016": "0,2560",
+    "Ranking de la Gestión Municipal 2018": "0,3718",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1008,
+    "municipio": "Samayac",
+    "Ranking de la Gestión Municipal 2013": "0,1765",
+    "Ranking de la Gestión Municipal 2016": "0,1772",
+    "Ranking de la Gestión Municipal 2018": "0,3693",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1909,
+    "municipio": "La Unión",
+    "Ranking de la Gestión Municipal 2013": "0,3434",
+    "Ranking de la Gestión Municipal 2016": "0,2557",
+    "Ranking de la Gestión Municipal 2018": "0,3678",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 20,
+    "departamento": "Chiquimula",
+    "id": 2009,
+    "municipio": "Quezaltepeque",
+    "Ranking de la Gestión Municipal 2013": "0,3545",
+    "Ranking de la Gestión Municipal 2016": "0,1512",
+    "Ranking de la Gestión Municipal 2018": "0,3674",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1106,
+    "municipio": "San Andrés Villa Seca",
+    "Ranking de la Gestión Municipal 2013": "0,1374",
+    "Ranking de la Gestión Municipal 2016": "0,2716",
+    "Ranking de la Gestión Municipal 2018": "0,3673",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 111,
+    "municipio": "San Raymundo",
+    "Ranking de la Gestión Municipal 2013": "0,3842",
+    "Ranking de la Gestión Municipal 2016": "0,3009",
+    "Ranking de la Gestión Municipal 2018": "0,3667",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "id": 2103,
+    "municipio": "San Luis Jilotepeque",
+    "Ranking de la Gestión Municipal 2013": "0,3631",
+    "Ranking de la Gestión Municipal 2016": "0,3117",
+    "Ranking de la Gestión Municipal 2018": "0,3637",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2208,
+    "municipio": "Jerez",
+    "Ranking de la Gestión Municipal 2013": "0,3590",
+    "Ranking de la Gestión Municipal 2016": "0,2341",
+    "Ranking de la Gestión Municipal 2018": "0,3628",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1219,
+    "municipio": "San Pablo",
+    "Ranking de la Gestión Municipal 2013": "0,2133",
+    "Ranking de la Gestión Municipal 2016": "0,2392",
+    "Ranking de la Gestión Municipal 2018": "0,3612",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1021,
+    "municipio": "San José La Máquina",
+    "Ranking de la Gestión Municipal 2013": "",
+    "Ranking de la Gestión Municipal 2016": "0,2962",
+    "Ranking de la Gestión Municipal 2018": "0,3601",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1309,
+    "municipio": "San Idelfonso Ixtahuacán",
+    "Ranking de la Gestión Municipal 2013": "0,1940",
+    "Ranking de la Gestión Municipal 2016": "0,2507",
+    "Ranking de la Gestión Municipal 2018": "0,3596",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2212,
+    "municipio": "Jalpatagua",
+    "Ranking de la Gestión Municipal 2013": "0,1754",
+    "Ranking de la Gestión Municipal 2016": "0,3732",
+    "Ranking de la Gestión Municipal 2018": "0,3579",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1020,
+    "municipio": "Río Bravo",
+    "Ranking de la Gestión Municipal 2013": "0,3056",
+    "Ranking de la Gestión Municipal 2016": "0,2985",
+    "Ranking de la Gestión Municipal 2018": "0,3542",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1216,
+    "municipio": "Catarina",
+    "Ranking de la Gestión Municipal 2013": "0,2042",
+    "Ranking de la Gestión Municipal 2016": "0,3372",
+    "Ranking de la Gestión Municipal 2018": "0,3539",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1325,
+    "municipio": "San Sebastián Coatán",
+    "Ranking de la Gestión Municipal 2013": "0,2318",
+    "Ranking de la Gestión Municipal 2016": "0,2857",
+    "Ranking de la Gestión Municipal 2018": "0,3508",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2217,
+    "municipio": "Quesada",
+    "Ranking de la Gestión Municipal 2013": "0,3106",
+    "Ranking de la Gestión Municipal 2016": "0,3305",
+    "Ranking de la Gestión Municipal 2018": "0,3506",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 1,
+    "departamento": "Guatemala",
+    "id": 107,
+    "municipio": "San Pedro Ayampuc",
+    "Ranking de la Gestión Municipal 2013": "0,3157",
+    "Ranking de la Gestión Municipal 2016": "0,3375",
+    "Ranking de la Gestión Municipal 2018": "0,3504",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1305,
+    "municipio": "Nentón",
+    "Ranking de la Gestión Municipal 2013": "0,1264",
+    "Ranking de la Gestión Municipal 2016": "0,1683",
+    "Ranking de la Gestión Municipal 2018": "0,3494",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2204,
+    "municipio": "Agua Blanca",
+    "Ranking de la Gestión Municipal 2013": "0,4617",
+    "Ranking de la Gestión Municipal 2016": "0,2405",
+    "Ranking de la Gestión Municipal 2018": "0,3490",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 612,
+    "municipio": "Santa Cruz Naranjo",
+    "Ranking de la Gestión Municipal 2013": "0,3995",
+    "Ranking de la Gestión Municipal 2016": "0,2966",
+    "Ranking de la Gestión Municipal 2018": "0,3485",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1502,
+    "municipio": "San Miguel Chicaj",
+    "Ranking de la Gestión Municipal 2013": "0,4156",
+    "Ranking de la Gestión Municipal 2016": "0,3485",
+    "Ranking de la Gestión Municipal 2018": "0,3471",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "id": 1802,
+    "municipio": "Livingston",
+    "Ranking de la Gestión Municipal 2013": "0,2317",
+    "Ranking de la Gestión Municipal 2016": "0,1423",
+    "Ranking de la Gestión Municipal 2018": "0,3470",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1016,
+    "municipio": "San Juan Bautista",
+    "Ranking de la Gestión Municipal 2013": "0,3831",
+    "Ranking de la Gestión Municipal 2016": "0,2859",
+    "Ranking de la Gestión Municipal 2018": "0,3457",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1229,
+    "municipio": "San Lorenzo",
+    "Ranking de la Gestión Municipal 2013": "0,3181",
+    "Ranking de la Gestión Municipal 2016": "0,2458",
+    "Ranking de la Gestión Municipal 2018": "0,3438",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 507,
+    "municipio": "La Gomera",
+    "Ranking de la Gestión Municipal 2013": "0,4902",
+    "Ranking de la Gestión Municipal 2016": "0,2084",
+    "Ranking de la Gestión Municipal 2018": "0,3429",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 416,
+    "municipio": "El Tejar",
+    "Ranking de la Gestión Municipal 2013": "0,3813",
+    "Ranking de la Gestión Municipal 2016": "0,2033",
+    "Ranking de la Gestión Municipal 2018": "0,3413",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1605,
+    "municipio": "Tamahú",
+    "Ranking de la Gestión Municipal 2013": "0,3477",
+    "Ranking de la Gestión Municipal 2016": "0,3257",
+    "Ranking de la Gestión Municipal 2018": "0,3406",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 719,
+    "municipio": "Santiago Atitlán",
+    "Ranking de la Gestión Municipal 2013": "0,2772",
+    "Ranking de la Gestión Municipal 2016": "0,2695",
+    "Ranking de la Gestión Municipal 2018": "0,3397",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1212,
+    "municipio": "Nuevo Progreso",
+    "Ranking de la Gestión Municipal 2013": "0,1649",
+    "Ranking de la Gestión Municipal 2016": "0,1837",
+    "Ranking de la Gestión Municipal 2018": "0,3397",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 15,
+    "departamento": "Baja Verapaz",
+    "id": 1505,
+    "municipio": "Granados",
+    "Ranking de la Gestión Municipal 2013": "0,3677",
+    "Ranking de la Gestión Municipal 2016": "0,3620",
+    "Ranking de la Gestión Municipal 2018": "0,3393",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 906,
+    "municipio": "Cabricán",
+    "Ranking de la Gestión Municipal 2013": "0,3321",
+    "Ranking de la Gestión Municipal 2016": "0,2696",
+    "Ranking de la Gestión Municipal 2018": "0,3387",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1215,
+    "municipio": "Malacatán",
+    "Ranking de la Gestión Municipal 2013": "0,2523",
+    "Ranking de la Gestión Municipal 2016": "0,3097",
+    "Ranking de la Gestión Municipal 2018": "0,3384",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1011,
+    "municipio": "San Miguel Panán",
+    "Ranking de la Gestión Municipal 2013": "0,2336",
+    "Ranking de la Gestión Municipal 2016": "0,1556",
+    "Ranking de la Gestión Municipal 2018": "0,3383",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 701,
+    "municipio": "Sololá",
+    "Ranking de la Gestión Municipal 2013": "0,5404",
+    "Ranking de la Gestión Municipal 2016": "0,3787",
+    "Ranking de la Gestión Municipal 2018": "0,3380",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2213,
+    "municipio": "Conguaco",
+    "Ranking de la Gestión Municipal 2013": "0,2339",
+    "Ranking de la Gestión Municipal 2016": "0,3712",
+    "Ranking de la Gestión Municipal 2018": "0,3342",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1003,
+    "municipio": "San Francisco Zapotitlán",
+    "Ranking de la Gestión Municipal 2013": "0,2047",
+    "Ranking de la Gestión Municipal 2016": "0,0938",
+    "Ranking de la Gestión Municipal 2018": "0,3331",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1316,
+    "municipio": "San Juan Atitán",
+    "Ranking de la Gestión Municipal 2013": "0,2130",
+    "Ranking de la Gestión Municipal 2016": "0,2020",
+    "Ranking de la Gestión Municipal 2018": "0,3325",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 604,
+    "municipio": "Casillas",
+    "Ranking de la Gestión Municipal 2013": "0,3684",
+    "Ranking de la Gestión Municipal 2016": "0,3696",
+    "Ranking de la Gestión Municipal 2018": "0,3293",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1329,
+    "municipio": "San Gaspar Ixchil",
+    "Ranking de la Gestión Municipal 2013": "0,2593",
+    "Ranking de la Gestión Municipal 2016": "0,3057",
+    "Ranking de la Gestión Municipal 2018": "0,3270",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 513,
+    "municipio": "Nueva Concepción",
+    "Ranking de la Gestión Municipal 2013": "0,2287",
+    "Ranking de la Gestión Municipal 2016": "0,1588",
+    "Ranking de la Gestión Municipal 2018": "0,3255",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1312,
+    "municipio": "La Democracia",
+    "Ranking de la Gestión Municipal 2013": "0,1903",
+    "Ranking de la Gestión Municipal 2016": "0,2104",
+    "Ranking de la Gestión Municipal 2018": "0,3240",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 912,
+    "municipio": "San Martín Sacatepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,3448",
+    "Ranking de la Gestión Municipal 2016": "0,1855",
+    "Ranking de la Gestión Municipal 2018": "0,3233",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1017,
+    "municipio": "Santo Tomas La Unión",
+    "Ranking de la Gestión Municipal 2013": "0,1902",
+    "Ranking de la Gestión Municipal 2016": "0,1319",
+    "Ranking de la Gestión Municipal 2018": "0,3206",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2207,
+    "municipio": "Atescatempa",
+    "Ranking de la Gestión Municipal 2013": "0,4195",
+    "Ranking de la Gestión Municipal 2016": "0,2900",
+    "Ranking de la Gestión Municipal 2018": "0,3202",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 709,
+    "municipio": "San Andrés Semetabaj",
+    "Ranking de la Gestión Municipal 2013": "0,4751",
+    "Ranking de la Gestión Municipal 2016": "0,3471",
+    "Ranking de la Gestión Municipal 2018": "0,3165",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1907,
+    "municipio": "Cabañas",
+    "Ranking de la Gestión Municipal 2013": "0,3229",
+    "Ranking de la Gestión Municipal 2016": "0,2388",
+    "Ranking de la Gestión Municipal 2018": "0,3152",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1319,
+    "municipio": "Colotenango",
+    "Ranking de la Gestión Municipal 2013": "0,2627",
+    "Ranking de la Gestión Municipal 2016": "0,2405",
+    "Ranking de la Gestión Municipal 2018": "0,3148",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 713,
+    "municipio": "San Lucas Tolimán",
+    "Ranking de la Gestión Municipal 2013": "0,3165",
+    "Ranking de la Gestión Municipal 2016": "0,3233",
+    "Ranking de la Gestión Municipal 2018": "0,3123",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1706,
+    "municipio": "San Francisco",
+    "Ranking de la Gestión Municipal 2013": "0,1918",
+    "Ranking de la Gestión Municipal 2016": "0,2258",
+    "Ranking de la Gestión Municipal 2018": "0,3120",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 406,
+    "municipio": "Tecpán Guatemala",
+    "Ranking de la Gestión Municipal 2013": "0,2870",
+    "Ranking de la Gestión Municipal 2016": "0,2333",
+    "Ranking de la Gestión Municipal 2018": "0,3108",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 314,
+    "municipio": "Alotenango",
+    "Ranking de la Gestión Municipal 2013": "0,2084",
+    "Ranking de la Gestión Municipal 2016": "0,1764",
+    "Ranking de la Gestión Municipal 2018": "0,3102",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1327,
+    "municipio": "Aguacatán",
+    "Ranking de la Gestión Municipal 2013": "0,4253",
+    "Ranking de la Gestión Municipal 2016": "0,2188",
+    "Ranking de la Gestión Municipal 2018": "0,3092",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1616,
+    "municipio": "Santa Catalina La Tinta",
+    "Ranking de la Gestión Municipal 2013": "0,2525",
+    "Ranking de la Gestión Municipal 2016": "0,4419",
+    "Ranking de la Gestión Municipal 2018": "0,3089",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 807,
+    "municipio": "Santa Lucía La Reforma",
+    "Ranking de la Gestión Municipal 2013": "0,2909",
+    "Ranking de la Gestión Municipal 2016": "0,1390",
+    "Ranking de la Gestión Municipal 2018": "0,3041",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1905,
+    "municipio": "Teculután",
+    "Ranking de la Gestión Municipal 2013": "0,4473",
+    "Ranking de la Gestión Municipal 2016": "0,2904",
+    "Ranking de la Gestión Municipal 2018": "0,3040",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1707,
+    "municipio": "Santa Ana",
+    "Ranking de la Gestión Municipal 2013": "0,0594",
+    "Ranking de la Gestión Municipal 2016": "0,3071",
+    "Ranking de la Gestión Municipal 2018": "0,3036",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1306,
+    "municipio": "San Pedro Necta",
+    "Ranking de la Gestión Municipal 2013": "0,2964",
+    "Ranking de la Gestión Municipal 2016": "0,2295",
+    "Ranking de la Gestión Municipal 2018": "0,3035",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1324,
+    "municipio": "San Antonio Huista",
+    "Ranking de la Gestión Municipal 2013": "0,2863",
+    "Ranking de la Gestión Municipal 2016": "0,2570",
+    "Ranking de la Gestión Municipal 2018": "0,3031",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1322,
+    "municipio": "Concepción Huista",
+    "Ranking de la Gestión Municipal 2013": "0,2659",
+    "Ranking de la Gestión Municipal 2016": "0,3529",
+    "Ranking de la Gestión Municipal 2018": "0,3014",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 315,
+    "municipio": "San Antonio Aguas Calientes",
+    "Ranking de la Gestión Municipal 2013": "0,4591",
+    "Ranking de la Gestión Municipal 2016": "0,2941",
+    "Ranking de la Gestión Municipal 2018": "0,2966",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2205,
+    "municipio": "Asunción Mita",
+    "Ranking de la Gestión Municipal 2013": "0,2672",
+    "Ranking de la Gestión Municipal 2016": "0,1186",
+    "Ranking de la Gestión Municipal 2018": "0,2963",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1418,
+    "municipio": "Canillá",
+    "Ranking de la Gestión Municipal 2013": "0,3442",
+    "Ranking de la Gestión Municipal 2016": "0,2984",
+    "Ranking de la Gestión Municipal 2018": "0,2953",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1102,
+    "municipio": "San Sebastián",
+    "Ranking de la Gestión Municipal 2013": "0,3859",
+    "Ranking de la Gestión Municipal 2016": "0,3239",
+    "Ranking de la Gestión Municipal 2018": "0,2951",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 704,
+    "municipio": "Santa Lucía Utatlán",
+    "Ranking de la Gestión Municipal 2013": "0,3858",
+    "Ranking de la Gestión Municipal 2016": "0,2815",
+    "Ranking de la Gestión Municipal 2018": "0,2949",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 512,
+    "municipio": "San Vicente Pacaya",
+    "Ranking de la Gestión Municipal 2013": "0,2454",
+    "Ranking de la Gestión Municipal 2016": "0,2960",
+    "Ranking de la Gestión Municipal 2018": "0,2945",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 6,
+    "departamento": "Santa Rosa",
+    "id": 611,
+    "municipio": "Guazacapán",
+    "Ranking de la Gestión Municipal 2013": "0,2635",
+    "Ranking de la Gestión Municipal 2016": "0,2299",
+    "Ranking de la Gestión Municipal 2018": "0,2945",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1419,
+    "municipio": "Chicamán",
+    "Ranking de la Gestión Municipal 2013": "0,3733",
+    "Ranking de la Gestión Municipal 2016": "0,2369",
+    "Ranking de la Gestión Municipal 2018": "0,2945",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1412,
+    "municipio": "Joyabaj",
+    "Ranking de la Gestión Municipal 2013": "0,2333",
+    "Ranking de la Gestión Municipal 2016": "0,2729",
+    "Ranking de la Gestión Municipal 2018": "0,2940",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1420,
+    "municipio": "Ixcán",
+    "Ranking de la Gestión Municipal 2013": "0,2996",
+    "Ranking de la Gestión Municipal 2016": "0,3954",
+    "Ranking de la Gestión Municipal 2018": "0,2933",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 922,
+    "municipio": "Flores Costa Cuca",
+    "Ranking de la Gestión Municipal 2013": "0,2546",
+    "Ranking de la Gestión Municipal 2016": "0,2920",
+    "Ranking de la Gestión Municipal 2018": "0,2932",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1004,
+    "municipio": "San Bernardino",
+    "Ranking de la Gestión Municipal 2013": "0,2224",
+    "Ranking de la Gestión Municipal 2016": "0,1418",
+    "Ranking de la Gestión Municipal 2018": "0,2929",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2215,
+    "municipio": "Pasaco",
+    "Ranking de la Gestión Municipal 2013": "0,3762",
+    "Ranking de la Gestión Municipal 2016": "0,0564",
+    "Ranking de la Gestión Municipal 2018": "0,2897",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1713,
+    "municipio": "Las Cruces",
+    "Ranking de la Gestión Municipal 2013": "0,2101",
+    "Ranking de la Gestión Municipal 2016": "0,1648",
+    "Ranking de la Gestión Municipal 2018": "0,2893",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1326,
+    "municipio": "Barillas",
+    "Ranking de la Gestión Municipal 2013": "0,1998",
+    "Ranking de la Gestión Municipal 2016": "0,2225",
+    "Ranking de la Gestión Municipal 2018": "0,2878",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 806,
+    "municipio": "Santa María Chiquimula",
+    "Ranking de la Gestión Municipal 2013": "0,2188",
+    "Ranking de la Gestión Municipal 2016": "0,2037",
+    "Ranking de la Gestión Municipal 2018": "0,2842",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 22,
+    "departamento": "Jutiapa",
+    "id": 2211,
+    "municipio": "Comapa",
+    "Ranking de la Gestión Municipal 2013": "0,1810",
+    "Ranking de la Gestión Municipal 2016": "0,1471",
+    "Ranking de la Gestión Municipal 2018": "0,2840",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1214,
+    "municipio": "El Rodeo",
+    "Ranking de la Gestión Municipal 2013": "0,3533",
+    "Ranking de la Gestión Municipal 2016": "0,3206",
+    "Ranking de la Gestión Municipal 2018": "0,2826",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 402,
+    "municipio": "San José Poaquil",
+    "Ranking de la Gestión Municipal 2013": "0,3307",
+    "Ranking de la Gestión Municipal 2016": "0,2910",
+    "Ranking de la Gestión Municipal 2018": "0,2818",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 916,
+    "municipio": "Zunil",
+    "Ranking de la Gestión Municipal 2013": "0,2403",
+    "Ranking de la Gestión Municipal 2016": "0,2640",
+    "Ranking de la Gestión Municipal 2018": "0,2800",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1007,
+    "municipio": "San Lorenzo",
+    "Ranking de la Gestión Municipal 2013": "0,1111",
+    "Ranking de la Gestión Municipal 2016": "0,1793",
+    "Ranking de la Gestión Municipal 2018": "0,2796",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1332,
+    "municipio": "Unión Cantinil",
+    "Ranking de la Gestión Municipal 2013": "0,3396",
+    "Ranking de la Gestión Municipal 2016": "0,2806",
+    "Ranking de la Gestión Municipal 2018": "0,2766",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 207,
+    "municipio": "Sanarate",
+    "Ranking de la Gestión Municipal 2013": "0,2804",
+    "Ranking de la Gestión Municipal 2016": "0,1660",
+    "Ranking de la Gestión Municipal 2018": "0,2756",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1331,
+    "municipio": "Santa Ana Huista",
+    "Ranking de la Gestión Municipal 2013": "0,1998",
+    "Ranking de la Gestión Municipal 2016": "0,2695",
+    "Ranking de la Gestión Municipal 2018": "0,2749",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 414,
+    "municipio": "Parramos",
+    "Ranking de la Gestión Municipal 2013": "0,4009",
+    "Ranking de la Gestión Municipal 2016": "0,2663",
+    "Ranking de la Gestión Municipal 2018": "0,2712",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1105,
+    "municipio": "San Felipe Retalhuleu",
+    "Ranking de la Gestión Municipal 2013": "0,1697",
+    "Ranking de la Gestión Municipal 2016": "0,2728",
+    "Ranking de la Gestión Municipal 2018": "0,2703",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 907,
+    "municipio": "Cajolá",
+    "Ranking de la Gestión Municipal 2013": "0,1659",
+    "Ranking de la Gestión Municipal 2016": "0,1450",
+    "Ranking de la Gestión Municipal 2018": "0,2672",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 311,
+    "municipio": "Santa María de Jesús",
+    "Ranking de la Gestión Municipal 2013": "0,3983",
+    "Ranking de la Gestión Municipal 2016": "0,3196",
+    "Ranking de la Gestión Municipal 2018": "0,2668",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1711,
+    "municipio": "Melchor de Mencos",
+    "Ranking de la Gestión Municipal 2013": "0,3953",
+    "Ranking de la Gestión Municipal 2016": "0,2414",
+    "Ranking de la Gestión Municipal 2018": "0,2647",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1410,
+    "municipio": "Cunén",
+    "Ranking de la Gestión Municipal 2013": "0,4109",
+    "Ranking de la Gestión Municipal 2016": "0,2373",
+    "Ranking de la Gestión Municipal 2018": "0,2630",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1407,
+    "municipio": "Patzité",
+    "Ranking de la Gestión Municipal 2013": "0,3525",
+    "Ranking de la Gestión Municipal 2016": "0,2924",
+    "Ranking de la Gestión Municipal 2018": "0,2629",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1318,
+    "municipio": "San Mateo Ixtatán",
+    "Ranking de la Gestión Municipal 2013": "0,3154",
+    "Ranking de la Gestión Municipal 2016": "0,2441",
+    "Ranking de la Gestión Municipal 2018": "0,2598",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 409,
+    "municipio": "Patzicía",
+    "Ranking de la Gestión Municipal 2013": "0,1673",
+    "Ranking de la Gestión Municipal 2016": "0,2592",
+    "Ranking de la Gestión Municipal 2018": "0,2596",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 705,
+    "municipio": "Nahualá",
+    "Ranking de la Gestión Municipal 2013": "0,4282",
+    "Ranking de la Gestión Municipal 2016": "0,2410",
+    "Ranking de la Gestión Municipal 2018": "0,2576",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1313,
+    "municipio": "San Miguel Acatán",
+    "Ranking de la Gestión Municipal 2013": "0,2858",
+    "Ranking de la Gestión Municipal 2016": "0,2387",
+    "Ranking de la Gestión Municipal 2018": "0,2555",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1314,
+    "municipio": "San Rafael La Independencia",
+    "Ranking de la Gestión Municipal 2013": "0,2636",
+    "Ranking de la Gestión Municipal 2016": "0,1760",
+    "Ranking de la Gestión Municipal 2018": "0,2547",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 702,
+    "municipio": "San José Chacayá",
+    "Ranking de la Gestión Municipal 2013": "0,4935",
+    "Ranking de la Gestión Municipal 2016": "0,2743",
+    "Ranking de la Gestión Municipal 2018": "0,2485",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 18,
+    "departamento": "Izabal",
+    "id": 1805,
+    "municipio": "Los Amates",
+    "Ranking de la Gestión Municipal 2013": "0,2826",
+    "Ranking de la Gestión Municipal 2016": "0,2758",
+    "Ranking de la Gestión Municipal 2018": "0,2479",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 2,
+    "departamento": "El Progreso",
+    "id": 202,
+    "municipio": "Morazán",
+    "Ranking de la Gestión Municipal 2013": "0,3369",
+    "Ranking de la Gestión Municipal 2016": "0,0955",
+    "Ranking de la Gestión Municipal 2018": "0,2454",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 3,
+    "departamento": "Sacatepéquez",
+    "id": 304,
+    "municipio": "Sumpango",
+    "Ranking de la Gestión Municipal 2013": "0,3878",
+    "Ranking de la Gestión Municipal 2016": "0,3555",
+    "Ranking de la Gestión Municipal 2018": "0,2450",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1006,
+    "municipio": "Santo Domingo Suchitepéquez",
+    "Ranking de la Gestión Municipal 2013": "0,2934",
+    "Ranking de la Gestión Municipal 2016": "0,2405",
+    "Ranking de la Gestión Municipal 2018": "0,2435",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1409,
+    "municipio": "San Pedro Jocopilas",
+    "Ranking de la Gestión Municipal 2013": "0,0485",
+    "Ranking de la Gestión Municipal 2016": "0,1215",
+    "Ranking de la Gestión Municipal 2018": "0,2420",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1317,
+    "municipio": "Santa Eulalia",
+    "Ranking de la Gestión Municipal 2013": "0,2234",
+    "Ranking de la Gestión Municipal 2016": "0,2341",
+    "Ranking de la Gestión Municipal 2018": "0,2401",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1321,
+    "municipio": "Tectitán",
+    "Ranking de la Gestión Municipal 2013": "0,2009",
+    "Ranking de la Gestión Municipal 2016": "0,2099",
+    "Ranking de la Gestión Municipal 2018": "0,2396",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1330,
+    "municipio": "Santiago Chimaltenango",
+    "Ranking de la Gestión Municipal 2013": "0,2981",
+    "Ranking de la Gestión Municipal 2016": "0,2163",
+    "Ranking de la Gestión Municipal 2018": "0,2396",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 919,
+    "municipio": "El Palmar",
+    "Ranking de la Gestión Municipal 2013": "0,3438",
+    "Ranking de la Gestión Municipal 2016": "0,3129",
+    "Ranking de la Gestión Municipal 2018": "0,2373",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1301,
+    "municipio": "Huehuetenango",
+    "Ranking de la Gestión Municipal 2013": "0,3759",
+    "Ranking de la Gestión Municipal 2016": "0,3900",
+    "Ranking de la Gestión Municipal 2018": "0,2356",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 717,
+    "municipio": "San Juan La Laguna",
+    "Ranking de la Gestión Municipal 2013": "0,4250",
+    "Ranking de la Gestión Municipal 2016": "0,2786",
+    "Ranking de la Gestión Municipal 2018": "0,2335",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 710,
+    "municipio": "Panajachel",
+    "Ranking de la Gestión Municipal 2013": "0,4434",
+    "Ranking de la Gestión Municipal 2016": "0,2883",
+    "Ranking de la Gestión Municipal 2018": "0,2328",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 21,
+    "departamento": "Jalapa",
+    "id": 2102,
+    "municipio": "San Pedro Pinula",
+    "Ranking de la Gestión Municipal 2013": "0,2378",
+    "Ranking de la Gestión Municipal 2016": "0,1690",
+    "Ranking de la Gestión Municipal 2018": "0,2293",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 506,
+    "municipio": "Tiquisate",
+    "Ranking de la Gestión Municipal 2013": "0,3107",
+    "Ranking de la Gestión Municipal 2016": "0,2889",
+    "Ranking de la Gestión Municipal 2018": "0,2290",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1109,
+    "municipio": "El Asintal",
+    "Ranking de la Gestión Municipal 2013": "0,2178",
+    "Ranking de la Gestión Municipal 2016": "0,2427",
+    "Ranking de la Gestión Municipal 2018": "0,2289",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 11,
+    "departamento": "Retalhuleu",
+    "id": 1101,
+    "municipio": "Retalhuleu",
+    "Ranking de la Gestión Municipal 2013": "0,3426",
+    "Ranking de la Gestión Municipal 2016": "0,2241",
+    "Ranking de la Gestión Municipal 2018": "0,2275",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 19,
+    "departamento": "Zacapa",
+    "id": 1908,
+    "municipio": "San Diego",
+    "Ranking de la Gestión Municipal 2013": "0,2926",
+    "Ranking de la Gestión Municipal 2016": "0,3255",
+    "Ranking de la Gestión Municipal 2018": "0,2261",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1416,
+    "municipio": "Sacapulas",
+    "Ranking de la Gestión Municipal 2013": "0,2605",
+    "Ranking de la Gestión Municipal 2016": "0,3570",
+    "Ranking de la Gestión Municipal 2018": "0,2257",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 504,
+    "municipio": "Siquinalá",
+    "Ranking de la Gestión Municipal 2013": "0,4508",
+    "Ranking de la Gestión Municipal 2016": "0,3218",
+    "Ranking de la Gestión Municipal 2018": "0,2245",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 708,
+    "municipio": "Concepción",
+    "Ranking de la Gestión Municipal 2013": "0,3314",
+    "Ranking de la Gestión Municipal 2016": "0,2021",
+    "Ranking de la Gestión Municipal 2018": "0,2167",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1315,
+    "municipio": "Todos Santos Cuchumatán",
+    "Ranking de la Gestión Municipal 2013": "0,3850",
+    "Ranking de la Gestión Municipal 2016": "0,1541",
+    "Ranking de la Gestión Municipal 2018": "0,2167",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 8,
+    "departamento": "Totonicapán",
+    "id": 805,
+    "municipio": "Momostenango",
+    "Ranking de la Gestión Municipal 2013": "0,5178",
+    "Ranking de la Gestión Municipal 2016": "0,2678",
+    "Ranking de la Gestión Municipal 2018": "0,2156",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1009,
+    "municipio": "San Pablo Jocopilas",
+    "Ranking de la Gestión Municipal 2013": "0,2846",
+    "Ranking de la Gestión Municipal 2016": "0,0692",
+    "Ranking de la Gestión Municipal 2018": "0,2141",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1311,
+    "municipio": "La Libertad",
+    "Ranking de la Gestión Municipal 2013": "0,2181",
+    "Ranking de la Gestión Municipal 2016": "0,0829",
+    "Ranking de la Gestión Municipal 2018": "0,2141",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1402,
+    "municipio": "Chiché",
+    "Ranking de la Gestión Municipal 2013": "0,1695",
+    "Ranking de la Gestión Municipal 2016": "0,2215",
+    "Ranking de la Gestión Municipal 2018": "0,2129",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1415,
+    "municipio": "San Miguel Uspantán",
+    "Ranking de la Gestión Municipal 2013": "0,5166",
+    "Ranking de la Gestión Municipal 2016": "0,2398",
+    "Ranking de la Gestión Municipal 2018": "0,2129",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 712,
+    "municipio": "San Antonio Palopó",
+    "Ranking de la Gestión Municipal 2013": "0,3888",
+    "Ranking de la Gestión Municipal 2016": "0,2420",
+    "Ranking de la Gestión Municipal 2018": "0,2127",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1705,
+    "municipio": "La Libertad",
+    "Ranking de la Gestión Municipal 2013": "0,4083",
+    "Ranking de la Gestión Municipal 2016": "0,3312",
+    "Ranking de la Gestión Municipal 2018": "0,2124",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1320,
+    "municipio": "San Sebastián Huehuetenango",
+    "Ranking de la Gestión Municipal 2013": "0,2325",
+    "Ranking de la Gestión Municipal 2016": "0,1254",
+    "Ranking de la Gestión Municipal 2018": "0,2077",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1005,
+    "municipio": "San José El Ídolo",
+    "Ranking de la Gestión Municipal 2013": "0,2791",
+    "Ranking de la Gestión Municipal 2016": "0,1947",
+    "Ranking de la Gestión Municipal 2018": "0,2043",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1403,
+    "municipio": "Chinique",
+    "Ranking de la Gestión Municipal 2013": "0,3756",
+    "Ranking de la Gestión Municipal 2016": "0,1523",
+    "Ranking de la Gestión Municipal 2018": "0,2017",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1226,
+    "municipio": "Sipacapa",
+    "Ranking de la Gestión Municipal 2013": "0,2524",
+    "Ranking de la Gestión Municipal 2016": "0,2397",
+    "Ranking de la Gestión Municipal 2018": "0,1985",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1405,
+    "municipio": "Chajul",
+    "Ranking de la Gestión Municipal 2013": "0,2006",
+    "Ranking de la Gestión Municipal 2016": "0,2047",
+    "Ranking de la Gestión Municipal 2018": "0,1937",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 5,
+    "departamento": "Escuintla",
+    "id": 501,
+    "municipio": "Escuintla",
+    "Ranking de la Gestión Municipal 2013": "0,4266",
+    "Ranking de la Gestión Municipal 2016": "0,1873",
+    "Ranking de la Gestión Municipal 2018": "0,1921",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1221,
+    "municipio": "La Reforma",
+    "Ranking de la Gestión Municipal 2013": "0,2530",
+    "Ranking de la Gestión Municipal 2016": "0,1478",
+    "Ranking de la Gestión Municipal 2018": "0,1921",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1019,
+    "municipio": "Pueblo Nuevo",
+    "Ranking de la Gestión Municipal 2013": "0,2433",
+    "Ranking de la Gestión Municipal 2016": "0,2012",
+    "Ranking de la Gestión Municipal 2018": "0,1869",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1014,
+    "municipio": "Patulul",
+    "Ranking de la Gestión Municipal 2013": "0,2082",
+    "Ranking de la Gestión Municipal 2016": "0,1770",
+    "Ranking de la Gestión Municipal 2018": "0,1867",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1228,
+    "municipio": "Río Blanco",
+    "Ranking de la Gestión Municipal 2013": "0,2685",
+    "Ranking de la Gestión Municipal 2016": "0,2637",
+    "Ranking de la Gestión Municipal 2018": "0,1782",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1213,
+    "municipio": "El Tumbador",
+    "Ranking de la Gestión Municipal 2013": "0,4153",
+    "Ranking de la Gestión Municipal 2016": "0,1962",
+    "Ranking de la Gestión Municipal 2018": "0,1778",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 715,
+    "municipio": "San Pablo La Laguna",
+    "Ranking de la Gestión Municipal 2013": "0,3314",
+    "Ranking de la Gestión Municipal 2016": "0,2006",
+    "Ranking de la Gestión Municipal 2018": "0,1762",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 16,
+    "departamento": "Alta Verapaz",
+    "id": 1611,
+    "municipio": "San Agustín Lanquín",
+    "Ranking de la Gestión Municipal 2013": "0,1441",
+    "Ranking de la Gestión Municipal 2016": "0,2326",
+    "Ranking de la Gestión Municipal 2018": "0,1697",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1328,
+    "municipio": "San Rafael Pétzal",
+    "Ranking de la Gestión Municipal 2013": "0,1366",
+    "Ranking de la Gestión Municipal 2016": "0,1593",
+    "Ranking de la Gestión Municipal 2018": "0,1686",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 711,
+    "municipio": "Santa Catarina Palopó",
+    "Ranking de la Gestión Municipal 2013": "0,2933",
+    "Ranking de la Gestión Municipal 2016": "0,3383",
+    "Ranking de la Gestión Municipal 2018": "0,1665",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1323,
+    "municipio": "San Juan Ixcoy",
+    "Ranking de la Gestión Municipal 2013": "0,3432",
+    "Ranking de la Gestión Municipal 2016": "0,1198",
+    "Ranking de la Gestión Municipal 2018": "0,1632",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 4,
+    "departamento": "Chimaltenango",
+    "id": 413,
+    "municipio": "San Andrés Itzapa",
+    "Ranking de la Gestión Municipal 2013": "0,3165",
+    "Ranking de la Gestión Municipal 2016": "0,2755",
+    "Ranking de la Gestión Municipal 2018": "0,1625",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 7,
+    "departamento": "Sololá",
+    "id": 714,
+    "municipio": "Santa Cruz La Laguna",
+    "Ranking de la Gestión Municipal 2013": "0,3224",
+    "Ranking de la Gestión Municipal 2016": "0,2123",
+    "Ranking de la Gestión Municipal 2018": "0,1577",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 13,
+    "departamento": "Huehuetenango",
+    "id": 1310,
+    "municipio": "Santa Bárbara",
+    "Ranking de la Gestión Municipal 2013": "0,2565",
+    "Ranking de la Gestión Municipal 2016": "0,1887",
+    "Ranking de la Gestión Municipal 2018": "0,1552",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1222,
+    "municipio": "Pajapita",
+    "Ranking de la Gestión Municipal 2013": "0,1438",
+    "Ranking de la Gestión Municipal 2016": "0,1591",
+    "Ranking de la Gestión Municipal 2018": "0,1541",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 913,
+    "municipio": "Almolonga",
+    "Ranking de la Gestión Municipal 2013": "0,2967",
+    "Ranking de la Gestión Municipal 2016": "0,1081",
+    "Ranking de la Gestión Municipal 2018": "0,1531",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1414,
+    "municipio": "San Andrés Sajcabajá",
+    "Ranking de la Gestión Municipal 2013": "0,3727",
+    "Ranking de la Gestión Municipal 2016": "0,3041",
+    "Ranking de la Gestión Municipal 2018": "0,1489",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 14,
+    "departamento": "Quiché",
+    "id": 1417,
+    "municipio": "San Bartolomé Jocotenango",
+    "Ranking de la Gestión Municipal 2013": "0,2417",
+    "Ranking de la Gestión Municipal 2016": "0,1064",
+    "Ranking de la Gestión Municipal 2018": "0,1424",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 10,
+    "departamento": "Suchitepéquez",
+    "id": 1012,
+    "municipio": "San Gabriel",
+    "Ranking de la Gestión Municipal 2013": "0,2809",
+    "Ranking de la Gestión Municipal 2016": "0,1524",
+    "Ranking de la Gestión Municipal 2018": "0,1374",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 17,
+    "departamento": "Petén",
+    "id": 1702,
+    "municipio": "San José",
+    "Ranking de la Gestión Municipal 2013": "0,2137",
+    "Ranking de la Gestión Municipal 2016": "0,0495",
+    "Ranking de la Gestión Municipal 2018": "0,1277",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 12,
+    "departamento": "San Marcos",
+    "id": 1224,
+    "municipio": "San José Ojetenam",
+    "Ranking de la Gestión Municipal 2013": "0,1652",
+    "Ranking de la Gestión Municipal 2016": "0,2397",
+    "Ranking de la Gestión Municipal 2018": "0,1226",
+    "Tendencia": ""
+  },
+  {
+    "cod_dep": 9,
+    "departamento": "Quetzaltenango",
+    "id": 908,
+    "municipio": "San Miguel Sigüila",
+    "Ranking de la Gestión Municipal 2013": "0,3013",
+    "Ranking de la Gestión Municipal 2016": "0,0717",
+    "Ranking de la Gestión Municipal 2018": "0,1218",
+    "Tendencia": ""
+  }
+]

@@ -27,6 +27,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
 
+  eleventyConfig.addFilter("searchByMunicipio", (municipio, data) => {
+    return data.find((item) => {
+      return item.id === municipio;
+    });
+  });
+
   eleventyConfig.addFilter("paginationSlice", (pagination) => {
     let pages = pagination.pages;
     let pageNumber = pagination.pageNumber;
@@ -99,6 +105,48 @@ module.exports = function (eleventyConfig) {
     });
 
     return newCollection;
+  });
+
+  eleventyConfig.addCollection("municipiosLoaded", function() {
+    let municipios = require('./src/_data/municipios.json');
+    let ranking = require('./src/_data/ranking.json');
+    let aip = require('./src/_data/aip.json');
+    let ipm = require('./src/_data/ipm.json');
+
+    municipios = municipios.map((municipio) => {
+      // Cargar ranking
+      municipio.ranking = ranking.find((ranking) => {
+        return ranking.id === municipio.id;
+      });
+
+      municipio.aip = aip.find((aip) => {
+        return aip.id === municipio.id;
+      });
+
+      municipio.ipm = ipm.find((ipm) => {
+        return ipm.id === municipio.id;
+      });
+
+      // Normalizar
+      if (typeof municipio.ranking['Ranking de la Gestión Municipal 2013'] === 'string') {
+        municipio.ranking['Ranking de la Gestión Municipal 2013']
+          = parseFloat(municipio.ranking['Ranking de la Gestión Municipal 2013'].replace(',', '.'));
+      }
+
+      if (typeof municipio.ranking['Ranking de la Gestión Municipal 2016'] === 'string') {
+        municipio.ranking['Ranking de la Gestión Municipal 2016']
+          = parseFloat(municipio.ranking['Ranking de la Gestión Municipal 2016'].replace(',', '.'));
+      }
+
+      if (typeof municipio.ranking['Ranking de la Gestión Municipal 2018'] === 'string') {
+        municipio.ranking['Ranking de la Gestión Municipal 2018']
+          = parseFloat(municipio.ranking['Ranking de la Gestión Municipal 2018'].replace(',', '.'));
+      }
+
+      return municipio;
+    });
+
+    return municipios;
   });
 
   return {

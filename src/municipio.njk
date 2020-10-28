@@ -1,6 +1,6 @@
 ---
 pagination:
-  data: municipios
+  data: collections.municipiosLoaded
   size: 1
   addAllPagesToCollections: true
   alias: municipio
@@ -188,6 +188,8 @@ tags:
                   </h6>
                   <canvas height="80px" id="chart-general-3"></canvas>
                 </div>
+                Ranking:
+                {{ municipio.ranking["Ranking de la Gestión Municipal 2013"] }}
               </div>
             </div>
           </div>
