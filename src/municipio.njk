@@ -1,6 +1,6 @@
 ---
 pagination:
-  data: collections.municipiosLoaded
+  data: municipiosData
   size: 1
   addAllPagesToCollections: true
   alias: municipio
@@ -60,25 +60,37 @@ tags:
             <div class="pb-2 border-bottom">
               <p class="m-0 h6">
                 Departamento:
-                <span class="text-secondary font-weight-normal">{{municipio.municipio}}</span>
+                <span class="text-secondary font-weight-normal">{{municipio.departamento}}</span>
               </p>
             </div>
             <div class="pt-1 pb-2 border-bottom">
               <p class="m-0 h6">
-                Página web:
-                <span class="text-secondary font-weight-normal">www.municoban.gob.gt/</span>
+                Alcalde:
+                <span class="text-secondary font-weight-normal">{{municipio.alcalde}}</span>
               </p>
             </div>
             <div class="pt-1 pb-2 border-bottom">
               <p class="m-0 h6">
-                E-mail:
-                <span class="text-secondary font-weight-normal">info@municoban.gob.gt</span>
+                Partido Político:
+                <span class="text-secondary font-weight-normal">{{municipio.partido}}</span>
+              </p>
+            </div>
+            <div class="pt-1 pb-2 border-bottom">
+              <p class="m-0 h6">
+                Fundación:
+                <span class="text-secondary font-weight-normal">{{municipio.fundacion}}</span>
+              </p>
+            </div>
+            <div class="pt-1 pb-2 border-bottom">
+              <p class="m-0 h6">
+                Teléfonos:
+                <span class="text-secondary font-weight-normal">{{municipio.telefono}}</span>
               </p>
             </div>
             <div class="pt-1 pb-2">
               <p class="m-0 h6">
-                Teléfonos:
-                <span class="text-secondary font-weight-normal">(502)2233-2344</span>
+                E-mail:
+                <span class="text-secondary font-weight-normal">{{municipio.email}}</span>
               </p>
             </div>
           </div>
@@ -89,21 +101,21 @@ tags:
             <ul class="list-unstyled">
               <li>
                 Página web:
-                <a href="http://www.muniguate.com/">http://www.muniguate.com/</a>
+                <a href="{{municipio.web}}">{{municipio.web}}</a>
               </li>
               <li>
                 Twitter:
-                <a href="https://twitter.com/muniguate">@MuniGuate</a>
+                <a href="{{municipio.twitter}}">{{municipio.twitter}}</a>
               </li>
               <li>
                 Facebook:
-                <a href="https://twitter.com/muniguate">@MuniGuate</a>
+                <a href="{{municipio.facebook}}">{{municipio.facebook}}</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 d-none">
         <div class="bg-primary w-100 row m-0 p-0 mb-2 justify-content-center">
           <div class="col-12 pt-2 text-center">
             <h3 class="text-white">
@@ -132,7 +144,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -188,8 +200,6 @@ tags:
                   </h6>
                   <canvas height="80px" id="chart-general-3"></canvas>
                 </div>
-                Ranking:
-                {{ municipio.ranking["Ranking de la Gestión Municipal 2013"] }}
               </div>
             </div>
           </div>
@@ -204,7 +214,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -266,120 +276,22 @@ tags:
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Ricardo Quiñonez Lemus</td>
-                        <td>Alcalde</td>
-                        <td>UNIONISTA</td>
-                        <td>1996-83832-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Carlos Alejandro Soberanis Toledo</td>
-                        <td>Sindico I</td>
-                        <td>UNIONISTA</td>
-                        <td>2613-90236-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Maria Elena Cruz Urrutia</td>
-                        <td>Sindico II</td>
-                        <td>UNIONISTA</td>
-                        <td>1999-02364-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Jaime Castillo Castellanos</td>
-                        <td>Sindico III</td>
-                        <td>UNIONISTA</td>
-                        <td>1999-26336-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Marco Antonio Palacios Lopez</td>
-                        <td>Sindico Suplente</td>
-                        <td>UNIONISTA</td>
-                        <td>1999-01228-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Victor Manuel Alejandro Martinez Ruiz</td>
-                        <td>Concejal I</td>
-                        <td>UNIONISTA</td>
-                        <td>1999-66206-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Alessandra Maria Gallio Abud De Davidson</td>
-                        <td>Concejal II</td>
-                        <td>UNIONISTA</td>
-                        <td>1999-40304-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Keving Roberto Rene Aldana Alvarez</td>
-                        <td>Concejal III</td>
-                        <td>UNIONISTA</td>
-                        <td>2458-83517-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Luis German Pineda Castellan</td>
-                        <td>Concejal IV</td>
-                        <td>UNIONISTA</td>
-                        <td>2596-89270-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Alejandra Maria Paiz Samayoa</td>
-                        <td>Concejal V</td>
-                        <td>UNIONISTA</td>
-                        <td>1999-88978-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Richard Lee Abularach</td>
-                        <td>Concejal VI</td>
-                        <td>CREO</td>
-                        <td>2618-90522-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Pablo Poroj Gomez</td>
-                        <td>Concejal VII</td>
-                        <td>CREO</td>
-                        <td>2510-74609-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Jose Pablo Mendoza Franco</td>
-                        <td>Concejal VIII</td>
-                        <td>CREO</td>
-                        <td>2396-65783-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Maria Tatiana Acuña Orellana</td>
-                        <td>Concejal IX</td>
-                        <td>CREO</td>
-                        <td>2616-84302-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Vilma Lyli Caravantes Tobias Dubois</td>
-                        <td>Concejal X</td>
-                        <td>SEMILLA</td>
-                        <td>1716-59899-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Adriana Regina Palmieri Di Pollina Fernandez</td>
-                        <td>Concejal Suplente I</td>
-                        <td>UNIONISTA</td>
-                        <td>2272-42165-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Argelia Gordillo Martinez</td>
-                        <td>Concejal Suplente II</td>
-                        <td>UNIONISTA</td>
-                        <td>2533-46304-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Ismail Salomon Pineda</td>
-                        <td>Concejal Suplente III</td>
-                        <td>CREO</td>
-                        <td>2377-94721-0101</td>
-                      </tr>
-                      <tr>
-                        <td>Julio Cesar Loarca Zea</td>
-                        <td>Concejal Suplente IV</td>
-                        <td>CREO</td>
-                        <td>2601-12097-0101</td>
-                      </tr>
+                      {% for item in municipio.coorporacion %}
+                        <tr>
+                          <td>
+                            {{item.nombre}}
+                          </td>
+                          <td>
+                            {{item.cargo}}
+                          </td>
+                          <td>
+                            {{item.partido}}
+                          </td>
+                          <td>
+                            {{item.cui}}
+                          </td>
+                        </tr>
+                      {% endfor %}
                     </tbody>
                   </table>
                   <small>Fuente: Tribunal Supremo Electoral (TSE)</small>
@@ -398,7 +310,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -432,7 +344,7 @@ tags:
                     Acceso a la información pública
                   </h3>
                   <h1>
-                    37,50
+                    {{municipio.aip.aipPromedio}}%
                   </h1>
                   <small>
                     PDH 2019
@@ -459,7 +371,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -517,7 +429,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -551,7 +463,7 @@ tags:
                     Indice de Pobreza Multidimensional
                   </h3>
                   <h1>
-                    52.89%
+                    {{municipio.ipm.ipm2014}} %
                   </h1>
                   <small>
                     PNUD 2014
@@ -577,7 +489,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -680,11 +592,11 @@ tags:
         <div class="bg-white w-100 row m-0 p-0">
           <div class="col-12 bg-secondary py-2 px-3 d-flex">
             <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
-              Transparencia
+              Población
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -715,10 +627,10 @@ tags:
               <div class="row m-0 p-0">
                 <div class="col-12 col-lg-3 p-2 px-3 border">
                   <h3>
-                    Acceso a la información pública
+                    Número de población
                   </h3>
                   <h1>
-                    37,50
+                    {{municipio.ipm.poblacion2014}}
                   </h1>
                   <small>
                     PDH 2019
@@ -726,9 +638,9 @@ tags:
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
-                    Indice de Acceso a la Información Pública
+                    Número de población
                   </h6>
-                  <canvas id="chart-transparencia-1"></canvas>
+                  <canvas id="chart-poblacion-1"></canvas>
                   <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small>
                 </div>
               </div>
@@ -745,7 +657,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -824,7 +736,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -882,7 +794,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -940,7 +852,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -998,7 +910,7 @@ tags:
             </h4>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none" data-toggle="modal" data-target="#exampleModal">
               Compartir gráfica
             </button>
 
@@ -1258,7 +1170,11 @@ tags:
         chartConfigGestionMunicipal1
           .data
           .datasets[0]
-          .data = [67.49, 56.93, 65.37];
+          .data = [
+            {{municipio.ranking.segeplan2013}},
+            {{municipio.ranking.segeplan2016}},
+            {{municipio.ranking.segeplan2018}}
+          ];
         chartConfigGestionMunicipal1.data.labels = ["2013", "2016", "2018"];
         new Chart(document.getElementById("chart-gestion-municipal-1"), chartConfigGestionMunicipal1);
 
@@ -1271,7 +1187,7 @@ tags:
         chartConfigGestionTransparencia1
           .data
           .datasets[0]
-          .data = [59, 81.25, 72.50];
+          .data = [{{municipio.aip.aip2015}}, {{municipio.aip.aip2017}}, {{municipio.aip.aip2019}}];
         chartConfigGestionTransparencia1.data.labels = ["2015", "2017", "2019"];
         new Chart(document.getElementById("chart-transparencia-1"), chartConfigGestionTransparencia1);
 
@@ -1284,9 +1200,32 @@ tags:
         chartConfigGestionPobreza1
           .data
           .datasets[0]
-          .data = [51.9, 49.8, 52.9];
+          .data = [
+            {{municipio.ipm.ipm2006}},
+            {{municipio.ipm.ipm2011}},
+            {{municipio.ipm.ipm2014}}
+          ];
         chartConfigGestionPobreza1.data.labels = ["2006", "2011", "2014"];
+        chartConfigGestionPobreza1.options.scales.yAxes[0].ticks.suggestedMax = 1;
         new Chart(document.getElementById("chart-pobreza-1"), chartConfigGestionPobreza1);
+
+        // Población - Número de población
+        let chartConfigPoblacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion1
+          .data
+          .datasets[0]
+          .label = "Número de población";
+        chartConfigPoblacion1
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.ipm.poblacion2006}},
+            {{municipio.ipm.poblacion2011}},
+            {{municipio.ipm.poblacion2014}}
+          ];
+        chartConfigPoblacion1.data.labels = ["2006", "2011", "2014"];
+        chartConfigPoblacion1.options.scales.yAxes[0].ticks.suggestedMax = 1;
+        new Chart(document.getElementById("chart-poblacion-1"), chartConfigPoblacion1);
 
         // Educación
         let chartConfigGestionEducacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));

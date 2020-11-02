@@ -90,64 +90,22 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
-  eleventyConfig.addCollection("chartTematicasByMunicipios", function (collectionApi) {
-    let newCollection = [];
-    var tematicas = collectionApi.getFilteredByTag("tematicas");
+  // eleventyConfig.addCollection("chartTematicasByMunicipios", function (collectionApi) {
+  //   let newCollection = [];
+  //   var tematicas = collectionApi.getFilteredByTag("tematicas");
 
-    collectionApi.getFilteredByTag("municipios").forEach((municipio) => {
-      tematicas.forEach((tematica) => {
+  //   collectionApi.getFilteredByTag("municipios").forEach((municipio) => {
+  //     tematicas.forEach((tematica) => {
 
-        newCollection.push({
-          tematica: tematica.data.title,
-          municipio: municipio.data.municipio
-        });
-      })
-    });
+  //       newCollection.push({
+  //         tematica: tematica.data.title,
+  //         municipio: municipio.data.municipio
+  //       });
+  //     })
+  //   });
 
-    return newCollection;
-  });
-
-  eleventyConfig.addCollection("municipiosLoaded", function() {
-    let municipios = require('./src/_data/municipios.json');
-    let ranking = require('./src/_data/ranking.json');
-    let aip = require('./src/_data/aip.json');
-    let ipm = require('./src/_data/ipm.json');
-
-    municipios = municipios.map((municipio) => {
-      // Cargar ranking
-      municipio.ranking = ranking.find((ranking) => {
-        return ranking.id === municipio.id;
-      });
-
-      municipio.aip = aip.find((aip) => {
-        return aip.id === municipio.id;
-      });
-
-      municipio.ipm = ipm.find((ipm) => {
-        return ipm.id === municipio.id;
-      });
-
-      // Normalizar
-      if (typeof municipio.ranking['Ranking de la Gestión Municipal 2013'] === 'string') {
-        municipio.ranking['Ranking de la Gestión Municipal 2013']
-          = parseFloat(municipio.ranking['Ranking de la Gestión Municipal 2013'].replace(',', '.'));
-      }
-
-      if (typeof municipio.ranking['Ranking de la Gestión Municipal 2016'] === 'string') {
-        municipio.ranking['Ranking de la Gestión Municipal 2016']
-          = parseFloat(municipio.ranking['Ranking de la Gestión Municipal 2016'].replace(',', '.'));
-      }
-
-      if (typeof municipio.ranking['Ranking de la Gestión Municipal 2018'] === 'string') {
-        municipio.ranking['Ranking de la Gestión Municipal 2018']
-          = parseFloat(municipio.ranking['Ranking de la Gestión Municipal 2018'].replace(',', '.'));
-      }
-
-      return municipio;
-    });
-
-    return municipios;
-  });
+  //   return newCollection;
+  // });
 
   return {
     passthroughFileCopy: true,
