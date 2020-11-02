@@ -8,6 +8,7 @@ module.exports = function (collection) {
         this.setRef("id");
     });
 
+    console.log(collection);
     // loop through each page and add it to the index
     collection.forEach(item => {
         index.addDoc({
