@@ -1,0 +1,242 @@
+---
+title: Pobreza
+description: "Review feature info and customization details."
+---
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{title}}</title>
+    <link rel="icon" href="{{ '/favicon.png' | url }}" />
+    <link href="{{ '/css/style.css' | url }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+</head>
+<body onload="init()">
+    <div class="w-100 d-flex">
+        <div class="col-12 mb-2 p-0">
+            <div class="bg-white w-100 row m-0 p-0">
+                <div class="col-12 bg-secondary py-2 px-3 d-flex">
+                    <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+                        {{title}}
+                    </h4>
+        
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto d-none"
+                        data-toggle="modal" data-target="#exampleModal">
+                        Compartir gráfica
+                    </button>
+        
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Compartir gráfica
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="bg-light p-1 mb-2">
+                                        <code id="code-embed"></code>
+                                    </div>
+                                    <embed id="embed-embed"
+                                        src="/chart/huehuetenango/san-rafael-la-independencia/rango-de-edad/" type="text/html"
+                                        class="w-100" height="500b">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="col-12 p-0">
+                    <div class="w-100">
+                        <div id="data-container" class="row m-0 p-0">
+                            <div class="col-12 col-lg-3 p-2 px-3 border">
+                                <h3>
+                                    Indice de Gestión Municipal
+                                </h3>
+                                <h1 id="ranking-segeplan2018">
+                                    <!-- build with fetched data -->
+                                </h1>
+                                <small>
+                                    SEGEPLAN 2018
+                                </small>
+                            </div>
+                            <div class="col-12 col-lg-9 p-3 border">
+                                <h6>
+                                    Indice de Gestión Municipal - SEGEPLAN 2018
+                                </h6>
+                                <canvas height="120px" id="chart-gestion-municipal-1"></canvas>
+                                <small>Fuente: SEGEPLAN</small>
+                            </div>
+                            <div class="col-12 p-3 border">
+                                <h6>
+                                    Corporación Municipal
+                                </h6>
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Cargo</th>
+                                            <th scope="col">Partido Político</th>
+                                            <th scope="col">Cui</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla-coorporacion">
+                                        <!-- build with fetched data -->
+                                    </tbody>
+                                </table>
+                                <small>Fuente: Tribunal Supremo Electoral (TSE)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function init() {
+            const urlParams = new URLSearchParams(location.search);
+
+            if (!urlParams.get('municipio')) {
+                document.getElementById('data-container').innerHTML = 'Es necesario especificar un municipio';
+                document.getElementById('data-container').style.padding = '1.5rem';
+                document.getElementById('data-container').classList = null;
+                console.log('Es necesario indicar el id del municipio como query param "?municipio=101"');
+                return;
+            }
+
+            var municipiosData;
+            municipiosData = await fetch('/municipiosData.json').then((response) => {
+                return response.json()
+            })
+            .then((json) => {
+                return json;
+            });
+
+            var municipio;
+            var municipioIdParam = parseInt(urlParams.get('municipio'));
+
+            municipio = municipiosData.find((municipio) => {
+                return municipio.idMunicipal === municipioIdParam;
+            });
+
+            if (!municipio) {
+                document.getElementById('data-container').innerHTML = `Codigo ${urlParams.get('municipio')} de municipio no válido`;
+                document.getElementById('data-container').style.padding = '1.5rem';
+                document.getElementById('data-container').classList = null;
+                console.log('Verificar lista de código de municipios');
+                return;
+            }
+
+            window.municipio = municipio;
+
+            document.getElementById('ranking-segeplan2018').innerHTML = municipio.ranking.segeplan2018;
+
+            municipio.coorporacion.forEach((persona) => {
+                let tr = document.createElement('tr');
+                let nombre = document.createElement('td');
+                let cargo = document.createElement('td');
+                let partido = document.createElement('td');
+                let cui = document.createElement('td');
+
+                nombre.innerHTML = persona.nombre || '';
+                cargo.innerHTML = persona.cargo || '';
+                partido.innerHTML = persona.partido || '';
+                cui.innerHTML = persona.cui || '';
+
+                tr.append(nombre);
+                tr.append(cargo);
+                tr.append(partido);
+                tr.append(cui);
+
+                document.getElementById('tabla-coorporacion').append(tr);
+            });
+
+            window.chartConfigGestionMunicipal1
+                .data
+                .datasets[0]
+                .data = [
+                    window.municipio.ranking.segeplan2013,
+                    window.municipio.ranking.segeplan2016,
+                    window.municipio.ranking.segeplan2018
+                ];
+
+            window.chart.update();
+        }
+    </script>
+    {# ChartJS #}
+    <script>
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)){ return; }
+        js = d.createElement(s); js.id = id;
+        js.onload = function(){
+            // CHARTJS STUFF
+            var baseBarChartConfig = {
+                "type": "bar",
+                "data": {
+                    "labels": [],
+                    "datasets": [
+                        {
+                            "label": "",
+                            "data": [],
+                            "fill": false,
+                            "backgroundColor": "#52CCAE",
+                            "borderColor": "#52CCAE",
+                            "borderWidth": 0
+                        }
+                    ]
+                },
+                "options": {
+                    "scales": {
+                        "xAxes": [
+                            {
+                                "display": true,
+                                "gridLines": {
+                                    "lineWidth": 1
+                                }
+                            }
+                        ],
+                        "yAxes": [
+                            {
+                                "display": true,
+                                "lineWidth": 1,
+                                "ticks": {
+                                    "beginAtZero": true,
+                                    "suggestedMax": 100
+                                },
+                                "gridLines": {
+                                    "lineWidth": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            };
+            // Gestion municipal
+            let chartConfigGestionMunicipal1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+            chartConfigGestionMunicipal1
+                .data
+                .datasets[0]
+                .label = "Indice gestión municipal %";
+            chartConfigGestionMunicipal1
+                .data
+                .datasets[0]
+                .data = [
+                    // this is update when data is fetcheds
+                ];
+            chartConfigGestionMunicipal1.data.labels = ["2013", "2016", "2018"];
+            window.chartConfigGestionMunicipal1 = chartConfigGestionMunicipal1;
+            window.chart = new Chart(document.getElementById("chart-gestion-municipal-1"), window.chartConfigGestionMunicipal1);
+        };
+        js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'chart-jssdk'));
+    </script>
+</body>
+</html>

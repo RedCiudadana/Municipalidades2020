@@ -17,12 +17,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./src/sass/");
 
-  eleventyConfig.addPassthroughCopy("./src/css");
-  eleventyConfig.addPassthroughCopy("./src/fonts");
-  eleventyConfig.addPassthroughCopy("./src/img");
-  eleventyConfig.addPassthroughCopy("./src/mi-guatemala");
-  eleventyConfig.addPassthroughCopy("./src/favicon.png");
-  eleventyConfig.addPassthroughCopy("./src/js");
+  // eleventyConfig.addPassthroughCopy("./src/css");
+  // eleventyConfig.addPassthroughCopy("./src/fonts");
+  // eleventyConfig.addPassthroughCopy("./src/img");
+  // eleventyConfig.addPassthroughCopy("./src/mi-guatemala");
+  // eleventyConfig.addPassthroughCopy("./src/favicon.png");
+  // eleventyConfig.addPassthroughCopy("./src/js");
+  eleventyConfig.addPassthroughCopy({ "./assets": "" });
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
