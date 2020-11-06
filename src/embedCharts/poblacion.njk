@@ -53,48 +53,29 @@ description: "Review feature info and customization details."
         
                 </div>
                 <div class="col-12 p-0">
-                    <div class="w-100">
-                        <div id="data-container" class="row m-0 p-0">
-                            <div class="col-12 col-lg-3 p-2 px-3 border">
-                                <h3>
-                                    Indice de Gestión Municipal
-                                </h3>
-                                <h1 id="ranking-segeplan2018">
-                                    <!-- build with fetched data -->
-                                </h1>
-                                <small>
-                                    SEGEPLAN 2018
-                                </small>
-                            </div>
-                            <div class="col-12 col-lg-9 p-3 border">
-                                <h6>
-                                    Indice de Gestión Municipal - SEGEPLAN 2018
-                                </h6>
-                                <canvas height="120px" id="chart-gestion-municipal-1"></canvas>
-                                <small>Fuente: SEGEPLAN</small>
-                            </div>
-                            <div class="col-12 p-3 border">
-                                <h6>
-                                    Corporación Municipal
-                                </h6>
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Cargo</th>
-                                            <th scope="col">Partido Político</th>
-                                            <th scope="col">Cui</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tabla-coorporacion">
-                                        <!-- build with fetched data -->
-                                    </tbody>
-                                </table>
-                                <small>Fuente: Tribunal Supremo Electoral (TSE)</small>
-                            </div>
-                        </div>
-                    </div>
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Número de población
+                  </h3>
+                  <h1 id="poblacion2014">
+                    {{municipio.ipm.poblacion2014}}
+                  </h1>
+                  <small>
+                    PDH 2019
+                  </small>
                 </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Número de población
+                  </h6>
+                  <canvas id="chart-poblacion-1"></canvas>
+                  <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small>
+                </div>
+              </div>
+            </div>
+          </div>
             </div>
         </div>
     </div>
@@ -135,35 +116,15 @@ description: "Review feature info and customization details."
 
             window.municipio = municipio;
 
-            document.getElementById('ranking-segeplan2018').innerHTML = municipio.ranking.segeplan2018;
+            document.getElementById('poblacion2014').innerHTML = municipio.ipm.poblacion2014;
 
-            municipio.coorporacion.forEach((persona) => {
-                let tr = document.createElement('tr');
-                let nombre = document.createElement('td');
-                let cargo = document.createElement('td');
-                let partido = document.createElement('td');
-                let cui = document.createElement('td');
-
-                nombre.innerHTML = persona.nombre || '';
-                cargo.innerHTML = persona.cargo || '';
-                partido.innerHTML = persona.partido || '';
-                cui.innerHTML = persona.cui || '';
-
-                tr.append(nombre);
-                tr.append(cargo);
-                tr.append(partido);
-                tr.append(cui);
-
-                document.getElementById('tabla-coorporacion').append(tr);
-            });
-
-            window.chartConfigGestionMunicipal1
+            window.chartConfigPoblacion1
                 .data
                 .datasets[0]
                 .data = [
-                    window.municipio.ranking.segeplan2013,
-                    window.municipio.ranking.segeplan2016,
-                    window.municipio.ranking.segeplan2018
+                    municipio.ipm.poblacion2006,
+                    municipio.ipm.poblacion2011,
+                    municipio.ipm.poblacion2014,
                 ];
 
             window.chart.update();
@@ -219,20 +180,19 @@ description: "Review feature info and customization details."
                 }
             };
             // Gestion municipal
-            let chartConfigGestionMunicipal1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-            chartConfigGestionMunicipal1
-                .data
-                .datasets[0]
-                .label = "Indice gestión municipal %";
-            chartConfigGestionMunicipal1
-                .data
-                .datasets[0]
-                .data = [
-                    // this is update when data is fetcheds
-                ];
-            chartConfigGestionMunicipal1.data.labels = ["2013", "2016", "2018"];
-            window.chartConfigGestionMunicipal1 = chartConfigGestionMunicipal1;
-            window.chart = new Chart(document.getElementById("chart-gestion-municipal-1"), window.chartConfigGestionMunicipal1);
+            let chartConfigPoblacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+            chartConfigPoblacion1
+            .data
+            .datasets[0]
+            .label = "Número de población";
+            chartConfigPoblacion1
+            .data
+            .datasets[0]
+            .data = [
+            ];
+            chartConfigPoblacion1.data.labels = ["2006", "2011", "2014"];
+            window.chartConfigPoblacion1 = chartConfigPoblacion1.options.scales.yAxes[0].ticks.suggestedMax = 1;
+            window.chart = new Chart(document.getElementById("chart-poblacion-1"), chartConfigPoblacion1);
         };
         js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
         fjs.parentNode.insertBefore(js, fjs);
