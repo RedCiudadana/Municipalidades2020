@@ -30,64 +30,57 @@ tags:
       </div>
       <div class="col-12 mb-2">
         <div class="bg-white w-100 row m-0 p-0">
-          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/index.html" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/index.html" class="col-12 col-md-3 m-0 p-2 bg-primary text-white text-center font-weight-bold border-right">
+            <img src="/assets/img/general-white.png" height="25px" alt="Casa" class="mr-1">
             Municipalidades
           </a>
           <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/corporacion.html" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
+            <img src="/assets/img/coorporacion.png" height="25px" alt="Casa" class="mr-1">
             Corporación municipal
           </a>
-          {# <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
-            TODO AIP
-          </a>
-          <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold border-right">
-            TODO Comparar
-          </a>
-          <a href="#" class="col-12 col-md-3 m-0 p-2 text-center font-weight-bold">
-            TODO Share button
-          </a> #}
         </div>
       </div>
       <div class="col-12 mb-2">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 col-lg-3 p-4 d-flex">
-            <img src="/assets/img/logo-municipalidad-placeholder.png" alt="Municipalidad de Guatemala" class="my-auto">
+          <div class="col-12 col-lg-4 p-4 d-flex">
+            <img src="/assets/img/mapa.png" alt="Municipalidad de Guatemala" class="m-auto img-fluid">
           </div>
-          <div class="col-12 col-lg-5 p-4 text-center text-lg-left">
+          <div class="col-12 col-lg-4 p-4 text-center text-lg-left">
             <h3>
               Municipalidad de
               {{ municipio.municipio }}
             </h3>
-            <div class="pb-2 border-bottom">
+            <div class="pb-1 border-bottom">
               <p class="m-0 h6">
                 Departamento:
                 <span class="text-secondary font-weight-normal">{{municipio.departamento}}</span>
               </p>
             </div>
-            <div class="pt-1 pb-2 border-bottom">
+            <div class="pt-1 pb-1 border-bottom">
               <p class="m-0 h6">
                 Alcalde:
                 <span class="text-secondary font-weight-normal">{{municipio.alcalde}}</span>
               </p>
             </div>
-            <div class="pt-1 pb-2 border-bottom">
+            <div class="pt-1 pb-1 border-bottom">
               <p class="m-0 h6">
                 Partido Político:
                 <span class="text-secondary font-weight-normal">{{municipio.partido}}</span>
               </p>
             </div>
-            <div class="pt-1 pb-2 border-bottom">
+            <div class="pt-1 pb-1 border-bottom">
               <p class="m-0 h6">
                 Fundación:
                 <span class="text-secondary font-weight-normal">{{municipio.fundacion}}</span>
               </p>
             </div>
-            <div class="pt-1 pb-2 border-bottom">
+            <div class="pt-1 pb-1 border-bottom">
               <p class="m-0 h6">
                 Teléfonos:
                 <span class="text-secondary font-weight-normal">{{municipio.telefono}}</span>
               </p>
             </div>
-            <div class="pt-1 pb-2">
+            <div class="pt-1 pb-1">
               <p class="m-0 h6">
                 E-mail:
                 <span class="text-secondary font-weight-normal">{{municipio.email}}</span>
@@ -100,22 +93,23 @@ tags:
             </h6>
             <ul class="list-unstyled">
               <li>
-                Twitter:
-                <a href="{{municipio.twitter}}">{{municipio.twitter}}</a>
+                <img src="/assets/img/twitter.png" alt="Twitter" height="30px">
+                <a class="text-secondary" href="{{municipio.twitter}}">@Profile{{municipio.twitter}}</a>
               </li>
               <li>
-                Facebook:
-                <a href="{{municipio.facebook}}">{{municipio.facebook}}</a>
+                <img src="/assets/img/facebook.png" alt="Facebook" height="30px">
+                <a class="text-secondary" href="{{municipio.facebook}}">@Profile{{municipio.facebook}}</a>
               </li>
             </ul>
             <button class="btn btn-secondary btn-block text-uppercase">
+              <img src="/assets/img/download.png" alt="Descargar" height="20px" class="mr-2">
               Descargar .XLSX
             </button>
           </div>
         </div>
       </div>
       <div class="col-12">
-        <div class="bg-white border w-100 row m-0 p-0 mb-2 justify-content-center">
+        <div class="bg-white border w-100 row m-0 p-0 mb-2 justify-content-center py-3">
           <div class="col-12 pt-2 text-center">
             <h4 class="">
               Elije la tematica de su interes

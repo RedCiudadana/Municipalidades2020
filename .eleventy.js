@@ -73,6 +73,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("search", searchFilter);
 
+  eleventyConfig.addFilter("realSlice", function(array, lenght) {
+    return array.slice(0, lenght);
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,

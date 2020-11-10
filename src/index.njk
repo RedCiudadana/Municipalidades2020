@@ -31,7 +31,7 @@ layout: base.njk
   </a>
 </div>
 {# main #}
-<div class="bg-white w-100">
+<div class="w-100">
   <div class="container py-5">
     <div class="row">
       <div class="col-12 mb-2 col-md-6">
@@ -45,6 +45,41 @@ layout: base.njk
       <div class="col-12 mb-2 col-md-6 text-center px-md-4">
         <iframe style="min-height: 300px;" class="w-100 h-auto" src="https://www.youtube.com/embed/UHGvdqwvizE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
       </div>
+    </div>
+  </div>
+</div>
+<div class="bg-white w-100">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 d-flex mb-2">
+        <h1>
+          Municipios
+        </h1>
+        <div class="ml-auto">
+          <a href="municipios/1/index.html" class="btn btn-secondary text-white">
+            Ver más
+          </a>
+        </div>
+      </div>
+      {% set municipios = collections.municipios | slice(90) %}
+      {% set municipios = municipios[0] %}
+      {%- for municipio in municipios %}
+        {% set municipioData = municipio.data.municipio %}
+        <div class="col-12 col-lg-3 py-1">
+          <div class="w-100 border">
+            <div class="bg-dark w-100 text-center">
+              <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+            </div>
+            <div class="w-100 p-3">
+              <p>
+                {{ municipioData.departamento | title }},
+                {{ municipioData.municipio | title}}
+              </p>
+              <a href="{{municipio.url}}" class="btn btn-primary text-white">Ver más</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -67,123 +102,145 @@ layout: base.njk
     {% endfor %}
   </div>
 </div>
+
 <div class="bg-white w-100">
   <div class="container py-5">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 d-flex mb-2">
         <h1>
           Tutoriales
         </h1>
-        <p class="h5 font-weight-normal">
-        </p>
+        <div class="ml-auto">
+          <a href="tutoriales" class="btn btn-secondary text-white">
+            Ver más
+          </a>
+        </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
+      <div class="col-12 col-lg-4 py-1">
         <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Guia de uso
+          <div class="bg-dark w-100 text-center">
+            <img src="/assets/img/video.png" class="p-4 img-fluid mx-auto" alt="Laboratorio">
+          </div>
+          <div class="w-100 p-3">
+            <h5>
+              Lorem ipsum
+            </h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ad debitis repudiandae!
             </p>
+            <a href="#" class="btn btn-primary text-white">Ver más</a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
+      <div class="col-12 col-lg-4 py-1">
         <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Ranking Municipal
+          <div class="bg-dark w-100 text-center">
+            <img src="/assets/img/video.png" class="p-4 img-fluid mx-auto" alt="Laboratorio">
+          </div>
+          <div class="w-100 p-3">
+            <h5>
+              Lorem ipsum
+            </h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ad debitis repudiandae!
             </p>
+            <a href="#" class="btn btn-primary text-white">Ver más</a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
+      <div class="col-12 col-lg-4 py-1">
         <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Acceso a la información pública
+          <div class="bg-dark w-100 text-center">
+            <img src="/assets/img/video.png" class="p-4 img-fluid mx-auto" alt="Laboratorio">
+          </div>
+          <div class="w-100 p-3">
+            <h5>
+              Lorem ipsum
+            </h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ad debitis repudiandae!
             </p>
+            <a href="#" class="btn btn-primary text-white">Ver más</a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
+    </div>
+  </div>
+</div>
+<div class="bg-white w-100">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 d-flex mb-2">
+        <h1>
+          Visualizaciones
+        </h1>
+        <div class="ml-auto">
+          <a href="visualizaciones" class="btn btn-secondary text-white">
+            Ver más
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 py-1">
         <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Desnutrición Crónica Municipal
-            </p>
+          <div class="bg-dark w-100 text-center">
+            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+          </div>
+          <div class="w-100 p-3">
+            <h6>
+              Lorem ipsum
+            </h6>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>  
+            <a href="#" class="btn btn-primary text-white">Ver más</a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
+      <div class="col-12 col-lg-3 py-1">
         <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Desnutrición Aguda Municipal
-            </p>
+          <div class="bg-dark w-100 text-center">
+            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+          </div>
+          <div class="w-100 p-3">
+            <h6>
+              Lorem ipsum
+            </h6>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>  
+            <a href="#" class="btn btn-primary text-white">Ver más</a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
+      <div class="col-12 col-lg-3 py-1">
         <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Índice de pobreza Multidimensional
-            </p>
+          <div class="bg-dark w-100 text-center">
+            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+          </div>
+          <div class="w-100 p-3">
+            <h6>
+              Lorem ipsum
+            </h6>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>  
+            <a href="#" class="btn btn-primary text-white">Ver más</a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
+      <div class="col-12 col-lg-3 py-1">
         <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Desempeño de Escuelas Municipales
-            </p>
+          <div class="bg-dark w-100 text-center">
+            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
           </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
-        <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Presupuesto Municipal
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
-        <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Ejecución Presupuestaria
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
-        <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Recaudación Municipal
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 py-1">
-        <div class="w-100 border">
-          <img class="img-fluid" src="/assets/img/video-placeholder.png" alt="Video">
-          <div class="p-2 py-3">
-            <p class="m-0">
-              Corporación Municipal
-            </p>
+          <div class="w-100 p-3">
+            <h6>
+              Lorem ipsum
+            </h6>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>  
+            <a href="#" class="btn btn-primary text-white">Ver más</a>
           </div>
         </div>
       </div>
