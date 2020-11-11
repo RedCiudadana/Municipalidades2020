@@ -188,7 +188,7 @@
             data-rss="https://medium.com/feed/codingthesmartway-com-blog"
             data-maxcols="4"
             data-layout="slider"
-            data-poststyle="inline"
+            data-poststyle="modal"
             data-readmore="Ver más"
             data-buttonclass="btn btn-primary text-white"
             data-offset="-100"></div>
@@ -287,6 +287,10 @@
     #rss-container .read-more {
       text-align: left;
       padding: 0.5rem 0 0.5rem 0;
+    }
+
+    .rtb-close {
+      z-index: 1000;
     }
   </style>
 {% endblock %}
