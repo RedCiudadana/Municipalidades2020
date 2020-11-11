@@ -12,7 +12,7 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="overflow: visible;">
       <div class="carousel-item active">
         <img src="/assets/img/slide.jpg" class="d-block w-100" alt="Ciudad de Guatemala" style="filter: brightness(0.6); max-height: 450px; overflow: hidden;">
         <div class="carousel-caption d-none d-md-flex h-100">
@@ -21,6 +21,15 @@
               Explora, Visualiza y Analiza <br>
               Datos municipales de Guatemala
             </h3>
+            <div class="w-auto mx-auto" style="max-width: 400px; z-index: 1000;">
+              <div class="field">
+                <input class="form-control mx-auto" type="search" placeholder="Buscar" id="searchField" style="max-width: 400px;"/>
+              </div>
+              <div id="searchResultsContainer" class="w-100 rounded bg-white shadow-sm mx-auto" style="max-width: 400px;">
+                <ol id="searchResults" style="z-index: 20;">
+                </ol>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -297,4 +306,42 @@
 
 {% block body_javascripts %}
     <script src="/assets/js/retainable.js"></script>
+    <!--Only 5.7kb GZipped. You may want to bundle this with your application code. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+    <script>
+      (function(window, document) {
+      "use strict";
+
+      const search = e => {
+        const results = window.searchIndex.search(e.target.value);
+
+        const ol = document.getElementById("searchResults");
+        const searchResultsContainer = document.getElementById("searchResultsContainer");
+        ol.innerHTML = "";
+        searchResultsContainer.style.position = 'none';
+        if (results && results.length > 0) {
+          searchResultsContainer.style.position = 'absolute';
+          results.map(r => {
+            const { id, departamento, municipio } = r.doc;
+
+            // this is where you'll go wild with your own HTML injection.
+            const li = document.createElement("li");
+            ol.appendChild(li);
+
+            const a = document.createElement("a");
+            a.setAttribute("href", id);
+            a.textContent = `${departamento}, ${municipio}`;
+            li.appendChild(a);
+          });
+        }
+      };
+
+      fetch("/search-index.json").then(response =>
+        response.json().then(rawIndex => {
+          window.searchIndex = elasticlunr.Index.load(rawIndex);
+          document.getElementById("searchField").addEventListener("input", search);
+        })
+      );
+    })(window, document);
+    </script>
 {% endblock %}
