@@ -1,83 +1,135 @@
 ---
 title: Tutoriales
-layout: base.njk
 ---
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-12 text-center">
-            <h1>
-                Visualizaciones
-            </h1>
-        </div>
-    </div>
-</div>
-<div class="bg-white w-100 py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-3 py-1">
-                <div class="w-100 border">
-                    <div class="bg-dark w-100 text-center">
-                        <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
-                    </div>
-                    <div class="w-100 p-3">
-                        <h6>
-                        Lorem ipsum
-                        </h6>
-                        <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        </p>  
-                        <a href="#" class="btn btn-primary text-white">Ver más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 py-1">
-                <div class="w-100 border">
-                    <div class="bg-dark w-100 text-center">
-                        <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
-                    </div>
-                    <div class="w-100 p-3">
-                        <h6>
-                        Lorem ipsum
-                        </h6>
-                        <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        </p>  
-                        <a href="#" class="btn btn-primary text-white">Ver más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 py-1">
-                <div class="w-100 border">
-                    <div class="bg-dark w-100 text-center">
-                        <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
-                    </div>
-                    <div class="w-100 p-3">
-                        <h6>
-                        Lorem ipsum
-                        </h6>
-                        <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        </p>  
-                        <a href="#" class="btn btn-primary text-white">Ver más</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3 py-1">
-                <div class="w-100 border">
-                    <div class="bg-dark w-100 text-center">
-                        <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
-                    </div>
-                    <div class="w-100 p-3">
-                        <h6>
-                        Lorem ipsum
-                        </h6>
-                        <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        </p>  
-                        <a href="#" class="btn btn-primary text-white">Ver más</a>
-                    </div>
-                </div>
+{% extends "src/_includes/baseToExtend.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="/assets/css/retainable.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h1>
+                    Visualizaciones
+                </h1>
             </div>
         </div>
     </div>
-</div>
+    <div class="bg-white w-100 py-5">
+        <div class="container">
+            <div class="row d-none">
+                <div class="col-12 col-lg-3 py-1">
+                    <div class="w-100 border">
+                        <div class="bg-dark w-100 text-center">
+                            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+                        </div>
+                        <div class="w-100 p-3">
+                            <h6>
+                            Lorem ipsum
+                            </h6>
+                            <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            </p>  
+                            <a href="#" class="btn btn-primary text-white">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3 py-1">
+                    <div class="w-100 border">
+                        <div class="bg-dark w-100 text-center">
+                            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+                        </div>
+                        <div class="w-100 p-3">
+                            <h6>
+                            Lorem ipsum
+                            </h6>
+                            <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            </p>  
+                            <a href="#" class="btn btn-primary text-white">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3 py-1">
+                    <div class="w-100 border">
+                        <div class="bg-dark w-100 text-center">
+                            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+                        </div>
+                        <div class="w-100 p-3">
+                            <h6>
+                            Lorem ipsum
+                            </h6>
+                            <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            </p>  
+                            <a href="#" class="btn btn-primary text-white">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3 py-1">
+                    <div class="w-100 border">
+                        <div class="bg-dark w-100 text-center">
+                            <img src="/assets/img/lab-gray.png" class="p-4 img-fluid" alt="Laboratorio">
+                        </div>
+                        <div class="w-100 p-3">
+                            <h6>
+                            Lorem ipsum
+                            </h6>
+                            <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            </p>  
+                            <a href="#" class="btn btn-primary text-white">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" id="rss-container">
+                    <div id="retainable-rss-embed"
+                        data-rss="https://medium.com/feed/codingthesmartway-com-blog"
+                        data-maxcols="4"
+                        data-layout="grid"
+                        data-poststyle="inline"
+                        data-readmore="Ver más"
+                        data-buttonclass="btn btn-primary text-white"
+                        data-offset="-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #rss-container h2 {
+            font-size: 1rem;
+        }
+
+        #rss-container .excerpt {
+            display: none;
+        }
+
+        #rss-container .excerpt h3 {
+            font-size: 1rem !important;
+            font-weight: normal !important;
+        }
+
+        #rss-container .col-sm-3 {
+            margin-bottom: 1rem;
+            /* border: 1px solid #dee2e6 !important; */
+            /* padding: 0; */
+        }
+
+        #rss-container .post-date {
+            display: none;
+        }
+
+        #rss-container .read-more {
+            text-align: left;
+            padding: 0.5rem 0 0.5rem 0;
+        }
+    </style>
+{% endblock %}
+
+{% block body_javascripts %}
+    <script src="/assets/js/retainable.js"></script>
+{% endblock %}
