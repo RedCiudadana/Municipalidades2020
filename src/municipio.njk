@@ -15,6 +15,9 @@ tags:
 {% endblock %}
 
 {% block content %}
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0" nonce="YTtCnNoo"></script>
+  <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
   <style>
     #map-container {
       width: 100%;
@@ -38,6 +41,20 @@ tags:
             <img src="/assets/img/coorporacion.png" height="25px" alt="Casa" class="mr-1">
             Corporación municipal
           </a>
+          <div class="col d-flex">
+            <div class="mx-auto ml-md-auto mr-md-0 my-auto d-flex py-2">
+              <!-- Corregir alineación con tweet  -->
+              <style>
+                .fb-share-button span {
+                  vertical-align: top !important;
+                }
+              </style>
+              <div class="fb-share-button my-auto mr-1" data-href="https://labmunicipal.redciudadana.org/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flabmunicipal.redciudadana.org%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+              <a  class="twitter-share-button my-auto" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Flabmunicipal.redciudadana.org%2F&via=RedxGuate&text=Laboratorio%20Municipal&hashtags=%23LaboratorioMunicipal">
+                Tweet
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-12 mb-2">
