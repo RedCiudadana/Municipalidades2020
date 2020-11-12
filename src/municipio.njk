@@ -272,40 +272,6 @@ tags:
                   <canvas height="120px" id="chart-gestion-municipal-1"></canvas>
                   <small>Fuente: SEGEPLAN</small>
                 </div>
-                <div class="col-12 p-3 border">
-                  <h6>
-                    Corporación Municipal
-                  </h6>
-                  <table class="table table-sm">
-                    <thead>
-                      <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Cargo</th>
-                        <th scope="col">Partido Político</th>
-                        <th scope="col">Cui</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for item in municipio.coorporacion %}
-                        <tr>
-                          <td>
-                            {{item.nombre}}
-                          </td>
-                          <td>
-                            {{item.cargo}}
-                          </td>
-                          <td>
-                            {{item.partido}}
-                          </td>
-                          <td>
-                            {{item.cui}}
-                          </td>
-                        </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
-                  <small>Fuente: Tribunal Supremo Electoral (TSE)</small>
-                </div>
               </div>
             </div>
           </div>

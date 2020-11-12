@@ -52,7 +52,6 @@ permalink: "/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }
                         <th scope="col">Nombre</th>
                         <th scope="col">Cargo</th>
                         <th scope="col">Partido Político</th>
-                        <th scope="col">Cui</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -66,9 +65,6 @@ permalink: "/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }
                           </td>
                           <td>
                             {{item.partido}}
-                          </td>
-                          <td>
-                            {{item.cui}}
                           </td>
                         </tr>
                       {% endfor %}
