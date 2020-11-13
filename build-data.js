@@ -7,6 +7,10 @@ let ranking = require('./src/_data/ranking.json');
 let aip = require('./src/_data/aip.json');
 let ipm = require('./src/_data/ipm.json');
 let coorporacion = require('./src/_data/coorporacion.json');
+let _10Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/10CuadroA1PoblaciónTotalPorSexo,GruposQuinquenalesDeEdadYÁreaXlsx.json');
+let _11Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/11CuadroA2PoblaciónSegúnParentescoConElJefe(a)DelHogarXlsx.json');
+let _12Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/12CuadroA3PoblaciónDe10AñosYMásPorEstadoConyugalXlsx.json');
+let _13Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/13CuadroA4PoblaciónTotalPorLugarDeNacimientoYLugarDeResidenciaEnAbrilDel2013Xlsx.json');
 
 const jsonSchema = {
     id_dep: {
@@ -187,6 +191,113 @@ const jsonSchema = {
                 type: 'string'
             },
         }
+    },
+    cuadro10Poblacion: {
+        type : 'object',
+        properties : {
+            _no: {
+                type: 'number'
+            },
+            _idMunicipal: {
+                type: 'number'
+            },
+            _municipio: {
+                type: 'string'
+            },
+            _codDepartamento: {
+                type: 'number'
+            },
+            _departamento: {
+                type: 'string'
+            },
+            _poblacionTotal: {
+                type: 'number'
+            },
+            _hombres: {
+                type: 'number'
+            },
+            _mujeres: {
+                type: 'number'
+            },
+            _04: {
+                type: 'number'
+            },
+            _59: {
+                type: 'number'
+            },
+            _1014: {
+                type: 'number'
+            },
+            _1519: {
+                type: 'number'
+            },
+            _2024: {
+                type: 'number'
+            },
+            _2529: {
+                type: 'number'
+            },
+            _3034: {
+                type: 'number'
+            },
+            _3539: {
+                type: 'number'
+            },
+            _4044: {
+                type: 'number'
+            },
+            _4549: {
+                type: 'number'
+            },
+            _5054: {
+                type: 'number'
+            },
+            _5559: {
+                type: 'number'
+            },
+            _6064: {
+                type: 'number'
+            },
+            _6569: {
+                type: 'number'
+            },
+            _7074: {
+                type: 'number'
+            },
+            _7579: {
+                type: 'number'
+            },
+            _8084: {
+                type: 'number'
+            },
+            _8589: {
+                type: 'number'
+            },
+            _9094: {
+                type: 'number'
+            },
+            _9599: {
+                type: 'number'
+            },
+            _100OMas: {
+                type: 'number'
+            },
+            _urbana: {
+                type: 'number'
+            },
+            _rural: {
+                type: 'number'
+            },
+        }
+    },
+    cuadro11Poblacion: {
+        type: 'object'
+    },
+    cuadro12Poblacion : {
+        type: 'object'
+    },
+    cuadro13Poblacion : {
+        type: 'object'
     }
 }
 
@@ -207,6 +318,26 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
     municipio.coorporacion = coorporacion.filter((coorporacion) => {
         return coorporacion.id_municipal === municipio.id_municipal;
     });
+
+    // _10Poblacion
+    municipio.cuadro10Poblacion = _10Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
+
+    municipio.cuadro11Poblacion = _11Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
+
+
+    municipio.cuadro12Poblacion = _12Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
+
+
+    municipio.cuadro13Poblacion = _13Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
+
 
     municipio = camelcaseKeys(municipio, { deep: true });
 

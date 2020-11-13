@@ -27,7 +27,7 @@ fs.readdir(dir, (err, files) => {
             data.slice(1, data.length).forEach((row) => {
                 let obj = {};
                 headers.forEach((header, i) => {
-                    obj[header] = row[i];
+                    obj['_'+ header] = row[i];
                 });
 
                 dataToExport.push(obj);

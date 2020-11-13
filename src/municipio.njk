@@ -610,21 +610,57 @@ tags:
               <div class="row m-0 p-0">
                 <div class="col-12 col-lg-3 p-2 px-3 border">
                   <h3>
-                    Número de población
+                    Poblacion total
+                  </h3>
+                  <h1>
+                    {{municipio.cuadro10Poblacion.poblacionTotal}}
+                  </h1>
+                </div>
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                    Población total por sexo
+                  </h6>
+                  <canvas height="244px" id="chart-poblacion-1"></canvas>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h6>
+                    Población total por grupos quinquenales de edad
+                  </h6>
+                  <canvas id="chart-poblacion-3"></canvas>
+                  {# <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small> #}
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población total por área
+                  </h6>
+                  <canvas id="chart-poblacion-2"></canvas>
+                </div>
+                <div class="col-12 col-lg-7 p-3 border">
+                  <h6>
+                    Población según parentesco con el jefe(a) del hogar
+                  </h6>
+                  <canvas id="chart-poblacion-4"></canvas>
+                </div>
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Población de 10 años y más
                   </h3>
                   <h1>
                     {{municipio.ipm.poblacion2014}}
                   </h1>
-                  <small>
-                    PDH 2019
-                  </small>
                 </div>
-                <div class="col-12 col-lg-9 p-3 border">
+                <div class="col-12 col-lg-5 p-3 border">
                   <h6>
-                    Número de población
+                    Población de 10 años y más por estado conyugal
                   </h6>
-                  <canvas id="chart-poblacion-1"></canvas>
-                  <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small>
+                  <canvas id="chart-poblacion-5"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población total por lugar de nacimiento y lugar de residencia en abril del 2013
+                  </h6>
+                  <canvas height="300px" id="chart-poblacion-6"></canvas>
+                  {# <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small> #}
                 </div>
               </div>
             </div>
@@ -1057,18 +1093,16 @@ tags:
                 "fill": false,
                 // generados con https://mdigi.tools/color-shades/#52ccae
                 "backgroundColor": [
-                  "#effaf7",
-                  "#cef0e8",
-                  "#ade7d9",
                   "#8cddc9",
-                  "#6bd3ba",
-                  "#4acaaa",
-                  "#35b595",
-                  "#2c947a",
-                  "#22735f",
+                  "#ade7d9",
+                  "#cef0e8",
                   "#185244",
-                  "#0f3129",
-                  "#05100e"
+                  "#22735f",
+                  "#2c947a",
+                  "#35b595",
+                  "#4acaaa",
+                  "#6bd3ba",
+                  "#effaf7",
                 ],
                 "borderWidth": 0
               }
@@ -1206,23 +1240,182 @@ tags:
         chartConfigGestionPobreza1.options.scales.yAxes[0].ticks.suggestedMax = 1;
         new Chart(document.getElementById("chart-pobreza-1"), chartConfigGestionPobreza1);
 
-        // Población - Número de población
-        let chartConfigPoblacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        // Población
+        // 1.- Población total por sexo
+        let chartConfigPoblacion1 = JSON.parse(JSON.stringify(basePieChartConfig));
         chartConfigPoblacion1
           .data
           .datasets[0]
-          .label = "Número de población";
+          .label = "Sexo";
         chartConfigPoblacion1
           .data
           .datasets[0]
           .data = [
-            {{municipio.ipm.poblacion2006}},
-            {{municipio.ipm.poblacion2011}},
-            {{municipio.ipm.poblacion2014}}
+            {{municipio.cuadro10Poblacion.hombres}},
+            {{municipio.cuadro10Poblacion.mujeres}},
           ];
-        chartConfigPoblacion1.data.labels = ["2006", "2011", "2014"];
-        chartConfigPoblacion1.options.scales.yAxes[0].ticks.suggestedMax = 1;
+        chartConfigPoblacion1.data.labels = [
+          "Hombres",
+          "Mujeres",
+        ];
+        chartConfigPoblacion1.options.legend.display = true;
         new Chart(document.getElementById("chart-poblacion-1"), chartConfigPoblacion1);
+
+        // 2.- Población total por grupos quinquenales de edad
+        let chartConfigPoblacion2 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion2
+          .data
+          .datasets[0]
+          .label = "Población por grupo de edad";
+        chartConfigPoblacion2
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro10Poblacion['04']}},
+            {{municipio.cuadro10Poblacion['59']}},
+            {{municipio.cuadro10Poblacion['1014']}},
+            {{municipio.cuadro10Poblacion['1519']}},
+            {{municipio.cuadro10Poblacion['2024']}},
+            {{municipio.cuadro10Poblacion['2529']}},
+            {{municipio.cuadro10Poblacion['3034']}},
+            {{municipio.cuadro10Poblacion['3539']}},
+            {{municipio.cuadro10Poblacion['4044']}},
+            {{municipio.cuadro10Poblacion['4549']}},
+            {{municipio.cuadro10Poblacion['5054']}},
+          ];
+
+        chartConfigPoblacion2.data.labels = [
+          "0-4",
+          "5-9",
+          "15-19",
+          "20-24",
+          "25-29",
+          "30-34",
+          "35-39",
+          "40-44",
+          "45-49",
+          "50-54",
+        ];
+        chartConfigPoblacion2.options.scales.yAxes[0].ticks.suggestedMax = 1;
+        chartConfigPoblacion2.options.scales.yAxes[0].ticks.beginAtZero = false;
+        new Chart(document.getElementById("chart-poblacion-2"), chartConfigPoblacion2);
+
+        // 3.- Población total por área
+        let chartConfigPoblacion3 = JSON.parse(JSON.stringify(basePieChartConfig));
+        chartConfigPoblacion3
+          .data
+          .datasets[0]
+          .label = "Tipo de área";
+        chartConfigPoblacion3
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro10Poblacion.urbana}},
+            {{municipio.cuadro10Poblacion.rural}},
+          ];
+        chartConfigPoblacion3.data.labels = [
+          "Urbana",
+          "Rural",
+        ];
+        chartConfigPoblacion3.options.legend.display = true;
+        new Chart(document.getElementById("chart-poblacion-3"), chartConfigPoblacion3);
+
+        // 4.- Población según parentesco con el jefe(a) del hogar
+        let chartConfigPoblacion4 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion4
+          .data
+          .datasets[0]
+          .label = "Población según parentesco con el jefe(a) del hogar";
+        chartConfigPoblacion4
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro11Poblacion['jefe(a)deHogar']}},
+            {{municipio.cuadro11Poblacion['esposa(o)oPareja']}},
+            {{municipio.cuadro11Poblacion['hija(o)hijastra(o)']}},
+            {{municipio.cuadro11Poblacion['nueraOYerno']}},
+            {{municipio.cuadro11Poblacion['nietaONieto']}},
+            {{municipio.cuadro11Poblacion['hermanaOHermano']}},
+            {{municipio.cuadro11Poblacion['madreOPadre']}},
+            {{municipio.cuadro11Poblacion['suegraOSuegro']}},
+            {{municipio.cuadro11Poblacion['cuñadaOCuñado']}},
+            {{municipio.cuadro11Poblacion['otra(o)pariente']}},
+            {{municipio.cuadro11Poblacion['noParientes']}},
+            {{municipio.cuadro11Poblacion['poblaciónEnViviendasColectivasOEnSituaciónDeCalle']}},
+          ];
+
+        chartConfigPoblacion4.data.labels = [
+          'Jefe(a) de hogar',
+          'Esposa(o) o pareja',
+          'Hija(o) hijastra(o)',
+          'Nuera o yerno',
+          'Nieta o nieto',
+          'Hermana o hermano',
+          'Madre o padre',
+          'Suegra o suegro',
+          'Cuñada o cuñado',
+          'Otra(o) pariente',
+          'No parientes',
+          'Viviendas colectivas o en situación de calle',
+        ];
+        chartConfigPoblacion4.options.scales.yAxes[0].ticks.suggestedMax = 1;
+        chartConfigPoblacion4.options.scales.yAxes[0].ticks.beginAtZero = false;
+        new Chart(document.getElementById("chart-poblacion-4"), chartConfigPoblacion4);
+
+        // 5.- Población de 10 años y más por estado conyugal
+        let chartConfigPoblacion5 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion5
+          .data
+          .datasets[0]
+          .label = "Población por estado conyugal";
+        chartConfigPoblacion5
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro12Poblacion['soltera(o)']}},
+            {{municipio.cuadro12Poblacion['unida(o)']}},
+            {{municipio.cuadro12Poblacion['casada(o)']}},
+            {{municipio.cuadro12Poblacion['separada(o)']}},
+            {{municipio.cuadro12Poblacion['divorciada(o)']}},
+            {{municipio.cuadro12Poblacion['viuda(o)']}},
+          ];
+
+        chartConfigPoblacion5.data.labels = [
+          'Soltera(o)',
+          'Unida(o)',
+          'Casada(o)',
+          'Separada(o)',
+          'Divorciada(o)',
+          'Viuda(o)',
+        ];
+        chartConfigPoblacion5.options.scales.yAxes[0].ticks.suggestedMax = 1;
+        chartConfigPoblacion5.options.scales.yAxes[0].ticks.beginAtZero = false;
+        new Chart(document.getElementById("chart-poblacion-5"), chartConfigPoblacion5);
+
+        // 6.- Población total por lugar de nacimiento
+        let chartConfigPoblacion6 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion6
+          .data
+          .datasets[0]
+          .label = "Población total por lugar de nacimiento";
+        chartConfigPoblacion6
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro13Poblacion['lugarNacimientoEnElMismoMunicipio']}},
+            {{municipio.cuadro13Poblacion['lugarNacimientoEnOtroMunicipio']}},
+            {{municipio.cuadro13Poblacion['lugarNacimientoEnOtroPais']}},
+            {{municipio.cuadro13Poblacion['lugarNacimientoNoDeclarado']}}
+          ];
+
+        chartConfigPoblacion6.data.labels = [
+          'Mismo municipio',
+          'En otro municipio ',
+          'En otro pais',
+          'No declarado',
+        ];
+        chartConfigPoblacion6.options.scales.yAxes[0].ticks.beginAtZero = false;
+        new Chart(document.getElementById("chart-poblacion-6"), chartConfigPoblacion6);
 
         // Educación
         let chartConfigGestionEducacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
