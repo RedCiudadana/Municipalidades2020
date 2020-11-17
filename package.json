@@ -14,7 +14,8 @@
     "lint": "stylelint 'assets/sass/**/*.scss' 'assets/sass/**/**/*.scss' 'assets/sass/**/**/**/*.scss'",
     "lint:fix": "stylelint --fix 'assets/sass/**/*.scss' 'assets/sass/**/**/*.scss' 'assets/sass/**/**/**/*.scss'",
     "screenshot": "node functions/images.js",
-    "bump": "npm --no-git-tag-version version"
+    "bump": "npm --no-git-tag-version version",
+    "build:js": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "bootstrap": "^4.5.2",
     "camelcase": "^6.2.0",
     "camelcase-keys": "^6.2.2",
+    "chart.js": "^2.9.4",
     "cross-env": "^7.0.2",
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
@@ -55,7 +57,9 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0",
-    "stylelint-selector-bem-pattern": "^2.1.0"
+    "stylelint-selector-bem-pattern": "^2.1.0",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
   },
   "browserslist": [
     "last 2 versions"

@@ -613,7 +613,7 @@ tags:
                     Poblacion total
                   </h3>
                   <h1>
-                    {{municipio.cuadro10Poblacion.poblacionTotal}}
+                    {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
                   </h1>
                 </div>
                 <div class="col-12 col-lg-3 p-3 border">
@@ -626,14 +626,14 @@ tags:
                   <h6>
                     Población total por grupos quinquenales de edad
                   </h6>
-                  <canvas id="chart-poblacion-3"></canvas>
-                  {# <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small> #}
+                  <canvas id="chart-poblacion-2"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)]</small>
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
                   <h6>
                     Población total por área
                   </h6>
-                  <canvas id="chart-poblacion-2"></canvas>
+                  <canvas id="chart-poblacion-3"></canvas>
                 </div>
                 <div class="col-12 col-lg-7 p-3 border">
                   <h6>
@@ -646,7 +646,7 @@ tags:
                     Población de 10 años y más
                   </h3>
                   <h1>
-                    {{municipio.cuadro10Poblacion.poblacionTotal}}
+                    {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
                   </h1>
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
@@ -660,7 +660,38 @@ tags:
                     Población total por lugar de nacimiento y lugar de residencia en abril del 2013
                   </h6>
                   <canvas height="300px" id="chart-poblacion-6"></canvas>
-                  {# <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small> #}
+                </div>
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                     Total de poblacion pueblo maya
+                  </h6>
+                  <h1>
+                    {{municipio.cuadro14Poblacion.maya | toLocaleString}}
+                  </h1>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Población total por pueblos
+                  </h6>
+                  <canvas height="100px" id="chart-poblacion-7"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
+                  </h6>
+                  <canvas height="200px" id="chart-poblacion-8"></canvas>
+                </div>
+                <div class="col-12 col-lg-8 p-3 border">
+                  <h6>
+                    Población maya por comunidad lingüística
+                  </h6>
+                  <canvas height="100px" id="chart-poblacion-9"></canvas>
+                </div>
+                <div class="col-12 col-lg-12 p-3 border">
+                  <h6>
+                    Población con según dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
+                  </h6>
+                  <canvas height="40px" id="chart-poblacion-10"></canvas>
                 </div>
               </div>
             </div>
@@ -1047,11 +1078,17 @@ tags:
           display: true,
           font: {
             weight: 'bold'
+          },
+          color: '#666666',
+          display: function(context) {
+            return context.chart.config.type === 'bar';
+          },
+          formatter: function(value, context) {
+            return value.toLocaleString();
           }
         });
 
         var baseBarChartConfig = {
-          plugins: [ChartDataLabels],
           "type": "bar",
           "data": {
             "labels": [],
@@ -1067,28 +1104,22 @@ tags:
             ]
           },
           "options": {
-            "scales": {
-              "xAxes": [
+            scales: {
+              xAxes: [
                 {
-                  "display": true,
-                  "gridLines": {
-                    "lineWidth": 1,
+                  display: true,
+                  gridLines: {
+                    lineWidth: 1,
                     drawOnChartArea: false
                   }
                 }
               ],
-              "yAxes": [
+              yAxes: [
                 {
-                  "display": true,
-                  "lineWidth": 1,
-                  "ticks": {
-                    "beginAtZero": true,
-                    "suggestedMax": 100
-                  },
-                  "gridLines": {
-                    "lineWidth": 1,
+                  gridLines: {
                     drawOnChartArea: false
-                  }
+                  },
+                  ticks: {}
                 }
               ]
             }
@@ -1127,10 +1158,6 @@ tags:
             }
           }
         };
-
-        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
-          color: '#FE777B'
-        });
 
         let chartConfig1 = JSON.parse(JSON.stringify(baseBarChartConfig));
         chartConfig1
@@ -1315,6 +1342,7 @@ tags:
         ];
         chartConfigPoblacion2.options.scales.yAxes[0].ticks.suggestedMax = 1;
         chartConfigPoblacion2.options.scales.yAxes[0].ticks.beginAtZero = false;
+        chartConfigPoblacion2.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
         new Chart(document.getElementById("chart-poblacion-2"), chartConfigPoblacion2);
 
         // 3.- Población total por área
@@ -1377,6 +1405,7 @@ tags:
         ];
         chartConfigPoblacion4.options.scales.yAxes[0].ticks.suggestedMax = 1;
         chartConfigPoblacion4.options.scales.yAxes[0].ticks.beginAtZero = false;
+        chartConfigPoblacion4.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
         new Chart(document.getElementById("chart-poblacion-4"), chartConfigPoblacion4);
 
         // 5.- Población de 10 años y más por estado conyugal
@@ -1407,6 +1436,7 @@ tags:
         ];
         chartConfigPoblacion5.options.scales.yAxes[0].ticks.suggestedMax = 1;
         chartConfigPoblacion5.options.scales.yAxes[0].ticks.beginAtZero = false;
+        chartConfigPoblacion5.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
         new Chart(document.getElementById("chart-poblacion-5"), chartConfigPoblacion5);
 
         // 6.- Población total por lugar de nacimiento
@@ -1432,7 +1462,150 @@ tags:
           'No declarado',
         ];
         chartConfigPoblacion6.options.scales.yAxes[0].ticks.beginAtZero = false;
+        chartConfigPoblacion6.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
         new Chart(document.getElementById("chart-poblacion-6"), chartConfigPoblacion6);
+
+        // 7.- Población total por pueblos
+        let chartConfigPoblacion7 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion7
+          .data
+          .datasets[0]
+          .label = "Población total por pueblos";
+        chartConfigPoblacion7
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro14Poblacion['maya']}},
+            {{municipio.cuadro14Poblacion['gaifuna']}},
+            {{municipio.cuadro14Poblacion['xinka']}},
+            {{municipio.cuadro14Poblacion['afrodescendiente /creole /afromestizo']}},
+            {{municipio.cuadro14Poblacion['ladina(o)']}},
+            {{municipio.cuadro14Poblacion['extranjera(o)']}}
+          ];
+
+        chartConfigPoblacion7.data.labels = [
+          'Maya',
+          'Gaifuna',
+          'Xinka',
+          'Afrodescendiente / Creole / Afromestizo',
+          'Ladina(o)',
+          'Extranjera(o)',
+        ];
+        chartConfigPoblacion7.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
+        new Chart(document.getElementById("chart-poblacion-7"), chartConfigPoblacion7);
+
+        // 9.- Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
+        let chartConfigPoblacion8 = JSON.parse(JSON.stringify(basePieChartConfig));
+        chartConfigPoblacion8
+          .data
+          .datasets[0]
+          .label = "Población total por pueblos";
+        chartConfigPoblacion8
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro17Poblacion['sinDificultad']}},
+            {{municipio.cuadro17Poblacion['personasConAlMenosUnaDificultad']}},
+            {{municipio.cuadro17Poblacion['noDeclarado']}},
+          ];
+
+        chartConfigPoblacion8.data.labels = [
+          'Sin dificultad',
+          'Personas con al menos una dificultad',
+          'No declarado'
+        ];
+        new Chart(document.getElementById("chart-poblacion-8"), chartConfigPoblacion8);
+
+        // 9.- Población maya por comunidad lingüística
+        let chartConfigPoblacion9 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion9
+          .data
+          .datasets[0]
+          .label = "Población maya por comunidad lingüística";
+        chartConfigPoblacion9
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro15Poblacion['achi']}},
+            {{municipio.cuadro15Poblacion['akateka']}},
+            {{municipio.cuadro15Poblacion['awakateka']}},
+            {{municipio.cuadro15Poblacion['ch\'orti\'']}},
+            {{municipio.cuadro15Poblacion['chalchiteka']}},
+            {{municipio.cuadro15Poblacion['chuj']}},
+            {{municipio.cuadro15Poblacion['itza\'']}},
+            {{municipio.cuadro15Poblacion['ixil']}},
+            {{municipio.cuadro15Poblacion['jakalteko /popti\'']}},
+            {{municipio.cuadro15Poblacion['k\'iche\'']}},
+            {{municipio.cuadro15Poblacion['kaqchikel']}},
+            {{municipio.cuadro15Poblacion['mam']}},
+            {{municipio.cuadro15Poblacion['mopan']}},
+            {{municipio.cuadro15Poblacion['poqomam']}},
+            {{municipio.cuadro15Poblacion['poqomchi\'']}},
+            {{municipio.cuadro15Poblacion['q\'anjob\'al']}},
+            {{municipio.cuadro15Poblacion['q\'eqchi\'']}},
+            {{municipio.cuadro15Poblacion['sakapulteka']}},
+            {{municipio.cuadro15Poblacion['sipakapense']}},
+            {{municipio.cuadro15Poblacion['tektiteka']}},
+            {{municipio.cuadro15Poblacion['tz\'utujil']}},
+            {{municipio.cuadro15Poblacion['uspanteka']}},
+          ];
+
+        chartConfigPoblacion9.data.labels = [
+          'Achi',
+          'Akateka',
+          'Awakateka',
+          'Ch\'orti',
+          'Chalchiteka',
+          'Chuj',
+          'Itza',
+          'Ixil',
+          'Jakalteko /Popti',
+          'K\'iche',
+          'Kaqchikel',
+          'Mam',
+          'Mopan',
+          'Poqomam',
+          'Poqomchi',
+          'Q\'anjob\'al',
+          'Q\'eqchi',
+          'Sakapulteka',
+          'Sipakapense',
+          'Tektiteka',
+          'Tz\'utujil',
+          'Uspanteka',
+        ];
+        chartConfigPoblacion9.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
+        new Chart(document.getElementById("chart-poblacion-9"), chartConfigPoblacion9);
+
+        // 10.- Población maya por comunidad lingüística
+        let chartConfigPoblacion10 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigPoblacion10
+          .data
+          .datasets[0]
+          .label = "Población maya por comunidad lingüística";
+        chartConfigPoblacion10
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro17Poblacion['ver,aunSiUsaLentes']}},
+            {{municipio.cuadro17Poblacion['oir,inclusoConAparato']}},
+            {{municipio.cuadro17Poblacion['caminarOSubirEscaleras']}},
+            {{municipio.cuadro17Poblacion['recordarOConcentrarse']}},
+            {{municipio.cuadro17Poblacion['cuidadoPersonalOVestirse']}},
+            {{municipio.cuadro17Poblacion['comunicarse']}},
+          ];
+
+        chartConfigPoblacion10.data.labels = [
+          'Ver, aun si usa lentes',
+          'Oir, incluso con aparato',
+          'Caminar o subir escaleras',
+          'Recordar o concentrarse',
+          'Cuidado personal o vestirse',
+          'Comunicarse',
+        ];
+        chartConfigPoblacion10.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
+        new Chart(document.getElementById("chart-poblacion-10"), chartConfigPoblacion10);
+
 
         // Educación
         let chartConfigGestionEducacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
@@ -1527,12 +1700,10 @@ tags:
         chartConfigFinanzas4.options.legend.display = false;
         // new Chart(document.getElementById("chart-finanzas-4"), chartConfigFinanzas4);
       }
-      js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
+      js.src = "/assets/main.js";
       fjs
         .parentNode
         .insertBefore(js, fjs);
     }(document, 'script', 'chart-jssdk'));
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
 {% endblock %}

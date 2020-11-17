@@ -11,6 +11,10 @@ let _10Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/10CuadroA1P
 let _11Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/11CuadroA2PoblaciónSegúnParentescoConElJefe(a)DelHogarXlsx.json');
 let _12Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/12CuadroA3PoblaciónDe10AñosYMásPorEstadoConyugalXlsx.json');
 let _13Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/13CuadroA4PoblaciónTotalPorLugarDeNacimientoYLugarDeResidenciaEnAbrilDel2013Xlsx.json');
+let _14Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/14CuadroA5PoblaciónTotalPorPueblosXlsx.json');
+let _15Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/15CuadroA6PoblaciónMayaPorComunidadLingüísticaXlsx.json');
+let _16Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/16CuadroA7PoblaciónDe4AñosYMásPorIdiomaMaternoXlsx.json');
+let _17Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/17CuadroA8PoblaciónDe4AñosYMás,SegúnDificultadesParaVer,Oír,CaminarOSubirEscaleras,RecordarOConcentrarse,CuidadoPersonalOComunicarseXlsx.json');
 
 const jsonSchema = {
     id_dep: {
@@ -298,6 +302,18 @@ const jsonSchema = {
     },
     cuadro13Poblacion : {
         type: 'object'
+    },
+    cuadro14Poblacion: {
+        type: 'object'
+    },
+    cuadro15Poblacion: {
+        type: 'object'
+    },
+    cuadro16Poblacion: {
+        type: 'object'
+    },
+    cuadro17Poblacion: {
+        type: 'object'
     }
 }
 
@@ -333,11 +349,25 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
         return _10Poblacion._idMunicipal === municipio.id_municipal;
     });
 
-
     municipio.cuadro13Poblacion = _13Poblacion.find((_10Poblacion) => {
         return _10Poblacion._idMunicipal === municipio.id_municipal;
     });
 
+    municipio.cuadro14Poblacion = _14Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
+
+    municipio.cuadro15Poblacion = _15Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
+
+    municipio.cuadro16Poblacion = _16Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
+    
+    municipio.cuadro17Poblacion = _17Poblacion.find((_10Poblacion) => {
+        return _10Poblacion._idMunicipal === municipio.id_municipal;
+    });
 
     municipio = camelcaseKeys(municipio, { deep: true });
 
@@ -352,6 +382,14 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
 Promise.all(promisesMunicipiosNormalize)
     .then(results => {
         fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(results), function (err) {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log('Success data build');
+            }
+        });
+
+        fs.writeFile('./src/_data/municipioData.json', JSON.stringify(results[0]), function (err) {
             if (err) {
                 console.error(err);
             } else {

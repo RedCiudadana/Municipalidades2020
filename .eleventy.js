@@ -77,6 +77,10 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, lenght);
   });
 
+  eleventyConfig.addFilter('toLocaleString', function(value) {
+    return parseFloat(value).toLocaleString();
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
