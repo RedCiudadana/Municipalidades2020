@@ -41,25 +41,6 @@ description: "Review feature info and customization details."
                                 <canvas height="120px" id="chart-gestion-municipal-1"></canvas>
                                 <small>Fuente: SEGEPLAN</small>
                             </div>
-                            <div class="col-12 p-3 border">
-                                <h6>
-                                    Corporación Municipal
-                                </h6>
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Cargo</th>
-                                            <th scope="col">Partido Político</th>
-                                            <th scope="col">Cui</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tabla-coorporacion">
-                                        <!-- build with fetched data -->
-                                    </tbody>
-                                </table>
-                                <small>Fuente: Tribunal Supremo Electoral (TSE)</small>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,26 +85,6 @@ description: "Review feature info and customization details."
             window.municipio = municipio;
 
             document.getElementById('ranking-segeplan2018').innerHTML = municipio.ranking.segeplan2018;
-
-            municipio.coorporacion.forEach((persona) => {
-                let tr = document.createElement('tr');
-                let nombre = document.createElement('td');
-                let cargo = document.createElement('td');
-                let partido = document.createElement('td');
-                let cui = document.createElement('td');
-
-                nombre.innerHTML = persona.nombre || '';
-                cargo.innerHTML = persona.cargo || '';
-                partido.innerHTML = persona.partido || '';
-                cui.innerHTML = persona.cui || '';
-
-                tr.append(nombre);
-                tr.append(cargo);
-                tr.append(partido);
-                tr.append(cui);
-
-                document.getElementById('tabla-coorporacion').append(tr);
-            });
 
             window.chartConfigGestionMunicipal1
                 .data
