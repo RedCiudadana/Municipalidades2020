@@ -1032,34 +1032,6 @@ tags:
       </div>
     </div>
   </div>
-  {# Page JS #}
-  <script>
-    let tematicaSelect = document.getElementById('tematica');
-    let tematicaSluged = 'rango-de-edad'
-      .toLowerCase()
-      .replace(/ /g, '-')
-      .replace(/[^\w-]+/g, '');
-
-    tematicaSelect.addEventListener('change', function (event) {
-      var value = event.target.value;
-
-      document
-        .getElementById('titleTematicaContainer')
-        .innerHTML = value;
-
-      tematicaSluged = value
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '');
-
-      document
-        .getElementById('code-embed')
-        .innerHTML = `<embed src="${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/" type="text/html" class="w-100" height="500">`;
-      document
-        .getElementById('embed-embed')
-        .src = `${window.location.host}/chart/{{municipio.departamento | slug}}/{{municipio.municipio | slug}}/${tematicaSluged}/`;
-    });
-  </script>
   {# ChartJS #}
   <script>
     (function (d, s, id) {
