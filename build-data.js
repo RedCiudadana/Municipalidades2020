@@ -15,6 +15,23 @@ let _14Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/14CuadroA5P
 let _15Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/15CuadroA6PoblaciónMayaPorComunidadLingüísticaXlsx.json');
 let _16Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/16CuadroA7PoblaciónDe4AñosYMásPorIdiomaMaternoXlsx.json');
 let _17Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/17CuadroA8PoblaciónDe4AñosYMás,SegúnDificultadesParaVer,Oír,CaminarOSubirEscaleras,RecordarOConcentrarse,CuidadoPersonalOComunicarseXlsx.json');
+let _cuadro18 = require('./src/_data/plataformaMunicipalDatosJSON/18CuadroA9PoblaciónDe4AñosYMásPorNivelEducativoXlsx.json');
+let _cuadro19 = require('./src/_data/plataformaMunicipalDatosJSON/19CuadroA10PoblaciónDe4A29AñosQueNoAsisteAUnEstablecimientoEducativoPorCausaPrincipalDeInasistenciaXlsx.json');
+let _cuadro20 = require('./src/_data/plataformaMunicipalDatosJSON/20CuadroA11PoblaciónDe7AñosOMásPorAlfabetismo,AsistenciaEscolarYLugarDeEstudioXlsx.json');
+let _cuadro21 = require('./src/_data/plataformaMunicipalDatosJSON/21CuadroA12PoblaciónDe7AñosOMásPorUsoDeCelular,ComputadoraYoInternetXlsx.json');
+let _cuadro22 = require('./src/_data/plataformaMunicipalDatosJSON/22CuadroA13PoblaciónDe15AñosYMás,EconómicamenteActivaEInactiva,CondiciónDeInactividadYLugarDeTrabajoXlsx.json');
+let _cuadro23 = require('./src/_data/plataformaMunicipalDatosJSON/23CuadroA14MujeresDe15AñosYMás,NúmeroDeHijosNacidosVivos,NúmeroDeHijosVivos,YEdadDeLaMujerAlNacimientoDeSuPrimerHijoXlsx.json');
+let _cuadro24 = require('./src/_data/plataformaMunicipalDatosJSON/24CuadroB1HogaresPorTipoDeTenenciaDeLaVivienda,SexoDelPropietarioDeLaVivienda,YSexoDeLaPersonaQueTomaLasPrincipalesDecisionesEnElHogarXlsx.json');
+let _cuadro25 = require('./src/_data/plataformaMunicipalDatosJSON/25CuadroB2HogaresPorFuentePrincipalDeAguaParaConsumoXlsx.json');
+let _cuadro26 = require('./src/_data/plataformaMunicipalDatosJSON/26CuadroB3HogaresPorTipoYUsoDeServicioSanitarioXlsx.json');
+let _cuadro27 = require('./src/_data/plataformaMunicipalDatosJSON/27CuadroB4HogaresSegúnTipoDeAlumbrado,FuentePrincipalDeEnergíaParaCocinarYDisponibilidadDeCuartoExclusivoParaCocinarXlsx.json');
+let _cuadro28 = require('./src/_data/plataformaMunicipalDatosJSON/28CuadroB5EquipamientoDelHogarXlsx.json');
+let _cuadro29 = require('./src/_data/plataformaMunicipalDatosJSON/29CuadroB6HogaresPorFormaPrincipalDeEliminaciónDeLaBasuraXlsx.json');
+let _cuadro30 = require('./src/_data/plataformaMunicipalDatosJSON/30CuadroB7HogaresPorNúmeroDeCuartosYDormitoriosXlsx.json');
+let _cuadro31 = require('./src/_data/plataformaMunicipalDatosJSON/31CuadroB8TipologíaDeHogarXlsx.json');
+let _cuadro32 = require('./src/_data/plataformaMunicipalDatosJSON/32CuadroC1TipoDeViviendaYCondiciónDeOcupaciónXlsx.json');
+let _cuadro33 = require('./src/_data/plataformaMunicipalDatosJSON/33CuadroC2ViviendasParticularesPorMaterialPredominanteEnLasParedesExterioresYEnElTechoXlsx.json');
+let _cuadro34 = require('./src/_data/plataformaMunicipalDatosJSON/34CuadroC3ViviendasParticularesPorMaterialPredominanteEnElPisoXlsx.json');
 
 const jsonSchema = {
     id_dep: {
@@ -314,7 +331,58 @@ const jsonSchema = {
     },
     cuadro17Poblacion: {
         type: 'object'
-    }
+    },
+    cuadro18: {
+        type: 'object'
+    },
+    cuadro19: {
+        type: 'object'
+    },
+    cuadro20: {
+        type: 'object'
+    },
+    cuadro21: {
+        type: 'object'
+    },
+    cuadro22: {
+        type: 'object'
+    },
+    cuadro23: {
+        type: 'object'
+    },
+    cuadro24: {
+        type: 'object'
+    },
+    cuadro25: {
+        type: 'object'
+    },
+    cuadro26: {
+        type: 'object'
+    },
+    cuadro27: {
+        type: 'object'
+    },
+    cuadro28: {
+        type: 'object'
+    },
+    cuadro29: {
+        type: 'object'
+    },
+    cuadro30: {
+        type: 'object'
+    },
+    cuadro31: {
+        type: 'object'
+    },
+    cuadro32: {
+        type: 'object'
+    },
+    cuadro33: {
+        type: 'object'
+    },
+    cuadro34: {
+        type: 'object'
+    },
 }
 
 promisesMunicipiosNormalize = municipios.map(function (municipio) {
@@ -369,6 +437,75 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
         return _10Poblacion._idMunicipal === municipio.id_municipal;
     });
 
+    municipio.cuadro18 = _cuadro18.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro19 = _cuadro19.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro20 = _cuadro20.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro21 = _cuadro21.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro22 = _cuadro22.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro23 = _cuadro23.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro24 = _cuadro24.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro25 = _cuadro25.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro26 = _cuadro26.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro27 = _cuadro27.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro28 = _cuadro28.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro29 = _cuadro29.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro30 = _cuadro30.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro31 = _cuadro31.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro32 = _cuadro32.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro33 = _cuadro33.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+    municipio.cuadro34 = _cuadro34.find((item) => {
+        return item._idMunicipal = municipio.id_municipal;
+    });
+
+
     municipio = camelcaseKeys(municipio, { deep: true });
 
     try {
@@ -397,6 +534,5 @@ Promise.all(promisesMunicipiosNormalize)
             }
         });
     })
-    .catch(e => {
-        console.error(e);
+    .catch(e => {        console.error(e);
     });

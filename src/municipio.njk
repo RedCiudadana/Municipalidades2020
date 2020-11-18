@@ -615,6 +615,7 @@ tags:
                   <h1>
                     {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
                   </h1>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-3 p-3 border">
                   <h6>
@@ -627,7 +628,6 @@ tags:
                     Población total por grupos quinquenales de edad
                   </h6>
                   <canvas id="chart-poblacion-2"></canvas>
-                  <small>Fuente: Instituto Nacional de Estadistica (INE)]</small>
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
                   <h6>
@@ -736,47 +736,45 @@ tags:
           <div class="col-12 p-0">
             <div class="w-100">
               <div class="row m-0 p-0">
-                <div class="col-12 col-lg-12 p-2 px-3 border">
-                  <p>
-                    Información en proceso
-                  </p>
-                </div>
-                {# <div class="col-12 col-lg-3 p-2 px-3 border">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
                   <h3>
-                    Desempeño de Escuelas Municipales
+                    Población de 4 a 29 años que no asiste a un establecimiento educativo
                   </h3>
                   <h1>
-                    38,71
+                    {{municipio.cuadro19['poblacionDe4A29AñosDeEdadQueNoAsiste']}}
                   </h1>
-                  <h5>
-                    Logro municipal en Lectura
-                  </h5>
-                  <h1>
-                    40,45
-                  </h1>
-                  <h5>
-                    Logro municipal en Matemática
-                  </h5>
-                  <small>
-                    MINEDUC
-                  </small>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
-                <div class="col-12 col-lg-9 p-0 d-flex">
-                  <div class="col-12 col-lg-6 p-3 border">
-                    <h6>
-                      Desempeño de Escuelas Municipales Lectura
-                    </h6>
-                    <canvas id="chart-educacion-1"></canvas>
-                    <small>Fuente: Ministerio de Educación (MINEDUC)</small>
-                  </div>
-                  <div class="col-12 col-lg-6 p-3 border">
-                    <h6>
-                      Desempeño de Escuelas Municipales Matemática
-                    </h6>
-                    <canvas id="chart-educacion-2"></canvas>
-                    <small>Fuente: Ministerio de Educación (MINEDUC)</small>
-                  </div>
-                </div> #}
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población de 4 años y más por nivel educativo
+                  </h6>
+                  <canvas height="230px" id="chart-educacion-1"></canvas>
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población de 7 años o más con alfabetismo
+                  </h6>
+                  <canvas id="chart-educacion-3"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Asistencia escolar
+                  </h6>
+                  <canvas id="chart-educacion-4"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Causa principal de inasistencia
+                  </h6>
+                  <canvas height="230px" id="chart-educacion-2"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Lugar de estudio
+                  </h6>
+                  <canvas height="230px" id="chart-educacion-5"></canvas>
+                </div>
               </div>
             </div>
           </div>
@@ -1580,29 +1578,143 @@ tags:
 
 
         // Educación
-        let chartConfigGestionEducacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigGestionEducacion1
+        // 1.- Educación
+        let chartConfigEducacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigEducacion1
           .data
           .datasets[0]
-          .label = "Logro Municipal en Lectura";
-        chartConfigGestionEducacion1
+          .label = "Población de 4 años y más por nivel educativo";
+        chartConfigEducacion1
           .data
           .datasets[0]
-          .data = [38.71, 40, 42, 45];
-        chartConfigGestionEducacion1.data.labels = ["2016", "2017", "2018", "2019"];
-        // new Chart(document.getElementById("chart-educacion-1"), chartConfigGestionEducacion1);
+          .data = [
+            {{municipio.cuadro18.preprimaria}},
+            {{municipio.cuadro18.primaria13}},
+            {{municipio.cuadro18.primaria45}},
+            {{municipio.cuadro18.primaria6}},
+            {{municipio.cuadro18.basico}},
+            {{municipio.cuadro18.diversificado}},
+            {{municipio.cuadro18.licenciatura}},
+            {{municipio.cuadro18.maestriaODoctorado}},
+          ];
 
-        let chartConfigGestionEducacion2 = JSON.parse(JSON.stringify(baseBarChartConfig));
-        chartConfigGestionEducacion2
+        chartConfigEducacion1.data.labels = [
+          'Preprimaria',
+          'Primaria  1 - 3',
+          'Primaria 4 - 5',
+          'Primaria 6',
+          'Basico',
+          'Diversificado',
+          'Licenciatura',
+          'Maestria o Doctorado',
+        ];
+        chartConfigEducacion1.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
+        new Chart(document.getElementById("chart-educacion-1"), chartConfigEducacion1);
+
+        // 2.- Educación
+        let chartConfigEducacion2 = JSON.parse(JSON.stringify(baseBarChartConfig));
+        chartConfigEducacion2
           .data
           .datasets[0]
-          .label = "Logro Municipal en Matemática";
-        chartConfigGestionEducacion2
+          .label = "Población de 4 años y más por nivel educativo";
+        chartConfigEducacion2
           .data
           .datasets[0]
-          .data = [11, 06, 12, 15, 20];
-        chartConfigGestionEducacion2.data.labels = ["2016", "2017", "2018", "2019"];
-        // new Chart(document.getElementById("chart-educacion-2"), chartConfigGestionEducacion2);
+          .data = [
+            {{municipio.cuadro19['faltaDeDinero']}},
+            {{municipio.cuadro19['tieneQueTrabajar']}},
+            {{municipio.cuadro19['noHayEscuela,institutoOUniversidad']}},
+            {{municipio.cuadro19['losPadres /parejaNoQuieren']}},
+            {{municipio.cuadro19['quehaceresDelHogar']}},
+            {{municipio.cuadro19['noLeGusta /noQuiereIr']}},
+            {{municipio.cuadro19['yaTerminoSusEstudios']}},
+            {{municipio.cuadro19['otraCausa']}},
+            {{municipio.cuadro19['noDeclarada']}},
+          ];
+
+        chartConfigEducacion2.data.labels = [
+          'Falta de dinero',
+          'Tiene que trabajar',
+          'No hay escuela, instituto o universidad',
+          'Los padres / pareja no quieren',
+          'Quehaceres del hogar',
+          'No le gusta / no quiere ir',
+          'Ya termino sus estudios',
+          'Otra causa',
+          'No declarada',
+        ];
+        chartConfigEducacion2.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
+        new Chart(document.getElementById("chart-educacion-2"), chartConfigEducacion2);
+
+        // 3.- Educación
+        let chartConfigEducacion3 = JSON.parse(JSON.stringify(basePieChartConfig));
+
+        chartConfigEducacion3
+          .data
+          .datasets[0]
+          .label = "Población de 7 años o más con alfabetismo";
+
+        chartConfigEducacion3
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro20['hombres']}},
+            {{municipio.cuadro20['mujeres']}},
+          ];
+
+        chartConfigEducacion3.data.labels = [
+          'Hombres',
+          'Mujeres',
+        ];
+        new Chart(document.getElementById("chart-educacion-3"), chartConfigEducacion3);
+
+        // 4.- Educación
+        let chartConfigEducacion4 = JSON.parse(JSON.stringify(basePieChartConfig));
+
+        chartConfigEducacion4
+          .data
+          .datasets[0]
+          .label = "Asistencia escolar";
+
+        chartConfigEducacion4
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro20['asiste']}},
+            {{municipio.cuadro20['noAsiste']}},
+          ];
+
+        chartConfigEducacion4.data.labels = [
+          'Asiste',
+          'No Asiste',
+        ];
+        new Chart(document.getElementById("chart-educacion-4"), chartConfigEducacion4);
+
+        // 5.- Educación
+        let chartConfigEducacion5 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+        chartConfigEducacion5
+          .data
+          .datasets[0]
+          .label = "Lugar de estudio";
+
+        chartConfigEducacion5
+          .data
+          .datasets[0]
+          .data = [
+            {{municipio.cuadro20['enElMismoMunicipio']}},
+            {{municipio.cuadro20['enOtroMunicipio']}},
+            {{municipio.cuadro20['enOtroPais']}},
+            {{municipio.cuadro20['noDeclarado']}},
+          ];
+
+        chartConfigEducacion5.data.labels = [
+          'En el mismo municipio',
+          'En otro municipio ',
+          'En otro pais',
+          'No declarado',
+        ];
+        new Chart(document.getElementById("chart-educacion-5"), chartConfigEducacion5);
 
         // Finanzas
         let chartConfigFinanzas1 = JSON.parse(JSON.stringify(baseBarChartConfig));
