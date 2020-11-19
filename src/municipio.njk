@@ -804,16 +804,28 @@ tags:
               </div>
             </div>
           </div>
-          <div class="col-12 p-0">
-            <div class="w-100">
-              <div class="row m-0 p-0">
-                <div class="col-12 col-lg-12 p-2 px-3 border">
-                  <p>
-                    Información en proceso
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div class="col-12 col-lg-3 p-2 px-3 border">
+            <h3>
+              Total de mujeres de 15 años y mas
+            </h3>
+            <h1>
+              {{ municipio.cuadro23['totalDeMujeresDe15AñosYMas'] }}
+            </h1>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-9 p-3 border">
+            <h6>
+              Número de hijos nacidos vivos
+            </h6>
+            <canvas height="80px" id="chart-salud-1"></canvas>
+          </div>
+          <div class="col-12 col-lg-12 p-3 border">
+            <h6>
+              Edad de la mujer al nacimiento de su primer hijo
+            </h6>
+            <canvas height="80px" id="chart-salud-2"></canvas>
           </div>
         </div>
       </div>
@@ -852,16 +864,40 @@ tags:
               </div>
             </div>
           </div>
-          <div class="col-12 p-0">
-            <div class="w-100">
-              <div class="row m-0 p-0">
-                <div class="col-12 col-lg-12 p-2 px-3 border">
-                  <p>
-                    Información en proceso
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div class="col-12 col-lg-3 p-2 px-3 border">
+            <h3>
+              Total de hogares
+            </h3>
+            <h1>
+              {{ municipio.cuadro24['totalDeHogares'] }}
+            </h1>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-9 p-3 border">
+            <h6>
+              Hogares por tipo de tenencia de la vivienda
+            </h6>
+            <canvas height="80px" id="chart-hogar-1"></canvas>
+          </div>
+          <div class="col-12 col-lg-6 p-3 border">
+            <h6>
+              Hogares por sexo del propietario de la vivienda
+            </h6>
+            <canvas height="80px" id="chart-hogar-2"></canvas>
+          </div>
+          <div class="col-12 col-lg-6 p-3 border">
+            <h6>
+              Sexo de la persona que toma las principales decisiones en el hogar
+            </h6>
+            <canvas height="80px" id="chart-hogar-3"></canvas>
+          </div>
+          <div class="col-12 col-lg-12 p-3 border">
+            <h6>
+              Hogares por fuente principal de agua para consumo
+            </h6>
+            <canvas height="80px" id="chart-hogar-4"></canvas>
           </div>
         </div>
       </div>
@@ -1718,6 +1754,177 @@ tags:
             'Lugar de trabajo no declarado',
         ];
         new Chart(document.getElementById("chart-economia-8"), chartConfigEconomia8);
+
+        // Salud
+        let chartConfigSalud1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+        chartConfigSalud1
+            .data
+            .datasets[0]
+            .label = "Número de hijos nacidos vivos";
+
+        chartConfigSalud1
+            .data
+            .datasets[0]
+            .data = [
+              {{ municipio.cuadro23['nacidosVivos0'] }},
+              {{ municipio.cuadro23['nacidosVivos1'] }},
+              {{ municipio.cuadro23['nacidosVivos2'] }},
+              {{ municipio.cuadro23['nacidosVivos3'] }},
+              {{ municipio.cuadro23['nacidosVivos4'] }},
+              {{ municipio.cuadro23['nacidosVivos5OMas'] }},
+              {{ municipio.cuadro23['nacidosVivosNoDeclarado'] }},
+            ];
+
+        chartConfigSalud1.data.labels = [
+          'Nacidos vivos 0',
+          'Nacidos vivos 1',
+          'Nacidos vivos 2',
+          'Nacidos vivos 3',
+          'Nacidos vivos 4',
+          'Nacidos vivos 5 o mas',
+          'No declarado',
+        ];
+        new Chart(document.getElementById("chart-salud-1"), chartConfigSalud1);
+
+        let chartConfigSalud2 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+        chartConfigSalud2
+            .data
+            .datasets[0]
+            .label = "Edad de la mujer al nacimiento de su primer hijo";
+
+        chartConfigSalud2
+            .data
+            .datasets[0]
+            .data = [
+              {{ municipio.cuadro23['edadMujerAlMomentoDePartoAntesDe15'] }},
+              {{ municipio.cuadro23['edadMujerAlMomentoDeParto1517Años'] }},
+              {{ municipio.cuadro23['edadMujerAlMomentoDeParto1819Años'] }},
+              {{ municipio.cuadro23['edadMujerAlMomentoDeParto2024Años'] }},
+              {{ municipio.cuadro23['edadMujerAlMomentoDeParto2529Años'] }},
+              {{ municipio.cuadro23['edadMujerAlMomentoDeParto30AñosOMas'] }},
+              {{ municipio.cuadro23['edadMujerAlMomentoDePartoNoDeclarado'] }},
+            ];
+
+        chartConfigSalud2.data.labels = [
+          'Edad mujer al momento de parto  antes de 15',
+          'Edad mujer al momento de parto 15 - 17 años',
+          'Edad mujer al momento de parto 18 - 19 años',
+          'Edad mujer al momento de parto 20 - 24 años',
+          'Edad mujer al momento de parto 25 - 29 años',
+          'Edad mujer al momento de parto 30 años o mas',
+          'Edad mujer al momento de parto no declarado',
+        ];
+        new Chart(document.getElementById("chart-salud-2"), chartConfigSalud2);
+
+        // HOGAR
+        let chartConfigHogar1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+        chartConfigHogar1
+            .data
+            .datasets[0]
+            .label = "Hogares por tipo de tenencia de la vivienda";
+
+        chartConfigHogar1
+            .data
+            .datasets[0]
+            .data = [
+              {{ municipio.cuadro24['propia'] }},
+              {{ municipio.cuadro24['alquilada'] }},
+              {{ municipio.cuadro24['cedidaOPrestada'] }},
+              {{ municipio.cuadro24['propiedadComunal'] }},
+              {{ municipio.cuadro24['otra'] }},
+            ];
+
+        chartConfigHogar1.data.labels = [
+          'Propia',
+          'Alquilada',
+          'Cedida o prestada',
+          'Propiedad comunal',
+          'Otra',
+        ];
+        new Chart(document.getElementById("chart-hogar-1"), chartConfigHogar1);
+
+        let chartConfigHogar2 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+        chartConfigHogar2
+            .data
+            .datasets[0]
+            .label = "Hogares por sexo del propietario de la vivienda";
+
+        chartConfigHogar2
+            .data
+            .datasets[0]
+            .data = [
+              {{ municipio.cuadro24['propoetarioHombre'] }},
+              {{ municipio.cuadro24['propoetarioMujer'] }},
+              {{ municipio.cuadro24['propoetarioAmbos'] }},
+              {{ municipio.cuadro24['propoetarioNoDeclarado'] }},
+            ];
+
+        chartConfigHogar2.data.labels = [
+          'Propietario Hombre',
+          'Propietario Mujer',
+          'Propietario Ambos',
+          'Propietario no declarado',
+        ];
+        new Chart(document.getElementById("chart-hogar-2"), chartConfigHogar2);
+
+        let chartConfigHogar3 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+        chartConfigHogar3
+            .data
+            .datasets[0]
+            .label = "Hogares por tipo de tenencia de la vivienda";
+
+        chartConfigHogar3
+            .data
+            .datasets[0]
+            .data = [
+              {{ municipio.cuadro24['decisionesHogarHombre'] }},
+              {{ municipio.cuadro24['decisionesHogarMujer'] }},
+              {{ municipio.cuadro24['decisionesHogarAmbos'] }},
+              {{ municipio.cuadro24['decisionesHogarNoDeclarado'] }},
+            ];
+
+        chartConfigHogar3.data.labels = [
+          'Decisiones hogar Hombre',
+          'Decisiones hogar Mujer',
+          'Decisiones hogar ambos',
+          'Decisiones hogar no declarado',
+        ];
+        new Chart(document.getElementById("chart-hogar-3"), chartConfigHogar3);
+
+        let chartConfigHogar4 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+        chartConfigHogar4
+          .data
+          .datasets[0]
+          .label = "Hogares por fuente principal de agua para consumo";
+
+        chartConfigHogar4
+          .data
+          .datasets[0]
+          .data = [
+            {{ municipio.cuadro24['decisionesHogarHombre'] }},
+            {{ municipio.cuadro24['decisionesHogarMujer'] }},
+            {{ municipio.cuadro24['decisionesHogarAmbos'] }},
+            {{ municipio.cuadro24['decisionesHogarNoDeclarado'] }},
+          ];
+
+        chartConfigHogar4.data.labels = [
+          'Tuberia en la vivienda',
+          'Tuberia fuera de la vivienda',
+          'Chorro publico',
+          'Pozo perforado',
+          'Agua de lluvia',
+          'Rio o lago',
+          'Manantial o nacimiento',
+          'Camion o tonel',
+          'Otro',
+        ];
+        new Chart(document.getElementById("chart-hogar-4"), chartConfigHogar4);
       }
       js.src = "/assets/main.js";
       fjs
