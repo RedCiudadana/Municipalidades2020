@@ -3,32 +3,344 @@ title: Educación
 description: "Review feature info and customization details."
 ---
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{title}}</title>
-    <link rel="icon" href="{{ '/favicon.png' | url }}" />
-    <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+    <title>title</title>
+    <link rel="icon" href="{{'/favicon.png' | url}}" />
+    <link href="{{'/assets/css/style.css' | url}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+        integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
+        crossorigin="anonymous" />
 </head>
-<body>
+
+<body onload="init()">
     <div class="w-100 d-flex">
         <div class="col-12 mb-2 p-0">
             <div class="bg-white w-100 row m-0 p-0">
-                <div class="col-12 bg-secondary py-2 px-3 d-none">
-                    <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
-                        {{title}}
-                    </h4>
-                </div>
                 <div class="col-12 p-0">
                     <div class="w-100">
-                        <div id="data-container" class="row m-0 p-0">
-                            Información en proceso
+                        <div class="row m-0 p-0">
+                            <div class="col-12 col-lg-3 p-2 px-3 border">
+                                <h3>
+                                    Población de 4 a 29 años que no asiste a un establecimiento educativo
+                                </h3>
+                                <h1>
+                                    <span id="poblacionDe4A29AñosDeEdadQueNoAsiste"></span> 
+                                </h1>
+                                <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                            </div>
+                            <div class="col-12 col-lg-4 p-3 border">
+                                <h6>
+                                    Población de 4 años y más por nivel educativo
+                                </h6>
+                                <canvas height="230px" id="chart-educacion-1"></canvas>
+                            </div>
+                            <div class="col-12 col-lg-5 p-3 border">
+                                <h6>
+                                    Población de 7 años o más con alfabetismo
+                                </h6>
+                                <canvas id="chart-educacion-3"></canvas>
+                            </div>
+                            <div class="col-12 col-lg-4 p-3 border">
+                                <h6>
+                                    Asistencia escolar
+                                </h6>
+                                <canvas id="chart-educacion-4"></canvas>
+                            </div>
+                            <div class="col-12 col-lg-4 p-3 border">
+                                <h6>
+                                    Causa principal de inasistencia
+                                </h6>
+                                <canvas height="230px" id="chart-educacion-2"></canvas>
+                            </div>
+                            <div class="col-12 col-lg-4 p-3 border">
+                                <h6>
+                                    Lugar de estudio
+                                </h6>
+                                <canvas height="230px" id="chart-educacion-5"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        async function init() {
+            const urlParams = new URLSearchParams(location.search);
+
+            if (!urlParams.get('municipio')) {
+                document.getElementById('data-container').innerHTML = 'Es necesario especificar un municipio';
+                document.getElementById('data-container').style.padding = '1.5rem';
+                document.getElementById('data-container').classList = null;
+                console.log('Es necesario indicar el id del municipio como query param "?municipio=101"');
+                return;
+            }
+
+            var municipiosData;
+            municipiosData = await fetch('/municipiosData.json').then((response) => {
+                return response.json()
+            })
+            .then((json) => {
+                return json;
+            });
+
+            var municipio;
+            var municipioIdParam = parseInt(urlParams.get('municipio'));
+
+            municipio = municipiosData.find((municipio) => {
+                return municipio.idMunicipal === municipioIdParam;
+            });
+
+            if (!municipio) {
+                document.getElementById('data-container').innerHTML = `Codigo ${urlParams.get('municipio')} de municipio no válido`;
+                document.getElementById('data-container').style.padding = '1.5rem';
+                document.getElementById('data-container').classList = null;
+                console.log('Verificar lista de código de municipios');
+                return;
+            }
+
+            window.municipio = municipio;
+
+            document.getElementById('poblacionDe4A29AñosDeEdadQueNoAsiste').innerText = window.municipio.cuadro19['poblacionDe4A29AñosDeEdadQueNoAsiste'];
+
+            window.chartConfigEducacion1
+                .data
+                .datasets[0]
+                .data = [
+                    window.municipio.cuadro18.preprimaria,
+                    window.municipio.cuadro18.primaria13,
+                    window.municipio.cuadro18.primaria45,
+                    window.municipio.cuadro18.primaria6,
+                    window.municipio.cuadro18.basico,
+                    window.municipio.cuadro18.diversificado,
+                    window.municipio.cuadro18.licenciatura,
+                    window.municipio.cuadro18.maestriaODoctorado,
+                ];
+
+            window.chartConfigEducacion2
+                .data
+                .datasets[0]
+                .data = [
+                    window.municipio.cuadro19['faltaDeDinero'],
+                    window.municipio.cuadro19['tieneQueTrabajar'],
+                    window.municipio.cuadro19['noHayEscuela,institutoOUniversidad'],
+                    window.municipio.cuadro19['losPadres /parejaNoQuieren'],
+                    window.municipio.cuadro19['quehaceresDelHogar'],
+                    window.municipio.cuadro19['noLeGusta /noQuiereIr'],
+                    window.municipio.cuadro19['yaTerminoSusEstudios'],
+                    window.municipio.cuadro19['otraCausa'],
+                    window.municipio.cuadro19['noDeclarada'],
+                ];
+
+            window.chartConfigEducacion3
+                .data
+                .datasets[0]
+                .data = [
+                    window.municipio.cuadro20['hombres'],
+                    window.municipio.cuadro20['mujeres'],
+                ];
+
+            window.chartConfigEducacion4
+                .data
+                .datasets[0]
+                .data = [
+                    window.municipio.cuadro20['asiste'],
+                    window.municipio.cuadro20['noAsiste'],
+                ];
+
+            window.chartConfigEducacion5
+                .data
+                .datasets[0]
+                .data = [
+                    window.municipio.cuadro20['enElMismoMunicipio'],
+                    window.municipio.cuadro20['enOtroMunicipio'],
+                    window.municipio.cuadro20['enOtroPais'],
+                    window.municipio.cuadro20['noDeclarado'],
+                ];
+
+            window.chartEducacion1.update();
+            window.chartEducacion2.update();
+            window.chartEducacion3.update();
+            window.chartEducacion4.update();
+            window.chartEducacion5.update();
+        }
+    </script>
+    {# ChartJS #}
+    <script>
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)){ return; }
+        js = d.createElement(s); js.id = id;
+        js.onload = function(){
+            // CHARTJS STUFF
+            var basePieChartConfig = {
+                "type": "pie",
+                "data": {
+                    "labels": [],
+                    "datasets": [
+                    {
+                        "label": "",
+                        "data": [],
+                        "fill": false,
+                        // generados con https://mdigi.tools/color-shades/#52ccae
+                        "backgroundColor": [
+                        "#8cddc9",
+                        "#ade7d9",
+                        "#cef0e8",
+                        "#185244",
+                        "#22735f",
+                        "#2c947a",
+                        "#35b595",
+                        "#4acaaa",
+                        "#6bd3ba",
+                        "#effaf7",
+                        ],
+                        "borderWidth": 0
+                    }
+                    ]
+                },
+                "options": {
+                    legend: {
+                    position: 'bottom'
+                    }
+                }
+                };
+
+            var baseBarChartConfig = {
+                "type": "bar",
+                "data": {
+                    "labels": [],
+                    "datasets": [
+                        {
+                            "label": "",
+                            "data": [],
+                            "fill": false,
+                            "backgroundColor": "#52CCAE",
+                            "borderColor": "#52CCAE",
+                            "borderWidth": 0
+                        }
+                    ]
+                },
+                "options": {
+                    "scales": {
+                        "xAxes": [
+                            {
+                                "display": true,
+                                "gridLines": {
+                                    "lineWidth": 1
+                                }
+                            }
+                        ],
+                        "yAxes": [
+                            {
+                                "display": true,
+                                "lineWidth": 1,
+                                "ticks": {
+                                    "beginAtZero": true,
+                                    "suggestedMax": 100
+                                },
+                                "gridLines": {
+                                    "lineWidth": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            };
+
+            window.chartConfigEducacion1 = JSON.parse(JSON.stringify(baseBarChartConfig));
+            window.chartConfigEducacion1
+                .data
+                .datasets[0]
+                .label = "Población de 4 años y más por nivel educativo";
+
+            window.chartConfigEducacion1.data.labels = [
+                'Preprimaria',
+                'Primaria  1 - 3',
+                'Primaria 4 - 5',
+                'Primaria 6',
+                'Basico',
+                'Diversificado',
+                'Licenciatura',
+                'Maestria o Doctorado',
+            ];
+
+            window.chartConfigEducacion1.options.scales.yAxes[0].ticks.callback = function(value) { return parseFloat(value).toLocaleString() };
+
+            window.chartEducacion1 = new Chart(document.getElementById("chart-educacion-1"), window.chartConfigEducacion1);
+
+            // 2.- Educación
+            window.chartConfigEducacion2 = JSON.parse(JSON.stringify(baseBarChartConfig));
+            window.chartConfigEducacion2
+                .data
+                .datasets[0]
+                .label = "Población de 4 años y más por nivel educativo";
+
+            window.chartConfigEducacion2.data.labels = [
+                'Falta de dinero',
+                'Tiene que trabajar',
+                'No hay escuela, instituto o universidad',
+                'Los padres / pareja no quieren',
+                'Quehaceres del hogar',
+                'No le gusta / no quiere ir',
+                'Ya termino sus estudios',
+                'Otra causa',
+                'No declarada',
+            ];
+            window.chartConfigEducacion2.options.scales.yAxes[0].ticks.callback = function (value) { return parseFloat(value).toLocaleString() };
+            window.chartEducacion2 = new Chart(document.getElementById("chart-educacion-2"), window.chartConfigEducacion2);
+
+            // 3.- Educación
+            window.chartConfigEducacion3 = JSON.parse(JSON.stringify(basePieChartConfig));
+
+            window.chartConfigEducacion3
+                .data
+                .datasets[0]
+                .label = "Población de 7 años o más con alfabetismo";
+
+            window.chartConfigEducacion3.data.labels = [
+                'Hombres',
+                'Mujeres',
+            ];
+            window.chartEducacion3 = new Chart(document.getElementById("chart-educacion-3"), window.chartConfigEducacion3);
+
+            // 4.- Educación
+            window.chartConfigEducacion4 = JSON.parse(JSON.stringify(basePieChartConfig));
+
+            window.chartConfigEducacion4
+                .data
+                .datasets[0]
+                .label = "Asistencia escolar";
+
+            window.chartConfigEducacion4.data.labels = [
+                'Asiste',
+                'No Asiste',
+            ];
+            window.chartEducacion4 = new Chart(document.getElementById("chart-educacion-4"), window.chartConfigEducacion4);
+
+            // 5.- Educación
+            window.chartConfigEducacion5 = JSON.parse(JSON.stringify(baseBarChartConfig));
+
+            window.chartConfigEducacion5
+                .data
+                .datasets[0]
+                .label = "Lugar de estudio";
+
+            window.chartConfigEducacion5.data.labels = [
+                'En el mismo municipio',
+                'En otro municipio ',
+                'En otro pais',
+                'No declarado',
+            ];
+            window.chartEducacion5 = new Chart(document.getElementById("chart-educacion-5"), window.chartConfigEducacion5);
+        };
+        js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'chart-jssdk'));
+    </script>
 </body>
+
 </html>
