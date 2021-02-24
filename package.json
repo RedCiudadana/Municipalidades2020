@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "scss": "sass assets/sass:assets/css",
-    "css": "postcss public/assets/css/*.css -u autoprefixer cssnano postcss-uncss -r -m",
+    "css": "postcss public/assets/css/*.css -r -m",
     "watch:eleventy": "eleventy --serve",
     "watch:sass": "sass --watch assets/sass:assets/css",
     "start": "cross-env ELEVENTY_ENV=dev npm-run-all scss --parallel watch:*",

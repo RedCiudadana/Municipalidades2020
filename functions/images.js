@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 (async () => {
+  console.log('Skipping images...');
+  return;
   console.log("Starting social images...");
 
   const browserFetcher = chromium.puppeteer.createBrowserFetcher();
