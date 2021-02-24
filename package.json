@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "scss": "sass assets/sass:assets/css",
-    "css": "postcss assets/css/*.css -u autoprefixer cssnano -r -m",
+    "css": "postcss public/assets/css/*.css -u autoprefixer cssnano postcss-uncss -r -m",
     "watch:eleventy": "eleventy --serve",
     "watch:sass": "sass --watch assets/sass:assets/css",
     "start": "cross-env ELEVENTY_ENV=dev npm-run-all scss --parallel watch:*",
@@ -50,7 +50,9 @@
     "npm-run-all": "^4.1.5",
     "papaparse": "^5.3.0",
     "postcss-cli": "^7.1.2",
+    "postcss-uncss": "^0.17.0",
     "puppeteer": "5.2.1",
+    "purgecss": "^4.0.0",
     "sass": "^1.26.10",
     "stylelint": "^13.7.0",
     "stylelint-config-prettier": "^8.0.2",
@@ -58,6 +60,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
+    "uncss": "^0.17.3",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0"
   },

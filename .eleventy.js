@@ -78,7 +78,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('toLocaleString', function(value) {
-    return parseFloat(value).toLocaleString();
+    return parseFloat(value).toLocaleString('lan');
   });
 
   /* Markdown Overrides */

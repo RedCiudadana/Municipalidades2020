@@ -234,6 +234,7 @@ tags:
                   </h3>
                   <h1>
                     {{municipio.ranking.segeplan2018}}
+                    {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
                   </h1>
                   <small>
                     SEGEPLAN 2018
@@ -1010,7 +1011,9 @@ tags:
                   gridLines: {
                     drawOnChartArea: false
                   },
-                  ticks: {}
+                  ticks: {
+                    // beginAtZero: true
+                  }
                 }
               ]
             }
@@ -1065,6 +1068,7 @@ tags:
             {{municipio.ranking.segeplan2018}}
           ];
         chartConfigGestionMunicipal1.data.labels = ["2013", "2016", "2018"];
+        chartConfigGestionMunicipal1.options.scales.yAxes[0].ticks.beginAtZero = true;
         new Chart(document.getElementById("chart-gestion-municipal-1"), chartConfigGestionMunicipal1);
 
         // Transparencia
@@ -1078,6 +1082,7 @@ tags:
           .datasets[0]
           .data = [{{municipio.aip.aip2015}}, {{municipio.aip.aip2017}}, {{municipio.aip.aip2019}}];
         chartConfigGestionTransparencia1.data.labels = ["2015", "2017", "2019"];
+        chartConfigGestionMunicipal1.options.scales.yAxes[0].ticks.beginAtZero = true;
         new Chart(document.getElementById("chart-transparencia-1"), chartConfigGestionTransparencia1);
 
         // Pobreza
@@ -1096,6 +1101,7 @@ tags:
           ];
         chartConfigGestionPobreza1.data.labels = ["2006", "2011", "2014"];
         chartConfigGestionPobreza1.options.scales.yAxes[0].ticks.suggestedMax = 1;
+        chartConfigGestionPobreza1.options.scales.yAxes[0].ticks.beginAtZero = true;
         new Chart(document.getElementById("chart-pobreza-1"), chartConfigGestionPobreza1);
 
         // Población

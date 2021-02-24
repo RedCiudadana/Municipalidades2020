@@ -5,11 +5,21 @@ const path = require("path");
 (async () => {
   console.log("Starting social images...");
 
+  const browserFetcher = chromium.puppeteer.createBrowserFetcher();
+
+  const revisionInfo = await browserFetcher.download('809590.');
+
   const browser = await chromium.puppeteer.launch({
-    args: chromium.args,
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    executablePath: revisionInfo.executablePath,
+    headless: true
   });
+
+  // const browser = await chromium.puppeteer.launch({
+  //   args: chromium.args,
+  //   executablePath: await chromium.executablePath,
+  //   headless: chromium.headless,
+  // });
 
   const page = await browser.newPage();
 
@@ -38,6 +48,7 @@ const path = require("path");
   const dir = path.resolve(__dirname, "../public/previews");
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
+  console.log(pages);
   // Go over all the posts
   for (const post of pages) {
     // Update the H1 element with the post title
@@ -59,6 +70,7 @@ const path = require("path");
 
     console.log(`Image: ${post.slug}.png`);
 
+    console.log(`${dir}/${post.slug}.png`);
     // Save a screenshot to public/img/slug-of-post.png
     await page.screenshot({
       path: `${dir}/${post.slug}.png`,
