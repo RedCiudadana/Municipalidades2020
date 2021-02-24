@@ -9,7 +9,7 @@
     "watch:eleventy": "eleventy --serve",
     "watch:sass": "sass --watch assets/sass:assets/css",
     "start": "cross-env ELEVENTY_ENV=dev npm-run-all scss --parallel watch:*",
-    "build": "cross-env ELEVENTY_ENV=prod npm-run-all scss --parallel build:eleventy css screenshot",
+    "build": "cross-env ELEVENTY_ENV=prod npm-run-all scss --parallel build:eleventy screenshot",
     "build:eleventy": "eleventy",
     "lint": "stylelint 'assets/sass/**/*.scss' 'assets/sass/**/**/*.scss' 'assets/sass/**/**/**/*.scss'",
     "lint:fix": "stylelint --fix 'assets/sass/**/*.scss' 'assets/sass/**/**/*.scss' 'assets/sass/**/**/**/*.scss'",
