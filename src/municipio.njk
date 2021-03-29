@@ -721,25 +721,25 @@ tags:
                   <h6>
                     Uso de celular
                   </h6>
-                  <canvas height="260px" id="chart-economia-1"></canvas>
+                  <canvas height="320px" id="chart-economia-1"></canvas>
                 </div>
                 <div class="col-12 col-lg-3 p-3 border">
                   <h6>
                     Uso de computadora y/o internet
                   </h6>
-                  <canvas height="260px" id="chart-economia-2"></canvas>
+                  <canvas height="320px" id="chart-economia-2"></canvas>
                 </div>
                 <div class="col-12 col-lg-3 p-3 border">
                   <h6>
                     Uso de internet
                   </h6>
-                  <canvas height="260px" id="chart-economia-3"></canvas>
+                  <canvas height="320px" id="chart-economia-3"></canvas>
                 </div>
                 <div class="col-12 col-lg-3 p-3 border">
                   <h6>
                     Uso de celular, computadora y/o internet
                   </h6>
-                  <canvas height="260px" id="chart-economia-4"></canvas>
+                  <canvas height="460px" id="chart-economia-4"></canvas>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
@@ -757,7 +757,7 @@ tags:
                   <h6>
                     Condición de inactividad
                   </h6>
-                  <canvas height="180px" id="chart-economia-6"></canvas>
+                  <canvas height="250px" id="chart-economia-6"></canvas>
                 </div>
                 <div class="col-12 col-lg-8 p-3 border">
                   <h6>
@@ -963,22 +963,44 @@ tags:
       js = d.createElement(s);
       js.id = id;
       js.onload = function () {
-        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
-          align: 'start',
-          anchor: 'end',
-          offset: -20,
-          display: true,
-          font: {
-            weight: 'bold'
-          },
-          color: '#666666',
-          display: function(context) {
-            return context.chart.config.type === 'bar';
-          },
-          formatter: function(value, context) {
-            return value.toLocaleString();
-          }
-        });
+
+//        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+//          align: function(context) {
+//            if (context.chart.config.type === 'bar') {
+//              return 'start';
+//            } else {
+//              return 'end';
+//            }
+//          },
+//          anchor: 'end',
+//          offset: function(context) {
+//            if (context.chart.config.type === 'bar') {
+//              return -20;
+//            } else {
+//              return -50;
+//            }
+//          },
+//          position: function(context) {
+//            if (context.chart.config.type === 'pie') {
+//              return 'intside';
+//            }
+//          },
+//          font: {
+//            weight: 'bold'
+//          },
+//          color: '#666666',
+//          display: function(context) {
+//            if (context.chart.config.type === 'pie') {
+//              return 'auto';
+//            }
+//
+//            return true;
+//          },
+//          formatter: function(value, context) {
+//            console.log(...arguments);
+//            return value.toLocaleString();
+//          }
+//        });
 
         var baseBarChartConfig = {
           "type": "bar",
@@ -991,11 +1013,51 @@ tags:
                 "fill": false,
                 "backgroundColor": "#52CCAE",
                 "borderColor": "#52CCAE",
-                "borderWidth": 0
+                "borderWidth": 0,
+                datalabels: {
+//                  align: function(context) {
+//                    if (context.chart.config.type === 'bar') {
+//                      return 'start';
+//                    } else {
+//                      return 'end';
+//                    }
+//                  },
+                  // align: 'center',
+                  align: 'end',
+                  anchor: 'end',
+//                  position: function(context) {
+//                    if (context.chart.config.type === 'pie') {
+//                      return 'intside';
+//                    }
+//                  },
+                  font: {
+                    weight: 'bold'
+                  },
+                  color: '#666666',
+//                  display: function(context) {
+//                    if (context.chart.config.type === 'pie') {
+//                      return 'auto';
+//                    }
+//
+//                    return true;
+//                  },
+                  formatter: function(value, context) {
+                    console.log(...arguments);
+                    return value.toLocaleString();
+                  }
+                }
               }
             ]
           },
           "options": {
+            legend: {
+              display: false,
+            },
+            layout: {
+              padding: {
+                top: 40
+              }
+            },
             scales: {
               xAxes: [
                 {
@@ -1012,16 +1074,22 @@ tags:
                     drawOnChartArea: false
                   },
                   ticks: {
-                    // beginAtZero: true
+                    beginAtZero: true
                   }
                 }
               ]
+            },
+            plugins: {
+              datalabels: {
+                offset: 0,
+                clamp: false
+              }
             }
           }
         };
 
         var basePieChartConfig = {
-          "type": "pie",
+          "type": "doughnut",
           "data": {
             "labels": [],
             "datasets": [
@@ -1042,13 +1110,70 @@ tags:
                   "#6bd3ba",
                   "#effaf7",
                 ],
-                "borderWidth": 0
+                "borderWidth": 0,
+                datalabels: {
+                  labels: {
+//                    index: {
+//                      align: 'end',
+//                      anchor: 'center',
+//                      color: function(ctx) {
+//                        return ctx.dataset.backgroundColor;
+//                      },
+//                      font: {size: 18},
+//                      formatter: function(value, ctx) {
+//                        return ctx.active
+//                          ? 'index'
+//                          : '#' + (ctx.dataIndex + 1);
+//                      },
+//                      offset: 8,
+//                      opacity: function(ctx) {
+//                        return ctx.active ? 1 : 0.5;
+//                      }
+//                    },
+//                    name: {
+//                      align: 'top',
+//                      font: {size: 16},
+//                      formatter: function(value, ctx) {
+//                        return ctx.active
+//                          ? 'name'
+//                          : ctx.chart.data.labels[ctx.dataIndex];
+//                      }
+//                    },
+                    value: {
+                      align: 'end',
+                      anchor: 'end',
+                      font: {
+                        weight: 'bold'
+                      },
+                      color: '#666666',
+                      display: 'auto',
+                      clamp: true,
+                      clip: false
+                    },
+                    formatter: function(value, context) {
+                      console.log('hola');
+                      return value.toLocaleString('es');
+                    },
+                  }
+                }
               }
             ]
           },
           "options": {
             legend: {
-              position: 'bottom'
+              fullWidth: false,
+              position: 'bottom',
+              align: 'end'
+            },
+            layout: {
+              padding: {
+                top: 40
+              }
+            },
+            plugins: {
+              datalabels: {
+                clamp: true
+              }
             }
           }
         };
