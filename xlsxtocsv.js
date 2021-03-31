@@ -3,7 +3,7 @@ const camelcaseKeys = require('camelcase-keys');
 const camelCase = require('camelcase');
 const fs = require('fs');
 
-let dir = `${__dirname}/src/_data/plataformaMunicipalDatos`;
+let dir = `${__dirname}/src/_data/plataformaMunicipalDatosTMP`;
 
 fs.readdir(dir, (err, files) => {
     if (err) {
