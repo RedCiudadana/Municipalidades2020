@@ -616,6 +616,271 @@
         "No declarado",
       ]
     );
+
+    // Economia
+    createChart(
+      'pie',
+      "chart-economia-1",
+      "Uso de celular",
+      [
+        municipio.cuadro21["usaCelular"],
+        municipio.cuadro21["noUsaCelular"],
+        municipio.cuadro21["noDeclaradoUsoDeCelular"],
+      ],
+      [
+        "Usa celular",
+        "No usa celular",
+        "No declarado uso de celular",
+      ]
+    );
+
+    createChart(
+      'pie',
+      "chart-economia-2",
+      "Uso de computadora",
+      [
+        municipio.cuadro21["usaComputadora"],
+        municipio.cuadro21["noUsaComputadora"],
+        municipio.cuadro21["noDeclaradoElUsoDeComputadora"],
+      ],
+      [
+        "Usa computadora",
+        "No usa computadora",
+        "No declarado el uso de computadora ",
+      ]
+    );
+
+    createChart(
+      'pie',
+      "chart-economia-3",
+      "Uso de internet",
+      [
+        municipio.cuadro21["usaInternet"],
+        municipio.cuadro21["noUsaInternet"],
+        municipio.cuadro21["noDeclaradoElUsoDeInternet"],
+      ],
+      [
+        "Usa Internet",
+        "No usa Internet",
+        "No declarado el uso de Internet",
+      ]
+    );
+
+    createChart(
+      'pie',
+      "chart-economia-4",
+      "Uso de celular, computadora y/o internet",
+      [
+        municipio.cuadro21["celular,computadoraEInternet"],
+        municipio.cuadro21["celularYComputadora"],
+        municipio.cuadro21["celularEInternet"],
+        municipio.cuadro21["computadoraEInternet"],
+      ],
+      [
+        "Celular, computadora e internet",
+        "Celular y computadora",
+        "Celular e internet",
+        "Computadora e internet",
+      ]
+    );
+
+    createChart(
+      'pie',
+      "chart-economia-5",
+      "Población económicamente activa e inactiva",
+      [
+        municipio.cuadro22["totalPea"],
+        municipio.cuadro22["totalPei"],
+      ],
+      ["Total PEA", "Total PEI"]
+    );
+
+    createChart(
+      'pie',
+      "chart-economia-6",
+      "Condición de inactividad",
+      [
+        municipio.cuadro22["peaOcupada"],
+        municipio.cuadro22["peaCesante"],
+        municipio.cuadro22["peaAspirante"],
+      ],
+      [
+        "PEA Ocupada",
+        "PEA Cesante",
+        "PEA Aspirante",
+      ]
+    );
+
+    createChart(
+      'bar',
+      "chart-economia-7",
+      "Población económicamente inactiva",
+      [
+        municipio.cuadro22["peiUnicamenteEstudio"],
+        municipio.cuadro22["peiRentistaOJubilado"],
+        municipio.cuadro22["peiQueHaceresDelHogar"],
+        municipio.cuadro22["peiCuidadoDePersonas"],
+        municipio.cuadro22["peiCargoComunitario"],
+        municipio.cuadro22["peiOtra"],
+        municipio.cuadro22["peiNoDeclarado"],
+      ],
+      [
+        "PEI Unicamente estudio",
+        "PEI  Rentista o jubilado",
+        "PEI  Que haceres del hogar",
+        "PEI  Cuidado de personas",
+        "PEI  Cargo comunitario",
+        "PEI  Otra",
+        "PEI  No declarado",
+      ]
+    );
+
+    createChart(
+      'bar',
+      "chart-economia-8",
+      "Lugar de trabajo",
+      [
+        municipio.cuadro22["lugarDeTrabajoEnElMismoMunicipio"],
+        municipio.cuadro22["lugarDeTrabajoEnOtroMunicipio"],
+        municipio.cuadro22["lugarDeTrabajoEnOtroPais"],
+        municipio.cuadro22["lugarDeTrabajoNoDeclarado"],
+      ],
+      [
+        "Lugar de trabajo en el mismo municipio",
+        "Lugar de trabajo en otro municipio ",
+        "Lugar de trabajo en otro pais",
+        "Lugar de trabajo no declarado",
+      ]
+    );
+
+    // Salud
+    createChart(
+      'bar',
+      "chart-salud-1",
+      "Número de hijos nacidos vivos",
+      [
+        municipio.cuadro23["nacidosVivos0"],
+        municipio.cuadro23["nacidosVivos1"],
+        municipio.cuadro23["nacidosVivos2"],
+        municipio.cuadro23["nacidosVivos3"],
+        municipio.cuadro23["nacidosVivos4"],
+        municipio.cuadro23["nacidosVivos5OMas"],
+        municipio.cuadro23["nacidosVivosNoDeclarado"],
+      ],
+      [
+        "Nacidos vivos 0",
+        "Nacidos vivos 1",
+        "Nacidos vivos 2",
+        "Nacidos vivos 3",
+        "Nacidos vivos 4",
+        "Nacidos vivos 5 o mas",
+        "No declarado",
+      ]
+    );
+
+    createChart(
+      'bar',
+      "chart-salud-2",
+      "Edad de la mujer al nacimiento de su primer hijo",
+      [
+        municipio.cuadro23["edadMujerAlMomentoDePartoAntesDe15"],
+        municipio.cuadro23["edadMujerAlMomentoDeParto1517Años"],
+        municipio.cuadro23["edadMujerAlMomentoDeParto1819Años"],
+        municipio.cuadro23["edadMujerAlMomentoDeParto2024Años"],
+        municipio.cuadro23["edadMujerAlMomentoDeParto2529Años"],
+        municipio.cuadro23["edadMujerAlMomentoDeParto30AñosOMas"],
+        municipio.cuadro23["edadMujerAlMomentoDePartoNoDeclarado"],
+      ],
+      [
+        "Edad mujer al momento de parto  antes de 15",
+        "Edad mujer al momento de parto 15 - 17 años",
+        "Edad mujer al momento de parto 18 - 19 años",
+        "Edad mujer al momento de parto 20 - 24 años",
+        "Edad mujer al momento de parto 25 - 29 años",
+        "Edad mujer al momento de parto 30 años o mas",
+        "Edad mujer al momento de parto no declarado",
+      ]
+    );
+
+    // Hogar
+    createChart(
+      'bar',
+      "chart-hogar-1",
+      "Hogares por tipo de tenencia de la vivienda",
+      [
+        municipio.cuadro24["propia"],
+        municipio.cuadro24["alquilada"],
+        municipio.cuadro24["cedidaOPrestada"],
+        municipio.cuadro24["propiedadComunal"],
+        municipio.cuadro24["otra"],
+      ],
+      [
+        "Propia",
+        "Alquilada",
+        "Cedida o prestada",
+        "Propiedad comunal",
+        "Otra",
+      ]
+    );
+
+    createChart(
+      'bar',
+      "chart-hogar-2",
+      "Hogares por sexo del propietario de la vivienda",
+      [
+        municipio.cuadro24["propoetarioHombre"],
+        municipio.cuadro24["propoetarioMujer"],
+        municipio.cuadro24["propoetarioAmbos"],
+        municipio.cuadro24["propoetarioNoDeclarado"],
+      ],
+      [
+        "Propietario Hombre",
+        "Propietario Mujer",
+        "Propietario Ambos",
+        "Propietario no declarado",
+      ]
+    );
+
+    createChart(
+      'bar',
+      "chart-hogar-3",
+      "Hogares por tipo de tenencia de la vivienda",
+      [
+        municipio.cuadro24["decisionesHogarHombre"],
+        municipio.cuadro24["decisionesHogarMujer"],
+        municipio.cuadro24["decisionesHogarAmbos"],
+        municipio.cuadro24["decisionesHogarNoDeclarado"],
+      ],
+      [
+        "Decisiones hogar Hombre",
+        "Decisiones hogar Mujer",
+        "Decisiones hogar ambos",
+        "Decisiones hogar no declarado",
+      ]
+    );
+
+    createChart(
+      'bar',
+      "chart-hogar-4",
+      "Hogares por fuente principal de agua para consumo",
+      [
+        municipio.cuadro24["decisionesHogarHombre"],
+        municipio.cuadro24["decisionesHogarMujer"],
+        municipio.cuadro24["decisionesHogarAmbos"],
+        municipio.cuadro24["decisionesHogarNoDeclarado"],
+      ],
+      [
+        "Tuberia en la vivienda",
+        "Tuberia fuera de la vivienda",
+        "Chorro publico",
+        "Pozo perforado",
+        "Agua de lluvia",
+        "Rio o lago",
+        "Manantial o nacimiento",
+        "Camion o tonel",
+        "Otro",
+      ]
+    );
     // End
   };
   js.src = '/assets/main.js';
