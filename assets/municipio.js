@@ -170,8 +170,30 @@
       window.myCharts[id] = new Chart(document.getElementById(id), config);
     }
 
-    // @ts-nocheck
     let municipio = window.municipio;
+
+    // General
+    createChart(
+      'pie',
+      'chart-general-1',
+      'Sexo',
+      [
+        municipio.cuadro10Poblacion.hombres,
+        municipio.cuadro10Poblacion.mujeres,
+      ],
+      ["Hombres", "Mujeres"]
+    );
+
+    createChart(
+      'pie',
+      'chart-general-2',
+      'Tipo de área',
+      [
+        municipio.cuadro10Poblacion.urbana,
+        municipio.cuadro10Poblacion.rural,
+      ],
+      ["Urbana", "Rural"]
+    );
 
     // Gestion municipal
     createChart(
@@ -205,7 +227,13 @@
     cronica2019 = cronica2019[0];
 
     if (cronica2019) {
-      document.getElementById('title-cronica-text').innerText = cronica2019.cantidad;
+      let titles = document.getElementsByClassName('title-cronica-text');
+      for (const key in titles) {
+        if (Object.hasOwnProperty.call(titles, key)) {
+          const element = titles[key];
+          element.innerText = parseFloat(cronica2019.cantidad).toLocaleString('lan');
+        }
+      }
     }
 
     createChart(
@@ -268,7 +296,13 @@
     aguda2019 = aguda2019[0];
 
     if (aguda2019) {
-      document.getElementById('title-aguda-text').innerText = aguda2019.cantidad;
+      let titles = document.getElementsByClassName('title-aguda-text');
+      for (const key in titles) {
+        if (Object.hasOwnProperty.call(titles, key)) {
+          const element = titles[key];
+          element.innerText = parseFloat(aguda2019.cantidad).toLocaleString('lan');
+        }
+      }
     }
 
     createChart(

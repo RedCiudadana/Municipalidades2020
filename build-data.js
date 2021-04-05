@@ -7,6 +7,7 @@ let ranking = require('./src/_data/ranking.json');
 let aip = require('./src/_data/aip.json');
 let ipm = require('./src/_data/ipm.json');
 let coorporacion = require('./src/_data/coorporacion.json');
+let desempeno5 = require('./src/_data/plataformaMunicipalDatosJSON/5DesempeñoDeEscuelasMunicipalesConsolidado20152019FinalXlsx.json');
 let _10Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/10CuadroA1PoblaciónTotalPorSexo,GruposQuinquenalesDeEdadYÁreaXlsx.json');
 let _11Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/11CuadroA2PoblaciónSegúnParentescoConElJefe(a)DelHogarXlsx.json');
 let _12Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/12CuadroA3PoblaciónDe10AñosYMásPorEstadoConyugalXlsx.json');
@@ -386,6 +387,15 @@ const jsonSchema = {
     },
     desnutricion: {
         type: 'object'
+    },
+    desempeno5: {
+        type: 'object'
+    },
+    cuadro5: {
+        type: 'object'
+    },
+    cuadro5Y2018: {
+        type: 'object'
     }
 }
 
@@ -521,6 +531,15 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
                 && item._tipo === "Crónica";
         })
     }
+
+    municipio.cuadro5 = desempeno5.filter((item) => {
+        return item._idMunicipal === municipio.id_municipal;
+    });
+
+    municipio.cuadro5Y2018 = municipio.cuadro5.find((item) => {
+        return item._idMunicipal === municipio.id_municipal
+            && item._periodo === 2018;
+    });
 
     console.log(`${municipio.departamento}, ${municipio.municipio}`);
 
