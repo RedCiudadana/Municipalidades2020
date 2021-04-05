@@ -116,13 +116,13 @@ const jsonSchema = {
                 type: 'string'
             },
             aip2019: {
-                type: 'string'
+                type: 'number'
             },
             aip2017: {
-                type: 'string'
+                type: 'number'
             },
             aip2015: {
-                type: 'string'
+                type: 'number'
             },
             aip2015insitu: {
                 type: 'string'
@@ -512,12 +512,12 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
     municipio.desnutricion = {
         aguda: desnutricion.filter((item) => {
             return item._codMunicipal == municipio.id_municipal
-                && item._periodo === 2019
+                // && item._periodo === 2019
                 && item._tipo === "Aguda";
         }),
         cronica: desnutricion.filter((item) => {
             return item._codMunicipal == municipio.id_municipal
-                && item._periodo === 2019
+                // && item._periodo === 2019
                 && item._tipo === "Crónica";
         })
     }
