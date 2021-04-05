@@ -7,6 +7,7 @@ let ranking = require('./src/_data/ranking.json');
 let aip = require('./src/_data/aip.json');
 let ipm = require('./src/_data/ipm.json');
 let coorporacion = require('./src/_data/coorporacion.json');
+let desempeno5 = require('./src/_data/plataformaMunicipalDatosJSON/5DesempeñoDeEscuelasMunicipalesConsolidado20152019FinalXlsx.json');
 let _10Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/10CuadroA1PoblaciónTotalPorSexo,GruposQuinquenalesDeEdadYÁreaXlsx.json');
 let _11Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/11CuadroA2PoblaciónSegúnParentescoConElJefe(a)DelHogarXlsx.json');
 let _12Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/12CuadroA3PoblaciónDe10AñosYMásPorEstadoConyugalXlsx.json');
@@ -32,6 +33,7 @@ let _cuadro31 = require('./src/_data/plataformaMunicipalDatosJSON/31CuadroB8Tipo
 let _cuadro32 = require('./src/_data/plataformaMunicipalDatosJSON/32CuadroC1TipoDeViviendaYCondiciónDeOcupaciónXlsx.json');
 let _cuadro33 = require('./src/_data/plataformaMunicipalDatosJSON/33CuadroC2ViviendasParticularesPorMaterialPredominanteEnLasParedesExterioresYEnElTechoXlsx.json');
 let _cuadro34 = require('./src/_data/plataformaMunicipalDatosJSON/34CuadroC3ViviendasParticularesPorMaterialPredominanteEnElPisoXlsx.json');
+let desnutricion = require('./src/_data/plataformaMunicipalDatosJSON/3DesnutricionXlsx.json');
 
 const jsonSchema = {
     id_dep: {
@@ -115,13 +117,13 @@ const jsonSchema = {
                 type: 'string'
             },
             aip2019: {
-                type: 'string'
+                type: 'number'
             },
             aip2017: {
-                type: 'string'
+                type: 'number'
             },
             aip2015: {
-                type: 'string'
+                type: 'number'
             },
             aip2015insitu: {
                 type: 'string'
@@ -383,6 +385,18 @@ const jsonSchema = {
     cuadro34: {
         type: 'object'
     },
+    desnutricion: {
+        type: 'object'
+    },
+    desempeno5: {
+        type: 'object'
+    },
+    cuadro5: {
+        type: 'object'
+    },
+    cuadro5Y2018: {
+        type: 'object'
+    }
 }
 
 promisesMunicipiosNormalize = municipios.map(function (municipio) {
@@ -438,73 +452,96 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
     });
 
     municipio.cuadro18 = _cuadro18.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro19 = _cuadro19.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro20 = _cuadro20.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro21 = _cuadro21.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro22 = _cuadro22.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro23 = _cuadro23.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro24 = _cuadro24.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro25 = _cuadro25.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro26 = _cuadro26.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro27 = _cuadro27.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro28 = _cuadro28.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro29 = _cuadro29.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro30 = _cuadro30.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro31 = _cuadro31.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro32 = _cuadro32.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro33 = _cuadro33.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
     municipio.cuadro34 = _cuadro34.find((item) => {
-        return item._idMunicipal = municipio.id_municipal;
+        return item._idMunicipal == municipio.id_municipal;
     });
 
+    municipio.desnutricion = {
+        aguda: desnutricion.filter((item) => {
+            return item._codMunicipal == municipio.id_municipal
+                // && item._periodo === 2019
+                && item._tipo === "Aguda";
+        }),
+        cronica: desnutricion.filter((item) => {
+            return item._codMunicipal == municipio.id_municipal
+                // && item._periodo === 2019
+                && item._tipo === "Crónica";
+        })
+    }
+
+    municipio.cuadro5 = desempeno5.filter((item) => {
+        return item._idMunicipal === municipio.id_municipal;
+    });
+
+    municipio.cuadro5Y2018 = municipio.cuadro5.find((item) => {
+        return item._idMunicipal === municipio.id_municipal
+            && item._periodo === 2018;
+    });
+
+    console.log(`${municipio.departamento}, ${municipio.municipio}`);
 
     municipio = camelcaseKeys(municipio, { deep: true });
 
@@ -522,7 +559,7 @@ Promise.all(promisesMunicipiosNormalize)
             if (err) {
                 console.error(err);
             } else {
-                console.log('Success data build');
+                console.log('Success build src/_data/municipiosData.json');
             }
         });
 
@@ -530,7 +567,7 @@ Promise.all(promisesMunicipiosNormalize)
             if (err) {
                 console.error(err);
             } else {
-                console.log('Success data build');
+                console.log('Success build src/_data/municipioData.json');
             }
         });
     })
