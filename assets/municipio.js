@@ -13,11 +13,13 @@
       }
 
       if (window.myCharts[id] !== undefined) {
-        throw Error(`El chart ${id} ya está declarado.`)
+        console.error(`El chart ${id} ya está declarado.`);
+        return;
       }
 
-      if (!(type === 'bar' || type === 'pie')) {
-        throw Error(`El tipo ${type} no esta soportado. Los tipos soportados son bar y pie.`);
+      if (!(type === 'bar' || type === 'pie' || type === 'line')) {
+        console.error(`El tipo ${type} no esta soportado. Los tipos soportados son bar y pie.`);
+        return;
       }
 
       let config = null;
@@ -78,9 +80,9 @@
         };
       }
 
-      if (type === 'bar') {
+      if (type === 'bar' || type === 'line') {
         config = {
-          type: 'bar',
+          type: type,
           data: {
             labels: [],
             datasets: [
@@ -160,6 +162,11 @@
 
       /* config.options =  */Object.assign(config.options, options);
 
+      if (!document.getElementById(id)) {
+        console.error(`El elemento ${id} no se encontro.`);
+        return;
+      }
+
       window.myCharts[id] = new Chart(document.getElementById(id), config);
     }
 
@@ -168,7 +175,7 @@
 
     // Gestion municipal
     createChart(
-      'bar',
+      'line',
       'chart-gestion-municipal-1',
       'Indice gestión municipal %',
       [
@@ -180,7 +187,7 @@
     );
     // Transparencia
     createChart(
-      'bar',
+      'line',
       'chart-transparencia-1',
       'Indice de Acceso a la Información Pública',
       [
@@ -202,7 +209,7 @@
     }
 
     createChart(
-      'bar',
+      'line',
       'chart-nutricion-1',
       'Numero de Casos de Desnutrición Crónica por año',
       cronica.map((item) => item.cantidad),
@@ -227,9 +234,99 @@
         ['Masculino', 'Femenino']
       );
     }
-    // Pobreza
+
     createChart(
       'bar',
+      'chart-nutricion-3',
+      'Numero de Casos de Desnutrición Crónica por edad',
+      [
+        cronica2019['m <1Mes'],
+        cronica2019['m1Ma <2M'],
+        cronica2019['m2Ma <1A'],
+        cronica2019['m1Aa4A'],
+        cronica2019['f <1Mes'],
+        cronica2019['f1Ma <2M'],
+        cronica2019['f2Ma <1A'],
+        cronica2019['f1Aa4A']
+      ],
+      [
+        'F < 1 mes ',
+        'M < 1 mes',
+        'F 1m a < 2m',
+        'M 1m a < 2m',
+        'F 2m a < 1 a',
+        'M 2m a < 1 a',
+        'F 1a a 4 a',
+        'M 1a a 4 a'
+      ]
+    );
+
+    aguda = municipio.desnutricion.aguda.sort((a, b) => a.periodo - b.periodo);
+
+    aguda2019 = aguda.filter((item) => item.periodo === 2019);
+
+    aguda2019 = aguda2019[0];
+
+    if (aguda2019) {
+      document.getElementById('title-aguda-text').innerText = aguda2019.cantidad;
+    }
+
+    createChart(
+      'line',
+      'chart-nutricion-4',
+      'Numero de Casos de Desnutrición Aguda por año',
+      aguda.map((item) => item.cantidad),
+      aguda.map((item) => item.periodo)
+    );
+
+    if (aguda2019) {
+      createChart(
+        'pie',
+        'chart-nutricion-5',
+        'Casos de Desnutrición Aguda por sexo',
+        [
+          aguda2019['m <1Mes'] +
+          aguda2019['m1Ma <2M'] +
+          aguda2019['m2Ma <1A'] +
+          aguda2019['m1Aa4A'],
+          aguda2019['f <1Mes'] +
+          aguda2019['f1Ma <2M'] +
+          aguda2019['f2Ma <1A'] +
+          aguda2019['f1Aa4A']
+        ],
+        ['Masculino', 'Femenino']
+      );
+    }
+
+    createChart(
+      'bar',
+      'chart-nutricion-6',
+      'Numero de Casos de Desnutrición Aguda por año',
+      [
+        aguda2019['m <1Mes'],
+        aguda2019['m1Ma <2M'],
+        aguda2019['m2Ma <1A'],
+        aguda2019['m1Aa4A'],
+        aguda2019['f <1Mes'],
+        aguda2019['f1Ma <2M'],
+        aguda2019['f2Ma <1A'],
+        aguda2019['f1Aa4A']
+      ],
+      [
+        'F < 1 mes ',
+        'M < 1 mes',
+        'F 1m a < 2m',
+        'M 1m a < 2m',
+        'F 2m a < 1 a',
+        'M 2m a < 1 a',
+        'F 1a a 4 a',
+        'M 1a a 4 a'
+      ]
+    );
+
+    // Pobreza
+    createChart(
+      'line',
       'chart-pobreza-1',
       'Índice de pobreza Multidimensional',
       [
@@ -239,6 +336,19 @@
       ],
       ['2006', '2011', '2014']
     );
+    // // Finanzas
+    // createChart(
+    //   'bar',
+    //   'chart-pobreza-1',
+    //   'Índice de pobreza Multidimensional',
+    //   [
+    //     municipio.ipm.ipm2006,
+    //     municipio.ipm.ipm2011,
+    //     municipio.ipm.ipm2014,
+    //   ],
+    //   ['2006', '2011', '2014']
+    // );
+    // Poblacion
     // 1.- Población total por sexo
     createChart(
       'pie',
