@@ -34,6 +34,8 @@ let _cuadro32 = require('./src/_data/plataformaMunicipalDatosJSON/32CuadroC1Tipo
 let _cuadro33 = require('./src/_data/plataformaMunicipalDatosJSON/33CuadroC2ViviendasParticularesPorMaterialPredominanteEnLasParedesExterioresYEnElTechoXlsx.json');
 let _cuadro34 = require('./src/_data/plataformaMunicipalDatosJSON/34CuadroC3ViviendasParticularesPorMaterialPredominanteEnElPisoXlsx.json');
 let desnutricion = require('./src/_data/plataformaMunicipalDatosJSON/3DesnutricionXlsx.json');
+let ejecucion6 = require('./src/_data/plataformaMunicipalDatosJSON/6EjecucionPresupuestariaIngresosFinalXlsx.json');
+// let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/7EjecucionReduced1Xlsx.json');
 
 const jsonSchema = {
     id_dep: {
@@ -216,8 +218,8 @@ const jsonSchema = {
         }
     },
     cuadro10Poblacion: {
-        type : 'object',
-        properties : {
+        type: 'object',
+        properties: {
             _no: {
                 type: 'number'
             },
@@ -316,10 +318,10 @@ const jsonSchema = {
     cuadro11Poblacion: {
         type: 'object'
     },
-    cuadro12Poblacion : {
+    cuadro12Poblacion: {
         type: 'object'
     },
-    cuadro13Poblacion : {
+    cuadro13Poblacion: {
         type: 'object'
     },
     cuadro14Poblacion: {
@@ -396,6 +398,12 @@ const jsonSchema = {
     },
     cuadro5Y2018: {
         type: 'object'
+    },
+    ejecucion6: {
+        type: 'object'
+    },
+    ejecucion7: {
+        type: 'object'
     }
 }
 
@@ -446,7 +454,7 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
     municipio.cuadro16Poblacion = _16Poblacion.find((_10Poblacion) => {
         return _10Poblacion._idMunicipal === municipio.id_municipal;
     });
-    
+
     municipio.cuadro17Poblacion = _17Poblacion.find((_10Poblacion) => {
         return _10Poblacion._idMunicipal === municipio.id_municipal;
     });
@@ -519,6 +527,14 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
         return item._idMunicipal == municipio.id_municipal;
     });
 
+    municipio.ejecucion6 = ejecucion6.filter((item) => {
+        return item._idMunicipal == municipio.id_municipal;
+    });
+
+    // municipio.ejecucion7 = ejecucion7.filter((item) => {
+    //     return item._codMunicipal == municipio.id_municipal;
+    // });
+
     municipio.desnutricion = {
         aguda: desnutricion.filter((item) => {
             return item._codMunicipal == municipio.id_municipal
@@ -555,6 +571,7 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
 // Wait for all Promises to complete
 Promise.all(promisesMunicipiosNormalize)
     .then(results => {
+        results = results.sort((a, b) => a.idMunicipal - b.idMunicipal);
         fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(results), function (err) {
             if (err) {
                 console.error(err);
@@ -571,5 +588,6 @@ Promise.all(promisesMunicipiosNormalize)
             }
         });
     })
-    .catch(e => {        console.error(e);
+    .catch(e => {
+        console.error(e);
     });

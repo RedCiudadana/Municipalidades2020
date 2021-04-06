@@ -17,3 +17,6 @@ src/previews/*
 
 #IDE
 .idea
+
+#TMP
+**/7EjecucionReduced1Xlsx.json

@@ -62,6 +62,19 @@
             ]
           },
           options: {
+            tooltips: {
+              callbacks: {
+                label: function (tooltipItem, data) {
+                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                  if (label) {
+                    label += ': ';
+                  }
+                  label += parseFloat(tooltipItem.yLabel).toLocaleString('lan');
+                  return label;
+                }
+              }
+            },
             legend: {
               position: 'bottom',
               align: 'center',
@@ -108,6 +121,19 @@
             ],
           },
           options: {
+            tooltips: {
+              callbacks: {
+                label: function (tooltipItem, data) {
+                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                  if (label) {
+                    label += ': ';
+                  }
+                  label += parseFloat(tooltipItem.yLabel).toLocaleString('lan');
+                  return label;
+                }
+              }
+            },
             legend: {
               display: false,
             },
@@ -370,18 +396,50 @@
       ],
       ['2006', '2011', '2014']
     );
-    // // Finanzas
-    // createChart(
-    //   'bar',
-    //   'chart-pobreza-1',
-    //   'Índice de pobreza Multidimensional',
-    //   [
-    //     municipio.ipm.ipm2006,
-    //     municipio.ipm.ipm2011,
-    //     municipio.ipm.ipm2014,
-    //   ],
-    //   ['2006', '2011', '2014']
-    // );
+    // Finanzas
+    createChart(
+      'line',
+      'chart-finanzas-1',
+      'Índice de pobreza Multidimensional',
+      [
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2016)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2017)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2018)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2019)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+      ],
+      [
+        '2016',
+        '2017',
+        '2018',
+        '2019',
+      ]
+    );
+
+    let ejecucion2019 = municipio.ejecucion6
+      .filter((item) => item.ejercicio === 2019)
+      .sort((a, b) => a.asignado - b.asignado);
+
+    createChart(
+      'bar',
+      'chart-finanzas-2',
+      'Distribucion de Presupuesto Municipal 2019',
+      ejecucion2019
+        .map((item) => item.asignado),
+      ejecucion2019
+        .map((item) => item.seccion)
+    );
     // Poblacion
     // 1.- Población total por sexo
     createChart(
