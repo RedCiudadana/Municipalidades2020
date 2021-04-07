@@ -7,6 +7,24 @@
   js = d.createElement(s);
   js.id = id;
   js.onload = function () {
+    function abbreviateNumber(value) {
+      var newValue = value;
+      if (value >= 1000) {
+        var suffixes = ["", "K", "M"];
+        var suffixNum = Math.floor(("" + value).length / 3);
+        suffixNum = suffixNum >= 3 ? 2 : suffixNum;
+        var shortValue = '';
+        for (var precision = 4; precision >= (suffixNum === 2? 4 : 2); precision--) {
+          shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000, suffixNum)) : value).toPrecision(precision));
+          var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g, '');
+          if (dotLessShortValue.length <= 3) { break; }
+        }
+        if (shortValue % 1 != 0) shortValue = shortValue.toFixed(2);
+        newValue = shortValue.toLocaleString('lan') + ' ' + suffixes[suffixNum];
+      }
+      return newValue;
+    }
+
     function createChart(type, id, title, data, labels, options) {
       if (window.myCharts === undefined) {
         window.myCharts = {};
@@ -54,8 +72,8 @@
                     weight: 'bold',
                   },
                   color: '#666666',
-                  formatter: function (value, context) {
-                    return value.toLocaleString();
+                  formatter: function (value/* , context */) {
+                    return abbreviateNumber(value);
                   },
                 },
               }
@@ -114,7 +132,7 @@
                   },
                   color: '#666666',
                   formatter: function (value, context) {
-                    return value.toLocaleString();
+                    return abbreviateNumber(value);
                   },
                 },
               },
@@ -193,7 +211,12 @@
         return;
       }
 
-      window.myCharts[id] = new Chart(document.getElementById(id), config);
+      try {
+        window.myCharts[id] = new Chart(document.getElementById(id), config);
+      } catch (error) {
+        console.error(`Error al creear chart ${id}`);
+        console.error(error);
+      }
     }
 
     let municipio = window.municipio;
@@ -400,7 +423,7 @@
     createChart(
       'line',
       'chart-finanzas-1',
-      'Índice de pobreza Multidimensional',
+      'Presupuesto Municipal por año',
       [
         municipio.ejecucion6
           .filter((item) => item.ejercicio === 2016)
@@ -439,6 +462,76 @@
         .map((item) => item.asignado),
       ejecucion2019
         .map((item) => item.seccion)
+    );
+
+    // Finanzas
+    createChart(
+      'line',
+      'chart-finanzas-3',
+      'Ejecución Presupuestaria Municipal por año',
+      [
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2016)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2017)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2018)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+        municipio.ejecucion6
+          .filter((item) => item.ejercicio === 2019)
+          .map((item) => item.asignado)
+          .reduce((a, b) => a + b),
+      ],
+      [
+        '2016',
+        '2017',
+        '2018',
+        '2019',
+      ]
+    );
+
+    let ejecucionPresupuestaria2019 = municipio.ejecucion7
+      .find((item) => item.ejercicio === 2019);
+
+    createChart(
+      'bar',
+      'chart-finanzas-4',
+      'Distribucion de Ejecución Presupuestaria Municipal 2019',
+      [
+        ejecucionPresupuestaria2019['actividadesDeportivas,recreativas,culturaYReligion'],
+        ejecucionPresupuestaria2019['asuntosEconomicos'],
+        ejecucionPresupuestaria2019['atencionADesastresYGestionDeRiesgos'],
+        ejecucionPresupuestaria2019['defensa'],
+        ejecucionPresupuestaria2019['educacion'],
+        ejecucionPresupuestaria2019['ordenPublicoYSeguridadCiudadana'],
+        ejecucionPresupuestaria2019['proteccionAmbiental'],
+        ejecucionPresupuestaria2019['proteccionSocial'],
+        ejecucionPresupuestaria2019['salud'],
+        ejecucionPresupuestaria2019['serviciosPublicosGenerales'],
+        ejecucionPresupuestaria2019['transaccionesDeLaDeudaPublica'],
+        ejecucionPresupuestaria2019['urbanizacionYServiciosComunitarios'],
+        ejecucionPresupuestaria2019['na'],
+      ],
+      [
+        'Actividades Deportivas Recreativas Cultura Y Religion',
+        'Asuntos Economicos',
+        'Atencion A Desastres Y Gestion De Riesgos',
+        'Defensa',
+        'Educacion',
+        'Orden Publico Y Seguridad Ciudadana',
+        'Proteccion Ambiental',
+        'Proteccion Social',
+        'Salud',
+        'Servicios Publicos Generales',
+        'Transacciones De La Deuda Publica',
+        'Urbanizacion Y Servicios Comunitarios',
+        'No especificado',
+      ]
     );
     // Poblacion
     // 1.- Población total por sexo
