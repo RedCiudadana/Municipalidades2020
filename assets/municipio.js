@@ -83,12 +83,13 @@
             tooltips: {
               callbacks: {
                 label: function (tooltipItem, data) {
-                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
+                  var label = data.labels[tooltipItem.index] || '';
 
                   if (label) {
                     label += ': ';
                   }
-                  label += parseFloat(tooltipItem.yLabel).toLocaleString('lan');
+
+                  label += parseFloat(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]).toLocaleString('lan');
                   return label;
                 }
               }
