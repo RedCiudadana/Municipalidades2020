@@ -465,7 +465,6 @@
         .map((item) => item.seccion)
     );
 
-    // Finanzas
     createChart(
       'line',
       'chart-finanzas-3',
@@ -532,6 +531,130 @@
         'Transacciones De La Deuda Publica',
         'Urbanizacion Y Servicios Comunitarios',
         'No especificado',
+      ]
+    );
+
+    var getTotalEjecucion = function(item) {
+      let total = item['impuestosDirectos'] +
+        item['impuestosIndirectos'] +
+        item['tasas'] +
+        item['contribucionesPorMejoras'] +
+        item['arrendamientoDeEdificios,equiposEInstalaciones'] +
+        item['multas'] +
+        item['interesesPorMora'] +
+        item['ventaDeServicios'] +
+        item['intereses'] +
+        item['arrendamientoDeTierrasYTerrenos'] +
+        item['delSectorPrivado'] +
+        item['donacionesCorrientes'] +
+        item['delSectorPublico'] +
+        item['disminucionDeDisponibilidades'] +
+        item['obtencionDePrestamosInternosALargoPlazo'] +
+        item['otrosIngresosNoTributarios'] +
+        item['ventaDeBienes'] +
+        item['dismDeActDiferidosYAnticiposAContratistas'] +
+        item['ventaY/oDesincorporacionDeTierrasYTerrenos'] +
+        item['dividendosY/oUtilidades'] +
+        item['ventaY/oDesincorporacionDeActivosFijos'] +
+        item['obtencionDePrestamosInternosACortoPlazo'] +
+        item['delSectorExterno'] +
+        item['donDeCapParaConstrDeBienesDeUsoCom'] +
+        item['donDeCapP/constrDeBieUsoNoComYOtrasInv'] +
+        item['disminucionDeCuentasACobrar'];
+
+      return total;
+    }
+
+    let dataFinanzas5 = [
+      municipio.finanzas8
+        .filter((item) => item.ejercicio === 2016)
+        .map(getTotalEjecucion)[0],
+      municipio.finanzas8
+        .filter((item) => item.ejercicio === 2017)
+        .map(getTotalEjecucion)[0],
+      municipio.finanzas8
+        .filter((item) => item.ejercicio === 2018)
+        .map(getTotalEjecucion)[0],
+      municipio.finanzas8
+        .filter((item) => item.ejercicio === 2019)
+        .map(getTotalEjecucion)[0],
+    ];
+
+    createChart(
+      'line',
+      'chart-finanzas-5',
+      'Ingresos Municipales por año',
+      dataFinanzas5,
+      [
+        '2016',
+        '2017',
+        '2018',
+        '2019',
+      ]
+    );
+
+    let ingresos2019 = municipio.finanzas8
+      .find((item) => item.ejercicio === 2019);
+
+    createChart(
+      'bar',
+      'chart-finanzas-6',
+      'Distribucion de Ejecución Presupuestaria Municipal 2019',
+      [
+        ingresos2019['impuestosDirectos'],
+        ingresos2019['impuestosIndirectos'],
+        ingresos2019['tasas'],
+        ingresos2019['contribucionesPorMejoras'],
+        ingresos2019['arrendamientoDeEdificios,equiposEInstalaciones'],
+        ingresos2019['multas'],
+        ingresos2019['interesesPorMora'],
+        ingresos2019['ventaDeServicios'],
+        ingresos2019['intereses'],
+        ingresos2019['arrendamientoDeTierrasYTerrenos'],
+        ingresos2019['delSectorPrivado'],
+        ingresos2019['donacionesCorrientes'],
+        ingresos2019['delSectorPublico'],
+        ingresos2019['disminucionDeDisponibilidades'],
+        ingresos2019['obtencionDePrestamosInternosALargoPlazo'],
+        ingresos2019['otrosIngresosNoTributarios'],
+        ingresos2019['ventaDeBienes'],
+        ingresos2019['dismDeActDiferidosYAnticiposAContratistas'],
+        ingresos2019['ventaY/oDesincorporacionDeTierrasYTerrenos'],
+        ingresos2019['dividendosY/oUtilidades'],
+        ingresos2019['ventaY/oDesincorporacionDeActivosFijos'],
+        ingresos2019['obtencionDePrestamosInternosACortoPlazo'],
+        ingresos2019['delSectorExterno'],
+        ingresos2019['donDeCapParaConstrDeBienesDeUsoCom'],
+        ingresos2019['donDeCapP/constrDeBieUsoNoComYOtrasInv'],
+        ingresos2019['disminucionDeCuentasACobrar'],
+      ],
+      [
+        'Impuestos directos',
+        'Impuestos indirectos',
+        'Tasas',
+        'Contribuciones por mejoras',
+        'Arrendamiento de edificios equipos e instalaciones',
+        'Multas',
+        'Intereses por mora',
+        'Venta de servicios',
+        'Intereses',
+        'Arrendamiento de tierras y terrenos',
+        'Del sector privado',
+        'Donaciones corrientes',
+        'Del sector publico',
+        'Disminucion de disponibilidades',
+        'Obtencion de prestamos internos a largo plazo',
+        'Otros ingresos no tributarios',
+        'Venta de bienes',
+        'Dism de act diferidos y anticipos a contratistas',
+        'Venta y o desincorporacion de tierras y terrenos',
+        'Dividendos y o utilidades',
+        'Venta y o desincorporacion de activos fijos',
+        'Obtencion de prestamos internos a corto plazo',
+        'Del sector externo',
+        'Don de cap para constr de bienes de uso com',
+        'Don de cap p constr de bie uso no com y otras inv',
+        'Disminucion de cuentas a cobrar',
       ]
     );
     // Poblacion
