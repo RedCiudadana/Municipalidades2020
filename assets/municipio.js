@@ -51,7 +51,6 @@
               {
                 label: '',
                 data: [],
-                fill: false,
                 backgroundColor: [
                   '#8cddc9',
                   '#ade7d9',
@@ -121,7 +120,7 @@
               {
                 label: '',
                 data: [],
-                fill: false,
+                fill: true,
                 backgroundColor: '#52CCAE',
                 borderColor: '#52CCAE',
                 borderWidth: 0,
