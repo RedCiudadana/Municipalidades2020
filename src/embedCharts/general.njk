@@ -13,74 +13,125 @@ description: "Review feature info and customization details."
   </head>
   <body onload="init()">
     <div class="w-100 d-flex">
-      <div class="col-12 mb-2 p-0">
+      <div class="col-12 mb-2">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-none">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
-              {{title}}
-            </h4>
-          </div>
           <div class="col-12 p-0">
             <div class="w-100">
-              <div id="data-container" class="row m-0 p-0">
-                Información en proceso
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Poblacion total
+                  </h3>
+                  <h1>
+                    {{ municipio.cuadro10Poblacion.poblacionTotal | toLocaleString }}
+                  </h1>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población total por sexo
+                  </h6>
+                  <canvas height="210px" id="chart-general-1"></canvas>
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población total por área
+                  </h6>
+                  <canvas height="160px" id="chart-general-2"></canvas>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desnutrición Crónica Total
+                  </h3>
+                  <h1 class="title-cronica-text">
+                  </h1>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desnutrición Aguda Total
+                  </h3>
+                  <h1 class="title-aguda-text">
+                  </h1>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desempeño Municipal en Matematica 2018
+                  </h3>
+                  <h1>
+                    {{municipio.cuadro5Y2018.matematicaMunicipal | toLocaleString}}
+                  </h1>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desempeño Municipal en Lectura 2018
+                  </h3>
+                  <h1>
+                    {{municipio.cuadro5Y2018.lecturaMunicipal | toLocaleString}}
+                  </h1>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    {# ChartJS #}
     <script>
-      async function init() {
-        const urlParams = new URLSearchParams(location.search);
+      // @ts-nocheck
+      const urlParams = new URLSearchParams(location.search);
 
-        if (!urlParams.get('municipio')) {
-          document
-            .getElementById('data-container')
-            .innerHTML = 'Es necesario especificar un municipio';
-          document
-            .getElementById('data-container')
-            .style
-            .padding = '1.5rem';
-          document
-            .getElementById('data-container')
-            .classList = null;
-          console.log('Es necesario indicar el id del municipio como query param "?municipio=101"');
-          return;
-        }
+      if (!urlParams.get('municipio')) {
+        document
+          .getElementById('data-container')
+          .innerHTML = 'Es necesario especificar un municipio';
+        document
+          .getElementById('data-container')
+          .style
+          .padding = '1.5rem';
+        document
+          .getElementById('data-container')
+          .classList = null;
+        console.log('Es necesario indicar el id del municipio como query param "?municipio=101"');
+        return;
+      }
 
-        var municipiosData;
-        municipiosData = await fetch('/municipiosData.json')
-          .then((response) => {
-            return response.json()
-          })
-          .then((json) => {
-            return json;
-          });
-
-        var municipio;
-        var municipioIdParam = parseInt(urlParams.get('municipio'));
-
-        municipio = municipiosData.find((municipio) => {
-          return municipio.idMunicipal === municipioIdParam;
+      var municipiosData;
+      municipiosData = await fetch('/municipiosData.json')
+        .then((response) => {
+          return response.json()
+        })
+        .then((json) => {
+          return json;
         });
 
-        if (!municipio) {
-          document
-            .getElementById('data-container')
-            .innerHTML = `Codigo ${urlParams.get('municipio')} de municipio no válido`;
-          document
-            .getElementById('data-container')
-            .style
-            .padding = '1.5rem';
-          document
-            .getElementById('data-container')
-            .classList = null;
-          console.log('Verificar lista de código de municipios');
-          return;
-        }
+      var municipio;
+      var municipioIdParam = parseInt(urlParams.get('municipio'));
 
-        window.municipio = municipio;
+      municipio = municipiosData.find((municipio) => {
+        return municipio.idMunicipal === municipioIdParam;
+      });
+
+      if (!municipio) {
+        document
+          .getElementById('data-container')
+          .innerHTML = `Codigo ${urlParams.get('municipio')} de municipio no válido`;
+        document
+          .getElementById('data-container')
+          .style
+          .padding = '1.5rem';
+        document
+          .getElementById('data-container')
+          .classList = null;
+        console.log('Verificar lista de código de municipios');
+        return;
+      }
+
+      window.municipio = municipio;
+    </script>
+    <script src="/assets/municipio.js"></script>
+
+    <script>
+      async function init() {
+        
 
         document
           .getElementById('ranking-segeplan2018')

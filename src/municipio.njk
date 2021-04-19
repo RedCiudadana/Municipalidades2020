@@ -24,8 +24,8 @@ tags:
       height: 200px;
     }
   </style>
-  <div class="container">
-    <div class="row">
+  <div class="container" id="page-container">
+    <div class="row" id="basic-info-row">
       <div class="col-12 py-2">
         <a href="/municipios/1">Municipios</a>
         \
@@ -142,11 +142,13 @@ tags:
           </div>
         </div>
       </div>
+    </div>
+    <div class="row" id="tematicas-row">
       {# General #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-general">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-general-header">
+            <h4 class="text-white m-0 font-weight-normal">
               General
             </h4>
             <!-- Button trigger modal -->
@@ -168,10 +170,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/general?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=general" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/general?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=general" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -236,10 +238,10 @@ tags:
         </div>
       </div>
       {# Gestión Municipal #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-gestion-municipal">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-gestión-municipal-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Gestión Municipal
             </h4>
             <!-- Button trigger modal -->
@@ -261,10 +263,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/gestion-municipal?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=gestion-municipal" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/gestion-municipal?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=gestion-municipal" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -297,10 +299,10 @@ tags:
         </div>
       </div>
       {# Transparencia #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-transparencia">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-transparencia-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Transparencia
             </h4>
             <!-- Button trigger modal -->
@@ -322,10 +324,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/transparencia?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=transparencia" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/transparencia?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=transparencia" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -358,10 +360,10 @@ tags:
         </div>
       </div>
       {# Nutrición / Alimentación #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-nutrición-alimentación">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-nutrición-alimentación-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Nutrición / Alimentación
             </h4>
             <!-- Button trigger modal -->
@@ -383,10 +385,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/nutricion-alimentacion?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=nutricion-alimentacion" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/nutricion-alimentacion?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=nutricion-alimentacion" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -454,10 +456,10 @@ tags:
         </div>
       </div>
       {# Pobreza #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-pobreza">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-pobreza-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Pobreza
             </h4>
             <!-- Button trigger modal -->
@@ -479,10 +481,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/pobreza?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=pobreza" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/pobreza?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=pobreza" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -514,10 +516,10 @@ tags:
         </div>
       </div>
       {# Finanzas #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-finanzas">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-finanzas-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Finanzas
             </h4>
             <!-- Button trigger modal -->
@@ -539,10 +541,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/finanzas?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=finanzas" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/finanzas?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=finanzas" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -629,10 +631,10 @@ tags:
         </div>
       </div>
       {# Población #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-población">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-población-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Población
             </h4>
             <!-- Button trigger modal -->
@@ -654,10 +656,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/poblacion?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=poblacion" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/poblacion?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=poblacion" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -757,10 +759,10 @@ tags:
         </div>
       </div>
       {# Educación #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-educación">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-educación-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Educación
             </h4>
             <!-- Button trigger modal -->
@@ -782,10 +784,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/educacion?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=educacion" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/educacion?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=educacion" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -839,10 +841,10 @@ tags:
         </div>
       </div>
       {# Economía #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-economia">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-economia-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Economía
             </h4>
             <!-- Button trigger modal -->
@@ -864,10 +866,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/economia?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=economia" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/economia?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=economia" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -930,10 +932,10 @@ tags:
         </div>
       </div>
       {# Salud #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-salud">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-salud-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Salud
             </h4>
             <!-- Button trigger modal -->
@@ -955,10 +957,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/salud?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=salud" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/salud?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=salud" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -990,10 +992,10 @@ tags:
         </div>
       </div>
       {# Hogar #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-hogar">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-hogar-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Hogar
             </h4>
             <!-- Button trigger modal -->
@@ -1015,10 +1017,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/hogar?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=hogar" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/hogar?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=hogar" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>
@@ -1062,10 +1064,10 @@ tags:
         </div>
       </div>
       {# Vivienda #}
-      <div class="col-12 mb-2">
+      <div class="col-12 mb-2" id="tematica-vivienda">
         <div class="bg-white w-100 row m-0 p-0">
-          <div class="col-12 bg-secondary py-2 px-3 d-flex">
-            <h4 class="text-white m-0 font-weight-normal" id="titleTematicaContainer">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-vivienda-header">
+            <h4 class="text-white m-0 font-weight-normal">
               Vivienda
             </h4>
             <!-- Button trigger modal -->
@@ -1087,10 +1089,10 @@ tags:
                   <div class="modal-body">
                     <div class="bg-light p-1 mb-2">
                       <code id="code-embed">
-                        &lt;embed src="https://labmunicipal.redciudadana.org/embedCharts/vivienda?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px"&gt;
+                        &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=vivienda" type="text/html" class="w-100" height="500px"&gt;
                       </code>
                     </div>
-                    <embed id="embed-embed" src="/embedCharts/vivienda?municipio={{municipio.idMunicipal}}" type="text/html" class="w-100" height="500px">
+                    <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=vivienda" type="text/html" class="w-100" height="500px">
                   </div>
                 </div>
               </div>

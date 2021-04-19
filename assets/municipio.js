@@ -221,6 +221,36 @@
 
     let municipio = window.municipio;
 
+    // EMBED CHART ROUTE
+    // For now I will use the same page to embed charts.
+    // Because currently I dont know how a better way to mantain
+    // the charts updated between munucipio page and embed page.
+    const urlParams = new URLSearchParams(location.search);
+
+    if (urlParams.get('embed') && urlParams.get('tematica')) {
+      console.log(document.getElementById('tematicas-row'));
+
+      document.getElementById('navbar').style.display = 'none';
+      document.getElementById('basic-info-row').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
+      document.getElementById('red-footer').style.display = 'none';
+      document.getElementById('page-container').style.margin = 0;
+      document.getElementById('page-container').style.padding = 0;
+      document.getElementById('page-container').style.width = '100vw';
+      document.getElementById('tematicas-row').style.width = '100vw';
+      document.getElementById('tematicas-row').style.margin = 0;
+      document.getElementById(`tematica-${urlParams.get('tematica')}`).style.padding = 0;
+      document.getElementById(`tematica-${urlParams.get('tematica')}-header`).remove();
+
+      let children = Array.from(document.getElementById('tematicas-row').children);
+
+      children.forEach((tematica) => {
+        if (tematica.id !== `tematica-${urlParams.get('tematica')}`) {
+          tematica.style.display = 'none';
+        }
+      });
+    }
+
     // General
     createChart(
       'pie',
