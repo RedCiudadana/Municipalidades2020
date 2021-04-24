@@ -1,10 +1,13 @@
 const path = require('path');
 
 module.exports = {
-    entry: './chart.js',
+    entry: {
+        municipio: {
+            import: './src/municipio.js'
+        }
+    },
     output: {
         path: path.resolve(__dirname, 'assets'),
-        filename: 'main.js'
     },
     resolve: {
         alias: {
@@ -13,5 +16,6 @@ module.exports = {
     },
     externals: {
         moment: 'moment'
-    }
+    },
+    mode: 'production'
 };
