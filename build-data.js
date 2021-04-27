@@ -535,26 +535,97 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
         return item._idMunicipal == municipio.id_municipal;
     });
 
+    municipio.ejecucion6_2019 = municipio
+        .ejecucion6
+        .find((item) => item._ejercicio === 2019);
+
     municipio.ejecucion7 = ejecucion7.filter((item) => {
         return item._codMunicipal == municipio.id_municipal;
     });
+
+    municipio.ejecucion7_2019 = municipio
+        .ejecucion7
+        .find((item) => item._ejercicio === 2019);
+
+    if (municipio.ejecucion7_2019) {
+        municipio.ejecucion7_2019.total =
+            municipio.ejecucion7_2019['_actividadesDeportivas,Recreativas,CulturaYReligion'] +
+            municipio.ejecucion7_2019['_asuntosEconomicos'] +
+            municipio.ejecucion7_2019['_atencionADesastresYGestionDeRiesgos'] +
+            municipio.ejecucion7_2019['_defensa'] +
+            municipio.ejecucion7_2019['_educacion'] +
+            municipio.ejecucion7_2019['_na'] +
+            municipio.ejecucion7_2019['_ordenPublicoYSeguridadCiudadana'] +
+            municipio.ejecucion7_2019['_proteccionAmbiental'] +
+            municipio.ejecucion7_2019['_proteccionSocial'] +
+            municipio.ejecucion7_2019['_salud'] +
+            municipio.ejecucion7_2019['_serviciosPublicosGenerales'] +
+            municipio.ejecucion7_2019['_transaccionesDeLaDeudaPublica'] +
+            municipio.ejecucion7_2019['_urbanizacionYServiciosComunitarios'];
+    } else {
+        console
+            .error(`El municipio ${municipio.id_municipal} ${municipio.departamento},
+                ${municipio.municipio} no tiene ejecucion 7 ejercicio 2019`);
+    }
 
     municipio.finanzas8 = finanzas8.filter((item) => {
         return item._idMunicipal == municipio.id_municipal;
     });
 
-    municipio.desnutricion = {
-        aguda: desnutricion.filter((item) => {
-            return item._codMunicipal == municipio.id_municipal
-                // && item._periodo === 2019
-                && item._tipo === "Aguda";
-        }),
-        cronica: desnutricion.filter((item) => {
-            return item._codMunicipal == municipio.id_municipal
-                // && item._periodo === 2019
-                && item._tipo === "Crónica";
-        })
+    municipio.finanzas8_2019 = municipio
+        .finanzas8
+        .find((item) => item._ejercicio === 2019);
+
+    if (municipio.finanzas8_2019) {
+        municipio.finanzas8_2019.total =
+            municipio.finanzas8_2019['_impuestosDirectos'] +
+            municipio.finanzas8_2019['_impuestosIndirectos'] +
+            municipio.finanzas8_2019['_tasas'] +
+            municipio.finanzas8_2019['_contribucionesPorMejoras'] +
+            municipio.finanzas8_2019['_arrendamientoDeEdificios,EquiposEInstalaciones'] +
+            municipio.finanzas8_2019['_multas'] +
+            municipio.finanzas8_2019['_interesesPorMora'] +
+            municipio.finanzas8_2019['_ventaDeServicios'] +
+            municipio.finanzas8_2019['_intereses'] +
+            municipio.finanzas8_2019['_arrendamientoDeTierrasYTerrenos'] +
+            municipio.finanzas8_2019['_delSectorPrivado'] +
+            municipio.finanzas8_2019['_donacionesCorrientes'] +
+            municipio.finanzas8_2019['_delSectorPublico'] +
+            municipio.finanzas8_2019['_disminucionDeDisponibilidades'] +
+            municipio.finanzas8_2019['_obtencionDePrestamosInternosALargoPlazo'] +
+            municipio.finanzas8_2019['_otrosIngresosNoTributarios'] +
+            municipio.finanzas8_2019['_ventaDeBienes'] +
+            municipio.finanzas8_2019['_dismDeActDiferidosYAnticiposAContratistas'] +
+            municipio.finanzas8_2019['_ventaY/oDesincorporacionDeTierrasYTerrenos'] +
+            municipio.finanzas8_2019['_dividendosY/oUtilidades'] +
+            municipio.finanzas8_2019['_ventaY/oDesincorporacionDeActivosFijos'] +
+            municipio.finanzas8_2019['_obtencionDePrestamosInternosACortoPlazo'] +
+            municipio.finanzas8_2019['_delSectorExterno'] +
+            municipio.finanzas8_2019['_donDeCapParaConstrDeBienesDeUsoCom'] +
+            municipio.finanzas8_2019['_donDeCapP/ConstrDeBieUsoNoComYOtrasInv'] +
+            municipio.finanzas8_2019['_disminucionDeCuentasACobrar'];
+    } else {
+        console
+            .error(`El municipio ${municipio.id_municipal} ${municipio.departamento},
+                ${municipio.municipio} no tiene finanzas 8 ejercicio 2019`);
     }
+
+    let aguda = desnutricion.filter((item) => {
+        return item._codMunicipal == municipio.id_municipal
+            && item._tipo === "Aguda";
+    });
+
+    let cronica = desnutricion.filter((item) => {
+        return item._codMunicipal == municipio.id_municipal
+            && item._tipo === "Crónica";
+    });
+
+    municipio.desnutricion = {
+        aguda,
+        cronica,
+        aguda2019: aguda.find((item) => item._periodo === 2019),
+        cronica2019: cronica.find((item) => item._periodo === 2019)
+    };
 
     municipio.cuadro5 = desempeno5.filter((item) => {
         return item._idMunicipal === municipio.id_municipal;

@@ -301,16 +301,6 @@ let cronica2019 = cronica.filter((item) => item.periodo === 2019);
 
 cronica2019 = cronica2019[0];
 
-if (cronica2019) {
-  let titles = document.getElementsByClassName('title-cronica-text');
-  for (const key in titles) {
-    if (Object.hasOwnProperty.call(titles, key)) {
-      const element = titles[key];
-      element.innerText = parseFloat(cronica2019.cantidad).toLocaleString('lan');
-    }
-  }
-}
-
 createChart(
   'line',
   'chart-nutricion-1',
@@ -369,16 +359,6 @@ let aguda = municipio.desnutricion.aguda.sort((a, b) => a.periodo - b.periodo);
 let aguda2019 = aguda.filter((item) => item.periodo === 2019);
 
 aguda2019 = aguda2019[0];
-
-if (aguda2019) {
-  let titles = document.getElementsByClassName('title-aguda-text');
-  for (const key in titles) {
-    if (Object.hasOwnProperty.call(titles, key)) {
-      const element = titles[key];
-      element.innerText = parseFloat(aguda2019.cantidad).toLocaleString('lan');
-    }
-  }
-}
 
 createChart(
   'line',

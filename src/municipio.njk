@@ -193,7 +193,7 @@ tags:
                     habitantes
                   </h6>
                   <small>
-                    Fuente: Instituto Nacional de Estadística (INE)
+                    Fuente: Instituto Nacional de Estadística (INE) 
                   </small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
@@ -201,32 +201,38 @@ tags:
                     Población total por sexo
                   </h6>
                   <canvas height="210px" id="chart-general-1"></canvas>
+                  Fuente: Instituto Nacional de Estadística (INE)
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
                   <h6>
                     Población total por área
                   </h6>
                   <canvas height="160px" id="chart-general-2"></canvas>
+                  Fuente: Instituto Nacional de Estadística (INE)
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
                   <h3>
                     Desnutrición Crónica Total
                   </h3>
                   <h1 class="title-cronica-text mb-0">
+                    {{municipio.cronica2019.cantidad | toLocaleString}}
                   </h1>
                   <h6>
                     casos
                   </h6>
+                  <small>Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019</small>
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
                   <h3>
                     Desnutrición Aguda Total
                   </h3>
                   <h1 class="title-aguda-text mb-0">
+                    {{municipio.aguda2019.cantidad | toLocaleString}}
                   </h1>
                   <h6>
                     casos
                   </h6>
+                  <small>Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019</small>
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
                   <h3>
@@ -235,6 +241,7 @@ tags:
                   <h1>
                     {{municipio.cuadro5Y2018.matematicaMunicipal | toLocaleString}}%
                   </h1>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
                   <h3>
@@ -243,6 +250,7 @@ tags:
                   <h1>
                     {{municipio.cuadro5Y2018.lecturaMunicipal | toLocaleString}}%
                   </h1>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
               </div>
             </div>
@@ -411,10 +419,11 @@ tags:
               Desnutrición Crónica Total
             </h3>
             <h1 class="title-cronica-text mb-0">
+              {{municipio.cronica2019.cantidad | toLocaleString}}
             </h1>
             <h6>casos</h6>
             <small>
-              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019
             </small>
           </div>
           <div class="col-12 col-lg-9 p-3 border">
@@ -451,10 +460,11 @@ tags:
               Desnutrición Aguda Total
             </h3>
             <h1 class="title-aguda-text mb-0">
+              {{municipio.cronica2019.cantidad | toLocaleString}}
             </h1>
             <h6>casos</h6>
             <small>
-              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019
             </small>
           </div>
           <div class="col-12 col-lg-9 p-3 border">
@@ -592,9 +602,10 @@ tags:
                   <h3>
                     Presupuesto Municipal 2019
                   </h3>
-                  <h1 class="title-finanzas-text">
-                  </h1>
-                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                  <h5 class="title-finanzas-text">
+                    Q{{municipio.ejecucion62019.devengado | toLocaleString}}
+                  </h5>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN) 2019</small>
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
@@ -620,9 +631,10 @@ tags:
                   <h3>
                     Ejecución Presupuestaria Municipal 2019
                   </h3>
-                  <h1 class="title-finanzas-2-text">
-                  </h1>
-                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                  <h5 class="title-finanzas-2-text">
+                    Q{{municipio.ejecucion72019.total | toLocaleString}}
+                  </h5>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN) 2019</small>
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
@@ -648,9 +660,10 @@ tags:
                   <h3>
                     Ingresos Municipales 2019
                   </h3>
-                  <h1 class="title-finanzas-3-text">
-                  </h1>
-                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                  <h5 class="title-finanzas-3-text">
+                    Q{{municipio.finanzas82019.total | toLocaleString}}
+                  </h5>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN) 2019</small>
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
