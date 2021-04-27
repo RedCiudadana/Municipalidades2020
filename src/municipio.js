@@ -176,7 +176,7 @@ function createChart(type, id, title, data, labels, options) {
                 callback: function (
                   value
                 ) {
-                  return parseFloat(value).toLocaleString();
+                  return parseFloat(value).toLocaleString('lan');
                 }
               },
             },
@@ -749,7 +749,7 @@ createChart(
             callback: function (
               value
             ) {
-              return parseFloat(value).toLocaleString();
+              return parseFloat(value).toLocaleString('lan');
             }
           }
         }

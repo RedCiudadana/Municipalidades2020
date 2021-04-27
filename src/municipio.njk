@@ -186,9 +186,15 @@ tags:
                   <h3>
                     Poblacion total
                   </h3>
-                  <h1>
+                  <h1 class="mb-0">
                     {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
                   </h1>
+                  <h6>
+                    habitantes
+                  </h6>
+                  <small>
+                    Fuente: Instituto Nacional de Estadística (INE)
+                  </small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
@@ -206,22 +212,28 @@ tags:
                   <h3>
                     Desnutrición Crónica Total
                   </h3>
-                  <h1 class="title-cronica-text">
+                  <h1 class="title-cronica-text mb-0">
                   </h1>
+                  <h6>
+                    casos
+                  </h6>
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
                   <h3>
                     Desnutrición Aguda Total
                   </h3>
-                  <h1 class="title-aguda-text">
+                  <h1 class="title-aguda-text mb-0">
                   </h1>
+                  <h6>
+                    casos
+                  </h6>
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
                   <h3>
                     Desempeño Municipal en Matematica 2018
                   </h3>
                   <h1>
-                    {{municipio.cuadro5Y2018.matematicaMunicipal | toLocaleString}}
+                    {{municipio.cuadro5Y2018.matematicaMunicipal | toLocaleString}}%
                   </h1>
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
@@ -229,7 +241,7 @@ tags:
                     Desempeño Municipal en Lectura 2018
                   </h3>
                   <h1>
-                    {{municipio.cuadro5Y2018.lecturaMunicipal | toLocaleString}}
+                    {{municipio.cuadro5Y2018.lecturaMunicipal | toLocaleString}}%
                   </h1>
                 </div>
               </div>
@@ -277,21 +289,21 @@ tags:
               <div class="row m-0 p-0">
                 <div class="col-12 col-lg-3 p-2 px-3 border">
                   <h3>
-                    Indice de Gestión Municipal
+                    Índice de Gestión Municipal
                   </h3>
                   <h1>
-                    {{municipio.ranking.segeplan2018 | toLocaleString}}
+                    {{municipio.ranking.segeplan2018 | toLocaleString}}%
                   </h1>
                   <small>
-                    SEGEPLAN 2018
+                    Fuente: Secretaría de Planificación y Programación de la Presidencia (SEGEPLAN) 2018
                   </small>
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
-                    Indice de Gestión Municipal - SEGEPLAN 2018
+                    Índice de Gestión Municipal
                   </h6>
                   <canvas height="120px" id="chart-gestion-municipal-1"></canvas>
-                  <small>Fuente: SEGEPLAN</small>
+                  <small>Fuente: Secretaría de Planificación y Programación de la Presidencia (SEGEPLAN)</small>
                 </div>
               </div>
             </div>
@@ -344,12 +356,12 @@ tags:
                     {{municipio.aip.aipPromedio}}%
                   </h1>
                   <small>
-                    PDH 2019
+                    Fuente: Procuraduría de los Derechos Humanos (PDH) 2019
                   </small>
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
-                    Indice de Acceso a la Información Pública
+                    Índice de Acceso a la Información Pública
                   </h6>
                   <canvas height="120px" id="chart-transparencia-1"></canvas>
                   <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small>
@@ -398,8 +410,9 @@ tags:
             <h3>
               Desnutrición Crónica Total
             </h3>
-            <h1 class="title-cronica-text">
+            <h1 class="title-cronica-text mb-0">
             </h1>
+            <h6>casos</h6>
             <small>
               Fuente: Ministerio de salud pública y asistencia social (MSPAS)
             </small>
@@ -409,12 +422,18 @@ tags:
               Numero de Casos de Desnutrición Crónica por año
             </h6>
             <canvas height="80px" id="chart-nutricion-1"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
           </div>
           <div class="col-12 col-lg-4 p-3 border">
             <h6>
               Casos de Desnutrición Crónica por sexo
             </h6>
             <canvas height="220px" id="chart-nutricion-2"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
           </div>
           {# break #}
           <div class="col-12 col-lg-8 p-3 border">
@@ -422,14 +441,18 @@ tags:
               Casos de Desnutrición Crónica por Edad
             </h6>
             <canvas height="140px" id="chart-nutricion-3"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
           </div>
           {# Aguda #}
           <div class="col-12 col-lg-3 p-2 px-3 border">
             <h3>
               Desnutrición Aguda Total
             </h3>
-            <h1 class="title-aguda-text">
+            <h1 class="title-aguda-text mb-0">
             </h1>
+            <h6>casos</h6>
             <small>
               Fuente: Ministerio de salud pública y asistencia social (MSPAS)
             </small>
@@ -439,12 +462,18 @@ tags:
               Numero de Casos de Desnutrición Aguda por año
             </h6>
             <canvas height="80px" id="chart-nutricion-4"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
           </div>
           <div class="col-12 col-lg-4 p-3 border">
             <h6>
               Casos de Desnutrición Aguda por sexo
             </h6>
             <canvas height="220px" id="chart-nutricion-5"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
           </div>
           {# break #}
           <div class="col-12 col-lg-8 p-3 border">
@@ -452,6 +481,9 @@ tags:
               Casos de Desnutrición Aguda por Edad
             </h6>
             <canvas height="140px" id="chart-nutricion-6"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
           </div>
         </div>
       </div>
@@ -494,21 +526,24 @@ tags:
             <div class="w-100">
               <div class="row m-0 p-0">
                 <div class="col-12 col-lg-3 p-2 px-3 border">
-                  <h3>
-                    Indice de Pobreza Multidimensional
-                  </h3>
+                  <h5>
+                    Índice de Pobreza Multidimensional
+                  </h5>
                   <h1>
                     {{municipio.ipm.ipm2014}} %
                   </h1>
                   <small>
-                    PNUD 2014
+                    Fuente: Programa de las Naciones Unidas para el Desarrollo (PNUD) 2014
                   </small>
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
                     Índice de pobreza Multidimensional
                   </h6>
-                  <canvas id="chart-pobreza-1"></canvas>
+                  <canvas height="100px" id="chart-pobreza-1"></canvas>
+                  <small>
+                    Fuente: Programa de las Naciones Unidas para el Desarrollo (PNUD)
+                  </small>
                 </div>
               </div>
             </div>
@@ -566,12 +601,14 @@ tags:
                     Presupuesto Municipal por año
                   </h6>
                   <canvas height="80px" id="chart-finanzas-1"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
                 </div>
                 <div class="col-12 col-lg-12 p-3 border">
                   <h6>
                     Distribucion de Presupuesto Municipal 2019
                   </h6>
                   <canvas height="120px" id="chart-finanzas-2"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
                 </div>
               </div>
             </div>
@@ -592,12 +629,14 @@ tags:
                     Ejecución Presupuestaria Municipal por año
                   </h6>
                   <canvas height="80px" id="chart-finanzas-3"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
                 </div>
                 <div class="col-12 col-lg-12 p-3 border">
                   <h6>
                     Distribucion de Ejecución Presupuestaria Municipal 2019
                   </h6>
                   <canvas height="120px" id="chart-finanzas-4"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
                 </div>
               </div>
             </div>
@@ -618,12 +657,14 @@ tags:
                     Ingresos Municipales por año
                   </h6>
                   <canvas height="130px" id="chart-finanzas-5"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
                 </div>
                 <div class="col-12 col-lg-12 p-3 border">
                   <h6>
                     Ingresos Municipales 2019
                   </h6>
                   <canvas height="120px" id="chart-finanzas-6"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
                 </div>
               </div>
             </div>
@@ -672,9 +713,10 @@ tags:
                   <h3>
                     Poblacion total
                   </h3>
-                  <h1>
+                  <h1 class="mb-0">
                     {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
                   </h1>
+                  <h6>habitantes</h6>
                   <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-3 p-3 border">
@@ -682,76 +724,90 @@ tags:
                     Población total por sexo
                   </h6>
                   <canvas height="280px" id="chart-poblacion-1"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-6 p-3 border">
                   <h6>
                     Población total por grupos quinquenales de edad
                   </h6>
                   <canvas id="chart-poblacion-2"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
                   <h6>
                     Población total por área
                   </h6>
                   <canvas id="chart-poblacion-3"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-7 p-3 border">
                   <h6>
                     Población según parentesco con el jefe(a) del hogar
                   </h6>
                   <canvas id="chart-poblacion-4"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-3 p-2 px-3 border">
                   <h3>
                     Población de 10 años y más
                   </h3>
-                  <h1>
+                  <h1 class="mb-0">
                     {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
                   </h1>
+                  <h6>habitantes</h6>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
                   <h6>
                     Población de 10 años y más por estado conyugal
                   </h6>
                   <canvas id="chart-poblacion-5"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
                     Población total por lugar de nacimiento y lugar de residencia en abril del 2013
                   </h6>
                   <canvas height="300px" id="chart-poblacion-6"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-3 p-3 border">
                   <h6>
                      Total de poblacion pueblo maya
                   </h6>
-                  <h1>
+                  <h1 class="mb-0">
                     {{municipio.cuadro14Poblacion.maya | toLocaleString}}
                   </h1>
+                  <h6>habitantes</h6>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-9 p-3 border">
                   <h6>
                     Población total por pueblos
                   </h6>
                   <canvas height="100px" id="chart-poblacion-7"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
                     Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
                   </h6>
                   <canvas height="230px" id="chart-poblacion-8"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-8 p-3 border">
                   <h6>
                     Población maya por comunidad lingüística
                   </h6>
                   <canvas height="100px" id="chart-poblacion-9"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-12 p-3 border">
                   <h6>
                     Población con según dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
                   </h6>
                   <canvas height="40px" id="chart-poblacion-10"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
               </div>
             </div>
@@ -797,12 +853,15 @@ tags:
             <div class="w-100">
               <div class="row m-0 p-0">
                 <div class="col-12 col-lg-3 p-2 px-3 border">
-                  <h3>
+                  <h5>
                     Población de 4 a 29 años que no asiste a un establecimiento educativo
-                  </h3>
-                  <h1>
-                    {{municipio.cuadro19['poblacionDe4A29AñosDeEdadQueNoAsiste']}}
+                  </h5>
+                  <h1 class="mb-0">
+                    {{municipio.cuadro19['poblacionDe4A29AñosDeEdadQueNoAsiste'] | toLocaleString }}
                   </h1>
+                  <h6>
+                    habitantes
+                  </h6>
                   <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-5 p-3 border">
@@ -810,30 +869,35 @@ tags:
                     Población de 4 años y más por nivel educativo
                   </h6>
                   <canvas height="230px" id="chart-educacion-1"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
                     Población de 7 años o más con alfabetismo
                   </h6>
                   <canvas id="chart-educacion-3" height="220px"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
                     Asistencia escolar
                   </h6>
                   <canvas id="chart-educacion-4" height="220px"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
                     Causa principal de inasistencia
                   </h6>
                   <canvas height="230px" id="chart-educacion-2"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
                 <div class="col-12 col-lg-4 p-3 border">
                   <h6>
                     Lugar de estudio
                   </h6>
                   <canvas height="230px" id="chart-educacion-5"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
               </div>
             </div>
@@ -970,9 +1034,12 @@ tags:
             <h3>
               Total de mujeres de 15 años y mas
             </h3>
-            <h1>
-              {{ municipio.cuadro23['totalDeMujeresDe15AñosYMas'] }}
+            <h1 class="mb-0">
+              {{ municipio.cuadro23['totalDeMujeresDe15AñosYMas'] | toLocaleString }}
             </h1>
+            <h6>
+              habitantes
+            </h6>
             <small>
               Fuente: Instituto Nacional de Estadistica (INE)
             </small>
@@ -982,12 +1049,18 @@ tags:
               Número de hijos nacidos vivos
             </h6>
             <canvas height="80px" id="chart-salud-1"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
           </div>
           <div class="col-12 col-lg-12 p-3 border">
             <h6>
               Edad de la mujer al nacimiento de su primer hijo
             </h6>
             <canvas height="80px" id="chart-salud-2"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
           </div>
         </div>
       </div>
@@ -1031,8 +1104,11 @@ tags:
               Total de hogares
             </h3>
             <h1>
-              {{ municipio.cuadro24['totalDeHogares'] }}
+              {{ municipio.cuadro24['totalDeHogares'] | toLocaleString }}
             </h1>
+            <h6>
+              hogares
+            </h6>
             <small>
               Fuente: Instituto Nacional de Estadistica (INE)
             </small>
@@ -1042,24 +1118,36 @@ tags:
               Hogares por tipo de tenencia de la vivienda
             </h6>
             <canvas height="80px" id="chart-hogar-1"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
           </div>
           <div class="col-12 col-lg-6 p-3 border">
             <h6>
               Hogares por sexo del propietario de la vivienda
             </h6>
             <canvas height="80px" id="chart-hogar-2"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
           </div>
           <div class="col-12 col-lg-6 p-3 border">
             <h6>
               Sexo de la persona que toma las principales decisiones en el hogar
             </h6>
             <canvas height="80px" id="chart-hogar-3"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
           </div>
           <div class="col-12 col-lg-12 p-3 border">
             <h6>
               Hogares por fuente principal de agua para consumo
             </h6>
             <canvas height="80px" id="chart-hogar-4"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
           </div>
         </div>
       </div>
