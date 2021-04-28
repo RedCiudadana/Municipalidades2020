@@ -78,7 +78,13 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('toLocaleString', function(value) {
-    return parseFloat(value).toLocaleString('lan');
+    let numero = parseFloat(value);
+
+    if (Number.isNaN(numero)) {
+      return '';
+    }
+
+    return numero.toLocaleString('lan');
   });
 
   /* Markdown Overrides */
