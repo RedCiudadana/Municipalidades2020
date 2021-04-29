@@ -1,6 +1,6 @@
 import Chart from 'chart.js/dist/Chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Bar } from '@antv/g2plot';
+import { Area, Bar, Column, Line, Pie } from '@antv/g2plot';
 
 Chart.plugins.register(ChartDataLabels);
 
@@ -39,8 +39,14 @@ function createChart(type, id, title, data, labels, options) {
 
 
   let g2plotdata = [];
+  // guessing stuff
+  let isPercentual = true;
 
   for (let i = 0; i < data.length; i++) {
+    if (data[i] > 100) {
+      isPercentual = false;
+    }
+
     g2plotdata.push({
       data: data[i],
       label: labels[i]
@@ -48,16 +54,118 @@ function createChart(type, id, title, data, labels, options) {
   }
 
   // g2plot stuff
-  // if (type === 'bar') {
-  //   const bar = new Bar(id, {
-  //     data: g2plotdata,
-  //     xField: 'data',
-  //     yField: 'label',
-  //     seriesField: 'label',
-  //   });
+  if (type === 'line') {
+    // Replace canvas for div, because G2plot use div not as chartjs who use canvas.
+    var canvas = document.getElementById(id);
+    var container = document.createElement('div');
+    container.id = id;
+    container.style.height = '200px';
+    canvas.replaceWith(container);
 
-  //   bar.render();
-  // }
+    const line = new Area(id, {
+      data: g2plotdata,
+      xField: 'label',
+      yField: 'data',
+      smooth: true,
+      yAxis: {
+        maxLimit: isPercentual ? 100 : null
+      },
+      tooltip: {
+        formatter: ({ label, data }) => {
+          return { name: label, value: abbreviateNumber(data) };
+        },
+      },
+      annotations: [
+        // 低于中位数颜色变化
+        // this is so cool.
+        // {
+        //   type: 'regionFilter',
+        //   start: ['min', 'median'],
+        //   end: ['max', '0'],
+        //   color: '#F4664A',
+        // },
+        {
+          type: 'text',
+          position: ['0%', '50%'],
+          content: 'Media del departamento',
+          offsetY: -10,
+          style: {
+            textBaseline: 'bottom',
+          },
+        },
+        {
+          type: 'line',
+          // start: ['min', 'median'],
+          // end: ['max', 'median'],
+          start: ['0%', '50%'],
+          end: ['100%', '50%'],
+          style: {
+            stroke: '#F4664A',
+            lineDash: [10, 4],
+          },
+        },
+      ],
+    });
+
+    line.render();
+    return;
+  }
+
+  if (type === 'bar') {
+    var canvas = document.getElementById(id);
+    var container = document.createElement('div');
+    container.id = id;
+    container.style.height = '200px';
+    canvas.replaceWith(container);
+
+    const bar = new Column(id, {
+      data: g2plotdata,
+      yField: 'data',
+      xField: 'label',
+      // yAxis: {
+      //   maxLimit: isPercentual ? 100 : null
+      // },
+      tooltip: {
+        formatter: ({ label, data }) => {
+          return { name: label, value: abbreviateNumber(data) };
+        },
+      }
+    });
+
+    bar.render();
+    return;
+  }
+
+  if (type === 'pie') {
+    var canvas = document.getElementById(id);
+    var container = document.createElement('div');
+    container.id = id;
+    // container.style.height = '200px';
+    canvas.replaceWith(container);
+
+    const pie = new Pie(id, {
+      data: g2plotdata,
+      angleField: 'data',
+      colorField: 'label',
+      height: 200,
+      appendPadding: 1,
+      radius: 0.5,
+      legend: false,
+      label: {
+        type: 'spider',
+        labelHeight: 28,
+        content: '{name}\n{percentage}',
+      },
+      tooltip: {
+        formatter: ({ label, data }) => {
+          return { name: label, value: abbreviateNumber(data) };
+        },
+      }
+    });
+
+    pie.render();
+    return;
+  }
 
   let config = null;
 
