@@ -1,8 +1,4 @@
-import Chart from 'chart.js/dist/Chart.js'
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Area, Bar, Column, Line, Pie } from '@antv/g2plot';
-
-Chart.plugins.register(ChartDataLabels);
+import { Area, Column, Treemap, Pie } from '@antv/g2plot';
 
 function abbreviateNumber(value) {
   var newValue = value;
@@ -32,35 +28,70 @@ function createChart(type, id, title, data, labels, options) {
     return;
   }
 
-  if (!(type === 'bar' || type === 'pie' || type === 'line')) {
+  if (!(
+    type === 'bar'
+    || type === 'pie'
+    || type === 'line'
+    || type === 'barStacked'
+    || type === 'areaStacked'
+    || type === 'treemap'
+  )) {
     console.error(`El tipo ${type} no esta soportado. Los tipos soportados son bar y pie.`);
     return;
   }
 
+  if (!document.getElementById(id)) {
+    console.error(`El elemento ${id} no se encontro.`);
+    return;
+  }
 
+
+  let isPercentual = true;
   let g2plotdata = [];
   // guessing stuff
-  let isPercentual = true;
+  if (options && options.isG2plotData) {
+    g2plotdata = data;
 
-  for (let i = 0; i < data.length; i++) {
-    if (data[i] > 100) {
-      isPercentual = false;
+    isPercentual = options.isPercentual ? true : false;
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i] > 100) {
+        isPercentual = false;
+      }
+
+      if (type === 'treemap') {
+        g2plotdata.push({
+          value: data[i],
+          name: labels[i],
+          label: labels[i]
+        });
+      } else {
+        g2plotdata.push({
+          data: data[i],
+          label: labels[i]
+        });
+      }
     }
-
-    g2plotdata.push({
-      data: data[i],
-      label: labels[i]
-    });
   }
+
+  let color = null;
+  if (options && options.color) {
+    color = options.color;
+  }
+
+  let smooth = null;
+  if (options && options.smooth) {
+    smooth = options.smooth;
+  }
+
+  var canvas = document.getElementById(id);
+  var container = document.createElement('div');
+  container.id = id;
+  container.style.height = '220px';
+  canvas.replaceWith(container);
 
   // g2plot stuff
   if (type === 'line') {
-    // Replace canvas for div, because G2plot use div not as chartjs who use canvas.
-    var canvas = document.getElementById(id);
-    var container = document.createElement('div');
-    container.id = id;
-    container.style.height = '200px';
-    canvas.replaceWith(container);
 
     const line = new Area(id, {
       data: g2plotdata,
@@ -112,11 +143,6 @@ function createChart(type, id, title, data, labels, options) {
   }
 
   if (type === 'bar') {
-    var canvas = document.getElementById(id);
-    var container = document.createElement('div');
-    container.id = id;
-    container.style.height = '200px';
-    canvas.replaceWith(container);
 
     const bar = new Column(id, {
       data: g2plotdata,
@@ -137,11 +163,6 @@ function createChart(type, id, title, data, labels, options) {
   }
 
   if (type === 'pie') {
-    var canvas = document.getElementById(id);
-    var container = document.createElement('div');
-    container.id = id;
-    // container.style.height = '200px';
-    canvas.replaceWith(container);
 
     const pie = new Pie(id, {
       data: g2plotdata,
@@ -167,218 +188,117 @@ function createChart(type, id, title, data, labels, options) {
     return;
   }
 
-  let config = null;
-
-  if (type === 'pie') {
-    config = {
-      type: 'doughnut',
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: '',
-            data: [],
-            backgroundColor: [
-              '#8cddc9',
-              '#ade7d9',
-              '#cef0e8',
-              '#185244',
-              '#22735f',
-              '#2c947a',
-              '#35b595',
-              '#4acaaa',
-              '#6bd3ba',
-              '#effaf7',
-            ],
-            borderWidth: 0,
-            datalabels: {
-              align: 'center',
-              anchor: 'center',
-              font: {
-                weight: 'bold',
-              },
-              color: '#666666',
-              formatter: function (value/* , context */) {
-                return abbreviateNumber(value);
-              },
-            },
-          }
-        ]
-      },
-      options: {
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              var label = data.labels[tooltipItem.index] || '';
-
-              if (label) {
-                label += ': ';
-              }
-
-              label += parseFloat(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]).toLocaleString('lan');
-              return label;
-            }
-          }
-        },
-        legend: {
-          position: 'bottom',
-          align: 'center',
-        },
-        layout: {
-          padding: {
-            top: 40,
-          },
-        },
-        plugins: {
-          datalabels: {
-            clamp: true,
-          },
-        },
-      },
-    };
-  }
-
-  if (type === 'bar' || type === 'line') {
-    config = {
-      type: type,
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: '',
-            data: [],
-            fill: true,
-            backgroundColor: '#52CCAE',
-            borderColor: '#52CCAE',
-            borderWidth: 0,
-            datalabels: {
-              align: 'end',
-              anchor: 'end',
-              font: {
-                weight: 'bold',
-              },
-              color: '#666666',
-              formatter: function (value, context) {
-                return abbreviateNumber(value);
-              },
-            },
-          },
+  if (type === 'barStacked') {
+    const stackedColumnPlot = new Column(id, {
+      data: g2plotdata,
+      isStack: true,
+      yField: 'data',
+      xField: 'label',
+      smooth: smooth,
+      color: color,
+      seriesField: options.seriesField ? options.seriesField : 'serie',
+      label: {
+        // 可手动配置 label 数据标签位置
+        position: 'middle', // 'top', 'bottom', 'middle'
+        // 可配置附加的布局方法
+        layout: [
+          // 柱形图数据标签位置自动调整
+          { type: 'interval-adjust-position' },
+          // 数据标签防遮挡
+          { type: 'interval-hide-overlap' },
+          // 数据标签文颜色自动调整
+          { type: 'adjust-color' },
         ],
       },
-      options: {
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              var label = data.datasets[tooltipItem.datasetIndex].label || '';
+    });
 
-              if (label) {
-                label += ': ';
-              }
-              label += parseFloat(tooltipItem.yLabel).toLocaleString('lan');
-              return label;
-            }
-          }
-        },
-        legend: {
-          display: false,
-        },
-        layout: {
-          padding: {
-            top: 40,
-          },
-        },
-        scales: {
-          xAxes: [
-            {
-              display: true,
-              gridLines: {
-                lineWidth: 1,
-                drawOnChartArea: false,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                drawOnChartArea: false,
-              },
-              ticks: {
-                beginAtZero: true,
-                callback: function (
-                  value
-                ) {
-                  return parseFloat(value).toLocaleString('lan');
-                }
-              },
-            },
-          ],
-        },
-        plugins: {
-          datalabels: {
-            offset: 0,
-            clamp: false,
-          },
-        },
-      },
-    };
-  }
-
-  config.data.datasets[0].label = title;
-  config.data.datasets[0].data = data;
-  config.data.labels = labels;
-
-  if (type === 'pie') {
-    config.options.legend.display = true;
-  }
-
-      /* config.options =  */Object.assign(config.options, options);
-
-  if (!document.getElementById(id)) {
-    console.error(`El elemento ${id} no se encontro.`);
+    stackedColumnPlot.render();
     return;
   }
 
-  try {
-    window.myCharts[id] = new Chart(document.getElementById(id), config);
-  } catch (error) {
-    console.error(`Error al creear chart ${id}`);
-    console.error(error);
+  if (type === 'areaStacked') {
+    const stackedColumnPlot = new Area(id, {
+      data: g2plotdata,
+      isStack: true,
+      yField: 'data',
+      xField: 'label',
+      color: color,
+      // smooth: smooth,
+      seriesField: options.seriesField ? options.seriesField : 'serie',
+      label: {
+        // 可手动配置 label 数据标签位置
+        position: 'middle', // 'top', 'bottom', 'middle'
+        // 可配置附加的布局方法
+        layout: [
+          // 柱形图数据标签位置自动调整
+          { type: 'interval-adjust-position' },
+          // 数据标签防遮挡
+          { type: 'interval-hide-overlap' },
+          // 数据标签文颜色自动调整
+          { type: 'adjust-color' },
+        ],
+      },
+    });
+
+    stackedColumnPlot.render();
+    return;
+  }
+
+  if (type === 'treemap') {
+    const bar = new Treemap(id, {
+      data: {
+        name: title,
+        children: g2plotdata
+      },
+      colorField: 'label',
+      tooltip: {
+        fields: ['label', 'value'],
+        formatter: (options) => {
+          let { label, value } = options;
+          console.log(options);
+          return { name: label, value: abbreviateNumber(value) };
+        }
+      }
+    });
+
+    bar.render();
+    return;
   }
 }
 
 let municipio = window.municipio;
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // EMBED CHART ROUTE
-    // For now I will use the same page to embed charts.
-    // Because currently I dont know how a better way to mantain
-    // the charts updated between munucipio page and embed page.
-    const urlParams = new URLSearchParams(location.search);
+document.addEventListener("DOMContentLoaded", function () {
+  // EMBED CHART ROUTE
+  // For now I will use the same page to embed charts.
+  // Because currently I dont know how a better way to mantain
+  // the charts updated between munucipio page and embed page.
+  const urlParams = new URLSearchParams(location.search);
 
-    if (urlParams.get('embed') && urlParams.get('tematica')) {
-      console.log(document.getElementById('tematicas-row'));
+  if (urlParams.get('embed') && urlParams.get('tematica')) {
+    console.log(document.getElementById('tematicas-row'));
 
-      document.getElementById('navbar').style.display = 'none';
-      document.getElementById('basic-info-row').style.display = 'none';
-      document.getElementById('footer').style.display = 'none';
-      document.getElementById('red-footer').style.display = 'none';
-      document.getElementById('page-container').style.margin = 0;
-      document.getElementById('page-container').style.padding = 0;
-      document.getElementById('page-container').style.width = '100vw';
-      document.getElementById('tematicas-row').style.width = '100vw';
-      document.getElementById('tematicas-row').style.margin = 0;
-      document.getElementById(`tematica-${urlParams.get('tematica')}`).style.padding = 0;
-      document.getElementById(`tematica-${urlParams.get('tematica')}-header`).remove();
+    document.getElementById('navbar').style.display = 'none';
+    document.getElementById('basic-info-row').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+    document.getElementById('red-footer').style.display = 'none';
+    document.getElementById('page-container').style.margin = 0;
+    document.getElementById('page-container').style.padding = 0;
+    document.getElementById('page-container').style.width = '100vw';
+    document.getElementById('tematicas-row').style.width = '100vw';
+    document.getElementById('tematicas-row').style.margin = 0;
+    document.getElementById(`tematica-${urlParams.get('tematica')}`).style.padding = 0;
+    document.getElementById(`tematica-${urlParams.get('tematica')}-header`).remove();
 
-      let children = Array.from(document.getElementById('tematicas-row').children);
+    let children = Array.from(document.getElementById('tematicas-row').children);
 
-      children.forEach((tematica) => {
-        if (tematica.id !== `tematica-${urlParams.get('tematica')}`) {
-          tematica.style.display = 'none';
-        }
-      });
-    }
-  });
+    children.forEach((tematica) => {
+      if (tematica.id !== `tematica-${urlParams.get('tematica')}`) {
+        tematica.style.display = 'none';
+      }
+    });
+  }
+});
 
 // General
 createChart(
@@ -434,12 +354,39 @@ let cronica2019 = cronica.filter((item) => item.periodo === 2019);
 
 cronica2019 = cronica2019[0];
 
+let aguda = municipio.desnutricion.aguda.sort((a, b) => a.periodo - b.periodo);
+
+let aguda2019 = aguda.filter((item) => item.periodo === 2019);
+
+aguda2019 = aguda2019[0];
+
+let newArray = [];
+
+municipio.desnutricion.cronica.forEach((item) => {
+  newArray.push({
+    data: item.cantidad,
+    label: item.periodo,
+    serie: 'Crónica'
+  });
+});
+
+municipio.desnutricion.aguda.forEach((item) => {
+  newArray.push({
+    data: item.cantidad,
+    label: item.periodo,
+    serie: 'Aguda'
+  });
+});
+
 createChart(
-  'line',
+  'areaStacked',
   'chart-nutricion-1',
   'Numero de Casos de Desnutrición Crónica por año',
-  cronica.map((item) => item.cantidad),
-  cronica.map((item) => item.periodo)
+  newArray,
+  null,
+  {
+    isG2plotData: true
+  }
 );
 
 if (cronica2019) {
@@ -461,89 +408,103 @@ if (cronica2019) {
   );
 }
 
+let g2dataDesnutricionEdad = [
+  {
+    data: cronica2019['m <1Mes'],
+    label: '< 1 mes',
+    serie: 'Masculino Crónica'
+  },
+  {
+    data: cronica2019['m1Ma <2M'],
+    label: '1m a < 2m',
+    serie: 'Masculino Crónica'
+  },
+  {
+    data: cronica2019['m2Ma <1A'],
+    label: '2m a < 1 a',
+    serie: 'Masculino Crónica'
+  },
+  {
+    data: cronica2019['m1Aa4A'],
+    label: '1a a 4 a',
+    serie: 'Masculino Crónica'
+  },
+  {
+    data: cronica2019['f <1Mes'],
+    label: '< 1 mes',
+    serie: 'Femenino Crónica'
+  },
+  {
+    data: cronica2019['f1Ma <2M'],
+    label: '1m a < 2m',
+    serie: 'Femenino Crónica'
+  },
+  {
+    data: cronica2019['f2Ma <1A'],
+    label: '2m a < 1 a',
+    serie: 'Femenino Crónica'
+  },
+  {
+    data: cronica2019['f1Aa4A'],
+    label: '1a a 4 a',
+    serie: 'Femenino Crónica'
+  },
+
+  // aguda
+  {
+    data: aguda2019['m <1Mes'],
+    label: '< 1 mes',
+    serie: 'Masculino Aguda'
+  },
+  {
+    data: aguda2019['m1Ma <2M'],
+    label: '1m a < 2m',
+    serie: 'Masculino Aguda'
+  },
+  {
+    data: aguda2019['m2Ma <1A'],
+    label: '2m a < 1 a',
+    serie: 'Masculino Aguda'
+  },
+  {
+    data: aguda2019['m1Aa4A'],
+    label: '1a a 4 a',
+    serie: 'Masculino Aguda'
+  },
+  {
+    data: aguda2019['f <1Mes'],
+    label: '< 1 mes',
+    serie: 'Femenino Aguda'
+  },
+  {
+    data: aguda2019['f1Ma <2M'],
+    label: '1m a < 2m',
+    serie: 'Femenino Aguda'
+  },
+  {
+    data: aguda2019['f2Ma <1A'],
+    label: '2m a < 1 a',
+    serie: 'Femenino Aguda'
+  },
+  {
+    data: aguda2019['f1Aa4A'],
+    label: '1a a 4 a',
+    serie: 'Femenino Aguda'
+  }
+];
+
 createChart(
-  'bar',
+  'areaStacked',
   'chart-nutricion-3',
-  'Numero de Casos de Desnutrición Crónica por edad',
-  [
-    cronica2019['m <1Mes'],
-    cronica2019['m1Ma <2M'],
-    cronica2019['m2Ma <1A'],
-    cronica2019['m1Aa4A'],
-    cronica2019['f <1Mes'],
-    cronica2019['f1Ma <2M'],
-    cronica2019['f2Ma <1A'],
-    cronica2019['f1Aa4A']
-  ],
-  [
-    'F < 1 mes ',
-    'M < 1 mes',
-    'F 1m a < 2m',
-    'M 1m a < 2m',
-    'F 2m a < 1 a',
-    'M 2m a < 1 a',
-    'F 1a a 4 a',
-    'M 1a a 4 a'
-  ]
-);
-
-let aguda = municipio.desnutricion.aguda.sort((a, b) => a.periodo - b.periodo);
-
-let aguda2019 = aguda.filter((item) => item.periodo === 2019);
-
-aguda2019 = aguda2019[0];
-
-createChart(
-  'line',
-  'chart-nutricion-4',
-  'Numero de Casos de Desnutrición Aguda por año',
-  aguda.map((item) => item.cantidad),
-  aguda.map((item) => item.periodo)
-);
-
-if (aguda2019) {
-  createChart(
-    'pie',
-    'chart-nutricion-5',
-    'Casos de Desnutrición Aguda por sexo',
-    [
-      aguda2019['m <1Mes'] +
-      aguda2019['m1Ma <2M'] +
-      aguda2019['m2Ma <1A'] +
-      aguda2019['m1Aa4A'],
-      aguda2019['f <1Mes'] +
-      aguda2019['f1Ma <2M'] +
-      aguda2019['f2Ma <1A'] +
-      aguda2019['f1Aa4A']
-    ],
-    ['Masculino', 'Femenino']
-  );
-}
-
-createChart(
-  'bar',
-  'chart-nutricion-6',
-  'Numero de Casos de Desnutrición Aguda por año',
-  [
-    aguda2019['m <1Mes'],
-    aguda2019['m1Ma <2M'],
-    aguda2019['m2Ma <1A'],
-    aguda2019['m1Aa4A'],
-    aguda2019['f <1Mes'],
-    aguda2019['f1Ma <2M'],
-    aguda2019['f2Ma <1A'],
-    aguda2019['f1Aa4A']
-  ],
-  [
-    'F < 1 mes ',
-    'M < 1 mes',
-    'F 1m a < 2m',
-    'M 1m a < 2m',
-    'F 2m a < 1 a',
-    'M 2m a < 1 a',
-    'F 1a a 4 a',
-    'M 1a a 4 a'
-  ]
+  'Numero de Casos de Desnutrición por edad',
+  g2dataDesnutricionEdad,
+  null,
+  {
+    isG2plotData: true,
+    // 
+    color: ['#3866c3', '#95b8ff', '#80ffd6', '#5fc0a1'],
+    smooth: false
+  }
 );
 
 // Pobreza
@@ -594,7 +555,7 @@ let ejecucion2019 = municipio.ejecucion6
   .sort((a, b) => a.asignado - b.asignado);
 
 createChart(
-  'bar',
+  'treemap',
   'chart-finanzas-2',
   'Distribucion de Presupuesto Municipal 2019',
   ejecucion2019
@@ -637,7 +598,7 @@ let ejecucionPresupuestaria2019 = municipio.ejecucion7
   .find((item) => item.ejercicio === 2019);
 
 createChart(
-  'bar',
+  'treemap',
   'chart-finanzas-4',
   'Distribucion de Ejecución Presupuestaria Municipal 2019',
   [
@@ -735,7 +696,7 @@ let ingresos2019 = municipio.finanzas8
   .find((item) => item.ejercicio === 2019);
 
 createChart(
-  'bar',
+  'treemap',
   'chart-finanzas-6',
   'Distribucion de Ejecución Presupuestaria Municipal 2019',
   [

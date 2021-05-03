@@ -1,1 +1,4 @@
-+ Agregar indice de matematicas y lenguajes en tematica educacion
++ Agregar labels a treemaps.
++ Actualizar gráficas de economía.
++ Generación de pdfs
++ Generación de xls

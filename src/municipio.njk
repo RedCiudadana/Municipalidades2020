@@ -11,7 +11,6 @@ tags:
 {% extends "src/_includes/baseToExtend.njk" %}
 
 {% block head %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous"/>
 {% endblock %}
 
 {% block content %}
@@ -422,13 +421,22 @@ tags:
               {{ municipio.desnutricion.cronica2019.cantidad | toLocaleString }}
             </h1>
             <h6>casos</h6>
+            <h3>
+              Desnutrición Aguda Total
+            </h3>
+            <h1 class="title-aguda-text mb-0">
+              {{municipio.desnutricion.aguda2019.cantidad | toLocaleString}}
+            </h1>
+            <h6>
+              casos
+            </h6>
             <small>
               Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019
             </small>
           </div>
           <div class="col-12 col-lg-9 p-3 border">
             <h6>
-              Numero de Casos de Desnutrición Crónica por año
+              Numero de Casos de Desnutrición por año
             </h6>
             <div id="chart-nutricion-1"></div>
             <small>
@@ -437,7 +445,7 @@ tags:
           </div>
           <div class="col-12 col-lg-4 p-3 border">
             <h6>
-              Casos de Desnutrición Crónica por sexo
+              Casos de Desnutrición por sexo
             </h6>
             <canvas height="220px" id="chart-nutricion-2"></canvas>
             <small>
@@ -447,50 +455,9 @@ tags:
           {# break #}
           <div class="col-12 col-lg-8 p-3 border">
             <h6>
-              Casos de Desnutrición Crónica por Edad
+              Casos de Desnutrición por Edad
             </h6>
             <canvas height="140px" id="chart-nutricion-3"></canvas>
-            <small>
-              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
-            </small>
-          </div>
-          {# Aguda #}
-          <div class="col-12 col-lg-3 p-2 px-3 border">
-            <h3>
-              Desnutrición Aguda Total
-            </h3>
-            <h1 class="title-aguda-text mb-0">
-              {{municipio.desnutricion.aguda2019.cantidad | toLocaleString}}
-            </h1>
-            <h6>casos</h6>
-            <small>
-              Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019
-            </small>
-          </div>
-          <div class="col-12 col-lg-9 p-3 border">
-            <h6>
-              Numero de Casos de Desnutrición Aguda por año
-            </h6>
-            <canvas height="80px" id="chart-nutricion-4"></canvas>
-            <small>
-              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
-            </small>
-          </div>
-          <div class="col-12 col-lg-4 p-3 border">
-            <h6>
-              Casos de Desnutrición Aguda por sexo
-            </h6>
-            <canvas height="220px" id="chart-nutricion-5"></canvas>
-            <small>
-              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
-            </small>
-          </div>
-          {# break #}
-          <div class="col-12 col-lg-8 p-3 border">
-            <h6>
-              Casos de Desnutrición Aguda por Edad
-            </h6>
-            <canvas height="140px" id="chart-nutricion-6"></canvas>
             <small>
               Fuente: Ministerio de salud pública y asistencia social (MSPAS)
             </small>

@@ -1,37 +1,39 @@
 ---
 title: Municipios
-layout: base.njk
 pagination:
   data: collections.municipios
   size: 8
   alias: municipios
 permalink: "municipios/{{ pagination.pageNumber + 1 }}/index.html"
 ---
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-12 text-center">
-      <h1>
-        Municipios de Guatemala
-      </h1>
-      <p class="h5 text-secondary font-weight-normal">
-        Explora, Visualiza y Analiza datos municipales de Guatemala
-      </p>
-    </div>
-    <div class="col-12 col-lg-6 p-2 p-sm-0">
-      <div class="field">
-        <input class="form-control" type="search" placeholder="Buscar" id="searchField" />
+{% extends "src/_includes/baseToExtend.njk" %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h1>
+          Municipios de Guatemala
+        </h1>
+        <p class="h5 text-secondary font-weight-normal">
+          Explora, Visualiza y Analiza datos municipales de Guatemala
+        </p>
       </div>
-      <div id="searchResultsContainer" class="w-100 rounded bg-white shadow-sm">
-        <ol id="searchResults">
-        </ol>
+      <div class="col-12 col-lg-6 p-2 p-sm-0">
+        <div class="field">
+          <input class="form-control" type="search" placeholder="Buscar" id="searchField" />
+        </div>
+        <div id="searchResultsContainer" class="w-100 rounded bg-white shadow-sm">
+          <ol id="searchResults">
+          </ol>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="bg-white w-100 py-5">
-  <div class="container">
-    <div class="row">
-      {%- for municipio in municipios %}
+  <div class="bg-white w-100 py-5">
+    <div class="container">
+      <div class="row">
+        {%- for municipio in municipios %}
         {% set municipioData = municipio.data.municipio %}
         <div class="col-12 col-sm-6 col-md-3 py-1">
           <div class="row h-100 m-0 border">
@@ -47,111 +49,112 @@ permalink: "municipios/{{ pagination.pageNumber + 1 }}/index.html"
             </a>
           </div>
         </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
+    <nav aria-labelledby="my-pagination w-100">
+      <ol class="pagination pagination-sm justify-content-center mt-3">
+        <li class="page-item">
+          {% if page.url != pagination.href.first %}
+          <a class="page-link" href="{{ pagination.href.first }}">
+            Primera
+          </a>
+          {% else %}
+          <a class="page-link text-secondary" href="#">
+            Primera
+          </a>
+          {% endif %}
+        </li>
+        <li class="page-item">
+          {% if pagination.href.previous %}
+          <a class="page-link" href="{{ pagination.href.previous }}">
+            Anterior
+          </a>
+          {% else %}
+          <a class="page-link text-secondary" href="#">
+            Anterior
+          </a>
+          {% endif %}
+        </li>
+        <li class="page-item">
+          <a class="page-link">
+            {{ pagination.pageNumber + 1 }}
+          </a>
+        </li>
+        {# {% set currentPages = pagination | paginationSlice %}
+        {%- for pageEntry in currentPages %}
+        <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %} active{% endif %}">
+          <a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] }}" {% if page.url==pagination.hrefs[ loop.index0
+            ] %} aria-current="page" {% endif %}>
+            {{ pageEntry.pageNumber }}
+            {{ loop.index - 1}}
+          </a>
+        </li>
+        {%- endfor %} #}
+        <li class="page-item">
+          {% if pagination.href.next %}
+          <a class="page-link" href="{{ pagination.href.next }}">
+            Siguiente
+          </a>
+          {% else %}
+          <a class="page-link text-secondary" href="#">
+            Siguiente
+          </a>
+          {% endif %}
+        </li>
+        <li class="page-item">
+          {% if page.url != pagination.href.last %}
+          <a class="page-link" href="{{ pagination.href.last }}">
+            Última
+          </a>
+          {% else %}
+          <a class="page-link text-secondary" href="#">
+            Última
+          </a>
+          {% endif %}
+        </li>
+      </ol>
+    </nav>
   </div>
-  <nav aria-labelledby="my-pagination w-100">
-    <ol class="pagination pagination-sm justify-content-center mt-3">
-      <li class="page-item">
-        {% if page.url != pagination.href.first %}
-        <a class="page-link" href="{{ pagination.href.first }}">
-          Primera
-        </a>
-        {% else %}
-        <a class="page-link text-secondary" href="#">
-          Primera
-        </a>
-        {% endif %}
-      </li>
-      <li class="page-item">
-        {% if pagination.href.previous %}
-        <a class="page-link" href="{{ pagination.href.previous }}">
-          Anterior
-        </a>
-        {% else %}
-        <a class="page-link text-secondary" href="#">
-          Anterior
-        </a>
-        {% endif %}
-      </li>
-      <li class="page-item">
-        <a class="page-link">
-          {{ pagination.pageNumber + 1 }}
-        </a>
-      </li>
-      {# {% set currentPages = pagination | paginationSlice %}
-      {%- for pageEntry in  currentPages %}
-      <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %} active{% endif %}">
-        <a
-          class="page-link" 
-          href="{{ pagination.hrefs[ loop.index0 ] }}"
-          {% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}
-        >
-          {{ pageEntry.pageNumber }}
-          {{ loop.index - 1}}
-        </a>
-      </li>
-      {%- endfor %} #}
-      <li class="page-item">
-        {% if pagination.href.next %}
-        <a class="page-link" href="{{ pagination.href.next }}">
-          Siguiente
-        </a>
-        {% else %}
-        <a class="page-link text-secondary" href="#">
-          Siguiente
-        </a>
-        {% endif %}
-      </li>
-      <li class="page-item">
-        {% if page.url != pagination.href.last %}
-        <a class="page-link" href="{{ pagination.href.last }}">
-          Última
-        </a>
-        {% else %}
-        <a class="page-link text-secondary" href="#">
-          Última
-        </a>
-        {% endif %}
-      </li>
-    </ol>
-  </nav>
-</div>
-<!--Only 5.7kb GZipped. You may want to bundle this with your application code. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
-<script>
-  (function(window, document) {
-  "use strict";
+{% endblock %}
 
-  const search = e => {
-    const results = window.searchIndex.search(e.target.value);
+{% block body_javascripts %}
+  <!--Only 5.7kb GZipped. You may want to bundle this with your application code. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script>
+    (function (window, document) {
+      "use strict";
 
-    const ol = document.getElementById("searchResults");
-    const searchResultsContainer = document.getElementById("searchResultsContainer");
-    ol.innerHTML = "";
-    searchResultsContainer.style.position = 'none';
-    if (results && results.length > 0) {
-      searchResultsContainer.style.position = 'absolute';
-      results.map(r => {
-        const { id, departamento, municipio } = r.doc;
+      const search = e => {
+        const results = window.searchIndex.search(e.target.value);
 
-        // this is where you'll go wild with your own HTML injection.
-        const li = document.createElement("li");
-        ol.appendChild(li);
+        const ol = document.getElementById("searchResults");
+        const searchResultsContainer = document.getElementById("searchResultsContainer");
+        ol.innerHTML = "";
+        searchResultsContainer.style.position = 'none';
+        if (results && results.length > 0) {
+          searchResultsContainer.style.position = 'absolute';
+          results.map(r => {
+            const { id, departamento, municipio } = r.doc;
 
-        const a = document.createElement("a");
-        a.setAttribute("href", id);
-        a.textContent = `${departamento}, ${municipio}`;
-        li.appendChild(a);
-      });
-    }
-  };
+            // this is where you'll go wild with your own HTML injection.
+            const li = document.createElement("li");
+            ol.appendChild(li);
 
-  fetch("/search-index.json").then(response =>
-    response.json().then(rawIndex => {
-      window.searchIndex = elasticlunr.Index.load(rawIndex);
-      document.getElementById("searchField").addEventListener("input", search);
-    })
-  );
-})(window, document);
-</script>
+            const a = document.createElement("a");
+            a.setAttribute("href", id);
+            a.textContent = `${departamento}, ${municipio}`;
+            li.appendChild(a);
+          });
+        }
+      };
+
+      fetch("/search-index.json").then(response =>
+        response.json().then(rawIndex => {
+          window.searchIndex = elasticlunr.Index.load(rawIndex);
+          document.getElementById("searchField").addEventListener("input", search);
+        })
+      );
+    })(window, document);
+  </script>
+{% endblock %}

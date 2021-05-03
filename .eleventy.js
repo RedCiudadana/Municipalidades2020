@@ -7,6 +7,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const packageVersion = require("./package.json").version;
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const searchFilter = require("./src/filters/searchFilter");
+const path = require('path')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchJavaScriptDependencies(false);
@@ -17,12 +18,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./src/sass/");
 
-  // eleventyConfig.addPassthroughCopy("./src/css");
-  // eleventyConfig.addPassthroughCopy("./src/fonts");
-  // eleventyConfig.addPassthroughCopy("./src/img");
-  // eleventyConfig.addPassthroughCopy("./src/mi-guatemala");
-  // eleventyConfig.addPassthroughCopy("./src/favicon.png");
-  // eleventyConfig.addPassthroughCopy("./src/js");
   eleventyConfig.addPassthroughCopy({ "./assets": "" });
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
@@ -87,6 +82,10 @@ module.exports = function (eleventyConfig) {
     return numero.toLocaleString('lan');
   });
 
+  eleventyConfig.addFilter('absolutePath', function(_path) {
+    return path.join(__dirname, _path);
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
@@ -103,24 +102,9 @@ module.exports = function (eleventyConfig) {
         .replace(/[\s+~\/]/g, "-")
         .replace(/[().`,%·'"!?¿:@*]/g, ""),
   });
+
   eleventyConfig.setLibrary("md", markdownLibrary);
 
-  // eleventyConfig.addCollection("chartTematicasByMunicipios", function (collectionApi) {
-  //   let newCollection = [];
-  //   var tematicas = collectionApi.getFilteredByTag("tematicas");
-
-  //   collectionApi.getFilteredByTag("municipios").forEach((municipio) => {
-  //     tematicas.forEach((tematica) => {
-
-  //       newCollection.push({
-  //         tematica: tematica.data.title,
-  //         municipio: municipio.data.municipio
-  //       });
-  //     })
-  //   });
-
-  //   return newCollection;
-  // });
 
   return {
     passthroughFileCopy: true,
