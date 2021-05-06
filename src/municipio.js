@@ -1,6 +1,7 @@
 import { Area, Column, Treemap, Pie } from '@antv/g2plot';
 
 function abbreviateNumber(value) {
+  return value.toLocaleString('lan');
   var newValue = value;
   if (value >= 1000) {
     var suffixes = ["", "K", "M"];
@@ -79,10 +80,24 @@ function createChart(type, id, title, data, labels, options) {
     color = options.color;
   }
 
-  let smooth = null;
+  let smooth = false;
   if (options && options.smooth) {
     smooth = options.smooth;
   }
+  let promedio = [];
+  if (options && options.promedio) {
+    promedio = options.promedio;
+  }
+
+  // let annotations = [];
+  // if (promedio.length > 0) {
+  //   let firstAnnotation = null;
+  //   promedio.forEach((item) => {
+  //     if (firstAnnotation === null) {
+      
+  //     }
+  //   });
+  // }
 
   var canvas = document.getElementById(id);
   var container = document.createElement('div');
@@ -97,7 +112,7 @@ function createChart(type, id, title, data, labels, options) {
       data: g2plotdata,
       xField: 'label',
       yField: 'data',
-      smooth: true,
+      smooth: smooth,
       yAxis: {
         maxLimit: isPercentual ? 100 : null
       },
@@ -411,90 +426,90 @@ if (cronica2019) {
 let g2dataDesnutricionEdad = [
   {
     data: cronica2019['m <1Mes'],
-    label: '< 1 mes',
+    label: '[M] < 1 mes',
     serie: 'Masculino Crónica'
   },
   {
     data: cronica2019['m1Ma <2M'],
-    label: '1m a < 2m',
+    label: '[M] 1m a < 2m',
     serie: 'Masculino Crónica'
   },
   {
     data: cronica2019['m2Ma <1A'],
-    label: '2m a < 1 a',
+    label: '[M] 2m a < 1 a',
     serie: 'Masculino Crónica'
   },
   {
     data: cronica2019['m1Aa4A'],
-    label: '1a a 4 a',
+    label: '[M] 1a a 4 a',
     serie: 'Masculino Crónica'
   },
   {
     data: cronica2019['f <1Mes'],
-    label: '< 1 mes',
+    label: '[F] < 1 mes',
     serie: 'Femenino Crónica'
   },
   {
     data: cronica2019['f1Ma <2M'],
-    label: '1m a < 2m',
+    label: '[F] 1m a < 2m',
     serie: 'Femenino Crónica'
   },
   {
     data: cronica2019['f2Ma <1A'],
-    label: '2m a < 1 a',
+    label: '[F] 2m a < 1 a',
     serie: 'Femenino Crónica'
   },
   {
     data: cronica2019['f1Aa4A'],
-    label: '1a a 4 a',
+    label: '[F] 1a a 4 a',
     serie: 'Femenino Crónica'
   },
 
   // aguda
   {
     data: aguda2019['m <1Mes'],
-    label: '< 1 mes',
+    label: '[M] < 1 mes',
     serie: 'Masculino Aguda'
   },
   {
     data: aguda2019['m1Ma <2M'],
-    label: '1m a < 2m',
+    label: '[M] 1m a < 2m',
     serie: 'Masculino Aguda'
   },
   {
     data: aguda2019['m2Ma <1A'],
-    label: '2m a < 1 a',
+    label: '[M] 2m a < 1 a',
     serie: 'Masculino Aguda'
   },
   {
     data: aguda2019['m1Aa4A'],
-    label: '1a a 4 a',
+    label: '[M] 1a a 4 a',
     serie: 'Masculino Aguda'
   },
   {
     data: aguda2019['f <1Mes'],
-    label: '< 1 mes',
+    label: '[F] < 1 mes',
     serie: 'Femenino Aguda'
   },
   {
     data: aguda2019['f1Ma <2M'],
-    label: '1m a < 2m',
+    label: '[F] 1m a < 2m',
     serie: 'Femenino Aguda'
   },
   {
     data: aguda2019['f2Ma <1A'],
-    label: '2m a < 1 a',
+    label: '[F] 2m a < 1 a',
     serie: 'Femenino Aguda'
   },
   {
     data: aguda2019['f1Aa4A'],
-    label: '1a a 4 a',
+    label: '[F] 1a a 4 a',
     serie: 'Femenino Aguda'
   }
 ];
 
 createChart(
-  'areaStacked',
+  'barStacked',
   'chart-nutricion-3',
   'Numero de Casos de Desnutrición por edad',
   g2dataDesnutricionEdad,
@@ -1185,7 +1200,7 @@ createChart(
 );
 
 createChart(
-  'pie',
+  'bar',
   "chart-economia-4",
   "Uso de celular, computadora y/o internet",
   [

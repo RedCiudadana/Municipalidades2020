@@ -1,11 +1,10 @@
-const JsonNodeNormalizer = require('json-node-normalizer');
 const camelcaseKeys = require('camelcase-keys');
 const fs = require('fs');
 
 let municipios = require('./src/_data/municipios.json');
 let ranking = require('./src/_data/ranking.json');
-let aip = require('./src/_data/aip.json');
-let ipm = require('./src/_data/ipm.json');
+let aip = require('./src/_data/aip_v2.json');
+let ipm = require('./src/_data/ipm_v2.json');
 let coorporacion = require('./src/_data/coorporacion.json');
 let desempeno5 = require('./src/_data/plataformaMunicipalDatosJSON/5DesempeñoDeEscuelasMunicipalesConsolidado20152019FinalXlsx.json');
 let _10Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/10CuadroA1PoblaciónTotalPorSexo,GruposQuinquenalesDeEdadYÁreaXlsx.json');
@@ -38,384 +37,42 @@ let ejecucion6 = require('./src/_data/plataformaMunicipalDatosJSON/6EjecucionPre
 let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7Xls.json');
 let finanzas8 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion8Xls.json');
 
-const jsonSchema = {
-    id_dep: {
-        type: 'number'
-    },
-    departamento: {
-        type: 'string'
-    },
-    id_municipal: {
-        type: 'number'
-    },
-    municipio: {
-        type: 'string'
-    },
-    alcalde: {
-        type: 'string'
-    },
-    partido: {
-        type: 'string'
-    },
-    fundacion: {
-        type: 'string'
-    },
-    telefono: {
-        type: 'string'
-    },
-    email: {
-        type: 'string'
-    },
-    web: {
-        type: 'string'
-    },
-    twitter: {
-        type: 'string'
-    },
-    facebook: {
-        type: 'string'
-    },
-    ranking: {
-        type: 'object',
-        properties: {
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            segeplan2013: {
-                type: 'number'
-            },
-            segeplan2016: {
-                type: 'number'
-            },
-            segeplan2018: {
-                type: 'number'
-            },
-            promediosegeplan: {
-                type: 'number'
-            },
-        }
-    },
-    aip: {
-        type: 'object',
-        properties: {
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            aip2019: {
-                type: 'number'
-            },
-            aip2017: {
-                type: 'number'
-            },
-            aip2015: {
-                type: 'number'
-            },
-            aip2015insitu: {
-                type: 'string'
-            },
-            aipPromedio: {
-                type: 'string'
-            },
-        }
-    },
-    ipm: {
-        type: 'object',
-        properties: {
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            incidencia2000: {
-                type: 'number'
-            },
-            incidencia2006: {
-                type: 'number'
-            },
-            incidencia2011: {
-                type: 'number'
-            },
-            incidencia2014: {
-                type: 'number'
-            },
-            poblacion2000: {
-                type: 'number'
-            },
-            poblacion2006: {
-                type: 'number'
-            },
-            poblacion2011: {
-                type: 'number'
-            },
-            poblacion2014: {
-                type: 'number'
-            },
-            ipm2000: {
-                type: 'number'
-            },
-            ipm2006: {
-                type: 'number'
-            },
-            ipm2011: {
-                type: 'number'
-            },
-            ipm2014: {
-                type: 'number'
-            },
-        }
-    },
-    coorporacion: {
-        type: 'array',
-        items: {
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            pais: {
-                type: 'string'
-            },
-            cargo: {
-                type: 'string'
-            },
-            partido: {
-                type: 'string'
-            },
-            nombre: {
-                type: 'string'
-            },
-        }
-    },
-    cuadro10Poblacion: {
-        type: 'object',
-        properties: {
-            _no: {
-                type: 'number'
-            },
-            _idMunicipal: {
-                type: 'number'
-            },
-            _municipio: {
-                type: 'string'
-            },
-            _codDepartamento: {
-                type: 'number'
-            },
-            _departamento: {
-                type: 'string'
-            },
-            _poblacionTotal: {
-                type: 'number'
-            },
-            _hombres: {
-                type: 'number'
-            },
-            _mujeres: {
-                type: 'number'
-            },
-            _04: {
-                type: 'number'
-            },
-            _59: {
-                type: 'number'
-            },
-            _1014: {
-                type: 'number'
-            },
-            _1519: {
-                type: 'number'
-            },
-            _2024: {
-                type: 'number'
-            },
-            _2529: {
-                type: 'number'
-            },
-            _3034: {
-                type: 'number'
-            },
-            _3539: {
-                type: 'number'
-            },
-            _4044: {
-                type: 'number'
-            },
-            _4549: {
-                type: 'number'
-            },
-            _5054: {
-                type: 'number'
-            },
-            _5559: {
-                type: 'number'
-            },
-            _6064: {
-                type: 'number'
-            },
-            _6569: {
-                type: 'number'
-            },
-            _7074: {
-                type: 'number'
-            },
-            _7579: {
-                type: 'number'
-            },
-            _8084: {
-                type: 'number'
-            },
-            _8589: {
-                type: 'number'
-            },
-            _9094: {
-                type: 'number'
-            },
-            _9599: {
-                type: 'number'
-            },
-            _100OMas: {
-                type: 'number'
-            },
-            _urbana: {
-                type: 'number'
-            },
-            _rural: {
-                type: 'number'
-            },
-        }
-    },
-    cuadro11Poblacion: {
-        type: 'object'
-    },
-    cuadro12Poblacion: {
-        type: 'object'
-    },
-    cuadro13Poblacion: {
-        type: 'object'
-    },
-    cuadro14Poblacion: {
-        type: 'object'
-    },
-    cuadro15Poblacion: {
-        type: 'object'
-    },
-    cuadro16Poblacion: {
-        type: 'object'
-    },
-    cuadro17Poblacion: {
-        type: 'object'
-    },
-    cuadro18: {
-        type: 'object'
-    },
-    cuadro19: {
-        type: 'object'
-    },
-    cuadro20: {
-        type: 'object'
-    },
-    cuadro21: {
-        type: 'object'
-    },
-    cuadro22: {
-        type: 'object'
-    },
-    cuadro23: {
-        type: 'object'
-    },
-    cuadro24: {
-        type: 'object'
-    },
-    cuadro25: {
-        type: 'object'
-    },
-    cuadro26: {
-        type: 'object'
-    },
-    cuadro27: {
-        type: 'object'
-    },
-    cuadro28: {
-        type: 'object'
-    },
-    cuadro29: {
-        type: 'object'
-    },
-    cuadro30: {
-        type: 'object'
-    },
-    cuadro31: {
-        type: 'object'
-    },
-    cuadro32: {
-        type: 'object'
-    },
-    cuadro33: {
-        type: 'object'
-    },
-    cuadro34: {
-        type: 'object'
-    },
-    desnutricion: {
-        type: 'object'
-    },
-    desempeno5: {
-        type: 'object'
-    },
-    cuadro5: {
-        type: 'object'
-    },
-    cuadro5Y2018: {
-        type: 'object'
-    },
-    ejecucion6: {
-        type: 'object'
-    },
-    ejecucion7: {
-        type: 'object'
-    },
-    finanzas8: {
-        type: 'object'
-    }
+promedios = {
 }
 
-promisesMunicipiosNormalize = municipios.map(function (municipio) {
+municipiosNormalize = municipios.map(function (municipio) {
+    let id_municipio = municipio.id_municipal;
+    let id_departamento = municipio.id_dep;
+
+    if (promedios[id_departamento] === undefined) {
+        promedios[id_departamento] = {
+            ranking: {
+                count: 0,
+                segeplan2013: 0,
+                segeplan2016: 0,
+                segeplan2018: 0
+            },
+            aip: {
+                count: 0,
+                aip2019: 0,
+                aip2017: 0,
+                aip2015: 0,
+                aip2015Insitu: 0
+            }
+        };
+    }
+
     // Cargar ranking
     municipio.ranking = ranking.find((ranking) => {
         return ranking.id_municipal === municipio.id_municipal;
     });
+
+    if (municipio.ranking) {
+        promedios[id_departamento].ranking.segeplan2013 += municipio.ranking.segeplan2013;
+        promedios[id_departamento].ranking.segeplan2016 += municipio.ranking.segeplan2016;
+        promedios[id_departamento].ranking.segeplan2018 += municipio.ranking.segeplan2018;
+        promedios[id_departamento].ranking.count += 1;
+    }
 
     municipio.aip = aip.find((aip) => {
         return aip.id_municipal === municipio.id_municipal;
@@ -640,33 +297,33 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
 
     municipio = camelcaseKeys(municipio, { deep: true });
 
-    try {
-        return JsonNodeNormalizer.normalize(municipio, jsonSchema);
-    } catch (error) {
-        console.error(error);
-    }
+    // Calcular promedios
+    // municipio.ranking 
+
+    return municipio;
+});
+
+municipiosNormalize = municipiosNormalize.map((item) => {
+    item.promedios = promedios[item.idDep];
+
+    return item;
 });
 
 // Wait for all Promises to complete
-Promise.all(promisesMunicipiosNormalize)
-    .then(results => {
-        results = results.sort((a, b) => a.idMunicipal - b.idMunicipal);
-        fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(results), function (err) {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log('Success build src/_data/municipiosData.json');
-            }
-        });
+municipiosNormalize = municipiosNormalize.sort((a, b) => a.idMunicipal - b.idMunicipal);
 
-        fs.writeFile('./src/_data/municipioData.json', JSON.stringify(results[0]), function (err) {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log('Success build src/_data/municipioData.json');
-            }
-        });
-    })
-    .catch(e => {
-        console.error(e);
-    });
+fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(municipiosNormalize), function (err) {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log('Success build src/_data/municipiosData.json');
+    }
+});
+
+fs.writeFile('./src/_data/municipioData.json', JSON.stringify(municipiosNormalize[0]), function (err) {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log('Success build src/_data/municipioData.json');
+    }
+});
