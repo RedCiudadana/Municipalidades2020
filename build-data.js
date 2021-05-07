@@ -303,6 +303,20 @@ municipiosNormalize = municipios.map(function (municipio) {
     return municipio;
 });
 
+// Calcular y rendondear promedios
+Object.keys(promedios).forEach((dep) => {
+    Object.keys(promedios[dep]).forEach((topic) => {
+        Object.keys(promedios[dep][topic]).forEach((label) => {
+            if (label === 'count') {
+                return;
+            }
+
+            let value = promedios[dep][topic][label] / promedios[dep][topic].count;
+            promedios[dep][topic][label] = parseFloat(parseFloat(value).toFixed(2));
+        });
+    });
+});
+
 municipiosNormalize = municipiosNormalize.map((item) => {
     item.promedios = promedios[item.idDep];
 

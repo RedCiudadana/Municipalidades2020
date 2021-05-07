@@ -434,7 +434,7 @@ tags:
               Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019
             </small>
           </div>
-          <div class="col-12 col-lg-9 p-3 border">
+          <div class="col-12 col-lg-6 p-3 border">
             <h6>
               Numero de Casos de Desnutrición por año
             </h6>
@@ -443,7 +443,7 @@ tags:
               Fuente: Ministerio de salud pública y asistencia social (MSPAS)
             </small>
           </div>
-          <div class="col-12 col-lg-4 p-3 border">
+          <div class="col-12 col-lg-3 p-3 border">
             <h6>
               Casos de Desnutrición Crónica por sexo
             </h6>
@@ -453,7 +453,7 @@ tags:
             </small>
           </div>
           {# break #}
-          <div class="col-12 col-lg-8 p-3 border">
+          <div class="col-12 col-lg-12 p-3 border">
             <h6>
               Casos de Desnutrición por Edad
             </h6>
@@ -583,7 +583,7 @@ tags:
                 </div>
                 <div class="col-12 col-lg-12 p-3 border">
                   <h6>
-                    Distribucion de Presupuesto Municipal 2019
+                    Distribución de Presupuesto Municipal 2019
                   </h6>
                   <canvas height="120px" id="chart-finanzas-2"></canvas>
                   <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
@@ -612,7 +612,7 @@ tags:
                 </div>
                 <div class="col-12 col-lg-12 p-3 border">
                   <h6>
-                    Distribucion de Ejecución Presupuestaria Municipal 2019
+                    Distribución de Ejecución Presupuestaria Municipal 2019
                   </h6>
                   <canvas height="120px" id="chart-finanzas-4"></canvas>
                   <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
@@ -877,6 +877,13 @@ tags:
                     Lugar de estudio
                   </h6>
                   <canvas height="230px" id="chart-educacion-5"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-12 p-3 border">
+                  <h6>
+                    Desempeño Municipal en Matemáticas y Lectura
+                  </h6>
+                  <canvas height="230px" id="chart-educacion-6"></canvas>
                   <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
                 </div>
               </div>
@@ -1166,16 +1173,64 @@ tags:
               </div>
             </div>
           </div>
-          <div class="col-12 p-0">
-            <div class="w-100">
-              <div class="row m-0 p-0">
-                <div class="col-12 col-lg-12 p-2 px-3 border">
-                  <p>
-                    Información en proceso
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div class="col-12 col-lg-3 p-2 px-3 border">
+            <h3>
+              Total de viviendas con piso de tierra
+            </h3>
+            <h1 class="mb-0">
+              {{ municipio.cuadro34["tierra"] | toLocaleString }}
+            </h1>
+            <h6>
+              viviendas
+            </h6>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-9 p-3 border">
+            <h6>
+              Distribución de viviendas por tipos de pisos
+            </h6>
+            <canvas height="80px" id="chart-vivienda-1"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-4 p-3 border">
+            <h6>
+              Distribución de ocupación de viviendas
+            </h6>
+            <canvas height="80px" id="chart-vivienda-5"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-8 p-3 border">
+            <h6>
+              Distribución de viviendas por tipo de pared
+            </h6>
+            <canvas height="80px" id="chart-vivienda-4"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-4 p-3 border">
+            <h6>
+              Tipo de vivienda particular
+            </h6>
+            <canvas height="80px" id="chart-vivienda-3"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-8 p-3 border">
+            <h6>
+              Distribución de viviendas por tipo de techo
+            </h6>
+            <canvas height="80px" id="chart-vivienda-2"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
           </div>
         </div>
       </div>

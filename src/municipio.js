@@ -130,26 +130,26 @@ function createChart(type, id, title, data, labels, options) {
         //   end: ['max', '0'],
         //   color: '#F4664A',
         // },
-        {
-          type: 'text',
-          position: ['0%', '50%'],
-          content: 'Media del departamento',
-          offsetY: -10,
-          style: {
-            textBaseline: 'bottom',
-          },
-        },
-        {
-          type: 'line',
-          // start: ['min', 'median'],
-          // end: ['max', 'median'],
-          start: ['0%', '50%'],
-          end: ['100%', '50%'],
-          style: {
-            stroke: '#F4664A',
-            lineDash: [10, 4],
-          },
-        },
+        // {
+        //   type: 'text',
+        //   position: ['0%', '50%'],
+        //   content: 'Media del departamento',
+        //   offsetY: -10,
+        //   style: {
+        //     textBaseline: 'bottom',
+        //   },
+        // },
+        // {
+        //   type: 'line',
+        //   // start: ['min', 'median'],
+        //   // end: ['max', 'median'],
+        //   start: ['0%', '50%'],
+        //   end: ['100%', '50%'],
+        //   style: {
+        //     stroke: '#F4664A',
+        //     lineDash: [10, 4],
+        //   },
+        // },
       ],
     });
 
@@ -427,84 +427,84 @@ let g2dataDesnutricionEdad = [
   {
     data: cronica2019['m <1Mes'],
     label: '[M] < 1 mes',
-    serie: 'Masculino Crónica'
+    serie: 'Crónica'
   },
   {
     data: cronica2019['m1Ma <2M'],
     label: '[M] 1m a < 2m',
-    serie: 'Masculino Crónica'
+    serie: 'Crónica'
   },
   {
     data: cronica2019['m2Ma <1A'],
     label: '[M] 2m a < 1 a',
-    serie: 'Masculino Crónica'
+    serie: 'Crónica'
   },
   {
     data: cronica2019['m1Aa4A'],
     label: '[M] 1a a 4 a',
-    serie: 'Masculino Crónica'
+    serie: 'Crónica'
   },
   {
     data: cronica2019['f <1Mes'],
     label: '[F] < 1 mes',
-    serie: 'Femenino Crónica'
+    serie: 'Crónica'
   },
   {
     data: cronica2019['f1Ma <2M'],
     label: '[F] 1m a < 2m',
-    serie: 'Femenino Crónica'
+    serie: 'Crónica'
   },
   {
     data: cronica2019['f2Ma <1A'],
     label: '[F] 2m a < 1 a',
-    serie: 'Femenino Crónica'
+    serie: 'Crónica'
   },
   {
     data: cronica2019['f1Aa4A'],
     label: '[F] 1a a 4 a',
-    serie: 'Femenino Crónica'
+    serie: 'Crónica'
   },
 
   // aguda
   {
     data: aguda2019['m <1Mes'],
     label: '[M] < 1 mes',
-    serie: 'Masculino Aguda'
+    serie: 'Aguda'
   },
   {
     data: aguda2019['m1Ma <2M'],
     label: '[M] 1m a < 2m',
-    serie: 'Masculino Aguda'
+    serie: 'Aguda'
   },
   {
     data: aguda2019['m2Ma <1A'],
     label: '[M] 2m a < 1 a',
-    serie: 'Masculino Aguda'
+    serie: 'Aguda'
   },
   {
     data: aguda2019['m1Aa4A'],
     label: '[M] 1a a 4 a',
-    serie: 'Masculino Aguda'
+    serie: 'Aguda'
   },
   {
     data: aguda2019['f <1Mes'],
     label: '[F] < 1 mes',
-    serie: 'Femenino Aguda'
+    serie: 'Aguda'
   },
   {
     data: aguda2019['f1Ma <2M'],
     label: '[F] 1m a < 2m',
-    serie: 'Femenino Aguda'
+    serie: 'Aguda'
   },
   {
     data: aguda2019['f2Ma <1A'],
     label: '[F] 2m a < 1 a',
-    serie: 'Femenino Aguda'
+    serie: 'Aguda'
   },
   {
     data: aguda2019['f1Aa4A'],
     label: '[F] 1a a 4 a',
-    serie: 'Femenino Aguda'
+    serie: 'Aguda'
   }
 ];
 
@@ -517,7 +517,7 @@ createChart(
   {
     isG2plotData: true,
     // 
-    color: ['#3866c3', '#95b8ff', '#80ffd6', '#5fc0a1'],
+    // color: ['#3866c3', '#95b8ff', '#80ffd6', '#5fc0a1'],
     smooth: false
   }
 );
@@ -1150,6 +1150,35 @@ createChart(
   ]
 );
 
+// 6.- Educación 6
+let chart6Educacion = [];
+
+
+municipio.cuadro5.forEach((item) => {
+  chart6Educacion.push({
+    data: item.lecturaMunicipal,
+    label: item.periodo,
+    serie: 'Lectura'
+  });
+
+  chart6Educacion.push({
+    data: item.matematicaMunicipal,
+    label: item.periodo,
+    serie: 'Matemática'
+  });
+});
+
+createChart(
+  'areaStacked',
+  'chart-educacion-6',
+  'Desempeño Municipal en Matemáticas y Lectura',
+  chart6Educacion,
+  null,
+  {
+    isG2plotData: true
+  }
+);
+
 // Economia
 createChart(
   'pie',
@@ -1393,7 +1422,7 @@ createChart(
 );
 
 createChart(
-  'bar',
+  'treemap',
   "chart-hogar-4",
   "Hogares por fuente principal de agua para consumo",
   [
@@ -1412,5 +1441,134 @@ createChart(
     "Manantial o nacimiento",
     "Camion o tonel",
     "Otro",
+  ]
+);
+
+// Vivienda
+createChart(
+  'bar',
+  "chart-vivienda-1",
+  "Distribución de viviendas por tipos de pisos",
+  [
+    municipio.cuadro34["ladrilloCeramico"],
+    municipio.cuadro34["ladrilloDeCemento"],
+    municipio.cuadro34["ladrilloDeBarro"],
+    municipio.cuadro34["tortaDeCemento"],
+    municipio.cuadro34["parqueOVinil"],
+    municipio.cuadro34["madera"],
+    municipio.cuadro34["tierra"],
+    municipio.cuadro34["otro"],
+  ],
+  [
+    "Ladrillo cerámico",
+    "Ladrillo de cemento",
+    "Ladrillo de barro",
+    "Torta de cemento",
+    "Parque o vinil",
+    "Madera",
+    "Tierra",
+    "Otro"
+  ]
+);
+
+createChart(
+  'treemap',
+  "chart-vivienda-2",
+  "Distribución de viviendas por tipo de techo",
+  [
+    municipio.cuadro33["techoConcreto"],
+    municipio.cuadro33["techoLaminaMetalica"],
+    municipio.cuadro33["techoAsbestoOCemento"],
+    municipio.cuadro33["techoTeja"],
+    municipio.cuadro33["techoPaja,palmaOSimilar"],
+    municipio.cuadro33["techoMaterialDeDesecho"],
+    municipio.cuadro33["techoOtro"],
+    municipio.cuadro33["techoIgnorado"]
+  ],
+  [
+    "Concreto",
+    "Lamina metalica",
+    "Asbesto o cemento",
+    "Teja",
+    "Paja palma o similar",
+    "Material de desecho",
+    "Otro",
+    "Ignorado"
+  ]
+);
+
+createChart(
+  'bar',
+  "chart-vivienda-3",
+  "Tipo de vivienda particular",
+  [
+    municipio.cuadro32["viviendaParticularTotal"],
+    municipio.cuadro32["viviendaParticularCasaFormal"],
+    municipio.cuadro32["viviendaParticularApartamento"],
+    municipio.cuadro32["viviendaParticularCuartoEnCasaDeVecindad"],
+    municipio.cuadro32["viviendaParticularRancho"],
+    municipio.cuadro32["viviendaParticularImprovisada"],
+    municipio.cuadro32["viviendaParticularOtro"],
+    municipio.cuadro32["viviendaParticularIgnorado"],
+  ],
+  [
+    'Particular total',
+    'Casa formal',
+    'Apartamento',
+    'Cuarto en casa de vecindad',
+    'Rancho',
+    'Particular improvisada',
+    'Otro',
+    'Ignorado',
+  ]
+);
+
+createChart(
+  'treemap',
+  "chart-vivienda-4",
+  "Distribución de viviendas por tipo de pared",
+  [
+    municipio.cuadro33['paredLadrillo'],
+    municipio.cuadro33['paredBlock'],
+    municipio.cuadro33['paredConcreto'],
+    municipio.cuadro33['paredAdobe'],
+    municipio.cuadro33['paredMadera'],
+    municipio.cuadro33['paredLaminaMetalica'],
+    municipio.cuadro33['paredBajareque'],
+    municipio.cuadro33['paredLepa'],
+    municipio.cuadro33['paredMaterialDeDesecho'],
+    municipio.cuadro33['paredOtro'],
+    municipio.cuadro33['paredIgnorado'],
+  ],
+  [
+    'Ladrillo',
+    'Block',
+    'Concreto',
+    'Adobe',
+    'Madera',
+    'Lamina metalica',
+    'Bajareque',
+    'Lepa',
+    'Material de desecho',
+    'Otro',
+    'Ignorado'
+  ]
+);
+
+createChart(
+  'bar',
+  "chart-vivienda-5",
+  "Condición de ocupación de viviendas",
+  [
+    municipio.cuadro32['condicionDeOcupacionViviendasColectivas'],
+    municipio.cuadro32['condicionDeOcupacionOcupada'],
+    municipio.cuadro32['condicionDeOcupacionDeUsoTemporal'],
+    municipio.cuadro32['condicionDeOcupacionDesocupada'],
+  ],
+  [
+    'Viviendas colectivas',
+    'Ocupada',
+    'De uso temporal',
+    'Desocupada',
   ]
 );
