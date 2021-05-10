@@ -233,8 +233,7 @@ function createChart(type, id, title, data, labels, options) {
 
   if (type === 'areaStacked') {
     const stackedColumnPlot = new Area(id, {
-      data: g2plotdata,
-      isStack: true,
+      data: g2plotdata,      
       yField: 'data',
       xField: 'label',
       color: color,
@@ -270,7 +269,6 @@ function createChart(type, id, title, data, labels, options) {
         fields: ['label', 'value'],
         formatter: (options) => {
           let { label, value } = options;
-          console.log(options);
           return { name: label, value: abbreviateNumber(value) };
         }
       }
@@ -364,34 +362,35 @@ createChart(
 );
 // Nutricion
 let cronica = municipio.desnutricion.cronica.sort((a, b) => a.periodo - b.periodo);
-
-let cronica2019 = cronica.filter((item) => item.periodo === 2019);
-
-cronica2019 = cronica2019[0];
-
 let aguda = municipio.desnutricion.aguda.sort((a, b) => a.periodo - b.periodo);
 
-let aguda2019 = aguda.filter((item) => item.periodo === 2019);
+let cronicaLastYear = cronica[cronica.length - 1];
+let agudaLastYear = aguda[aguda.length - 1];
 
-aguda2019 = aguda2019[0];
+let desnutricion = cronica.concat(aguda);
+desnutricion = desnutricion.sort((a, b) => a.periodo - b.periodo);
+
+let min = desnutricion[0].periodo;
+let max = desnutricion[desnutricion.length - 1].periodo;
 
 let newArray = [];
 
-municipio.desnutricion.cronica.forEach((item) => {
+for (let i = min; i <= max; i++) {
+  const cronicaItem = cronica.find((item) => item.periodo == i);
+  const agudaItem = aguda.find((item) => item.periodo == i);
+
   newArray.push({
-    data: item.cantidad,
-    label: item.periodo,
+    data: cronicaItem ? cronicaItem.cantidad * 10 : 0,
+    label: cronicaItem ? cronicaItem.periodo.toString() : i.toString(),
     serie: 'Crónica'
   });
-});
 
-municipio.desnutricion.aguda.forEach((item) => {
   newArray.push({
-    data: item.cantidad,
-    label: item.periodo,
+    data: agudaItem ? agudaItem.cantidad * 10 : 0,
+    label: agudaItem ? agudaItem.periodo.toString() : i.toString(),
     serie: 'Aguda'
   });
-});
+}
 
 createChart(
   'areaStacked',
@@ -404,105 +403,103 @@ createChart(
   }
 );
 
-if (cronica2019) {
-  createChart(
-    'pie',
-    'chart-nutricion-2',
-    'Casos de Desnutrición Crónica por sexo',
-    [
-      cronica2019['m <1Mes'] +
-      cronica2019['m1Ma <2M'] +
-      cronica2019['m2Ma <1A'] +
-      cronica2019['m1Aa4A'],
-      cronica2019['f <1Mes'] +
-      cronica2019['f1Ma <2M'] +
-      cronica2019['f2Ma <1A'] +
-      cronica2019['f1Aa4A']
-    ],
-    ['Masculino', 'Femenino']
-  );
-}
+createChart(
+  'pie',
+  'chart-nutricion-2',
+  'Casos de Desnutrición Crónica por sexo',
+  [
+    cronicaLastYear['m <1Mes'] +
+    cronicaLastYear['m1Ma <2M'] +
+    cronicaLastYear['m2Ma <1A'] +
+    cronicaLastYear['m1Aa4A'],
+    cronicaLastYear['f <1Mes'] +
+    cronicaLastYear['f1Ma <2M'] +
+    cronicaLastYear['f2Ma <1A'] +
+    cronicaLastYear['f1Aa4A']
+  ],
+  ['Masculino', 'Femenino']
+);
 
 let g2dataDesnutricionEdad = [
   {
-    data: cronica2019['m <1Mes'],
+    data: cronicaLastYear['m <1Mes'],
     label: '[M] < 1 mes',
     serie: 'Crónica'
   },
   {
-    data: cronica2019['m1Ma <2M'],
+    data: cronicaLastYear['m1Ma <2M'],
     label: '[M] 1m a < 2m',
     serie: 'Crónica'
   },
   {
-    data: cronica2019['m2Ma <1A'],
+    data: cronicaLastYear['m2Ma <1A'],
     label: '[M] 2m a < 1 a',
     serie: 'Crónica'
   },
   {
-    data: cronica2019['m1Aa4A'],
+    data: cronicaLastYear['m1Aa4A'],
     label: '[M] 1a a 4 a',
     serie: 'Crónica'
   },
   {
-    data: cronica2019['f <1Mes'],
+    data: cronicaLastYear['f <1Mes'],
     label: '[F] < 1 mes',
     serie: 'Crónica'
   },
   {
-    data: cronica2019['f1Ma <2M'],
+    data: cronicaLastYear['f1Ma <2M'],
     label: '[F] 1m a < 2m',
     serie: 'Crónica'
   },
   {
-    data: cronica2019['f2Ma <1A'],
+    data: cronicaLastYear['f2Ma <1A'],
     label: '[F] 2m a < 1 a',
     serie: 'Crónica'
   },
   {
-    data: cronica2019['f1Aa4A'],
+    data: cronicaLastYear['f1Aa4A'],
     label: '[F] 1a a 4 a',
     serie: 'Crónica'
   },
 
   // aguda
   {
-    data: aguda2019['m <1Mes'],
+    data: agudaLastYear['m <1Mes'],
     label: '[M] < 1 mes',
     serie: 'Aguda'
   },
   {
-    data: aguda2019['m1Ma <2M'],
+    data: agudaLastYear['m1Ma <2M'],
     label: '[M] 1m a < 2m',
     serie: 'Aguda'
   },
   {
-    data: aguda2019['m2Ma <1A'],
+    data: agudaLastYear['m2Ma <1A'],
     label: '[M] 2m a < 1 a',
     serie: 'Aguda'
   },
   {
-    data: aguda2019['m1Aa4A'],
+    data: agudaLastYear['m1Aa4A'],
     label: '[M] 1a a 4 a',
     serie: 'Aguda'
   },
   {
-    data: aguda2019['f <1Mes'],
+    data: agudaLastYear['f <1Mes'],
     label: '[F] < 1 mes',
     serie: 'Aguda'
   },
   {
-    data: aguda2019['f1Ma <2M'],
+    data: agudaLastYear['f1Ma <2M'],
     label: '[F] 1m a < 2m',
     serie: 'Aguda'
   },
   {
-    data: aguda2019['f2Ma <1A'],
+    data: agudaLastYear['f2Ma <1A'],
     label: '[F] 2m a < 1 a',
     serie: 'Aguda'
   },
   {
-    data: aguda2019['f1Aa4A'],
+    data: agudaLastYear['f1Aa4A'],
     label: '[F] 1a a 4 a',
     serie: 'Aguda'
   }
