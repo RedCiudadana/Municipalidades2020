@@ -34,13 +34,14 @@ let _cuadro33 = require('./src/_data/plataformaMunicipalDatosJSON/33CuadroC2Vivi
 let _cuadro34 = require('./src/_data/plataformaMunicipalDatosJSON/34CuadroC3ViviendasParticularesPorMaterialPredominanteEnElPisoXlsx.json');
 let desnutricion = require('./src/_data/plataformaMunicipalDatosJSON/3DesnutricionXlsx.json');
 let ejecucion6 = require('./src/_data/plataformaMunicipalDatosJSON/6EjecucionPresupuestariaIngresosFinalXlsx.json');
-let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7Xls.json');
+// let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7Xls.json');
+let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7_2.json');
 let finanzas8 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion8Xls.json');
 
 promedios = {
 }
 
-municipiosNormalize = municipios.map(function (municipio) {
+municipiosNormalize = municipios.slice(0,2).map(function (municipio) {
     let id_municipio = municipio.id_municipal;
     let id_departamento = municipio.id_dep;
 
@@ -188,41 +189,34 @@ municipiosNormalize = municipios.map(function (municipio) {
         return item._idMunicipal == municipio.id_municipal;
     });
 
-    municipio.ejecucion6 = ejecucion6.filter((item) => {
-        return item._idMunicipal == municipio.id_municipal;
-    });
-
-    municipio.ejecucion6_2019 = municipio
-        .ejecucion6
-        .find((item) => item._ejercicio === 2019);
-
     municipio.ejecucion7 = ejecucion7.filter((item) => {
-        return item._codMunicipal == municipio.id_municipal;
+        return item.codigo_municipal == municipio.id_municipal;
     });
 
-    municipio.ejecucion7_2019 = municipio
+    municipio.ejecucion72019_asignado = municipio
         .ejecucion7
-        .find((item) => item._ejercicio === 2019);
+        .filter((item) => item.ejercicio === 2019);
 
-    if (municipio.ejecucion7_2019) {
-        municipio.ejecucion7_2019.total =
-            municipio.ejecucion7_2019['_actividadesDeportivas,Recreativas,CulturaYReligion'] +
-            municipio.ejecucion7_2019['_asuntosEconomicos'] +
-            municipio.ejecucion7_2019['_atencionADesastresYGestionDeRiesgos'] +
-            municipio.ejecucion7_2019['_defensa'] +
-            municipio.ejecucion7_2019['_educacion'] +
-            municipio.ejecucion7_2019['_na'] +
-            municipio.ejecucion7_2019['_ordenPublicoYSeguridadCiudadana'] +
-            municipio.ejecucion7_2019['_proteccionAmbiental'] +
-            municipio.ejecucion7_2019['_proteccionSocial'] +
-            municipio.ejecucion7_2019['_salud'] +
-            municipio.ejecucion7_2019['_serviciosPublicosGenerales'] +
-            municipio.ejecucion7_2019['_transaccionesDeLaDeudaPublica'] +
-            municipio.ejecucion7_2019['_urbanizacionYServiciosComunitarios'];
-    } else {
-        console
-            .error(`El municipio ${municipio.id_municipal} ${municipio.departamento},
-                ${municipio.municipio} no tiene ejecucion 7 ejercicio 2019`);
+    if (municipio.ejecucion72019_asignado.length > 0) {
+        municipio.ejecucion72019_asignado = 
+            municipio.ejecucion72019_asignado
+                .map((item) => item.asignado)
+                .reduce((a, b) => {
+                    return a + b;
+                });
+    }
+
+    municipio.ejecucion72019_devengado = municipio
+        .ejecucion7
+        .filter((item) => item.ejercicio === 2019);
+
+    if (municipio.ejecucion72019_devengado.length > 0) {
+        municipio.ejecucion72019_devengado =
+            municipio.ejecucion72019_devengado
+                .map((item) => item.devengado)
+                .reduce((a, b) => {
+                    return a + b;
+                });
     }
 
     municipio.finanzas8 = finanzas8.filter((item) => {

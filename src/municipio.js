@@ -537,19 +537,19 @@ createChart(
   'chart-finanzas-1',
   'Presupuesto Municipal por año',
   [
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
       .map((item) => item.asignado)
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
       .map((item) => item.asignado)
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
       .map((item) => item.asignado)
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
       .map((item) => item.asignado)
       .reduce((a, b) => a + b),
@@ -562,7 +562,7 @@ createChart(
   ]
 );
 
-let ejecucion2019 = municipio.ejecucion6
+let ejecucion2019 = municipio.ejecucion7
   .filter((item) => item.ejercicio === 2019)
   .sort((a, b) => a.asignado - b.asignado);
 
@@ -573,7 +573,7 @@ createChart(
   ejecucion2019
     .map((item) => item.asignado),
   ejecucion2019
-    .map((item) => item.seccion)
+    .map((item) => item.funcion)
 );
 
 createChart(
@@ -581,21 +581,21 @@ createChart(
   'chart-finanzas-3',
   'Ejecución Presupuestaria Municipal por año',
   [
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
-      .map((item) => item.asignado)
+      .map((item) => item.devengado)
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
-      .map((item) => item.asignado)
+      .map((item) => item.devengado)
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
-      .map((item) => item.asignado)
+      .map((item) => item.devengado)
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
-      .map((item) => item.asignado)
+      .map((item) => item.devengado)
       .reduce((a, b) => a + b),
   ],
   [
@@ -607,42 +607,15 @@ createChart(
 );
 
 let ejecucionPresupuestaria2019 = municipio.ejecucion7
-  .find((item) => item.ejercicio === 2019);
+  .filter((item) => item.ejercicio === 2019)
+  .sort((a, b) => a.devengado - b.devengado);
 
 createChart(
   'treemap',
   'chart-finanzas-4',
   'Distribucion de Ejecución Presupuestaria Municipal 2019',
-  [
-    ejecucionPresupuestaria2019['actividadesDeportivas,recreativas,culturaYReligion'],
-    ejecucionPresupuestaria2019['asuntosEconomicos'],
-    ejecucionPresupuestaria2019['atencionADesastresYGestionDeRiesgos'],
-    ejecucionPresupuestaria2019['defensa'],
-    ejecucionPresupuestaria2019['educacion'],
-    ejecucionPresupuestaria2019['ordenPublicoYSeguridadCiudadana'],
-    ejecucionPresupuestaria2019['proteccionAmbiental'],
-    ejecucionPresupuestaria2019['proteccionSocial'],
-    ejecucionPresupuestaria2019['salud'],
-    ejecucionPresupuestaria2019['serviciosPublicosGenerales'],
-    ejecucionPresupuestaria2019['transaccionesDeLaDeudaPublica'],
-    ejecucionPresupuestaria2019['urbanizacionYServiciosComunitarios'],
-    ejecucionPresupuestaria2019['na'],
-  ],
-  [
-    'Actividades Deportivas Recreativas Cultura Y Religion',
-    'Asuntos Economicos',
-    'Atencion A Desastres Y Gestion De Riesgos',
-    'Defensa',
-    'Educacion',
-    'Orden Publico Y Seguridad Ciudadana',
-    'Proteccion Ambiental',
-    'Proteccion Social',
-    'Salud',
-    'Servicios Publicos Generales',
-    'Transacciones De La Deuda Publica',
-    'Urbanizacion Y Servicios Comunitarios',
-    'No especificado',
-  ]
+  ejecucionPresupuestaria2019.map((item) => item.devengado),
+  ejecucionPresupuestaria2019.map((item) => item.funcion)
 );
 
 var getTotalEjecucion = function (item) {
