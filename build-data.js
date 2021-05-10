@@ -37,11 +37,12 @@ let ejecucion6 = require('./src/_data/plataformaMunicipalDatosJSON/6EjecucionPre
 // let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7Xls.json');
 let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7_2.json');
 let finanzas8 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion8Xls.json');
+const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 
 promedios = {
 }
 
-municipiosNormalize = municipios.slice(0,2).map(function (municipio) {
+municipiosNormalize = municipios.map(function (municipio) {
     let id_municipio = municipio.id_municipal;
     let id_departamento = municipio.id_dep;
 
@@ -59,6 +60,41 @@ municipiosNormalize = municipios.slice(0,2).map(function (municipio) {
                 aip2017: 0,
                 aip2015: 0,
                 aip2015Insitu: 0
+            },
+            ipm: {
+                count: 0,
+                ipm2006: 0,
+                ipm2011: 0,
+                ipm2014: 0,
+            },
+            ejecucion7: {
+                count: 0,
+                asignado2016: 0,
+                asignado2017: 0,
+                asignado2018: 0,
+                asignado2019: 0,
+                devengado2016: 0,
+                devengado2017: 0,
+                devengado2018: 0,
+                devengado2019: 0,
+            },
+            desnutricion: {
+                count: 0,
+                cronicaYAguda2012: 0,
+                cronicaYAguda2013: 0,
+                cronicaYAguda2014: 0,
+                cronicaYAguda2015: 0,
+                cronicaYAguda2016: 0,
+                cronicaYAguda2017: 0,
+                cronicaYAguda2018: 0,
+                cronicaYAguda2019: 0
+            },
+            finanzas8: {
+                count: 0,
+                ingresos2016: 0,
+                ingresos2017: 0,
+                ingresos2018: 0,
+                ingresos2019: 0
             }
         };
     }
@@ -79,9 +115,23 @@ municipiosNormalize = municipios.slice(0,2).map(function (municipio) {
         return aip.id_municipal === municipio.id_municipal;
     });
 
+    if (municipio.aip) {
+        promedios[id_departamento].aip.aip2019 += municipio.aip.aip2019;
+        promedios[id_departamento].aip.aip2017 += municipio.aip.aip2017;
+        promedios[id_departamento].aip.aip2015 += municipio.aip.aip2015;
+        promedios[id_departamento].aip.count += 1;
+    }
+
     municipio.ipm = ipm.find((ipm) => {
         return ipm.id_municipal === municipio.id_municipal;
     });
+
+    if (municipio.ipm) {
+        promedios[id_departamento].ipm.ipm2006 += municipio.ipm.IPM2006;
+        promedios[id_departamento].ipm.ipm2011 += municipio.ipm.IPM2011;
+        promedios[id_departamento].ipm.ipm2014 += municipio.ipm.IPM2014;
+        promedios[id_departamento].ipm.count += 1;
+    }
 
     municipio.coorporacion = coorporacion.filter((coorporacion) => {
         return coorporacion.id_municipal === municipio.id_municipal;
@@ -219,6 +269,65 @@ municipiosNormalize = municipios.slice(0,2).map(function (municipio) {
                 });
     }
 
+    let asignado2016 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2016)
+        .map((item) => item.asignado);
+    if (asignado2016.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2016 += asignado2016.reduce((a, b) => a + b);
+    }
+
+    let asignado2017 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2017)
+        .map((item) => item.asignado);
+    if (asignado2017.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2017 += asignado2017.reduce((a, b) => a + b);
+    }
+
+    let asignado2018 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2018)
+        .map((item) => item.asignado);
+    if (asignado2018.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2018 += asignado2018.reduce((a, b) => a + b);
+    }
+
+    let asignado2019 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2019)
+        .map((item) => item.asignado);
+    if (asignado2019.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2019 += asignado2019.reduce((a, b) => a + b);
+    }
+
+
+    let devengado2016 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2016)
+        .map((item) => item.devengado);
+    if (devengado2016.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2016 += devengado2016.reduce((a, b) => a + b);
+    }
+
+    let devengado2017 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2017)
+        .map((item) => item.devengado);
+    if (devengado2017.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2017 += devengado2017.reduce((a, b) => a + b);
+    }
+
+    let devengado2018 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2018)
+        .map((item) => item.devengado);
+    if (devengado2018.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2018 += devengado2018.reduce((a, b) => a + b);
+    }
+
+    let devengado2019 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2019)
+        .map((item) => item.devengado);
+    if (devengado2019.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2019 += devengado2019.reduce((a, b) => a + b);
+    }
+
+    promedios[id_departamento].ejecucion7.count += 1;
+
     municipio.finanzas8 = finanzas8.filter((item) => {
         return item._idMunicipal == municipio.id_municipal;
     });
@@ -255,6 +364,75 @@ municipiosNormalize = municipios.slice(0,2).map(function (municipio) {
             municipio.finanzas8_2019['_donDeCapParaConstrDeBienesDeUsoCom'] +
             municipio.finanzas8_2019['_donDeCapP/ConstrDeBieUsoNoComYOtrasInv'] +
             municipio.finanzas8_2019['_disminucionDeCuentasACobrar'];
+
+        var getTotalEjecucion = function (item) {
+            if (!item) {
+                return 0;
+            }
+
+            let total = item['_impuestosDirectos'] +
+                item['_impuestosIndirectos'] +
+                item['_tasas'] +
+                item['_contribucionesPorMejoras'] +
+                item['_arrendamientoDeEdificios,EquiposEInstalaciones'] +
+                item['_multas'] +
+                item['_interesesPorMora'] +
+                item['_ventaDeServicios'] +
+                item['_intereses'] +
+                item['_arrendamientoDeTierrasYTerrenos'] +
+                item['_delSectorPrivado'] +
+                item['_donacionesCorrientes'] +
+                item['_delSectorPublico'] +
+                item['_disminucionDeDisponibilidades'] +
+                item['_obtencionDePrestamosInternosALargoPlazo'] +
+                item['_otrosIngresosNoTributarios'] +
+                item['_ventaDeBienes'] +
+                item['_dismDeActDiferidosYAnticiposAContratistas'] +
+                item['_ventaY/oDesincorporacionDeTierrasYTerrenos'] +
+                item['_dividendosY/oUtilidades'] +
+                item['_ventaY/oDesincorporacionDeActivosFijos'] +
+                item['_obtencionDePrestamosInternosACortoPlazo'] +
+                item['_delSectorExterno'] +
+                item['_donDeCapParaConstrDeBienesDeUsoCom'] +
+                item['_donDeCapP/ConstrDeBieUsoNoComYOtrasInv'] +
+                item['_disminucionDeCuentasACobrar'];
+
+            return total;
+        }
+
+        let ingresos2016 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2016));
+        
+        if (Number.isNaN(ingresos2016)) {
+            ingresos2016 = promedios[id_departamento].finanzas8.ingresos2016;
+        }
+        promedios[id_departamento].finanzas8.ingresos2016 += ingresos2016;
+
+        let ingresos2017 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2017));
+        
+        if (Number.isNaN(ingresos2017)) {
+            ingresos2017 = promedios[id_departamento].finanzas8.ingresos2017;
+        }
+        promedios[id_departamento].finanzas8.ingresos2017 += ingresos2017;
+
+        let ingresos2018 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2018));
+        
+        if (Number.isNaN(ingresos2018)) {
+            ingresos2018 = promedios[id_departamento].finanzas8.ingresos2018;
+        }
+        promedios[id_departamento].finanzas8.ingresos2018 += ingresos2018;
+
+        let ingresos2019 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2019));
+        
+        if (Number.isNaN(ingresos2019)) {
+            ingresos2019 = promedios[id_departamento].finanzas8.ingresos2019;
+        }
+        promedios[id_departamento].finanzas8.ingresos2019 += ingresos2019;
+
+        promedios[id_departamento].finanzas8.count += 1;
     } else {
         console
             .error(`El municipio ${municipio.id_municipal} ${municipio.departamento},
@@ -277,6 +455,16 @@ municipiosNormalize = municipios.slice(0,2).map(function (municipio) {
         aguda2019: aguda.find((item) => item._periodo === 2019),
         cronica2019: cronica.find((item) => item._periodo === 2019)
     };
+
+    aguda.forEach((item) => {
+        promedios[id_departamento].desnutricion['cronicaYAguda' + item._periodo] += item._cantidad;
+    });
+
+    cronica.forEach((item) => {
+        promedios[id_departamento].desnutricion['cronicaYAguda' + item._periodo] += item._cantidad;
+    });
+
+    promedios[id_departamento].desnutricion.count += 1;
 
     municipio.cuadro5 = desempeno5.filter((item) => {
         return item._idMunicipal === municipio.id_municipal;

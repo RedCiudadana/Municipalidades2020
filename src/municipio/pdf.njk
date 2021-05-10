@@ -5,8 +5,6 @@ pagination:
   addAllPagesToCollections: true
   alias: municipio
 permalink: "/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/pdf.html"
-tags:
-  - municipios
 ---
 {% extends "src/_includes/base_pdf.njk" %}
 

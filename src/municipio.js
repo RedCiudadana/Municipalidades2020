@@ -108,21 +108,70 @@ function createChart(type, id, title, data, labels, options) {
   // g2plot stuff
   if (type === 'line') {
 
+    let annotations = [];
+    if (options && options.promedio) {
+      for (let i = 1; i < options.promedio.length; i++) {
+        const promedioItem = options.promedio[i];
+        const prevpromedioItem = options.promedio[i - 1];
+        const dataItem = g2plotdata[i];
+        const prevdataItem = g2plotdata[i - 1];
+
+        annotations.push({
+          type: 'line',
+          // x, y
+          start: [prevdataItem.label, prevpromedioItem],
+          end: [dataItem.label, promedioItem],
+          style: {
+            stroke: '#F4664A',
+            lineDash: [10, 4],
+          }
+        });
+
+        annotations.push({
+          type: 'text',
+          position: annotations[0].start,
+          content: 'Promedio del departamento',
+          offsetY: -10,
+          style: {
+            textBaseline: 'bottom',
+          },
+        });
+      }
+    }
+
+    let maxLimit = null;
+
+    if (isPercentual) {
+      maxLimit = 100;
+    } else {
+      if (options.promedio) {
+        let maxPromedio = options.promedio.reduce((a, b) => Math.max(a, b));
+        let maxData = g2plotdata.map((item) => item.data).reduce((a, b) => Math.max(a, b));
+
+        if (maxPromedio > maxData) {
+          maxLimit = maxPromedio * 1.2;
+        }
+      }
+    }
+
     const line = new Area(id, {
       data: g2plotdata,
       xField: 'label',
       yField: 'data',
       smooth: smooth,
       yAxis: {
-        maxLimit: isPercentual ? 100 : null
+        maxLimit: maxLimit
       },
       tooltip: {
         formatter: ({ label, data }) => {
           return { name: label, value: abbreviateNumber(data) };
         },
       },
-      annotations: [
-        // 低于中位数颜色变化
+      annotations: annotations
+    });
+
+
+    // 低于中位数颜色变化
         // this is so cool.
         // {
         //   type: 'regionFilter',
@@ -150,8 +199,6 @@ function createChart(type, id, title, data, labels, options) {
         //     lineDash: [10, 4],
         //   },
         // },
-      ],
-    });
 
     line.render();
     return;
@@ -232,13 +279,79 @@ function createChart(type, id, title, data, labels, options) {
   }
 
   if (type === 'areaStacked') {
+
+    let annotations = [];
+    if (options && options.promedio) {
+      let labels = g2plotdata.map((item) => item.label);
+      let unique = labels.filter((item, i, ar) => ar.indexOf(item) === i);
+
+      for (let i = 1; i < unique.length; i++) {
+        const promedioItem = options.promedio[i];
+        const prevpromedioItem = options.promedio[i - 1];
+        const dataItem = unique[i];
+        const prevdataItem = unique[i - 1];
+
+        annotations.push({
+          type: 'line',
+          // x, y
+          start: [prevdataItem, prevpromedioItem],
+          end: [dataItem, promedioItem],
+          style: {
+            stroke: '#F4664A',
+            lineDash: [10, 4],
+          }
+        });
+
+        annotations.push({
+          type: 'text',
+          position: annotations[0].start,
+          content: 'Promedio del departamento',
+          offsetY: -10,
+          style: {
+            textBaseline: 'bottom',
+          },
+        });
+      }
+    }
+
+    let serie = options.seriesField ? options.seriesField : 'serie';
+    let maxLimit = options.maxLimit ? options.maxLimit : null;
+
+    /**
+     * Los stacked por ahora nunca seran porcentuales.
+     */
+
+    if (isPercentual) {
+      maxLimit = 200;
+    } else {
+      if (options.promedio) {
+        let maxPromedio = options.promedio.reduce((a, b) => Math.max(a, b));
+        let labels = g2plotdata.map((item) => item.label);
+        labels = labels.filter((item, i, ar) => ar.indexOf(item) === i);
+
+        let maxData = g2plotdata.map((item) => item.data).reduce((a, b) => Math.max(a, b));
+
+        labels.forEach((label) => {
+          let total = g2plotdata.filter((item) => item.label === label).map((item) => item.data).reduce((a, b) => a + b);
+          maxData = Math.max(maxData, total);
+        });
+
+        console.log(maxData);
+        if (maxPromedio > maxData) {
+          maxLimit = maxPromedio * 2;
+        }
+      }
+    }
+
     const stackedColumnPlot = new Area(id, {
-      data: g2plotdata,      
+      data: g2plotdata,
       yField: 'data',
       xField: 'label',
       color: color,
-      // smooth: smooth,
-      seriesField: options.seriesField ? options.seriesField : 'serie',
+      yAxis: {
+        maxLimit: maxLimit
+      },
+      seriesField: serie,
       label: {
         // 可手动配置 label 数据标签位置
         position: 'middle', // 'top', 'bottom', 'middle'
@@ -252,6 +365,7 @@ function createChart(type, id, title, data, labels, options) {
           { type: 'adjust-color' },
         ],
       },
+      annotations: annotations
     });
 
     stackedColumnPlot.render();
@@ -340,25 +454,39 @@ createChart(
 createChart(
   'line',
   'chart-gestion-municipal-1',
-  'Indice gestión municipal %',
+  'Índice gestión municipal %',
   [
     municipio.ranking.segeplan2013,
     municipio.ranking.segeplan2016,
     municipio.ranking.segeplan2018,
   ],
-  ['2013', '2016', '2018']
+  ['2013', '2016', '2018'],
+  {
+    promedio: [
+      municipio.promedios.ranking.segeplan2013,
+      municipio.promedios.ranking.segeplan2016,
+      municipio.promedios.ranking.segeplan2018,
+    ]
+  }
 );
 // Transparencia
 createChart(
   'line',
   'chart-transparencia-1',
-  'Indice de Acceso a la Información Pública',
+  'Índice de Acceso a la Información Pública',
   [
     municipio.aip.aip2015,
     municipio.aip.aip2017,
     municipio.aip.aip2019,
   ],
-  ['2015', '2017', '2019']
+  ['2015', '2017', '2019'],
+  {
+    promedio: [
+      municipio.promedios.aip.aip2015,
+      municipio.promedios.aip.aip2017,
+      municipio.promedios.aip.aip2019,
+    ]
+  }
 );
 // Nutricion
 let cronica = municipio.desnutricion.cronica.sort((a, b) => a.periodo - b.periodo);
@@ -399,7 +527,17 @@ createChart(
   newArray,
   null,
   {
-    isG2plotData: true
+    isG2plotData: true,
+    promedio: [
+      municipio.promedios.desnutricion.cronicaYAguda2012,
+      municipio.promedios.desnutricion.cronicaYAguda2013,
+      municipio.promedios.desnutricion.cronicaYAguda2014,
+      municipio.promedios.desnutricion.cronicaYAguda2015,
+      municipio.promedios.desnutricion.cronicaYAguda2016,
+      municipio.promedios.desnutricion.cronicaYAguda2017,
+      municipio.promedios.desnutricion.cronicaYAguda2018,
+      municipio.promedios.desnutricion.cronicaYAguda2019
+    ]
   }
 );
 
@@ -529,7 +667,14 @@ createChart(
     municipio.ipm.ipm2011,
     municipio.ipm.ipm2014,
   ],
-  ['2006', '2011', '2014']
+  ['2006', '2011', '2014'],
+  {
+    promedio: [
+      municipio.promedios.ipm.ipm2006,
+      municipio.promedios.ipm.ipm2011,
+      municipio.promedios.ipm.ipm2014
+    ]
+  }
 );
 // Finanzas
 createChart(
@@ -559,7 +704,15 @@ createChart(
     '2017',
     '2018',
     '2019',
-  ]
+  ],
+  {
+    promedio: [
+      municipio.promedios.ejecucion7.asignado2016,
+      municipio.promedios.ejecucion7.asignado2017,
+      municipio.promedios.ejecucion7.asignado2018,
+      municipio.promedios.ejecucion7.asignado2019
+    ]
+  }
 );
 
 let ejecucion2019 = municipio.ejecucion7
@@ -603,7 +756,15 @@ createChart(
     '2017',
     '2018',
     '2019',
-  ]
+  ],
+  {
+    promedio: [
+      municipio.promedios.ejecucion7.devengado2016,
+      municipio.promedios.ejecucion7.devengado2017,
+      municipio.promedios.ejecucion7.devengado2018,
+      municipio.promedios.ejecucion7.devengado2019
+    ]
+  }
 );
 
 let ejecucionPresupuestaria2019 = municipio.ejecucion7
@@ -674,7 +835,15 @@ createChart(
     '2017',
     '2018',
     '2019',
-  ]
+  ],
+  {
+    promedio: [
+      municipio.promedios.finanzas8.ingresos2016,
+      municipio.promedios.finanzas8.ingresos2017,
+      municipio.promedios.finanzas8.ingresos2018,
+      municipio.promedios.finanzas8.ingresos2019,
+    ]
+  }
 );
 
 let ingresos2019 = municipio.finanzas8
@@ -1122,7 +1291,7 @@ createChart(
 
 // 6.- Educación 6
 let chart6Educacion = [];
-
+let chart6EducacionPromedio = [];
 
 municipio.cuadro5.forEach((item) => {
   chart6Educacion.push({
@@ -1138,6 +1307,13 @@ municipio.cuadro5.forEach((item) => {
   });
 });
 
+chart6EducacionPromedio = municipio.cuadro5
+  .sort((a, b) => a.periodo - b.periodo)
+  .map((item) => {
+    return item.lecturaDepartamental + item.matematicaDepartamental
+  }
+);
+
 createChart(
   'areaStacked',
   'chart-educacion-6',
@@ -1145,7 +1321,9 @@ createChart(
   chart6Educacion,
   null,
   {
-    isG2plotData: true
+    isG2plotData: true,
+    promedio: chart6EducacionPromedio,
+    maxLimit: 200
   }
 );
 
