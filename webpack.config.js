@@ -18,6 +18,9 @@ module.exports = {
     entry: {
         municipio: {
             import: './src/municipio.js'
+        },
+        tematicas: {
+            import: './src/tematicas.js'
         }
     },
     output: {

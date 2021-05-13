@@ -1,0 +1,885 @@
+{"message":"Guatemala, Guatemala","level":"info","service":"user-service"}
+{"message":"Guatemala, Santa Catarina Pinula","level":"info","service":"user-service"}
+{"message":"Guatemala, San José Pinula","level":"info","service":"user-service"}
+{"message":"Guatemala, San José del Golfo","level":"info","service":"user-service"}
+{"message":"Guatemala, Palencia","level":"info","service":"user-service"}
+{"message":"Guatemala, Chinautla","level":"info","service":"user-service"}
+{"message":"Guatemala, San Pedro Ayampuc","level":"info","service":"user-service"}
+{"message":"Guatemala, Mixco","level":"info","service":"user-service"}
+{"message":"Guatemala, San Pedro Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Guatemala, San Juan Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Guatemala, San Raymundo","level":"info","service":"user-service"}
+{"message":"Guatemala, Chuarrancho","level":"info","service":"user-service"}
+{"message":"Guatemala, Fraijanes","level":"info","service":"user-service"}
+{"message":"Guatemala, Amatitlán","level":"info","service":"user-service"}
+{"message":"Guatemala, Villa Nueva","level":"info","service":"user-service"}
+{"message":"Guatemala, Villa Canales","level":"info","service":"user-service"}
+{"message":"Guatemala, San Miguel Petapa","level":"info","service":"user-service"}
+{"message":"El Progreso, Guastatoya","level":"info","service":"user-service"}
+{"message":"El Progreso, Morazán","level":"info","service":"user-service"}
+{"message":"El Progreso, San Agustín Acasaguastlán","level":"info","service":"user-service"}
+{"message":"El Progreso, San Cristóbal Acasaguastlán","level":"info","service":"user-service"}
+{"message":"El Progreso, El Jícaro","level":"info","service":"user-service"}
+{"message":"El Progreso, Sansare","level":"info","service":"user-service"}
+{"message":"El Progreso, Sanarate","level":"info","service":"user-service"}
+{"message":"El Progreso, San Antonio La Paz","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Antigua Guatemala","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Jocotenango","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Pastores","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Sumpango","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santo Domingo Xenacoj","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santiago Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Bartolomé Milpas Altas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Lucas Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santa Lucía Milpas Altas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Magdalena Milpas Altas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santa María de Jesús","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Ciudad Vieja","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Miguel Dueñas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Alotenango","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Antonio Aguas Calientes","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santa Catarina Barahona","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Chimaltenango","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San José Poaquil","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Martín Jilotepeque","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Juan Comalapa","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Santa Apolonia","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Tecpán Guatemala","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Patzún","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Miguel Pochuta","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Patzicía","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Santa Cruz Balanyá","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Acatenango","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Pedro Yepocapa","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Andrés Itzapa","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Parramos","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Zaragoza","level":"info","service":"user-service"}
+{"message":"Chimaltenango, El Tejar","level":"info","service":"user-service"}
+{"message":"Escuintla, Escuintla","level":"info","service":"user-service"}
+{"message":"Escuintla, Santa Lucía Cotzulmalguapa","level":"info","service":"user-service"}
+{"message":"Escuintla, La Democracia","level":"info","service":"user-service"}
+{"message":"Escuintla, Siquinalá","level":"info","service":"user-service"}
+{"message":"Escuintla, Masagua","level":"info","service":"user-service"}
+{"message":"Escuintla, Tiquisate","level":"info","service":"user-service"}
+{"message":"Escuintla, La Gomera","level":"info","service":"user-service"}
+{"message":"Escuintla, Guanagazapa","level":"info","service":"user-service"}
+{"message":"Escuintla, San José","level":"info","service":"user-service"}
+{"message":"Escuintla, Iztapa","level":"info","service":"user-service"}
+{"message":"Escuintla, Palín","level":"info","service":"user-service"}
+{"message":"Escuintla, San Vicente Pacaya","level":"info","service":"user-service"}
+{"message":"Escuintla, Nueva Concepción","level":"info","service":"user-service"}
+{"message":"Escuintla, Sipacate","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Cuilapa","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Barberena","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Santa Rosa de Lima","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Casillas","level":"info","service":"user-service"}
+{"message":"Santa Rosa, San Rafael Las Flores","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Oratorio","level":"info","service":"user-service"}
+{"message":"Santa Rosa, San Juan Tecuaco","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Chiquimulilla","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Taxisco","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Santa María Ixhuatán","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Guazacapán","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Santa Cruz Naranjo","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Pueblo Nuevo Viñas","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Nueva Santa Rosa","level":"info","service":"user-service"}
+{"message":"Sololá, Sololá","level":"info","service":"user-service"}
+{"message":"Sololá, San José Chacayá","level":"info","service":"user-service"}
+{"message":"Sololá, Santa María Visitación","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Lucía Utatlán","level":"info","service":"user-service"}
+{"message":"Sololá, Nahualá","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Catarina Ixtahuacán","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Clara La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, Concepción","level":"info","service":"user-service"}
+{"message":"Sololá, San Andrés Semetabaj","level":"info","service":"user-service"}
+{"message":"Sololá, Panajachel","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Catarina Palopó","level":"info","service":"user-service"}
+{"message":"Sololá, San Antonio Palopó","level":"info","service":"user-service"}
+{"message":"Sololá, San Lucas Tolimán","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Cruz La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Pablo La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Marcos La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Juan La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Pedro La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, Santiago Atitlán","level":"info","service":"user-service"}
+{"message":"Totonicapán, Totonicapán","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Cristóbal Totonicapán","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Francisco El Alto","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Andrés Xecul","level":"info","service":"user-service"}
+{"message":"Totonicapán, Momostenango","level":"info","service":"user-service"}
+{"message":"Totonicapán, Santa María Chiquimula","level":"info","service":"user-service"}
+{"message":"Totonicapán, Santa Lucía La Reforma","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Bartolo Aguas Calientes","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Quetzaltenango","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Salcajá","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Olintepeque","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Carlos Sija","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Sibilia","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Cabricán","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Cajolá","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Miguel Sigüila","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Juan Ostuncalco","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Mateo","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Concepción Chiquirichapa","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Martín Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Almolonga","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Cantel","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Huitán","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Zunil","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Colomba","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Francisco La Unión","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, El Palmar","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Coatepeque","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Génova","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Flores Costa Cuca","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, La Esperanza","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Palestina de los Altos","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Mazatenango","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Cuyotenango","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Francisco Zapotitlán","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Bernardino","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San José El Ídolo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Santo Domingo Suchitepéquez","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Lorenzo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Samayac","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Pablo Jocopilas","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Antonio Suchitepéquez","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Miguel Panán","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Gabriel","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Chicacao","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Patulul","level":"info","service":"user-service"}
+{"message":"El municipio 1015 Suchitepéquez,\n                Santa Bárbara no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+{"message":"Suchitepéquez, Santa Bárbara","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Juan Bautista","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Santo Tomas La Unión","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Zunilito","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Pueblo Nuevo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Río Bravo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San José La Máquina","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Retalhuleu","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Sebastián","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Santa Cruz Muluá","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Martín Zapotitlán","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Felipe Retalhuleu","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Andrés Villa Seca","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Champerico","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Nuevo San Carlos","level":"info","service":"user-service"}
+{"message":"Retalhuleu, El Asintal","level":"info","service":"user-service"}
+{"message":"San Marcos, San Marcos","level":"info","service":"user-service"}
+{"message":"El municipio 1202 San Marcos,\n                San Pedro Sacatepéquez no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+{"message":"San Marcos, San Pedro Sacatepéquez","level":"info","service":"user-service"}
+{"message":"San Marcos, San Antonio Sacatepéquez","level":"info","service":"user-service"}
+{"message":"San Marcos, Comitancillo","level":"info","service":"user-service"}
+{"message":"San Marcos, San Miguel Ixtahuacán","level":"info","service":"user-service"}
+{"message":"San Marcos, Concepción Tutuapa","level":"info","service":"user-service"}
+{"message":"San Marcos, Tacaná","level":"info","service":"user-service"}
+{"message":"San Marcos, Sibinal","level":"info","service":"user-service"}
+{"message":"San Marcos, Tajumulco","level":"info","service":"user-service"}
+{"message":"San Marcos, Tejutla","level":"info","service":"user-service"}
+{"message":"San Marcos, San Rafael Pie de la Cuesta","level":"info","service":"user-service"}
+{"message":"San Marcos, Nuevo Progreso","level":"info","service":"user-service"}
+{"message":"San Marcos, El Tumbador","level":"info","service":"user-service"}
+{"message":"San Marcos, El Rodeo","level":"info","service":"user-service"}
+{"message":"San Marcos, Malacatán","level":"info","service":"user-service"}
+{"message":"San Marcos, Catarina","level":"info","service":"user-service"}
+{"message":"San Marcos, Ayutla","level":"info","service":"user-service"}
+{"message":"San Marcos, Ocós","level":"info","service":"user-service"}
+{"message":"San Marcos, San Pablo","level":"info","service":"user-service"}
+{"message":"San Marcos, El Quetzal","level":"info","service":"user-service"}
+{"message":"San Marcos, La Reforma","level":"info","service":"user-service"}
+{"message":"San Marcos, Pajapita","level":"info","service":"user-service"}
+{"message":"San Marcos, Ixchiguán","level":"info","service":"user-service"}
+{"message":"San Marcos, San José Ojetenam","level":"info","service":"user-service"}
+{"message":"San Marcos, San Cristóbal Cucho","level":"info","service":"user-service"}
+{"message":"San Marcos, Sipacapa","level":"info","service":"user-service"}
+{"message":"San Marcos, Esquipulas Palo Gordo","level":"info","service":"user-service"}
+{"message":"San Marcos, Río Blanco","level":"info","service":"user-service"}
+{"message":"San Marcos, San Lorenzo","level":"info","service":"user-service"}
+{"message":"Guatemala, Guatemala","level":"info","service":"user-service"}
+{"message":"Guatemala, Santa Catarina Pinula","level":"info","service":"user-service"}
+{"message":"Guatemala, San José Pinula","level":"info","service":"user-service"}
+{"message":"Guatemala, San José del Golfo","level":"info","service":"user-service"}
+{"message":"Guatemala, Palencia","level":"info","service":"user-service"}
+{"message":"Guatemala, Chinautla","level":"info","service":"user-service"}
+{"message":"Guatemala, San Pedro Ayampuc","level":"info","service":"user-service"}
+{"message":"Guatemala, Mixco","level":"info","service":"user-service"}
+{"message":"Guatemala, San Pedro Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Guatemala, San Juan Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Guatemala, San Raymundo","level":"info","service":"user-service"}
+{"message":"Guatemala, Chuarrancho","level":"info","service":"user-service"}
+{"message":"Guatemala, Fraijanes","level":"info","service":"user-service"}
+{"message":"Guatemala, Amatitlán","level":"info","service":"user-service"}
+{"message":"Guatemala, Villa Nueva","level":"info","service":"user-service"}
+{"message":"Guatemala, Villa Canales","level":"info","service":"user-service"}
+{"message":"Guatemala, San Miguel Petapa","level":"info","service":"user-service"}
+{"message":"El Progreso, Guastatoya","level":"info","service":"user-service"}
+{"message":"El Progreso, Morazán","level":"info","service":"user-service"}
+{"message":"El Progreso, San Agustín Acasaguastlán","level":"info","service":"user-service"}
+{"message":"El Progreso, San Cristóbal Acasaguastlán","level":"info","service":"user-service"}
+{"message":"El Progreso, El Jícaro","level":"info","service":"user-service"}
+{"message":"El Progreso, Sansare","level":"info","service":"user-service"}
+{"message":"El Progreso, Sanarate","level":"info","service":"user-service"}
+{"message":"El Progreso, San Antonio La Paz","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Antigua Guatemala","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Jocotenango","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Pastores","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Sumpango","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santo Domingo Xenacoj","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santiago Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Bartolomé Milpas Altas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Lucas Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santa Lucía Milpas Altas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Magdalena Milpas Altas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santa María de Jesús","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Ciudad Vieja","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Miguel Dueñas","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Alotenango","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, San Antonio Aguas Calientes","level":"info","service":"user-service"}
+{"message":"Sacatepéquez, Santa Catarina Barahona","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Chimaltenango","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San José Poaquil","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Martín Jilotepeque","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Juan Comalapa","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Santa Apolonia","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Tecpán Guatemala","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Patzún","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Miguel Pochuta","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Patzicía","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Santa Cruz Balanyá","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Acatenango","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Pedro Yepocapa","level":"info","service":"user-service"}
+{"message":"Chimaltenango, San Andrés Itzapa","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Parramos","level":"info","service":"user-service"}
+{"message":"Chimaltenango, Zaragoza","level":"info","service":"user-service"}
+{"message":"Chimaltenango, El Tejar","level":"info","service":"user-service"}
+{"message":"Escuintla, Escuintla","level":"info","service":"user-service"}
+{"message":"Escuintla, Santa Lucía Cotzulmalguapa","level":"info","service":"user-service"}
+{"message":"Escuintla, La Democracia","level":"info","service":"user-service"}
+{"message":"Escuintla, Siquinalá","level":"info","service":"user-service"}
+{"message":"Escuintla, Masagua","level":"info","service":"user-service"}
+{"message":"Escuintla, Tiquisate","level":"info","service":"user-service"}
+{"message":"Escuintla, La Gomera","level":"info","service":"user-service"}
+{"message":"Escuintla, Guanagazapa","level":"info","service":"user-service"}
+{"message":"Escuintla, San José","level":"info","service":"user-service"}
+{"message":"Escuintla, Iztapa","level":"info","service":"user-service"}
+{"message":"Escuintla, Palín","level":"info","service":"user-service"}
+{"message":"Escuintla, San Vicente Pacaya","level":"info","service":"user-service"}
+{"message":"Escuintla, Nueva Concepción","level":"info","service":"user-service"}
+{"message":"Escuintla, Sipacate","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Cuilapa","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Barberena","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Santa Rosa de Lima","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Casillas","level":"info","service":"user-service"}
+{"message":"Santa Rosa, San Rafael Las Flores","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Oratorio","level":"info","service":"user-service"}
+{"message":"Santa Rosa, San Juan Tecuaco","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Chiquimulilla","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Taxisco","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Santa María Ixhuatán","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Guazacapán","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Santa Cruz Naranjo","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Pueblo Nuevo Viñas","level":"info","service":"user-service"}
+{"message":"Santa Rosa, Nueva Santa Rosa","level":"info","service":"user-service"}
+{"message":"Sololá, Sololá","level":"info","service":"user-service"}
+{"message":"Sololá, San José Chacayá","level":"info","service":"user-service"}
+{"message":"Sololá, Santa María Visitación","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Lucía Utatlán","level":"info","service":"user-service"}
+{"message":"Sololá, Nahualá","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Catarina Ixtahuacán","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Clara La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, Concepción","level":"info","service":"user-service"}
+{"message":"Sololá, San Andrés Semetabaj","level":"info","service":"user-service"}
+{"message":"Sololá, Panajachel","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Catarina Palopó","level":"info","service":"user-service"}
+{"message":"Sololá, San Antonio Palopó","level":"info","service":"user-service"}
+{"message":"Sololá, San Lucas Tolimán","level":"info","service":"user-service"}
+{"message":"Sololá, Santa Cruz La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Pablo La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Marcos La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Juan La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, San Pedro La Laguna","level":"info","service":"user-service"}
+{"message":"Sololá, Santiago Atitlán","level":"info","service":"user-service"}
+{"message":"Totonicapán, Totonicapán","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Cristóbal Totonicapán","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Francisco El Alto","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Andrés Xecul","level":"info","service":"user-service"}
+{"message":"Totonicapán, Momostenango","level":"info","service":"user-service"}
+{"message":"Totonicapán, Santa María Chiquimula","level":"info","service":"user-service"}
+{"message":"Totonicapán, Santa Lucía La Reforma","level":"info","service":"user-service"}
+{"message":"Totonicapán, San Bartolo Aguas Calientes","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Quetzaltenango","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Salcajá","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Olintepeque","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Carlos Sija","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Sibilia","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Cabricán","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Cajolá","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Miguel Sigüila","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Juan Ostuncalco","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Mateo","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Concepción Chiquirichapa","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Martín Sacatepéquez","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Almolonga","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Cantel","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Huitán","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Zunil","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Colomba","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, San Francisco La Unión","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, El Palmar","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Coatepeque","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Génova","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Flores Costa Cuca","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, La Esperanza","level":"info","service":"user-service"}
+{"message":"Quetzaltenango, Palestina de los Altos","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Mazatenango","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Cuyotenango","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Francisco Zapotitlán","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Bernardino","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San José El Ídolo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Santo Domingo Suchitepéquez","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Lorenzo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Samayac","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Pablo Jocopilas","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Antonio Suchitepéquez","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Miguel Panán","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Gabriel","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Chicacao","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Patulul","level":"info","service":"user-service"}
+{"message":"El municipio 1015 Suchitepéquez,\n                Santa Bárbara no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+{"message":"Suchitepéquez, Santa Bárbara","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San Juan Bautista","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Santo Tomas La Unión","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Zunilito","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Pueblo Nuevo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, Río Bravo","level":"info","service":"user-service"}
+{"message":"Suchitepéquez, San José La Máquina","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Retalhuleu","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Sebastián","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Santa Cruz Muluá","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Martín Zapotitlán","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Felipe Retalhuleu","level":"info","service":"user-service"}
+{"message":"Retalhuleu, San Andrés Villa Seca","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Champerico","level":"info","service":"user-service"}
+{"message":"Retalhuleu, Nuevo San Carlos","level":"info","service":"user-service"}
+{"message":"Retalhuleu, El Asintal","level":"info","service":"user-service"}
+{"message":"San Marcos, San Marcos","level":"info","service":"user-service"}
+{"message":"El municipio 1202 San Marcos,\n                San Pedro Sacatepéquez no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+{"message":"San Marcos, San Pedro Sacatepéquez","level":"info","service":"user-service"}
+{"message":"San Marcos, San Antonio Sacatepéquez","level":"info","service":"user-service"}
+{"message":"San Marcos, Comitancillo","level":"info","service":"user-service"}
+{"message":"San Marcos, San Miguel Ixtahuacán","level":"info","service":"user-service"}
+{"message":"San Marcos, Concepción Tutuapa","level":"info","service":"user-service"}
+{"message":"San Marcos, Tacaná","level":"info","service":"user-service"}
+{"message":"San Marcos, Sibinal","level":"info","service":"user-service"}
+{"message":"San Marcos, Tajumulco","level":"info","service":"user-service"}
+{"message":"San Marcos, Tejutla","level":"info","service":"user-service"}
+{"message":"San Marcos, San Rafael Pie de la Cuesta","level":"info","service":"user-service"}
+{"message":"San Marcos, Nuevo Progreso","level":"info","service":"user-service"}
+{"message":"San Marcos, El Tumbador","level":"info","service":"user-service"}
+{"message":"San Marcos, El Rodeo","level":"info","service":"user-service"}
+{"message":"San Marcos, Malacatán","level":"info","service":"user-service"}
+{"message":"San Marcos, Catarina","level":"info","service":"user-service"}
+{"message":"San Marcos, Ayutla","level":"info","service":"user-service"}
+{"message":"San Marcos, Ocós","level":"info","service":"user-service"}
+{"message":"San Marcos, San Pablo","level":"info","service":"user-service"}
+{"message":"San Marcos, El Quetzal","level":"info","service":"user-service"}
+{"message":"San Marcos, La Reforma","level":"info","service":"user-service"}
+{"message":"San Marcos, Pajapita","level":"info","service":"user-service"}
+{"message":"San Marcos, Ixchiguán","level":"info","service":"user-service"}
+{"message":"San Marcos, San José Ojetenam","level":"info","service":"user-service"}
+{"message":"San Marcos, San Cristóbal Cucho","level":"info","service":"user-service"}
+{"message":"San Marcos, Sipacapa","level":"info","service":"user-service"}
+{"message":"San Marcos, Esquipulas Palo Gordo","level":"info","service":"user-service"}
+{"message":"San Marcos, Río Blanco","level":"info","service":"user-service"}
+{"message":"San Marcos, San Lorenzo","level":"info","service":"user-service"}
+{"message":"San Marcos, La Blanca","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Huehuetenango","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Chiantla","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Malacatancito","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Cuilco","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Nentón","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Pedro Necta","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Jacaltenango","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Pedro Soloma","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Idelfonso Ixtahuacán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Santa Bárbara","level":"info","service":"user-service"}
+{"message":"Huehuetenango, La Libertad","level":"info","service":"user-service"}
+{"message":"Huehuetenango, La Democracia","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Miguel Acatán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Rafael La Independencia","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Todos Santos Cuchumatán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Juan Atitán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Santa Eulalia","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Mateo Ixtatán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Colotenango","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Sebastián Huehuetenango","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Tectitán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Concepción Huista","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Juan Ixcoy","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Antonio Huista","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Sebastián Coatán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Barillas","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Aguacatán","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Rafael Pétzal","level":"info","service":"user-service"}
+{"message":"Huehuetenango, San Gaspar Ixchil","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Santiago Chimaltenango","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Santa Ana Huista","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Unión Cantinil","level":"info","service":"user-service"}
+{"message":"Huehuetenango, Petatán","level":"info","service":"user-service"}
+{"message":"Quiché, Santa Cruz del Quiché","level":"info","service":"user-service"}
+{"message":"Quiché, Chiché","level":"info","service":"user-service"}
+{"message":"Quiché, Chinique","level":"info","service":"user-service"}
+{"message":"Quiché, Zacualpa","level":"info","service":"user-service"}
+{"message":"Quiché, Chajul","level":"info","service":"user-service"}
+{"message":"Quiché, Chichicastenango","level":"info","service":"user-service"}
+{"message":"Quiché, Patzité","level":"info","service":"user-service"}
+{"message":"Quiché, San Antonio Ilotenango","level":"info","service":"user-service"}
+{"message":"Quiché, San Pedro Jocopilas","level":"info","service":"user-service"}
+{"message":"Quiché, Cunén","level":"info","service":"user-service"}
+{"message":"Quiché, San Juan Cotzal","level":"info","service":"user-service"}
+{"message":"Quiché, Joyabaj","level":"info","service":"user-service"}
+{"message":"Quiché, Nebaj","level":"info","service":"user-service"}
+{"message":"Quiché, San Andrés Sajcabajá","level":"info","service":"user-service"}
+{"message":"Quiché, San Miguel Uspantán","level":"info","service":"user-service"}
+{"message":"Quiché, Sacapulas","level":"info","service":"user-service"}
+{"message":"Quiché, San Bartolomé Jocotenango","level":"info","service":"user-service"}
+{"message":"Quiché, Canillá","level":"info","service":"user-service"}
+{"message":"Quiché, Chicamán","level":"info","service":"user-service"}
+{"message":"Quiché, Ixcán","level":"info","service":"user-service"}
+{"message":"Quiché, Pachalum","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, Salamá","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, San Miguel Chicaj","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, Rabinal","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, Cubulco","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, Granados","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, Santa Cruz El Chol","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, San Jerónimo","level":"info","service":"user-service"}
+{"message":"Baja Verapaz, Purulhá","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Cobán","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Santa Cruz Verapaz","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, San Cristóbal Verapaz","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Tactic","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Tamahú","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, San Miguel Tucurú","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Panzós","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Senahú","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, San Pedro Carchá","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, San Juan Chamelco","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, San Agustín Lanquín","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Santa María Cahabón","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Chisec","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Chahal","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Fray Bartolomé de las Casas","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Santa Catalina La Tinta","level":"info","service":"user-service"}
+{"message":"Alta Verapaz, Raxruhá","level":"info","service":"user-service"}
+{"message":"Petén, Flores","level":"info","service":"user-service"}
+{"message":"Petén, San José","level":"info","service":"user-service"}
+{"message":"Petén, San Benito","level":"info","service":"user-service"}
+{"message":"Petén, San Andrés","level":"info","service":"user-service"}
+{"message":"Petén, La Libertad","level":"info","service":"user-service"}
+{"message":"Petén, San Francisco","level":"info","service":"user-service"}
+{"message":"Petén, Santa Ana","level":"info","service":"user-service"}
+{"message":"Petén, Dolores","level":"info","service":"user-service"}
+{"message":"Petén, San Luis","level":"info","service":"user-service"}
+{"message":"Petén, Sayaxché","level":"info","service":"user-service"}
+{"message":"Petén, Melchor de Mencos","level":"info","service":"user-service"}
+{"message":"Petén, Poptún","level":"info","service":"user-service"}
+{"message":"Petén, Las Cruces","level":"info","service":"user-service"}
+{"message":"Petén, El Chal","level":"info","service":"user-service"}
+{"message":"Izabal, Puerto Barrios","level":"info","service":"user-service"}
+{"message":"Izabal, Livingston","level":"info","service":"user-service"}
+{"message":"Izabal, El Estor","level":"info","service":"user-service"}
+{"message":"Izabal, Morales","level":"info","service":"user-service"}
+{"message":"Izabal, Los Amates","level":"info","service":"user-service"}
+{"message":"Zacapa, Zacapa","level":"info","service":"user-service"}
+{"message":"Zacapa, Estanzuela","level":"info","service":"user-service"}
+{"message":"Zacapa, Río Hondo","level":"info","service":"user-service"}
+{"message":"Zacapa, Gualán","level":"info","service":"user-service"}
+{"message":"Zacapa, Teculután","level":"info","service":"user-service"}
+{"message":"Zacapa, Usumatlán","level":"info","service":"user-service"}
+{"message":"Zacapa, Cabañas","level":"info","service":"user-service"}
+{"message":"Zacapa, San Diego","level":"info","service":"user-service"}
+{"message":"Zacapa, La Unión","level":"info","service":"user-service"}
+{"message":"Zacapa, Huité","level":"info","service":"user-service"}
+{"message":"Zacapa, San Jorge","level":"info","service":"user-service"}
+{"message":"Chiquimula, Chiquimula","level":"info","service":"user-service"}
+{"message":"Chiquimula, San José La Arada","level":"info","service":"user-service"}
+{"message":"Chiquimula, San Juan Ermita","level":"info","service":"user-service"}
+{"message":"Chiquimula, Jocotán","level":"info","service":"user-service"}
+{"message":"Chiquimula, Camotán","level":"info","service":"user-service"}
+{"message":"Chiquimula, Olopa","level":"info","service":"user-service"}
+{"message":"Chiquimula, Esquipulas","level":"info","service":"user-service"}
+{"message":"Chiquimula, Concepción las Minas","level":"info","service":"user-service"}
+{"message":"Chiquimula, Quezaltepeque","level":"info","service":"user-service"}
+{"message":"Chiquimula, San Jacinto","level":"info","service":"user-service"}
+{"message":"Chiquimula, Ipala","level":"info","service":"user-service"}
+{"message":"Jalapa, Jalapa","level":"info","service":"user-service"}
+{"message":"Jalapa, San Pedro Pinula","level":"info","service":"user-service"}
+{"message":"Jalapa, San Luis Jilotepeque","level":"info","service":"user-service"}
+{"message":"Jalapa, San Manuel Chaparrón","level":"info","service":"user-service"}
+{"message":"Jalapa, San Carlos Alzatate","level":"info","service":"user-service"}
+{"message":"Jalapa, Monjas","level":"info","service":"user-service"}
+{"message":"Jalapa, Mataquescuintla","level":"info","service":"user-service"}
+{"message":"Jutiapa, Jutiapa","level":"info","service":"user-service"}
+{"message":"Jutiapa, El Progreso","level":"info","service":"user-service"}
+{"message":"Jutiapa, Santa Catarina Mita","level":"info","service":"user-service"}
+{"message":"Jutiapa, Agua Blanca","level":"info","service":"user-service"}
+{"message":"Jutiapa, Asunción Mita","level":"info","service":"user-service"}
+{"message":"Jutiapa, Yupiltepeque","level":"info","service":"user-service"}
+{"message":"Jutiapa, Atescatempa","level":"info","service":"user-service"}
+{"message":"Jutiapa, Jerez","level":"info","service":"user-service"}
+{"message":"Jutiapa, El Adelanto","level":"info","service":"user-service"}
+{"message":"Jutiapa, Zapotitlán","level":"info","service":"user-service"}
+{"message":"Jutiapa, Comapa","level":"info","service":"user-service"}
+{"message":"Jutiapa, Jalpatagua","level":"info","service":"user-service"}
+{"message":"Jutiapa, Conguaco","level":"info","service":"user-service"}
+{"message":"Jutiapa, Moyuta","level":"info","service":"user-service"}
+{"message":"Jutiapa, Pasaco","level":"info","service":"user-service"}
+{"message":"Jutiapa, San José Acatempa","level":"info","service":"user-service"}
+{"message":"Jutiapa, Quesada","level":"info","service":"user-service"}
+{"message":"Indices data generated","level":"info","service":"user-service"}
+info: Guatemala, Guatemala {"service":"user-service"}
+info: Guatemala, Santa Catarina Pinula {"service":"user-service"}
+info: Guatemala, San José Pinula {"service":"user-service"}
+info: Guatemala, San José del Golfo {"service":"user-service"}
+info: Guatemala, Palencia {"service":"user-service"}
+info: Guatemala, Chinautla {"service":"user-service"}
+info: Guatemala, San Pedro Ayampuc {"service":"user-service"}
+info: Guatemala, Mixco {"service":"user-service"}
+info: Guatemala, San Pedro Sacatepéquez {"service":"user-service"}
+info: Guatemala, San Juan Sacatepéquez {"service":"user-service"}
+info: Guatemala, San Raymundo {"service":"user-service"}
+info: Guatemala, Chuarrancho {"service":"user-service"}
+info: Guatemala, Fraijanes {"service":"user-service"}
+info: Guatemala, Amatitlán {"service":"user-service"}
+info: Guatemala, Villa Nueva {"service":"user-service"}
+info: Guatemala, Villa Canales {"service":"user-service"}
+info: Guatemala, San Miguel Petapa {"service":"user-service"}
+info: El Progreso, Guastatoya {"service":"user-service"}
+info: El Progreso, Morazán {"service":"user-service"}
+info: El Progreso, San Agustín Acasaguastlán {"service":"user-service"}
+info: El Progreso, San Cristóbal Acasaguastlán {"service":"user-service"}
+info: El Progreso, El Jícaro {"service":"user-service"}
+info: El Progreso, Sansare {"service":"user-service"}
+info: El Progreso, Sanarate {"service":"user-service"}
+info: El Progreso, San Antonio La Paz {"service":"user-service"}
+info: Sacatepéquez, Antigua Guatemala {"service":"user-service"}
+info: Sacatepéquez, Jocotenango {"service":"user-service"}
+info: Sacatepéquez, Pastores {"service":"user-service"}
+info: Sacatepéquez, Sumpango {"service":"user-service"}
+info: Sacatepéquez, Santo Domingo Xenacoj {"service":"user-service"}
+info: Sacatepéquez, Santiago Sacatepéquez {"service":"user-service"}
+info: Sacatepéquez, San Bartolomé Milpas Altas {"service":"user-service"}
+info: Sacatepéquez, San Lucas Sacatepéquez {"service":"user-service"}
+info: Sacatepéquez, Santa Lucía Milpas Altas {"service":"user-service"}
+info: Sacatepéquez, Magdalena Milpas Altas {"service":"user-service"}
+info: Sacatepéquez, Santa María de Jesús {"service":"user-service"}
+info: Sacatepéquez, Ciudad Vieja {"service":"user-service"}
+info: Sacatepéquez, San Miguel Dueñas {"service":"user-service"}
+info: Sacatepéquez, Alotenango {"service":"user-service"}
+info: Sacatepéquez, San Antonio Aguas Calientes {"service":"user-service"}
+info: Sacatepéquez, Santa Catarina Barahona {"service":"user-service"}
+info: Chimaltenango, Chimaltenango {"service":"user-service"}
+info: Chimaltenango, San José Poaquil {"service":"user-service"}
+info: Chimaltenango, San Martín Jilotepeque {"service":"user-service"}
+info: Chimaltenango, San Juan Comalapa {"service":"user-service"}
+info: Chimaltenango, Santa Apolonia {"service":"user-service"}
+info: Chimaltenango, Tecpán Guatemala {"service":"user-service"}
+info: Chimaltenango, Patzún {"service":"user-service"}
+info: Chimaltenango, San Miguel Pochuta {"service":"user-service"}
+info: Chimaltenango, Patzicía {"service":"user-service"}
+info: Chimaltenango, Santa Cruz Balanyá {"service":"user-service"}
+info: Chimaltenango, Acatenango {"service":"user-service"}
+info: Chimaltenango, San Pedro Yepocapa {"service":"user-service"}
+info: Chimaltenango, San Andrés Itzapa {"service":"user-service"}
+info: Chimaltenango, Parramos {"service":"user-service"}
+info: Chimaltenango, Zaragoza {"service":"user-service"}
+info: Chimaltenango, El Tejar {"service":"user-service"}
+info: Escuintla, Escuintla {"service":"user-service"}
+info: Escuintla, Santa Lucía Cotzulmalguapa {"service":"user-service"}
+info: Escuintla, La Democracia {"service":"user-service"}
+info: Escuintla, Siquinalá {"service":"user-service"}
+info: Escuintla, Masagua {"service":"user-service"}
+info: Escuintla, Tiquisate {"service":"user-service"}
+info: Escuintla, La Gomera {"service":"user-service"}
+info: Escuintla, Guanagazapa {"service":"user-service"}
+info: Escuintla, San José {"service":"user-service"}
+info: Escuintla, Iztapa {"service":"user-service"}
+info: Escuintla, Palín {"service":"user-service"}
+info: Escuintla, San Vicente Pacaya {"service":"user-service"}
+info: Escuintla, Nueva Concepción {"service":"user-service"}
+info: Escuintla, Sipacate {"service":"user-service"}
+info: Santa Rosa, Cuilapa {"service":"user-service"}
+info: Santa Rosa, Barberena {"service":"user-service"}
+info: Santa Rosa, Santa Rosa de Lima {"service":"user-service"}
+info: Santa Rosa, Casillas {"service":"user-service"}
+info: Santa Rosa, San Rafael Las Flores {"service":"user-service"}
+info: Santa Rosa, Oratorio {"service":"user-service"}
+info: Santa Rosa, San Juan Tecuaco {"service":"user-service"}
+info: Santa Rosa, Chiquimulilla {"service":"user-service"}
+info: Santa Rosa, Taxisco {"service":"user-service"}
+info: Santa Rosa, Santa María Ixhuatán {"service":"user-service"}
+info: Santa Rosa, Guazacapán {"service":"user-service"}
+info: Santa Rosa, Santa Cruz Naranjo {"service":"user-service"}
+info: Santa Rosa, Pueblo Nuevo Viñas {"service":"user-service"}
+info: Santa Rosa, Nueva Santa Rosa {"service":"user-service"}
+info: Sololá, Sololá {"service":"user-service"}
+info: Sololá, San José Chacayá {"service":"user-service"}
+info: Sololá, Santa María Visitación {"service":"user-service"}
+info: Sololá, Santa Lucía Utatlán {"service":"user-service"}
+info: Sololá, Nahualá {"service":"user-service"}
+info: Sololá, Santa Catarina Ixtahuacán {"service":"user-service"}
+info: Sololá, Santa Clara La Laguna {"service":"user-service"}
+info: Sololá, Concepción {"service":"user-service"}
+info: Sololá, San Andrés Semetabaj {"service":"user-service"}
+info: Sololá, Panajachel {"service":"user-service"}
+info: Sololá, Santa Catarina Palopó {"service":"user-service"}
+info: Sololá, San Antonio Palopó {"service":"user-service"}
+info: Sololá, San Lucas Tolimán {"service":"user-service"}
+info: Sololá, Santa Cruz La Laguna {"service":"user-service"}
+info: Sololá, San Pablo La Laguna {"service":"user-service"}
+info: Sololá, San Marcos La Laguna {"service":"user-service"}
+info: Sololá, San Juan La Laguna {"service":"user-service"}
+info: Sololá, San Pedro La Laguna {"service":"user-service"}
+info: Sololá, Santiago Atitlán {"service":"user-service"}
+info: Totonicapán, Totonicapán {"service":"user-service"}
+info: Totonicapán, San Cristóbal Totonicapán {"service":"user-service"}
+info: Totonicapán, San Francisco El Alto {"service":"user-service"}
+info: Totonicapán, San Andrés Xecul {"service":"user-service"}
+info: Totonicapán, Momostenango {"service":"user-service"}
+info: Totonicapán, Santa María Chiquimula {"service":"user-service"}
+info: Totonicapán, Santa Lucía La Reforma {"service":"user-service"}
+info: Totonicapán, San Bartolo Aguas Calientes {"service":"user-service"}
+info: Quetzaltenango, Quetzaltenango {"service":"user-service"}
+info: Quetzaltenango, Salcajá {"service":"user-service"}
+info: Quetzaltenango, Olintepeque {"service":"user-service"}
+info: Quetzaltenango, San Carlos Sija {"service":"user-service"}
+info: Quetzaltenango, Sibilia {"service":"user-service"}
+info: Quetzaltenango, Cabricán {"service":"user-service"}
+info: Quetzaltenango, Cajolá {"service":"user-service"}
+info: Quetzaltenango, San Miguel Sigüila {"service":"user-service"}
+info: Quetzaltenango, San Juan Ostuncalco {"service":"user-service"}
+info: Quetzaltenango, San Mateo {"service":"user-service"}
+info: Quetzaltenango, Concepción Chiquirichapa {"service":"user-service"}
+info: Quetzaltenango, San Martín Sacatepéquez {"service":"user-service"}
+info: Quetzaltenango, Almolonga {"service":"user-service"}
+info: Quetzaltenango, Cantel {"service":"user-service"}
+info: Quetzaltenango, Huitán {"service":"user-service"}
+info: Quetzaltenango, Zunil {"service":"user-service"}
+info: Quetzaltenango, Colomba {"service":"user-service"}
+info: Quetzaltenango, San Francisco La Unión {"service":"user-service"}
+info: Quetzaltenango, El Palmar {"service":"user-service"}
+info: Quetzaltenango, Coatepeque {"service":"user-service"}
+info: Quetzaltenango, Génova {"service":"user-service"}
+info: Quetzaltenango, Flores Costa Cuca {"service":"user-service"}
+info: Quetzaltenango, La Esperanza {"service":"user-service"}
+info: Quetzaltenango, Palestina de los Altos {"service":"user-service"}
+info: Suchitepéquez, Mazatenango {"service":"user-service"}
+info: Suchitepéquez, Cuyotenango {"service":"user-service"}
+info: Suchitepéquez, San Francisco Zapotitlán {"service":"user-service"}
+info: Suchitepéquez, San Bernardino {"service":"user-service"}
+info: Suchitepéquez, San José El Ídolo {"service":"user-service"}
+info: Suchitepéquez, Santo Domingo Suchitepéquez {"service":"user-service"}
+info: Suchitepéquez, San Lorenzo {"service":"user-service"}
+info: Suchitepéquez, Samayac {"service":"user-service"}
+info: Suchitepéquez, San Pablo Jocopilas {"service":"user-service"}
+info: Suchitepéquez, San Antonio Suchitepéquez {"service":"user-service"}
+info: Suchitepéquez, San Miguel Panán {"service":"user-service"}
+info: Suchitepéquez, San Gabriel {"service":"user-service"}
+info: Suchitepéquez, Chicacao {"service":"user-service"}
+info: Suchitepéquez, Patulul {"service":"user-service"}
+error: El municipio 1015 Suchitepéquez,
+                Santa Bárbara no tiene finanzas 8 ejercicio 2019 {"service":"user-service"}
+info: Suchitepéquez, Santa Bárbara {"service":"user-service"}
+info: Suchitepéquez, San Juan Bautista {"service":"user-service"}
+info: Suchitepéquez, Santo Tomas La Unión {"service":"user-service"}
+info: Suchitepéquez, Zunilito {"service":"user-service"}
+info: Suchitepéquez, Pueblo Nuevo {"service":"user-service"}
+info: Suchitepéquez, Río Bravo {"service":"user-service"}
+info: Suchitepéquez, San José La Máquina {"service":"user-service"}
+info: Retalhuleu, Retalhuleu {"service":"user-service"}
+info: Retalhuleu, San Sebastián {"service":"user-service"}
+info: Retalhuleu, Santa Cruz Muluá {"service":"user-service"}
+info: Retalhuleu, San Martín Zapotitlán {"service":"user-service"}
+info: Retalhuleu, San Felipe Retalhuleu {"service":"user-service"}
+info: Retalhuleu, San Andrés Villa Seca {"service":"user-service"}
+info: Retalhuleu, Champerico {"service":"user-service"}
+info: Retalhuleu, Nuevo San Carlos {"service":"user-service"}
+info: Retalhuleu, El Asintal {"service":"user-service"}
+info: San Marcos, San Marcos {"service":"user-service"}
+error: El municipio 1202 San Marcos,
+                San Pedro Sacatepéquez no tiene finanzas 8 ejercicio 2019 {"service":"user-service"}
+info: San Marcos, San Pedro Sacatepéquez {"service":"user-service"}
+info: San Marcos, San Antonio Sacatepéquez {"service":"user-service"}
+info: San Marcos, Comitancillo {"service":"user-service"}
+info: San Marcos, San Miguel Ixtahuacán {"service":"user-service"}
+info: San Marcos, Concepción Tutuapa {"service":"user-service"}
+info: San Marcos, Tacaná {"service":"user-service"}
+info: San Marcos, Sibinal {"service":"user-service"}
+info: San Marcos, Tajumulco {"service":"user-service"}
+info: San Marcos, Tejutla {"service":"user-service"}
+info: San Marcos, San Rafael Pie de la Cuesta {"service":"user-service"}
+info: San Marcos, Nuevo Progreso {"service":"user-service"}
+info: San Marcos, El Tumbador {"service":"user-service"}
+info: San Marcos, El Rodeo {"service":"user-service"}
+info: San Marcos, Malacatán {"service":"user-service"}
+info: San Marcos, Catarina {"service":"user-service"}
+info: San Marcos, Ayutla {"service":"user-service"}
+info: San Marcos, Ocós {"service":"user-service"}
+info: San Marcos, San Pablo {"service":"user-service"}
+info: San Marcos, El Quetzal {"service":"user-service"}
+info: San Marcos, La Reforma {"service":"user-service"}
+info: San Marcos, Pajapita {"service":"user-service"}
+info: San Marcos, Ixchiguán {"service":"user-service"}
+info: San Marcos, San José Ojetenam {"service":"user-service"}
+info: San Marcos, San Cristóbal Cucho {"service":"user-service"}
+info: San Marcos, Sipacapa {"service":"user-service"}
+info: San Marcos, Esquipulas Palo Gordo {"service":"user-service"}
+info: San Marcos, Río Blanco {"service":"user-service"}
+info: San Marcos, San Lorenzo {"service":"user-service"}
+info: San Marcos, La Blanca {"service":"user-service"}
+info: Huehuetenango, Huehuetenango {"service":"user-service"}
+info: Huehuetenango, Chiantla {"service":"user-service"}
+info: Huehuetenango, Malacatancito {"service":"user-service"}
+info: Huehuetenango, Cuilco {"service":"user-service"}
+info: Huehuetenango, Nentón {"service":"user-service"}
+info: Huehuetenango, San Pedro Necta {"service":"user-service"}
+info: Huehuetenango, Jacaltenango {"service":"user-service"}
+info: Huehuetenango, San Pedro Soloma {"service":"user-service"}
+info: Huehuetenango, San Idelfonso Ixtahuacán {"service":"user-service"}
+info: Huehuetenango, Santa Bárbara {"service":"user-service"}
+info: Huehuetenango, La Libertad {"service":"user-service"}
+info: Huehuetenango, La Democracia {"service":"user-service"}
+info: Huehuetenango, San Miguel Acatán {"service":"user-service"}
+info: Huehuetenango, San Rafael La Independencia {"service":"user-service"}
+info: Huehuetenango, Todos Santos Cuchumatán {"service":"user-service"}
+info: Huehuetenango, San Juan Atitán {"service":"user-service"}
+info: Huehuetenango, Santa Eulalia {"service":"user-service"}
+info: Huehuetenango, San Mateo Ixtatán {"service":"user-service"}
+info: Huehuetenango, Colotenango {"service":"user-service"}
+info: Huehuetenango, San Sebastián Huehuetenango {"service":"user-service"}
+info: Huehuetenango, Tectitán {"service":"user-service"}
+info: Huehuetenango, Concepción Huista {"service":"user-service"}
+info: Huehuetenango, San Juan Ixcoy {"service":"user-service"}
+info: Huehuetenango, San Antonio Huista {"service":"user-service"}
+info: Huehuetenango, San Sebastián Coatán {"service":"user-service"}
+info: Huehuetenango, Barillas {"service":"user-service"}
+info: Huehuetenango, Aguacatán {"service":"user-service"}
+info: Huehuetenango, San Rafael Pétzal {"service":"user-service"}
+info: Huehuetenango, San Gaspar Ixchil {"service":"user-service"}
+info: Huehuetenango, Santiago Chimaltenango {"service":"user-service"}
+info: Huehuetenango, Santa Ana Huista {"service":"user-service"}
+info: Huehuetenango, Unión Cantinil {"service":"user-service"}
+info: Huehuetenango, Petatán {"service":"user-service"}
+info: Quiché, Santa Cruz del Quiché {"service":"user-service"}
+info: Quiché, Chiché {"service":"user-service"}
+info: Quiché, Chinique {"service":"user-service"}
+info: Quiché, Zacualpa {"service":"user-service"}
+info: Quiché, Chajul {"service":"user-service"}
+info: Quiché, Chichicastenango {"service":"user-service"}
+info: Quiché, Patzité {"service":"user-service"}
+info: Quiché, San Antonio Ilotenango {"service":"user-service"}
+info: Quiché, San Pedro Jocopilas {"service":"user-service"}
+info: Quiché, Cunén {"service":"user-service"}
+info: Quiché, San Juan Cotzal {"service":"user-service"}
+info: Quiché, Joyabaj {"service":"user-service"}
+info: Quiché, Nebaj {"service":"user-service"}
+info: Quiché, San Andrés Sajcabajá {"service":"user-service"}
+info: Quiché, San Miguel Uspantán {"service":"user-service"}
+info: Quiché, Sacapulas {"service":"user-service"}
+info: Quiché, San Bartolomé Jocotenango {"service":"user-service"}
+info: Quiché, Canillá {"service":"user-service"}
+info: Quiché, Chicamán {"service":"user-service"}
+info: Quiché, Ixcán {"service":"user-service"}
+info: Quiché, Pachalum {"service":"user-service"}
+info: Baja Verapaz, Salamá {"service":"user-service"}
+info: Baja Verapaz, San Miguel Chicaj {"service":"user-service"}
+info: Baja Verapaz, Rabinal {"service":"user-service"}
+info: Baja Verapaz, Cubulco {"service":"user-service"}
+info: Baja Verapaz, Granados {"service":"user-service"}
+info: Baja Verapaz, Santa Cruz El Chol {"service":"user-service"}
+info: Baja Verapaz, San Jerónimo {"service":"user-service"}
+info: Baja Verapaz, Purulhá {"service":"user-service"}
+info: Alta Verapaz, Cobán {"service":"user-service"}
+info: Alta Verapaz, Santa Cruz Verapaz {"service":"user-service"}
+info: Alta Verapaz, San Cristóbal Verapaz {"service":"user-service"}
+info: Alta Verapaz, Tactic {"service":"user-service"}
+info: Alta Verapaz, Tamahú {"service":"user-service"}
+info: Alta Verapaz, San Miguel Tucurú {"service":"user-service"}
+info: Alta Verapaz, Panzós {"service":"user-service"}
+info: Alta Verapaz, Senahú {"service":"user-service"}
+info: Alta Verapaz, San Pedro Carchá {"service":"user-service"}
+info: Alta Verapaz, San Juan Chamelco {"service":"user-service"}
+info: Alta Verapaz, San Agustín Lanquín {"service":"user-service"}
+info: Alta Verapaz, Santa María Cahabón {"service":"user-service"}
+info: Alta Verapaz, Chisec {"service":"user-service"}
+info: Alta Verapaz, Chahal {"service":"user-service"}
+info: Alta Verapaz, Fray Bartolomé de las Casas {"service":"user-service"}
+info: Alta Verapaz, Santa Catalina La Tinta {"service":"user-service"}
+info: Alta Verapaz, Raxruhá {"service":"user-service"}
+info: Petén, Flores {"service":"user-service"}
+info: Petén, San José {"service":"user-service"}
+info: Petén, San Benito {"service":"user-service"}
+info: Petén, San Andrés {"service":"user-service"}
+info: Petén, La Libertad {"service":"user-service"}
+info: Petén, San Francisco {"service":"user-service"}
+info: Petén, Santa Ana {"service":"user-service"}
+info: Petén, Dolores {"service":"user-service"}
+info: Petén, San Luis {"service":"user-service"}
+info: Petén, Sayaxché {"service":"user-service"}
+info: Petén, Melchor de Mencos {"service":"user-service"}
+info: Petén, Poptún {"service":"user-service"}
+info: Petén, Las Cruces {"service":"user-service"}
+info: Petén, El Chal {"service":"user-service"}
+info: Izabal, Puerto Barrios {"service":"user-service"}
+info: Izabal, Livingston {"service":"user-service"}
+info: Izabal, El Estor {"service":"user-service"}
+info: Izabal, Morales {"service":"user-service"}
+info: Izabal, Los Amates {"service":"user-service"}
+info: Zacapa, Zacapa {"service":"user-service"}
+info: Zacapa, Estanzuela {"service":"user-service"}
+info: Zacapa, Río Hondo {"service":"user-service"}
+info: Zacapa, Gualán {"service":"user-service"}
+info: Zacapa, Teculután {"service":"user-service"}
+info: Zacapa, Usumatlán {"service":"user-service"}
+info: Zacapa, Cabañas {"service":"user-service"}
+info: Zacapa, San Diego {"service":"user-service"}
+info: Zacapa, La Unión {"service":"user-service"}
+info: Zacapa, Huité {"service":"user-service"}
+info: Zacapa, San Jorge {"service":"user-service"}
+info: Chiquimula, Chiquimula {"service":"user-service"}
+info: Chiquimula, San José La Arada {"service":"user-service"}
+info: Chiquimula, San Juan Ermita {"service":"user-service"}
+info: Chiquimula, Jocotán {"service":"user-service"}
+info: Chiquimula, Camotán {"service":"user-service"}
+info: Chiquimula, Olopa {"service":"user-service"}
+info: Chiquimula, Esquipulas {"service":"user-service"}
+info: Chiquimula, Concepción las Minas {"service":"user-service"}
+info: Chiquimula, Quezaltepeque {"service":"user-service"}
+info: Chiquimula, San Jacinto {"service":"user-service"}
+info: Chiquimula, Ipala {"service":"user-service"}
+info: Jalapa, Jalapa {"service":"user-service"}
+info: Jalapa, San Pedro Pinula {"service":"user-service"}
+info: Jalapa, San Luis Jilotepeque {"service":"user-service"}
+info: Jalapa, San Manuel Chaparrón {"service":"user-service"}
+info: Jalapa, San Carlos Alzatate {"service":"user-service"}
+info: Jalapa, Monjas {"service":"user-service"}
+info: Jalapa, Mataquescuintla {"service":"user-service"}
+info: Jutiapa, Jutiapa {"service":"user-service"}
+info: Jutiapa, El Progreso {"service":"user-service"}
+info: Jutiapa, Santa Catarina Mita {"service":"user-service"}
+info: Jutiapa, Agua Blanca {"service":"user-service"}
+info: Jutiapa, Asunción Mita {"service":"user-service"}
+info: Jutiapa, Yupiltepeque {"service":"user-service"}
+info: Jutiapa, Atescatempa {"service":"user-service"}
+info: Jutiapa, Jerez {"service":"user-service"}
+info: Jutiapa, El Adelanto {"service":"user-service"}
+info: Jutiapa, Zapotitlán {"service":"user-service"}
+info: Jutiapa, Comapa {"service":"user-service"}
+info: Jutiapa, Jalpatagua {"service":"user-service"}
+info: Jutiapa, Conguaco {"service":"user-service"}
+info: Jutiapa, Moyuta {"service":"user-service"}
+info: Jutiapa, Pasaco {"service":"user-service"}
+info: Jutiapa, San José Acatempa {"service":"user-service"}
+info: Jutiapa, Quesada {"service":"user-service"}
+info: Indices data generated {"service":"user-service"}

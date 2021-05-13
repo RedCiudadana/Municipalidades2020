@@ -154,6 +154,10 @@ function createChart(type, id, title, data, labels, options) {
       }
     }
 
+    if (options && options.maxLimit) {
+      maxLimit = options.maxLimit;
+    }
+
     const line = new Area(id, {
       data: g2plotdata,
       xField: 'label',
@@ -673,7 +677,8 @@ createChart(
       municipio.promedios.ipm.ipm2006,
       municipio.promedios.ipm.ipm2011,
       municipio.promedios.ipm.ipm2014
-    ]
+    ],
+    maxLimit: 1
   }
 );
 // Finanzas

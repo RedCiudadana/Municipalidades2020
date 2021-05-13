@@ -1,3 +1,18 @@
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.simple(),
+    transports: [
+        //
+        // - Write all logs with level `error` and below to `error.log`
+        // - Write all logs with level `info` and below to `combined.log`
+        //
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'combined.log' }),
+    ],
+});
+
 const camelcaseKeys = require('camelcase-keys');
 const fs = require('fs');
 
@@ -434,7 +449,7 @@ municipiosNormalize = municipios.map(function (municipio) {
 
         promedios[id_departamento].finanzas8.count += 1;
     } else {
-        console
+        logger
             .error(`El municipio ${municipio.id_municipal} ${municipio.departamento},
                 ${municipio.municipio} no tiene finanzas 8 ejercicio 2019`);
     }
@@ -475,7 +490,7 @@ municipiosNormalize = municipios.map(function (municipio) {
             && item._periodo === 2018;
     });
 
-    console.log(`${municipio.departamento}, ${municipio.municipio}`);
+    logger.info(`${municipio.departamento}, ${municipio.municipio}`);
 
     municipio = camelcaseKeys(municipio, { deep: true });
 
@@ -508,18 +523,45 @@ municipiosNormalize = municipiosNormalize.map((item) => {
 // Wait for all Promises to complete
 municipiosNormalize = municipiosNormalize.sort((a, b) => a.idMunicipal - b.idMunicipal);
 
-fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(municipiosNormalize), function (err) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Success build src/_data/municipiosData.json');
+// fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(municipiosNormalize), function (err) {
+//     if (err) {
+//         console.error(err);
+//     } else {
+//         console.log('Success build src/_data/municipiosData.json');
+//     }
+// });
+
+// fs.writeFile('./src/_data/municipioData.json', JSON.stringify(municipiosNormalize[0]), function (err) {
+//     if (err) {
+//         console.error(err);
+//     } else {
+//         console.log('Success build src/_data/municipioData.json');
+//     }
+// });
+
+let indices = municipiosNormalize.map((municipio) => {
+
+    let desnutricion = 0;
+    if (municipio.desnutricion.aguda2019) {
+        desnutricion =+ municipio.desnutricion.aguda2019.cantidad;
     }
+
+    if (municipio.desnutricion.cronica2019) {
+        desnutricion = + municipio.desnutricion.cronica2019.cantidad;
+    }
+
+    let data = {
+        idMunicipio: municipio.idMunicipal,
+        desnutricion
+    };
+
+    return data;
 });
 
-fs.writeFile('./src/_data/municipioData.json', JSON.stringify(municipiosNormalize[0]), function (err) {
+fs.writeFile(`./src/_data/indices.json`, JSON.stringify(indices), function (err) {
     if (err) {
-        console.error(err);
+        logger.error(err);
     } else {
-        console.log('Success build src/_data/municipioData.json');
+        logger.info(`Indices data generated`);
     }
 });

@@ -1,0 +1,8 @@
+{"message":"El municipio 1015 Suchitepéquez,\n                Santa Bárbara no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+{"message":"El municipio 1202 San Marcos,\n                San Pedro Sacatepéquez no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+{"message":"El municipio 1015 Suchitepéquez,\n                Santa Bárbara no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+{"message":"El municipio 1202 San Marcos,\n                San Pedro Sacatepéquez no tiene finanzas 8 ejercicio 2019","level":"error","service":"user-service"}
+error: El municipio 1015 Suchitepéquez,
+                Santa Bárbara no tiene finanzas 8 ejercicio 2019 {"service":"user-service"}
+error: El municipio 1202 San Marcos,
+                San Pedro Sacatepéquez no tiene finanzas 8 ejercicio 2019 {"service":"user-service"}
