@@ -206,6 +206,7 @@ title: Comparar
     window.municipios.forEach((municipio) => {
       if (departamentoSelected === municipio.departamento) {
         var option = document.createElement('option');
+        console.log(municipio);
         option.value = municipio.municipio;
         option.innerHTML = municipio.municipio;
         municipioSelect1.appendChild(option);
@@ -257,6 +258,11 @@ title: Comparar
     )) {
       return;
     }
+
+    console.log(departamento1.value);
+    console.log(departamento2.value);
+    console.log(municipio2.value);
+    console.log(municipio1.value);
 
     // busqueda de datos
 

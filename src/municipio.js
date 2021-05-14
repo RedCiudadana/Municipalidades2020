@@ -164,7 +164,13 @@ function createChart(type, id, title, data, labels, options) {
       yField: 'data',
       smooth: smooth,
       yAxis: {
-        maxLimit: maxLimit
+        maxLimit: maxLimit,
+        label: {
+          formatter: (text, item, index) => {
+            // console.log(text, item, index);
+            return parseInt(text);
+          }
+        }
       },
       tooltip: {
         formatter: ({ label, data }) => {
@@ -340,7 +346,6 @@ function createChart(type, id, title, data, labels, options) {
           maxData = Math.max(maxData, total);
         });
 
-        console.log(maxData);
         if (maxPromedio > maxData) {
           maxLimit = maxPromedio * 2;
         }
@@ -689,19 +694,19 @@ createChart(
   [
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
   ],
   [
@@ -712,10 +717,10 @@ createChart(
   ],
   {
     promedio: [
-      municipio.promedios.ejecucion7.asignado2016,
-      municipio.promedios.ejecucion7.asignado2017,
-      municipio.promedios.ejecucion7.asignado2018,
-      municipio.promedios.ejecucion7.asignado2019
+      Math.round(municipio.promedios.ejecucion7.asignado2016),
+      Math.round(municipio.promedios.ejecucion7.asignado2017),
+      Math.round(municipio.promedios.ejecucion7.asignado2018),
+      Math.round(municipio.promedios.ejecucion7.asignado2019),
     ]
   }
 );
@@ -729,7 +734,7 @@ createChart(
   'chart-finanzas-2',
   'Distribucion de Presupuesto Municipal 2019',
   ejecucion2019
-    .map((item) => item.asignado),
+    .map((item) => Math.round(item.asignado)),
   ejecucion2019
     .map((item) => item.funcion)
 );
@@ -741,19 +746,19 @@ createChart(
   [
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
-      .map((item) => item.devengado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
-      .map((item) => item.devengado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
-      .map((item) => item.devengado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
-      .map((item) => item.devengado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
   ],
   [
@@ -780,7 +785,7 @@ createChart(
   'treemap',
   'chart-finanzas-4',
   'Distribucion de Ejecución Presupuestaria Municipal 2019',
-  ejecucionPresupuestaria2019.map((item) => item.devengado),
+  ejecucionPresupuestaria2019.map((item) => Math.round(item.devengado)),
   ejecucionPresupuestaria2019.map((item) => item.funcion)
 );
 
@@ -812,7 +817,7 @@ var getTotalEjecucion = function (item) {
     item['donDeCapP/constrDeBieUsoNoComYOtrasInv'] +
     item['disminucionDeCuentasACobrar'];
 
-  return total;
+  return Math.round(total);
 }
 
 let dataFinanzas5 = [
@@ -1300,13 +1305,13 @@ let chart6EducacionPromedio = [];
 
 municipio.cuadro5.forEach((item) => {
   chart6Educacion.push({
-    data: item.lecturaMunicipal,
+    data: Math.round(item.lecturaMunicipal),
     label: item.periodo,
     serie: 'Lectura'
   });
 
   chart6Educacion.push({
-    data: item.matematicaMunicipal,
+    data: Math.round(item.matematicaMunicipal),
     label: item.periodo,
     serie: 'Matemática'
   });
@@ -1327,7 +1332,6 @@ createChart(
   null,
   {
     isG2plotData: true,
-    promedio: chart6EducacionPromedio,
     maxLimit: 200
   }
 );

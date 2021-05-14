@@ -54,7 +54,7 @@ Promise.all([
     latitude: { sync: true },
     longitude: { sync: true }
   });
-  chart.legend(true);
+  chart.legend(false);
   chart.axis(false);
 
   chart.tooltip({

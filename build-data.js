@@ -550,18 +550,36 @@ let indices = municipiosNormalize.map((municipio) => {
         desnutricion = + municipio.desnutricion.cronica2019.cantidad;
     }
 
+    let aip;
+    if (municipio.aip) {
+        aip = municipio.aip.aip2019;
+    }
+
+    let ipm;
+    if (municipio.ipm) {
+        ipm = municipio.ipm.ipm2014;
+    }
+
+    let igm;
+    if (municipio.ranking) {
+        igm = municipio.ranking.segeplan2018;
+    }
+
     let data = {
         idMunicipio: municipio.idMunicipal,
         idDepartamento: municipio.idDep,
         municipio: municipio.municipio,
         departamento: municipio.departamento,
-        desnutricion
+        desnutricion,
+        aip,
+        ipm,
+        igm
     };
 
     return data;
 });
 
-fs.writeFile(`./src/_data/indices.json`, JSON.stringify(indices), function (err) {
+fs.writeFile(`./assets/indices.json`, JSON.stringify(indices), function (err) {
     if (err) {
         logger.error(err);
     } else {
