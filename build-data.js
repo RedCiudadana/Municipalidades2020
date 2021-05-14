@@ -8,8 +8,8 @@ const logger = winston.createLogger({
         // - Write all logs with level `error` and below to `error.log`
         // - Write all logs with level `info` and below to `combined.log`
         //
-        new winston.transports.File({ filename: 'error.log', level: 'error' }),
-        new winston.transports.File({ filename: 'combined.log' }),
+        new winston.transports.File({ filename: 'log/error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'log/combined.log' }),
     ],
 });
 
@@ -523,21 +523,33 @@ municipiosNormalize = municipiosNormalize.map((item) => {
 // Wait for all Promises to complete
 municipiosNormalize = municipiosNormalize.sort((a, b) => a.idMunicipal - b.idMunicipal);
 
-// fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(municipiosNormalize), function (err) {
-//     if (err) {
-//         console.error(err);
-//     } else {
-//         console.log('Success build src/_data/municipiosData.json');
-//     }
-// });
+fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(municipiosNormalize), function (err) {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log('Success build src/_data/municipiosData.json');
+    }
+});
 
-// fs.writeFile('./src/_data/municipioData.json', JSON.stringify(municipiosNormalize[0]), function (err) {
-//     if (err) {
-//         console.error(err);
-//     } else {
-//         console.log('Success build src/_data/municipioData.json');
-//     }
-// });
+fs.writeFile('./src/_data/municipioData.json', JSON.stringify(municipiosNormalize[0]), function (err) {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log('Success build src/_data/municipioData.json');
+    }
+});
+
+// Assets for json requests.
+
+municipiosNormalize.forEach((municipio) => {
+    fs.writeFile(`./assets/municipios/${municipio.idMunicipal}.json`, JSON.stringify(municipio), function (err) {
+        if (err) {
+            logger.error(err);
+        } else {
+            logger.info(`success build ./assets/municipios/${municipio.idMunicipal}.json`);
+        }
+    });
+});
 
 let indices = municipiosNormalize.map((municipio) => {
 

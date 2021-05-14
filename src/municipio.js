@@ -436,28 +436,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// General
-createChart(
-  'pie',
-  'chart-general-1',
-  'Sexo',
-  [
-    municipio.cuadro10Poblacion.hombres,
-    municipio.cuadro10Poblacion.mujeres,
-  ],
-  ["Hombres", "Mujeres"]
-);
+if (municipio.cuadro10Poblacion) {
+  // General
+  createChart(
+    'pie',
+    'chart-general-1',
+    'Sexo',
+    [
+      municipio.cuadro10Poblacion.hombres,
+      municipio.cuadro10Poblacion.mujeres,
+    ],
+    ["Hombres", "Mujeres"]
+  );
 
-createChart(
-  'pie',
-  'chart-general-2',
-  'Tipo de área',
-  [
-    municipio.cuadro10Poblacion.urbana,
-    municipio.cuadro10Poblacion.rural,
-  ],
-  ["Urbana", "Rural"]
-);
+  createChart(
+    'pie',
+    'chart-general-2',
+    'Tipo de área',
+    [
+      municipio.cuadro10Poblacion.urbana,
+      municipio.cuadro10Poblacion.rural,
+    ],
+    ["Urbana", "Rural"]
+  );
+}
 
 // Gestion municipal
 createChart(
@@ -922,284 +924,258 @@ createChart(
 );
 // Poblacion
 // 1.- Población total por sexo
-createChart(
-  'pie',
-  'chart-poblacion-1',
-  'Sexo',
-  [
-    municipio.cuadro10Poblacion.hombres,
-    municipio.cuadro10Poblacion.mujeres,
-  ],
-  ["Hombres", "Mujeres"]
-);
-
-// 2.- Población total por grupos quinquenales de edad
-createChart(
-  'bar',
-  'chart-poblacion-2',
-  'Población por grupo de edad',
-  [
-    municipio.cuadro10Poblacion["04"],
-    municipio.cuadro10Poblacion["59"],
-    municipio.cuadro10Poblacion["1014"],
-    municipio.cuadro10Poblacion["1519"],
-    municipio.cuadro10Poblacion["2024"],
-    municipio.cuadro10Poblacion["2529"],
-    municipio.cuadro10Poblacion["3034"],
-    municipio.cuadro10Poblacion["3539"],
-    municipio.cuadro10Poblacion["4044"],
-    municipio.cuadro10Poblacion["4549"],
-    municipio.cuadro10Poblacion["5054"],
-  ],
-  [
-    "0-4",
-    "5-9",
-    "15-19",
-    "20-24",
-    "25-29",
-    "30-34",
-    "35-39",
-    "40-44",
-    "45-49",
-    "50-54",
-  ],
-  // Esto talvez lo mejoro usando la funcionalidad de defaults de ChartJS.
-  {
-    scales: {
-      xAxes: [
-        {
-          display: true,
-          gridLines: {
-            lineWidth: 1,
-            drawOnChartArea: false,
-          },
-        },
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            drawOnChartArea: false,
-          },
-          ticks: {
-            beginAtZero: true,
-          },
-          ticks: {
-            callback: function (
-              value
-            ) {
-              return parseFloat(value).toLocaleString('lan');
-            }
-          }
-        }
-      ]
-    }
-  }
-);
-
-// 3.- Población total por área
-createChart(
-  'pie',
-  'chart-poblacion-3',
-  'Tipo de área',
-  [
-    municipio.cuadro10Poblacion.urbana,
-    municipio.cuadro10Poblacion.rural,
-  ],
-  ["Urbana", "Rural"]
-);
-
-// 4.- Población según parentesco con el jefe(a) del hogar
-createChart(
-  'bar',
-  'chart-poblacion-4',
-  "Población según parentesco con el jefe(a) del hogar",
-  [
-    municipio.cuadro11Poblacion["jefe(a)deHogar"],
-    municipio.cuadro11Poblacion["esposa(o)oPareja"],
-    municipio.cuadro11Poblacion["hija(o)hijastra(o)"],
-    municipio.cuadro11Poblacion["nueraOYerno"],
-    municipio.cuadro11Poblacion["nietaONieto"],
-    municipio.cuadro11Poblacion["hermanaOHermano"],
-    municipio.cuadro11Poblacion["madreOPadre"],
-    municipio.cuadro11Poblacion["suegraOSuegro"],
-    municipio.cuadro11Poblacion["cuñadaOCuñado"],
-    municipio.cuadro11Poblacion["otra(o)pariente"],
-    municipio.cuadro11Poblacion["noParientes"],
-    municipio.cuadro11Poblacion[
-    "poblaciónEnViviendasColectivasOEnSituaciónDeCalle"
+if (municipio.cuadro10Poblacion) {
+  createChart(
+    'pie',
+    'chart-poblacion-1',
+    'Sexo',
+    [
+      municipio.cuadro10Poblacion.hombres,
+      municipio.cuadro10Poblacion.mujeres,
     ],
-  ],
-  [
-    "Jefe(a) de hogar",
-    "Esposa(o) o pareja",
-    "Hija(o) hijastra(o)",
-    "Nuera o yerno",
-    "Nieta o nieto",
-    "Hermana o hermano",
-    "Madre o padre",
-    "Suegra o suegro",
-    "Cuñada o cuñado",
-    "Otra(o) pariente",
-    "No parientes",
-    "Viviendas colectivas o en situación de calle",
-  ]
-);
+    ["Hombres", "Mujeres"]
+  );
 
-// 5.- Población de 10 años y más por estado conyugal
-createChart(
-  'bar',
-  'chart-poblacion-5',
-  "Población por estado conyugal",
-  [
-    municipio.cuadro12Poblacion["soltera(o)"],
-    municipio.cuadro12Poblacion["unida(o)"],
-    municipio.cuadro12Poblacion["casada(o)"],
-    municipio.cuadro12Poblacion["separada(o)"],
-    municipio.cuadro12Poblacion["divorciada(o)"],
-    municipio.cuadro12Poblacion["viuda(o)"],
-  ],
-  [
-    "Soltera(o)",
-    "Unida(o)",
-    "Casada(o)",
-    "Separada(o)",
-    "Divorciada(o)",
-    "Viuda(o)",
-  ]
-);
+  // 2.- Población total por grupos quinquenales de edad
+  createChart(
+    'bar',
+    'chart-poblacion-2',
+    'Población por grupo de edad',
+    [
+      municipio.cuadro10Poblacion["04"],
+      municipio.cuadro10Poblacion["59"],
+      municipio.cuadro10Poblacion["1014"],
+      municipio.cuadro10Poblacion["1519"],
+      municipio.cuadro10Poblacion["2024"],
+      municipio.cuadro10Poblacion["2529"],
+      municipio.cuadro10Poblacion["3034"],
+      municipio.cuadro10Poblacion["3539"],
+      municipio.cuadro10Poblacion["4044"],
+      municipio.cuadro10Poblacion["4549"],
+      municipio.cuadro10Poblacion["5054"],
+    ],
+    [
+      "0-4",
+      "5-9",
+      "15-19",
+      "20-24",
+      "25-29",
+      "30-34",
+      "35-39",
+      "40-44",
+      "45-49",
+      "50-54",
+    ]
+  );
 
-// 6.- Población total por lugar de nacimiento
-createChart(
-  'bar',
-  'chart-poblacion-6',
-  "Población total por lugar de nacimiento",
-  [
-    municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
-    municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
-  ],
-  [
-    "Mismo municipio",
-    "En otro municipio ",
-    "En otro pais",
-    "No declarado",
-  ]
-);
-// 7.- Población total por pueblos
-createChart(
-  'bar',
-  'chart-poblacion-7',
-  "Población total por pueblos",
-  [
-    municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
-    municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
-  ],
-  [
-    "Maya",
-    "Gaifuna",
-    "Xinka",
-    "Afrodescendiente / Creole / Afromestizo",
-    "Ladina(o)",
-    "Extranjera(o)",
-  ]
-);
+  // 3.- Población total por área
+  createChart(
+    'pie',
+    'chart-poblacion-3',
+    'Tipo de área',
+    [
+      municipio.cuadro10Poblacion.urbana,
+      municipio.cuadro10Poblacion.rural,
+    ],
+    ["Urbana", "Rural"]
+  );
+}
 
-// 8.- Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
-createChart(
-  'pie',
-  'chart-poblacion-8',
-  "Población total por dificultades",
-  [
-    municipio.cuadro17Poblacion["sinDificultad"],
-    municipio.cuadro17Poblacion["personasConAlMenosUnaDificultad"],
-    municipio.cuadro17Poblacion["noDeclarado"],
-  ],
-  [
-    "Sin dificultad",
-    "Personas con al menos una dificultad",
-    "No declarado",
-  ]
-);
+if (municipio.cuadro11Poblacion) {
+  // 4.- Población según parentesco con el jefe(a) del hogar
+  createChart(
+    'bar',
+    'chart-poblacion-4',
+    "Población según parentesco con el jefe(a) del hogar",
+    [
+      municipio.cuadro11Poblacion["jefe(a)deHogar"],
+      municipio.cuadro11Poblacion["esposa(o)oPareja"],
+      municipio.cuadro11Poblacion["hija(o)hijastra(o)"],
+      municipio.cuadro11Poblacion["nueraOYerno"],
+      municipio.cuadro11Poblacion["nietaONieto"],
+      municipio.cuadro11Poblacion["hermanaOHermano"],
+      municipio.cuadro11Poblacion["madreOPadre"],
+      municipio.cuadro11Poblacion["suegraOSuegro"],
+      municipio.cuadro11Poblacion["cuñadaOCuñado"],
+      municipio.cuadro11Poblacion["otra(o)pariente"],
+      municipio.cuadro11Poblacion["noParientes"],
+      municipio.cuadro11Poblacion[
+      "poblaciónEnViviendasColectivasOEnSituaciónDeCalle"
+      ],
+    ],
+    [
+      "Jefe(a) de hogar",
+      "Esposa(o) o pareja",
+      "Hija(o) hijastra(o)",
+      "Nuera o yerno",
+      "Nieta o nieto",
+      "Hermana o hermano",
+      "Madre o padre",
+      "Suegra o suegro",
+      "Cuñada o cuñado",
+      "Otra(o) pariente",
+      "No parientes",
+      "Viviendas colectivas o en situación de calle",
+    ]
+  );
 
-// 9.- Población maya por comunidad lingüística
-createChart(
-  'bar',
-  'chart-poblacion-9',
-  "Población maya por comunidad lingüística",
-  [
-    municipio.cuadro15Poblacion["achi"],
-    municipio.cuadro15Poblacion["akateka"],
-    municipio.cuadro15Poblacion["awakateka"],
-    municipio.cuadro15Poblacion["ch'orti'"],
-    municipio.cuadro15Poblacion["chalchiteka"],
-    municipio.cuadro15Poblacion["chuj"],
-    municipio.cuadro15Poblacion["itza'"],
-    municipio.cuadro15Poblacion["ixil"],
-    municipio.cuadro15Poblacion["jakalteko /popti'"],
-    municipio.cuadro15Poblacion["k'iche'"],
-    municipio.cuadro15Poblacion["kaqchikel"],
-    municipio.cuadro15Poblacion["mam"],
-    municipio.cuadro15Poblacion["mopan"],
-    municipio.cuadro15Poblacion["poqomam"],
-    municipio.cuadro15Poblacion["poqomchi'"],
-    municipio.cuadro15Poblacion["q'anjob'al"],
-    municipio.cuadro15Poblacion["q'eqchi'"],
-    municipio.cuadro15Poblacion["sakapulteka"],
-    municipio.cuadro15Poblacion["sipakapense"],
-    municipio.cuadro15Poblacion["tektiteka"],
-    municipio.cuadro15Poblacion["tz'utujil"],
-    municipio.cuadro15Poblacion["uspanteka"],
-  ],
-  [
-    "Achi",
-    "Akateka",
-    "Awakateka",
-    "Ch'orti",
-    "Chalchiteka",
-    "Chuj",
-    "Itza",
-    "Ixil",
-    "Jakalteko /Popti",
-    "K'iche",
-    "Kaqchikel",
-    "Mam",
-    "Mopan",
-    "Poqomam",
-    "Poqomchi",
-    "Q'anjob'al",
-    "Q'eqchi",
-    "Sakapulteka",
-    "Sipakapense",
-    "Tektiteka",
-    "Tz'utujil",
-    "Uspanteka",
-  ]
-);
-// 10.- Población según dificultades
-createChart(
-  'bar',
-  'chart-poblacion-10',
-  "Población según dificultades",
-  [
-    municipio.cuadro17Poblacion["ver,aunSiUsaLentes"],
-    municipio.cuadro17Poblacion["oir,inclusoConAparato"],
-    municipio.cuadro17Poblacion["caminarOSubirEscaleras"],
-    municipio.cuadro17Poblacion["recordarOConcentrarse"],
-    municipio.cuadro17Poblacion["cuidadoPersonalOVestirse"],
-    municipio.cuadro17Poblacion["comunicarse"],
-  ],
-  [
-    "Ver, aun si usa lentes",
-    "Oir, incluso con aparato",
-    "Caminar o subir escaleras",
-    "Recordar o concentrarse",
-    "Cuidado personal o vestirse",
-    "Comunicarse",
-  ]
-);
+  // 5.- Población de 10 años y más por estado conyugal
+  createChart(
+    'bar',
+    'chart-poblacion-5',
+    "Población por estado conyugal",
+    [
+      municipio.cuadro12Poblacion["soltera(o)"],
+      municipio.cuadro12Poblacion["unida(o)"],
+      municipio.cuadro12Poblacion["casada(o)"],
+      municipio.cuadro12Poblacion["separada(o)"],
+      municipio.cuadro12Poblacion["divorciada(o)"],
+      municipio.cuadro12Poblacion["viuda(o)"],
+    ],
+    [
+      "Soltera(o)",
+      "Unida(o)",
+      "Casada(o)",
+      "Separada(o)",
+      "Divorciada(o)",
+      "Viuda(o)",
+    ]
+  );
+
+  // 6.- Población total por lugar de nacimiento
+  createChart(
+    'bar',
+    'chart-poblacion-6',
+    "Población total por lugar de nacimiento",
+    [
+      municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
+      municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
+    ],
+    [
+      "Mismo municipio",
+      "En otro municipio ",
+      "En otro pais",
+      "No declarado",
+    ]
+  );
+  // 7.- Población total por pueblos
+  createChart(
+    'bar',
+    'chart-poblacion-7',
+    "Población total por pueblos",
+    [
+      municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
+      municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
+    ],
+    [
+      "Maya",
+      "Gaifuna",
+      "Xinka",
+      "Afrodescendiente / Creole / Afromestizo",
+      "Ladina(o)",
+      "Extranjera(o)",
+    ]
+  );
+
+  // 8.- Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
+  createChart(
+    'pie',
+    'chart-poblacion-8',
+    "Población total por dificultades",
+    [
+      municipio.cuadro17Poblacion["sinDificultad"],
+      municipio.cuadro17Poblacion["personasConAlMenosUnaDificultad"],
+      municipio.cuadro17Poblacion["noDeclarado"],
+    ],
+    [
+      "Sin dificultad",
+      "Personas con al menos una dificultad",
+      "No declarado",
+    ]
+  );
+
+  // 9.- Población maya por comunidad lingüística
+  createChart(
+    'bar',
+    'chart-poblacion-9',
+    "Población maya por comunidad lingüística",
+    [
+      municipio.cuadro15Poblacion["achi"],
+      municipio.cuadro15Poblacion["akateka"],
+      municipio.cuadro15Poblacion["awakateka"],
+      municipio.cuadro15Poblacion["ch'orti'"],
+      municipio.cuadro15Poblacion["chalchiteka"],
+      municipio.cuadro15Poblacion["chuj"],
+      municipio.cuadro15Poblacion["itza'"],
+      municipio.cuadro15Poblacion["ixil"],
+      municipio.cuadro15Poblacion["jakalteko /popti'"],
+      municipio.cuadro15Poblacion["k'iche'"],
+      municipio.cuadro15Poblacion["kaqchikel"],
+      municipio.cuadro15Poblacion["mam"],
+      municipio.cuadro15Poblacion["mopan"],
+      municipio.cuadro15Poblacion["poqomam"],
+      municipio.cuadro15Poblacion["poqomchi'"],
+      municipio.cuadro15Poblacion["q'anjob'al"],
+      municipio.cuadro15Poblacion["q'eqchi'"],
+      municipio.cuadro15Poblacion["sakapulteka"],
+      municipio.cuadro15Poblacion["sipakapense"],
+      municipio.cuadro15Poblacion["tektiteka"],
+      municipio.cuadro15Poblacion["tz'utujil"],
+      municipio.cuadro15Poblacion["uspanteka"],
+    ],
+    [
+      "Achi",
+      "Akateka",
+      "Awakateka",
+      "Ch'orti",
+      "Chalchiteka",
+      "Chuj",
+      "Itza",
+      "Ixil",
+      "Jakalteko /Popti",
+      "K'iche",
+      "Kaqchikel",
+      "Mam",
+      "Mopan",
+      "Poqomam",
+      "Poqomchi",
+      "Q'anjob'al",
+      "Q'eqchi",
+      "Sakapulteka",
+      "Sipakapense",
+      "Tektiteka",
+      "Tz'utujil",
+      "Uspanteka",
+    ]
+  );
+  // 10.- Población según dificultades
+  createChart(
+    'bar',
+    'chart-poblacion-10',
+    "Población según dificultades",
+    [
+      municipio.cuadro17Poblacion["ver,aunSiUsaLentes"],
+      municipio.cuadro17Poblacion["oir,inclusoConAparato"],
+      municipio.cuadro17Poblacion["caminarOSubirEscaleras"],
+      municipio.cuadro17Poblacion["recordarOConcentrarse"],
+      municipio.cuadro17Poblacion["cuidadoPersonalOVestirse"],
+      municipio.cuadro17Poblacion["comunicarse"],
+    ],
+    [
+      "Ver, aun si usa lentes",
+      "Oir, incluso con aparato",
+      "Caminar o subir escaleras",
+      "Recordar o concentrarse",
+      "Cuidado personal o vestirse",
+      "Comunicarse",
+    ]
+  );
+}
+
 // Educación
 // 1.- Educación
 createChart(

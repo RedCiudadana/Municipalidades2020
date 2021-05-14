@@ -21,6 +21,9 @@ module.exports = {
         },
         tematicas: {
             import: './src/tematicas.js'
+        },
+        comparar: {
+            import: './src/comparar.js'
         }
     },
     output: {

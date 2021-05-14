@@ -65,7 +65,7 @@ title: Comparar
       <div class="row mb-3">
         <div class="col-12">
           <h3 class="text-secondary mb-2" id="title-municipio1">
-            Zacapa
+            Municipio
           </h3>
         </div>
         <div class="col-12">
@@ -77,31 +77,11 @@ title: Comparar
             </div>
             <div class="w-100">
               <div class="row m-0 p-0">
-                  <div class="col-12 col-lg-3 p-2 px-3 border">
-                    <h3>
-                      Indice de <span class="title-tematica">General</span>
-                    </h3>
-                    <h1>
-                      52.89%
-                    </h1>
-                    <small>
-                      PNUD 2014
-                    </small>
+                <div class="col-12 col-lg-9 d-flex p-0 m-0 row">
+                  <div class="col-12 col-lg-6 p-3 border">
+                    <div id="chart-1"></div>
                   </div>
-                  <div class="col-12 col-lg-9 d-flex p-0 m-0 row">
-                    <div class="col-12 col-lg-6 p-3 border">
-                      <h6>
-                        Índice de <span class="title-tematica">General</span>
-                      </h6>
-                      <canvas id="chart-1"></canvas>
-                    </div>
-                    <div class="col-12 col-lg-6 p-3 border">
-                      <h6>
-                        Categoria de <span class="title-tematica">General</span>
-                      </h6>
-                      <canvas id="chart-2"></canvas>
-                    </div>
-                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -110,7 +90,7 @@ title: Comparar
       <div class="row">
         <div class="col-12">
           <h3 class="text-secondary mb-2" id="title-municipio2">
-            Zacapa
+            Municipio
           </h3>
         </div>
         <div class="col-12">
@@ -122,29 +102,9 @@ title: Comparar
             </div>
             <div class="w-100">
               <div class="row m-0 p-0">
-                  <div class="col-12 col-lg-3 p-2 px-3 border">
-                    <h3>
-                      Indice de <span class="title-tematica">General</span>
-                    </h3>
-                    <h1>
-                      52.89%
-                    </h1>
-                    <small>
-                      PNUD 2014
-                    </small>
-                  </div>
                   <div class="col-12 col-lg-9 d-flex p-0 m-0 row">
                     <div class="col-12 col-lg-6 p-3 border">
-                      <h6>
-                        Índice de <span class="title-tematica">General</span>
-                      </h6>
-                      <canvas id="chart-3"></canvas>
-                    </div>
-                    <div class="col-12 col-lg-6 p-3 border">
-                      <h6>
-                        Categoria de <span class="title-tematica">General</span>
-                      </h6>
-                      <canvas id="chart-4"></canvas>
+                      <div id="chart-2"></div>
                     </div>
                   </div>
               </div>
@@ -161,338 +121,6 @@ title: Comparar
 <script>
   // Cargar municipios a documento
   window.municipios = JSON.parse('{{ municipios | dump | safe }}');
-
-  // Obtener <select> de departamentos y municipios
-  var departamentoSelect1 = document.getElementById('departamento1');
-  var municipioSelect1 = document.getElementById('municipio1');
-  var departamentoSelect2 = document.getElementById('departamento2');
-  var municipioSelect2 = document.getElementById('municipio2');
-
-  // Obtener listado de solo municipios
-  var departamentos = this.municipios.reduce((municipios, municipio) => {
-      if (municipios.indexOf(municipio.departamento) < 0) {
-          municipios.push(municipio.departamento);
-      }
-
-      return municipios;
-  }, []);
-
-  // Agregar departamentos como options
-  departamentos.forEach(function(departamento) {
-    var option = document.createElement('option');
-    option.value = departamento;
-    option.innerHTML = departamento;
-    departamentoSelect1.add(option);
-    departamentoSelect2.add(option.cloneNode(true));
-  });
-
-  // Reiniciar select a "Seleccionar departamento"
-  departamentoSelect1.selectedIndex = 0;
-  departamentoSelect2.selectedIndex = 0;
-
-  // Event listeners
-
-  // [CHANGE] Select departamento 1
-  departamentoSelect1.addEventListener('change', function(event) {
-    // Eliminar opciones anteriores
-    let L = municipioSelect1.options.length - 1;
-    for(i = L; i > 0; i--) {
-      municipioSelect1.remove(i);
-    }
-
-    var departamentoSelected = event.target.value;
-
-    // Agregar municipio filtrados
-    window.municipios.forEach((municipio) => {
-      if (departamentoSelected === municipio.departamento) {
-        var option = document.createElement('option');
-        console.log(municipio);
-        option.value = municipio.municipio;
-        option.innerHTML = municipio.municipio;
-        municipioSelect1.appendChild(option);
-      }
-    });
-
-    // Reiniciar select a "Seleccionar municipio"
-    municipioSelect1.selectedIndex = 0;
-  });
-
-  // [CHANGE] Select departamento
-  departamentoSelect2.addEventListener('change', function(event) {
-    // Eliminar opciones anteriores
-    let L = municipioSelect2.options.length - 1;
-    for(i = L; i > 0; i--) {
-      municipioSelect2.remove(i);
-    }
-
-    var departamentoSelected = event.target.value;
-
-    // Agregar municipio filtrados
-    window.municipios.forEach((municipio) => {
-      if (departamentoSelected === municipio.departamento) {
-        var option = document.createElement('option');
-        option.value = municipio.municipio;
-        option.innerHTML = municipio.municipio;
-        municipioSelect2.appendChild(option);
-      }
-    });
-
-    // Reiniciar select a "Seleccionar municipio"
-    municipioSelect2.selectedIndex = 0;
-  });
-
-  document.getElementById('form-comparar').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    let departamento1 = document.getElementById('departamento1');
-    let municipio1 = document.getElementById('municipio1');
-    let departamento2 = document.getElementById('departamento2');
-    let municipio2 = document.getElementById('municipio2');
-    let tematica = document.getElementById('tematica');
-
-    if (!(
-      departamento1.value && 
-      departamento2.value && 
-      municipio1.value && 
-      municipio2.value
-    )) {
-      return;
-    }
-
-    console.log(departamento1.value);
-    console.log(departamento2.value);
-    console.log(municipio2.value);
-    console.log(municipio1.value);
-
-    // busqueda de datos
-
-    document.getElementById('title-municipio1').innerHTML = municipio1.value;
-    document.getElementById('title-municipio2').innerHTML = municipio2.value;
-
-    var titles = document.getElementsByClassName('title-tematica');
-
-    for (let item of titles) {
-      item.innerHTML = tematica.value || 'General';
-    }
-
-    window.chartConfig1.data.datasets[0].data = [
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor()
-    ];
-
-    window.chart1.update();
-
-    window.chartConfig2.data.datasets[0].data = [
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-    ];
-
-    window.chart2.update();
-
-    // Municipio 2
-
-    window.chartConfig3.data.datasets[0].data = [
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor()
-    ];
-
-    window.chart3.update();
-
-    window.chartConfig4.data.datasets[0].data = [
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-      window.randomScalingFactor(),
-    ];
-
-    window.chart4.update();
-  }, true);
 </script>
-{# ChartJS #}
-<script>
-  (function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)){ return; }
-    js = d.createElement(s); js.id = id;
-    js.onload = function(){
-      var baseBarChartConfig = {
-        "type": "bar",
-        "data": {
-            "labels": [
-            ],
-            "datasets": [
-                {
-                    "label": "",
-                    "data": [],
-                    "fill": false,
-                    "backgroundColor": "#52CCAE",
-                    "borderColor": "#52CCAE",
-                    "borderWidth": 0
-                }
-            ]
-        },
-        "options": {
-            "scales": {
-                "xAxes": [
-                    {
-                        "display": true,
-                        "gridLines": {
-                            "lineWidth": 1
-                        }
-                    }
-                ],
-                "yAxes": [
-                    {
-                        "display": true,
-                        "lineWidth": 1,
-                        "ticks": {
-                            "beginAtZero": true,
-                            "suggestedMax": 100
-                        },
-                        "gridLines": {
-                            "lineWidth": 1
-                        }
-                    }
-                ]
-            }
-        }
-      };
-
-      var basePieChartConfig = {
-        "type": "pie",
-          "data": {
-          "labels": [],
-            "datasets": [
-              {
-                "label": "",
-                "data": [],
-                "fill": false,
-                // generados con https://mdigi.tools/color-shades/#52ccae
-                "backgroundColor": [
-                  "#effaf7",
-                  "#cef0e8",
-                  "#ade7d9",
-                  "#8cddc9",
-                  "#6bd3ba",
-                  "#4acaaa",
-                  "#35b595",
-                  "#2c947a",
-                  "#22735f",
-                  "#185244",
-                  "#0f3129",
-                  "#05100e"
-                ],
-                "borderWidth": 0
-              }
-            ]
-        },
-        "options": {
-          legend: {
-            position: 'bottom'
-          }
-        }
-      };
-
-      window.chartConfig1 = JSON.parse(JSON.stringify(baseBarChartConfig));
-      window.chartConfig1.data.datasets[0].label = "Indice Municipal";
-      window.chartConfig1.data.datasets[0].data = [
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor()
-      ];
-      window.chartConfig1.data.labels = [
-        "2016",
-        "2017",
-        "2018",
-        "2019"
-      ];
-      window.chart1 = new Chart(document.getElementById("chart-1"), window.chartConfig1);
-
-      window.chartConfig2 = JSON.parse(JSON.stringify(basePieChartConfig));
-      window.chartConfig2.data.datasets[0].label = "Indice Municipal";
-      window.chartConfig2.data.datasets[0].data = [
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-      ];
-      window.chartConfig2.data.labels = [
-        "DISMINUCIÓN DE OTROS ACTIVOS FINANCIEROS",
-        "INGRESOS DE OPERACION",
-        "INGRESOS NO TRIBUTARIOS",
-        "INGRESOS TRIBUTARIOS",
-        "RENTAS DE LA PROPIEDAD",
-        "TRANSFERENCIAS CORRIENTES",
-        "TRANSFERENCIAS DE CAPITAL",
-        "VTA. DE BIENES Y SERV. DE LA ADM. PÚBLICA"
-      ];
-      window.chartConfig2.options.legend.display = false;
-      window.chart2 = new Chart(document.getElementById("chart-2"), window.chartConfig2);
-
-      // Municipio 2
-
-      window.chartConfig3 = JSON.parse(JSON.stringify(baseBarChartConfig));
-      window.chartConfig3.data.datasets[0].label = "Indice Municipal";
-      window.chartConfig3.data.datasets[0].data = [
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor()
-      ];
-      window.chartConfig3.data.labels = [
-        "2016",
-        "2017",
-        "2018",
-        "2019"
-      ];
-      window.chart3 = new Chart(document.getElementById("chart-3"), window.chartConfig3);
-
-      window.chartConfig4 = JSON.parse(JSON.stringify(basePieChartConfig));
-      window.chartConfig4.data.datasets[0].label = "Indice Municipal";
-      window.chartConfig4.data.datasets[0].data = [
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-        window.randomScalingFactor(),
-      ];
-      window.chartConfig4.data.labels = [
-        "DISMINUCIÓN DE OTROS ACTIVOS FINANCIEROS",
-        "INGRESOS DE OPERACION",
-        "INGRESOS NO TRIBUTARIOS",
-        "INGRESOS TRIBUTARIOS",
-        "RENTAS DE LA PROPIEDAD",
-        "TRANSFERENCIAS CORRIENTES",
-        "TRANSFERENCIAS DE CAPITAL",
-        "VTA. DE BIENES Y SERV. DE LA ADM. PÚBLICA"
-      ];
-      window.chartConfig4.options.legend.display = false;
-      window.chart4 = new Chart(document.getElementById("chart-4"), window.chartConfig4);
-    }
-    js.src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'chart-jssdk'));
-</script>
+<script src="/assets/comparar.js"></script>
 {% endblock %}
