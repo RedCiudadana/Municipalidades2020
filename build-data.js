@@ -552,6 +552,9 @@ let indices = municipiosNormalize.map((municipio) => {
 
     let data = {
         idMunicipio: municipio.idMunicipal,
+        idDepartamento: municipio.idDep,
+        municipio: municipio.municipio,
+        departamento: municipio.departamento,
         desnutricion
     };
 

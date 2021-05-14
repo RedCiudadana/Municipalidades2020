@@ -1,5 +1,6 @@
 import { Chart } from '@antv/g2';
 import DataSet from '@antv/data-set';
+const slugify = require("slugify");
 
 
 // WIP: Start loading here.
@@ -31,6 +32,8 @@ Promise.all([
       let indiceData = indices.find((item) => item.idMunicipio === row.properties.cod_mun);
 
       if (indiceData) {
+        row.municipio = indiceData.municipio;
+        row.departamento = indiceData.departamento;
         row.indice = indiceData[indiceName];
       } else {
         row.indice = 0;
@@ -51,7 +54,7 @@ Promise.all([
     latitude: { sync: true },
     longitude: { sync: true }
   });
-  chart.legend(false);
+  chart.legend(true);
   chart.axis(false);
 
   chart.tooltip({
@@ -62,7 +65,7 @@ Promise.all([
   geoView.data(geoDv.rows);
   geoView.polygon()
     .position('longitude*latitude')
-    .color('indice', '#5edaab-#f6c02a')
+    .color('indice', ['#30BF78', '#FAAD14',  '#F4664A'])
     .tooltip('nombre_municipio*indice', (nombre_municipio, indice) => {
       return {
         title: 'Índice aleatorio',
@@ -74,10 +77,22 @@ Promise.all([
   const userView = chart.createView();
   userView.data(userData);
 
+  function slug(string) {
+    return slugify(string, {
+      lower: true,
+      replacement: "-",
+      remove: /[*+~·,()'"`´%!?¿:@\/]/g,
+    });
+  }
+
   chart.on('polygon:click', (ev) => {
     let properties = ev.data.data.properties;
-    console.log(properties);
-    // window.location.href = "http://www.w3schools.com";
+    let indiceData = indices.find((item) => item.idMunicipio === properties.cod_mun);
+
+    console.log(indiceData);
+    let url = `/${slug(indiceData.departamento)}/${slug(indiceData.municipio)}`;
+
+    window.location.href = url;
   });
 
   chart.render();
