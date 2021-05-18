@@ -48,22 +48,51 @@ Promise.all([
     autoFit: false,
     height: 650,
     width: 650,
-    padding: 0
+    padding: 20
   });
+
   chart.scale({
     latitude: { sync: true },
     longitude: { sync: true }
   });
-  chart.legend(false);
+
+  chart.legend('indice', {
+    position: 'bottom',
+    layout:  'horizontal',
+    slidable: false,
+    itemValue: () => {
+      console.log('item value');
+      return 1;
+    },
+    min: 0,
+    max: 10000
+    // track: {
+    //   style: {
+    //     fill: 'r(0.5, 0.5, 0.1) 0:#ffffff 1:#1890ff'
+    //   }
+    // },
+    // rail: {
+    //   type: 'color',
+    //   style: {
+    //     lineDash: [4, 5],
+    //   }
+    // }
+  });
+
   chart.axis(false);
 
   chart.tooltip({
-    showTitle: true
+    showTitle: true,
+    showMarkers: false
   });
 
   const geoView = chart.createView();
   geoView.data(geoDv.rows);
   geoView.polygon()
+    .style({
+      lineWidth: 2,
+      stroke: '#fff',
+    })
     .position('longitude*latitude')
     .color('indice', ['#30BF78', '#FAAD14',  '#F4664A'])
     .tooltip('nombre_municipio*indice', (nombre_municipio, indice) => {
@@ -72,7 +101,14 @@ Promise.all([
         name: nombre_municipio,
         value: indice
       };
+    })
+    .animate({
+      leave: {
+        animation: 'fade-out'
+      }
     });
+
+  geoView.interaction('element-active');
 
   const userView = chart.createView();
   userView.data(userData);
