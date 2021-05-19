@@ -1,10 +1,7 @@
-import Chart from 'chart.js/dist/Chart.js'
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Bar } from '@antv/g2plot';
-
-Chart.plugins.register(ChartDataLabels);
+import { Area, Column, Treemap, Pie } from '@antv/g2plot';
 
 function abbreviateNumber(value) {
+  return value.toLocaleString('lan');
   var newValue = value;
   if (value >= 1000) {
     var suffixes = ["", "K", "M"];
@@ -32,410 +29,643 @@ function createChart(type, id, title, data, labels, options) {
     return;
   }
 
-  if (!(type === 'bar' || type === 'pie' || type === 'line')) {
+  if (!(
+    type === 'bar'
+    || type === 'pie'
+    || type === 'line'
+    || type === 'barStacked'
+    || type === 'areaStacked'
+    || type === 'treemap'
+  )) {
     console.error(`El tipo ${type} no esta soportado. Los tipos soportados son bar y pie.`);
     return;
   }
-
-
-  let g2plotdata = [];
-
-  for (let i = 0; i < data.length; i++) {
-    g2plotdata.push({
-      data: data[i],
-      label: labels[i]
-    });
-  }
-
-  // g2plot stuff
-  // if (type === 'bar') {
-  //   const bar = new Bar(id, {
-  //     data: g2plotdata,
-  //     xField: 'data',
-  //     yField: 'label',
-  //     seriesField: 'label',
-  //   });
-
-  //   bar.render();
-  // }
-
-  let config = null;
-
-  if (type === 'pie') {
-    config = {
-      type: 'doughnut',
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: '',
-            data: [],
-            backgroundColor: [
-              '#8cddc9',
-              '#ade7d9',
-              '#cef0e8',
-              '#185244',
-              '#22735f',
-              '#2c947a',
-              '#35b595',
-              '#4acaaa',
-              '#6bd3ba',
-              '#effaf7',
-            ],
-            borderWidth: 0,
-            datalabels: {
-              align: 'center',
-              anchor: 'center',
-              font: {
-                weight: 'bold',
-              },
-              color: '#666666',
-              formatter: function (value/* , context */) {
-                return abbreviateNumber(value);
-              },
-            },
-          }
-        ]
-      },
-      options: {
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              var label = data.labels[tooltipItem.index] || '';
-
-              if (label) {
-                label += ': ';
-              }
-
-              label += parseFloat(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]).toLocaleString('lan');
-              return label;
-            }
-          }
-        },
-        legend: {
-          position: 'bottom',
-          align: 'center',
-        },
-        layout: {
-          padding: {
-            top: 40,
-          },
-        },
-        plugins: {
-          datalabels: {
-            clamp: true,
-          },
-        },
-      },
-    };
-  }
-
-  if (type === 'bar' || type === 'line') {
-    config = {
-      type: type,
-      data: {
-        labels: [],
-        datasets: [
-          {
-            label: '',
-            data: [],
-            fill: true,
-            backgroundColor: '#52CCAE',
-            borderColor: '#52CCAE',
-            borderWidth: 0,
-            datalabels: {
-              align: 'end',
-              anchor: 'end',
-              font: {
-                weight: 'bold',
-              },
-              color: '#666666',
-              formatter: function (value, context) {
-                return abbreviateNumber(value);
-              },
-            },
-          },
-        ],
-      },
-      options: {
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              var label = data.datasets[tooltipItem.datasetIndex].label || '';
-
-              if (label) {
-                label += ': ';
-              }
-              label += parseFloat(tooltipItem.yLabel).toLocaleString('lan');
-              return label;
-            }
-          }
-        },
-        legend: {
-          display: false,
-        },
-        layout: {
-          padding: {
-            top: 40,
-          },
-        },
-        scales: {
-          xAxes: [
-            {
-              display: true,
-              gridLines: {
-                lineWidth: 1,
-                drawOnChartArea: false,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              gridLines: {
-                drawOnChartArea: false,
-              },
-              ticks: {
-                beginAtZero: true,
-                callback: function (
-                  value
-                ) {
-                  return parseFloat(value).toLocaleString('lan');
-                }
-              },
-            },
-          ],
-        },
-        plugins: {
-          datalabels: {
-            offset: 0,
-            clamp: false,
-          },
-        },
-      },
-    };
-  }
-
-  config.data.datasets[0].label = title;
-  config.data.datasets[0].data = data;
-  config.data.labels = labels;
-
-  if (type === 'pie') {
-    config.options.legend.display = true;
-  }
-
-      /* config.options =  */Object.assign(config.options, options);
 
   if (!document.getElementById(id)) {
     console.error(`El elemento ${id} no se encontro.`);
     return;
   }
 
-  try {
-    window.myCharts[id] = new Chart(document.getElementById(id), config);
-  } catch (error) {
-    console.error(`Error al creear chart ${id}`);
-    console.error(error);
+
+  let isPercentual = true;
+  let g2plotdata = [];
+  // guessing stuff
+  if (options && options.isG2plotData) {
+    g2plotdata = data;
+
+    isPercentual = options.isPercentual ? true : false;
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i] > 100) {
+        isPercentual = false;
+      }
+
+      if (type === 'treemap') {
+        g2plotdata.push({
+          value: data[i],
+          name: labels[i],
+          label: labels[i]
+        });
+      } else {
+        g2plotdata.push({
+          data: data[i],
+          label: labels[i]
+        });
+      }
+    }
+  }
+
+  let color = null;
+  if (options && options.color) {
+    color = options.color;
+  }
+
+  let smooth = false;
+  if (options && options.smooth) {
+    smooth = options.smooth;
+  }
+  let promedio = [];
+  if (options && options.promedio) {
+    promedio = options.promedio;
+  }
+
+  // let annotations = [];
+  // if (promedio.length > 0) {
+  //   let firstAnnotation = null;
+  //   promedio.forEach((item) => {
+  //     if (firstAnnotation === null) {
+      
+  //     }
+  //   });
+  // }
+
+  var canvas = document.getElementById(id);
+  var container = document.createElement('div');
+  container.id = id;
+  container.style.height = '220px';
+  canvas.replaceWith(container);
+
+  // g2plot stuff
+  if (type === 'line') {
+
+    let annotations = [];
+    if (options && options.promedio) {
+      for (let i = 1; i < options.promedio.length; i++) {
+        const promedioItem = options.promedio[i];
+        const prevpromedioItem = options.promedio[i - 1];
+        const dataItem = g2plotdata[i];
+        const prevdataItem = g2plotdata[i - 1];
+
+        annotations.push({
+          type: 'line',
+          // x, y
+          start: [prevdataItem.label, prevpromedioItem],
+          end: [dataItem.label, promedioItem],
+          style: {
+            stroke: '#F4664A',
+            lineDash: [10, 4],
+          }
+        });
+
+        annotations.push({
+          type: 'text',
+          position: annotations[0].start,
+          content: 'Promedio del departamento',
+          offsetY: -10,
+          style: {
+            textBaseline: 'bottom',
+          },
+        });
+      }
+    }
+
+    let maxLimit = null;
+
+    if (isPercentual) {
+      maxLimit = 100;
+    } else {
+      if (options.promedio) {
+        let maxPromedio = options.promedio.reduce((a, b) => Math.max(a, b));
+        let maxData = g2plotdata.map((item) => item.data).reduce((a, b) => Math.max(a, b));
+
+        if (maxPromedio > maxData) {
+          maxLimit = maxPromedio * 1.2;
+        }
+      }
+    }
+
+    if (options && options.maxLimit) {
+      maxLimit = options.maxLimit;
+    }
+
+    const line = new Area(id, {
+      data: g2plotdata,
+      xField: 'label',
+      yField: 'data',
+      smooth: smooth,
+      yAxis: {
+        maxLimit: maxLimit,
+        label: {
+          formatter: (text, item, index) => {
+            // console.log(text, item, index);
+            return parseInt(text);
+          }
+        }
+      },
+      tooltip: {
+        formatter: ({ label, data }) => {
+          return { name: label, value: abbreviateNumber(data) };
+        },
+      },
+      annotations: annotations
+    });
+
+
+    // 低于中位数颜色变化
+        // this is so cool.
+        // {
+        //   type: 'regionFilter',
+        //   start: ['min', 'median'],
+        //   end: ['max', '0'],
+        //   color: '#F4664A',
+        // },
+        // {
+        //   type: 'text',
+        //   position: ['0%', '50%'],
+        //   content: 'Media del departamento',
+        //   offsetY: -10,
+        //   style: {
+        //     textBaseline: 'bottom',
+        //   },
+        // },
+        // {
+        //   type: 'line',
+        //   // start: ['min', 'median'],
+        //   // end: ['max', 'median'],
+        //   start: ['0%', '50%'],
+        //   end: ['100%', '50%'],
+        //   style: {
+        //     stroke: '#F4664A',
+        //     lineDash: [10, 4],
+        //   },
+        // },
+
+    line.render();
+    return;
+  }
+
+  if (type === 'bar') {
+
+    const bar = new Column(id, {
+      data: g2plotdata,
+      yField: 'data',
+      xField: 'label',
+      // yAxis: {
+      //   maxLimit: isPercentual ? 100 : null
+      // },
+      tooltip: {
+        formatter: ({ label, data }) => {
+          return { name: label, value: abbreviateNumber(data) };
+        },
+      }
+    });
+
+    bar.render();
+    return;
+  }
+
+  if (type === 'pie') {
+
+    const pie = new Pie(id, {
+      data: g2plotdata,
+      angleField: 'data',
+      colorField: 'label',
+      height: 200,
+      appendPadding: 1,
+      radius: 0.5,
+      legend: false,
+      label: {
+        type: 'spider',
+        labelHeight: 28,
+        content: '{name}\n{percentage}',
+      },
+      tooltip: {
+        formatter: ({ label, data }) => {
+          return { name: label, value: abbreviateNumber(data) };
+        },
+      }
+    });
+
+    pie.render();
+    return;
+  }
+
+  if (type === 'barStacked') {
+    const stackedColumnPlot = new Column(id, {
+      data: g2plotdata,
+      isStack: true,
+      yField: 'data',
+      xField: 'label',
+      smooth: smooth,
+      color: color,
+      seriesField: options.seriesField ? options.seriesField : 'serie',
+      label: {
+        // 可手动配置 label 数据标签位置
+        position: 'middle', // 'top', 'bottom', 'middle'
+        // 可配置附加的布局方法
+        layout: [
+          // 柱形图数据标签位置自动调整
+          { type: 'interval-adjust-position' },
+          // 数据标签防遮挡
+          { type: 'interval-hide-overlap' },
+          // 数据标签文颜色自动调整
+          { type: 'adjust-color' },
+        ],
+      },
+    });
+
+    stackedColumnPlot.render();
+    return;
+  }
+
+  if (type === 'areaStacked') {
+
+    let annotations = [];
+    if (options && options.promedio) {
+      let labels = g2plotdata.map((item) => item.label);
+      let unique = labels.filter((item, i, ar) => ar.indexOf(item) === i);
+
+      for (let i = 1; i < unique.length; i++) {
+        const promedioItem = options.promedio[i];
+        const prevpromedioItem = options.promedio[i - 1];
+        const dataItem = unique[i];
+        const prevdataItem = unique[i - 1];
+
+        annotations.push({
+          type: 'line',
+          // x, y
+          start: [prevdataItem, prevpromedioItem],
+          end: [dataItem, promedioItem],
+          style: {
+            stroke: '#F4664A',
+            lineDash: [10, 4],
+          }
+        });
+
+        annotations.push({
+          type: 'text',
+          position: annotations[0].start,
+          content: 'Promedio del departamento',
+          offsetY: -10,
+          style: {
+            textBaseline: 'bottom',
+          },
+        });
+      }
+    }
+
+    let serie = options.seriesField ? options.seriesField : 'serie';
+    let maxLimit = options.maxLimit ? options.maxLimit : null;
+
+    /**
+     * Los stacked por ahora nunca seran porcentuales.
+     */
+
+    if (isPercentual) {
+      maxLimit = 200;
+    } else {
+      if (options.promedio) {
+        let maxPromedio = options.promedio.reduce((a, b) => Math.max(a, b));
+        let labels = g2plotdata.map((item) => item.label);
+        labels = labels.filter((item, i, ar) => ar.indexOf(item) === i);
+
+        let maxData = g2plotdata.map((item) => item.data).reduce((a, b) => Math.max(a, b));
+
+        labels.forEach((label) => {
+          let total = g2plotdata.filter((item) => item.label === label).map((item) => item.data).reduce((a, b) => a + b);
+          maxData = Math.max(maxData, total);
+        });
+
+        if (maxPromedio > maxData) {
+          maxLimit = maxPromedio * 2;
+        }
+      }
+    }
+
+    const stackedColumnPlot = new Area(id, {
+      data: g2plotdata,
+      yField: 'data',
+      xField: 'label',
+      color: color,
+      yAxis: {
+        maxLimit: maxLimit
+      },
+      seriesField: serie,
+      label: {
+        // 可手动配置 label 数据标签位置
+        position: 'middle', // 'top', 'bottom', 'middle'
+        // 可配置附加的布局方法
+        layout: [
+          // 柱形图数据标签位置自动调整
+          { type: 'interval-adjust-position' },
+          // 数据标签防遮挡
+          { type: 'interval-hide-overlap' },
+          // 数据标签文颜色自动调整
+          { type: 'adjust-color' },
+        ],
+      },
+      annotations: annotations
+    });
+
+    stackedColumnPlot.render();
+    return;
+  }
+
+  if (type === 'treemap') {
+    const bar = new Treemap(id, {
+      data: {
+        name: title,
+        children: g2plotdata
+      },
+      colorField: 'label',
+      tooltip: {
+        fields: ['label', 'value'],
+        formatter: (options) => {
+          let { label, value } = options;
+          return { name: label, value: abbreviateNumber(value) };
+        }
+      }
+    });
+
+    bar.render();
+    return;
   }
 }
 
 let municipio = window.municipio;
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // EMBED CHART ROUTE
-    // For now I will use the same page to embed charts.
-    // Because currently I dont know how a better way to mantain
-    // the charts updated between munucipio page and embed page.
-    const urlParams = new URLSearchParams(location.search);
+document.addEventListener("DOMContentLoaded", function () {
+  // EMBED CHART ROUTE
+  // For now I will use the same page to embed charts.
+  // Because currently I dont know how a better way to mantain
+  // the charts updated between munucipio page and embed page.
+  const urlParams = new URLSearchParams(location.search);
 
-    if (urlParams.get('embed') && urlParams.get('tematica')) {
-      console.log(document.getElementById('tematicas-row'));
+  if (urlParams.get('embed') && urlParams.get('tematica')) {
+    console.log(document.getElementById('tematicas-row'));
 
-      document.getElementById('navbar').style.display = 'none';
-      document.getElementById('basic-info-row').style.display = 'none';
-      document.getElementById('footer').style.display = 'none';
-      document.getElementById('red-footer').style.display = 'none';
-      document.getElementById('page-container').style.margin = 0;
-      document.getElementById('page-container').style.padding = 0;
-      document.getElementById('page-container').style.width = '100vw';
-      document.getElementById('tematicas-row').style.width = '100vw';
-      document.getElementById('tematicas-row').style.margin = 0;
-      document.getElementById(`tematica-${urlParams.get('tematica')}`).style.padding = 0;
-      document.getElementById(`tematica-${urlParams.get('tematica')}-header`).remove();
+    document.getElementById('navbar').style.display = 'none';
+    document.getElementById('basic-info-row').style.display = 'none';
+    document.getElementById('footer').style.display = 'none';
+    document.getElementById('red-footer').style.display = 'none';
+    document.getElementById('page-container').style.margin = 0;
+    document.getElementById('page-container').style.padding = 0;
+    document.getElementById('page-container').style.width = '100vw';
+    document.getElementById('tematicas-row').style.width = '100vw';
+    document.getElementById('tematicas-row').style.margin = 0;
+    document.getElementById(`tematica-${urlParams.get('tematica')}`).style.padding = 0;
+    document.getElementById(`tematica-${urlParams.get('tematica')}-header`).remove();
 
-      let children = Array.from(document.getElementById('tematicas-row').children);
+    let children = Array.from(document.getElementById('tematicas-row').children);
 
-      children.forEach((tematica) => {
-        if (tematica.id !== `tematica-${urlParams.get('tematica')}`) {
-          tematica.style.display = 'none';
-        }
-      });
-    }
-  });
+    children.forEach((tematica) => {
+      if (tematica.id !== `tematica-${urlParams.get('tematica')}`) {
+        tematica.style.display = 'none';
+      }
+    });
+  }
+});
 
-// General
-createChart(
-  'pie',
-  'chart-general-1',
-  'Sexo',
-  [
-    municipio.cuadro10Poblacion.hombres,
-    municipio.cuadro10Poblacion.mujeres,
-  ],
-  ["Hombres", "Mujeres"]
-);
+if (municipio.cuadro10Poblacion) {
+  // General
+  createChart(
+    'pie',
+    'chart-general-1',
+    'Sexo',
+    [
+      municipio.cuadro10Poblacion.hombres,
+      municipio.cuadro10Poblacion.mujeres,
+    ],
+    ["Hombres", "Mujeres"]
+  );
 
-createChart(
-  'pie',
-  'chart-general-2',
-  'Tipo de área',
-  [
-    municipio.cuadro10Poblacion.urbana,
-    municipio.cuadro10Poblacion.rural,
-  ],
-  ["Urbana", "Rural"]
-);
+  createChart(
+    'pie',
+    'chart-general-2',
+    'Tipo de área',
+    [
+      municipio.cuadro10Poblacion.urbana,
+      municipio.cuadro10Poblacion.rural,
+    ],
+    ["Urbana", "Rural"]
+  );
+}
 
 // Gestion municipal
 createChart(
   'line',
   'chart-gestion-municipal-1',
-  'Indice gestión municipal %',
+  'Índice gestión municipal %',
   [
     municipio.ranking.segeplan2013,
     municipio.ranking.segeplan2016,
     municipio.ranking.segeplan2018,
   ],
-  ['2013', '2016', '2018']
+  ['2013', '2016', '2018'],
+  {
+    promedio: [
+      municipio.promedios.ranking.segeplan2013,
+      municipio.promedios.ranking.segeplan2016,
+      municipio.promedios.ranking.segeplan2018,
+    ]
+  }
 );
 // Transparencia
 createChart(
   'line',
   'chart-transparencia-1',
-  'Indice de Acceso a la Información Pública',
+  'Índice de Acceso a la Información Pública',
   [
     municipio.aip.aip2015,
     municipio.aip.aip2017,
     municipio.aip.aip2019,
   ],
-  ['2015', '2017', '2019']
+  ['2015', '2017', '2019'],
+  {
+    promedio: [
+      municipio.promedios.aip.aip2015,
+      municipio.promedios.aip.aip2017,
+      municipio.promedios.aip.aip2019,
+    ]
+  }
 );
 // Nutricion
 let cronica = municipio.desnutricion.cronica.sort((a, b) => a.periodo - b.periodo);
-
-let cronica2019 = cronica.filter((item) => item.periodo === 2019);
-
-cronica2019 = cronica2019[0];
-
-createChart(
-  'line',
-  'chart-nutricion-1',
-  'Numero de Casos de Desnutrición Crónica por año',
-  cronica.map((item) => item.cantidad),
-  cronica.map((item) => item.periodo)
-);
-
-if (cronica2019) {
-  createChart(
-    'pie',
-    'chart-nutricion-2',
-    'Casos de Desnutrición Crónica por sexo',
-    [
-      cronica2019['m <1Mes'] +
-      cronica2019['m1Ma <2M'] +
-      cronica2019['m2Ma <1A'] +
-      cronica2019['m1Aa4A'],
-      cronica2019['f <1Mes'] +
-      cronica2019['f1Ma <2M'] +
-      cronica2019['f2Ma <1A'] +
-      cronica2019['f1Aa4A']
-    ],
-    ['Masculino', 'Femenino']
-  );
-}
-
-createChart(
-  'bar',
-  'chart-nutricion-3',
-  'Numero de Casos de Desnutrición Crónica por edad',
-  [
-    cronica2019['m <1Mes'],
-    cronica2019['m1Ma <2M'],
-    cronica2019['m2Ma <1A'],
-    cronica2019['m1Aa4A'],
-    cronica2019['f <1Mes'],
-    cronica2019['f1Ma <2M'],
-    cronica2019['f2Ma <1A'],
-    cronica2019['f1Aa4A']
-  ],
-  [
-    'F < 1 mes ',
-    'M < 1 mes',
-    'F 1m a < 2m',
-    'M 1m a < 2m',
-    'F 2m a < 1 a',
-    'M 2m a < 1 a',
-    'F 1a a 4 a',
-    'M 1a a 4 a'
-  ]
-);
-
 let aguda = municipio.desnutricion.aguda.sort((a, b) => a.periodo - b.periodo);
 
-let aguda2019 = aguda.filter((item) => item.periodo === 2019);
+let cronicaLastYear = cronica[cronica.length - 1];
+let agudaLastYear = aguda[aguda.length - 1];
 
-aguda2019 = aguda2019[0];
+let desnutricion = cronica.concat(aguda);
+desnutricion = desnutricion.sort((a, b) => a.periodo - b.periodo);
 
-createChart(
-  'line',
-  'chart-nutricion-4',
-  'Numero de Casos de Desnutrición Aguda por año',
-  aguda.map((item) => item.cantidad),
-  aguda.map((item) => item.periodo)
-);
+let min = desnutricion[0].periodo;
+let max = desnutricion[desnutricion.length - 1].periodo;
 
-if (aguda2019) {
-  createChart(
-    'pie',
-    'chart-nutricion-5',
-    'Casos de Desnutrición Aguda por sexo',
-    [
-      aguda2019['m <1Mes'] +
-      aguda2019['m1Ma <2M'] +
-      aguda2019['m2Ma <1A'] +
-      aguda2019['m1Aa4A'],
-      aguda2019['f <1Mes'] +
-      aguda2019['f1Ma <2M'] +
-      aguda2019['f2Ma <1A'] +
-      aguda2019['f1Aa4A']
-    ],
-    ['Masculino', 'Femenino']
-  );
+let newArray = [];
+
+for (let i = min; i <= max; i++) {
+  const cronicaItem = cronica.find((item) => item.periodo == i);
+  const agudaItem = aguda.find((item) => item.periodo == i);
+
+  newArray.push({
+    data: cronicaItem ? cronicaItem.cantidad * 10 : 0,
+    label: cronicaItem ? cronicaItem.periodo.toString() : i.toString(),
+    serie: 'Crónica'
+  });
+
+  newArray.push({
+    data: agudaItem ? agudaItem.cantidad * 10 : 0,
+    label: agudaItem ? agudaItem.periodo.toString() : i.toString(),
+    serie: 'Aguda'
+  });
 }
 
 createChart(
-  'bar',
-  'chart-nutricion-6',
-  'Numero de Casos de Desnutrición Aguda por año',
+  'areaStacked',
+  'chart-nutricion-1',
+  'Numero de Casos de Desnutrición Crónica por año',
+  newArray,
+  null,
+  {
+    isG2plotData: true,
+    promedio: [
+      municipio.promedios.desnutricion.cronicaYAguda2012,
+      municipio.promedios.desnutricion.cronicaYAguda2013,
+      municipio.promedios.desnutricion.cronicaYAguda2014,
+      municipio.promedios.desnutricion.cronicaYAguda2015,
+      municipio.promedios.desnutricion.cronicaYAguda2016,
+      municipio.promedios.desnutricion.cronicaYAguda2017,
+      municipio.promedios.desnutricion.cronicaYAguda2018,
+      municipio.promedios.desnutricion.cronicaYAguda2019
+    ]
+  }
+);
+
+createChart(
+  'pie',
+  'chart-nutricion-2',
+  'Casos de Desnutrición Crónica por sexo',
   [
-    aguda2019['m <1Mes'],
-    aguda2019['m1Ma <2M'],
-    aguda2019['m2Ma <1A'],
-    aguda2019['m1Aa4A'],
-    aguda2019['f <1Mes'],
-    aguda2019['f1Ma <2M'],
-    aguda2019['f2Ma <1A'],
-    aguda2019['f1Aa4A']
+    cronicaLastYear['m <1Mes'] +
+    cronicaLastYear['m1Ma <2M'] +
+    cronicaLastYear['m2Ma <1A'] +
+    cronicaLastYear['m1Aa4A'],
+    cronicaLastYear['f <1Mes'] +
+    cronicaLastYear['f1Ma <2M'] +
+    cronicaLastYear['f2Ma <1A'] +
+    cronicaLastYear['f1Aa4A']
   ],
-  [
-    'F < 1 mes ',
-    'M < 1 mes',
-    'F 1m a < 2m',
-    'M 1m a < 2m',
-    'F 2m a < 1 a',
-    'M 2m a < 1 a',
-    'F 1a a 4 a',
-    'M 1a a 4 a'
-  ]
+  ['Masculino', 'Femenino']
+);
+
+let g2dataDesnutricionEdad = [
+  {
+    data: cronicaLastYear['m <1Mes'],
+    label: '[M] < 1 mes',
+    serie: 'Crónica'
+  },
+  {
+    data: cronicaLastYear['m1Ma <2M'],
+    label: '[M] 1m a < 2m',
+    serie: 'Crónica'
+  },
+  {
+    data: cronicaLastYear['m2Ma <1A'],
+    label: '[M] 2m a < 1 a',
+    serie: 'Crónica'
+  },
+  {
+    data: cronicaLastYear['m1Aa4A'],
+    label: '[M] 1a a 4 a',
+    serie: 'Crónica'
+  },
+  {
+    data: cronicaLastYear['f <1Mes'],
+    label: '[F] < 1 mes',
+    serie: 'Crónica'
+  },
+  {
+    data: cronicaLastYear['f1Ma <2M'],
+    label: '[F] 1m a < 2m',
+    serie: 'Crónica'
+  },
+  {
+    data: cronicaLastYear['f2Ma <1A'],
+    label: '[F] 2m a < 1 a',
+    serie: 'Crónica'
+  },
+  {
+    data: cronicaLastYear['f1Aa4A'],
+    label: '[F] 1a a 4 a',
+    serie: 'Crónica'
+  },
+
+  // aguda
+  {
+    data: agudaLastYear['m <1Mes'],
+    label: '[M] < 1 mes',
+    serie: 'Aguda'
+  },
+  {
+    data: agudaLastYear['m1Ma <2M'],
+    label: '[M] 1m a < 2m',
+    serie: 'Aguda'
+  },
+  {
+    data: agudaLastYear['m2Ma <1A'],
+    label: '[M] 2m a < 1 a',
+    serie: 'Aguda'
+  },
+  {
+    data: agudaLastYear['m1Aa4A'],
+    label: '[M] 1a a 4 a',
+    serie: 'Aguda'
+  },
+  {
+    data: agudaLastYear['f <1Mes'],
+    label: '[F] < 1 mes',
+    serie: 'Aguda'
+  },
+  {
+    data: agudaLastYear['f1Ma <2M'],
+    label: '[F] 1m a < 2m',
+    serie: 'Aguda'
+  },
+  {
+    data: agudaLastYear['f2Ma <1A'],
+    label: '[F] 2m a < 1 a',
+    serie: 'Aguda'
+  },
+  {
+    data: agudaLastYear['f1Aa4A'],
+    label: '[F] 1a a 4 a',
+    serie: 'Aguda'
+  }
+];
+
+createChart(
+  'barStacked',
+  'chart-nutricion-3',
+  'Numero de Casos de Desnutrición por edad',
+  g2dataDesnutricionEdad,
+  null,
+  {
+    isG2plotData: true,
+    // 
+    // color: ['#3866c3', '#95b8ff', '#80ffd6', '#5fc0a1'],
+    smooth: false
+  }
 );
 
 // Pobreza
@@ -448,7 +678,15 @@ createChart(
     municipio.ipm.ipm2011,
     municipio.ipm.ipm2014,
   ],
-  ['2006', '2011', '2014']
+  ['2006', '2011', '2014'],
+  {
+    promedio: [
+      municipio.promedios.ipm.ipm2006,
+      municipio.promedios.ipm.ipm2011,
+      municipio.promedios.ipm.ipm2014
+    ],
+    maxLimit: 1
+  }
 );
 // Finanzas
 createChart(
@@ -456,21 +694,21 @@ createChart(
   'chart-finanzas-1',
   'Presupuesto Municipal por año',
   [
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.asignado))
       .reduce((a, b) => a + b),
   ],
   [
@@ -478,21 +716,29 @@ createChart(
     '2017',
     '2018',
     '2019',
-  ]
+  ],
+  {
+    promedio: [
+      Math.round(municipio.promedios.ejecucion7.asignado2016),
+      Math.round(municipio.promedios.ejecucion7.asignado2017),
+      Math.round(municipio.promedios.ejecucion7.asignado2018),
+      Math.round(municipio.promedios.ejecucion7.asignado2019),
+    ]
+  }
 );
 
-let ejecucion2019 = municipio.ejecucion6
+let ejecucion2019 = municipio.ejecucion7
   .filter((item) => item.ejercicio === 2019)
   .sort((a, b) => a.asignado - b.asignado);
 
 createChart(
-  'bar',
+  'treemap',
   'chart-finanzas-2',
   'Distribucion de Presupuesto Municipal 2019',
   ejecucion2019
-    .map((item) => item.asignado),
+    .map((item) => Math.round(item.asignado)),
   ejecucion2019
-    .map((item) => item.seccion)
+    .map((item) => item.funcion)
 );
 
 createChart(
@@ -500,21 +746,21 @@ createChart(
   'chart-finanzas-3',
   'Ejecución Presupuestaria Municipal por año',
   [
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
-    municipio.ejecucion6
+    municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
-      .map((item) => item.asignado)
+      .map((item) => Math.round(item.devengado))
       .reduce((a, b) => a + b),
   ],
   [
@@ -522,46 +768,27 @@ createChart(
     '2017',
     '2018',
     '2019',
-  ]
+  ],
+  {
+    promedio: [
+      municipio.promedios.ejecucion7.devengado2016,
+      municipio.promedios.ejecucion7.devengado2017,
+      municipio.promedios.ejecucion7.devengado2018,
+      municipio.promedios.ejecucion7.devengado2019
+    ]
+  }
 );
 
 let ejecucionPresupuestaria2019 = municipio.ejecucion7
-  .find((item) => item.ejercicio === 2019);
+  .filter((item) => item.ejercicio === 2019)
+  .sort((a, b) => a.devengado - b.devengado);
 
 createChart(
-  'bar',
+  'treemap',
   'chart-finanzas-4',
   'Distribucion de Ejecución Presupuestaria Municipal 2019',
-  [
-    ejecucionPresupuestaria2019['actividadesDeportivas,recreativas,culturaYReligion'],
-    ejecucionPresupuestaria2019['asuntosEconomicos'],
-    ejecucionPresupuestaria2019['atencionADesastresYGestionDeRiesgos'],
-    ejecucionPresupuestaria2019['defensa'],
-    ejecucionPresupuestaria2019['educacion'],
-    ejecucionPresupuestaria2019['ordenPublicoYSeguridadCiudadana'],
-    ejecucionPresupuestaria2019['proteccionAmbiental'],
-    ejecucionPresupuestaria2019['proteccionSocial'],
-    ejecucionPresupuestaria2019['salud'],
-    ejecucionPresupuestaria2019['serviciosPublicosGenerales'],
-    ejecucionPresupuestaria2019['transaccionesDeLaDeudaPublica'],
-    ejecucionPresupuestaria2019['urbanizacionYServiciosComunitarios'],
-    ejecucionPresupuestaria2019['na'],
-  ],
-  [
-    'Actividades Deportivas Recreativas Cultura Y Religion',
-    'Asuntos Economicos',
-    'Atencion A Desastres Y Gestion De Riesgos',
-    'Defensa',
-    'Educacion',
-    'Orden Publico Y Seguridad Ciudadana',
-    'Proteccion Ambiental',
-    'Proteccion Social',
-    'Salud',
-    'Servicios Publicos Generales',
-    'Transacciones De La Deuda Publica',
-    'Urbanizacion Y Servicios Comunitarios',
-    'No especificado',
-  ]
+  ejecucionPresupuestaria2019.map((item) => Math.round(item.devengado)),
+  ejecucionPresupuestaria2019.map((item) => item.funcion)
 );
 
 var getTotalEjecucion = function (item) {
@@ -592,7 +819,7 @@ var getTotalEjecucion = function (item) {
     item['donDeCapP/constrDeBieUsoNoComYOtrasInv'] +
     item['disminucionDeCuentasACobrar'];
 
-  return total;
+  return Math.round(total);
 }
 
 let dataFinanzas5 = [
@@ -620,14 +847,22 @@ createChart(
     '2017',
     '2018',
     '2019',
-  ]
+  ],
+  {
+    promedio: [
+      municipio.promedios.finanzas8.ingresos2016,
+      municipio.promedios.finanzas8.ingresos2017,
+      municipio.promedios.finanzas8.ingresos2018,
+      municipio.promedios.finanzas8.ingresos2019,
+    ]
+  }
 );
 
 let ingresos2019 = municipio.finanzas8
   .find((item) => item.ejercicio === 2019);
 
 createChart(
-  'bar',
+  'treemap',
   'chart-finanzas-6',
   'Distribucion de Ejecución Presupuestaria Municipal 2019',
   [
@@ -689,284 +924,258 @@ createChart(
 );
 // Poblacion
 // 1.- Población total por sexo
-createChart(
-  'pie',
-  'chart-poblacion-1',
-  'Sexo',
-  [
-    municipio.cuadro10Poblacion.hombres,
-    municipio.cuadro10Poblacion.mujeres,
-  ],
-  ["Hombres", "Mujeres"]
-);
-
-// 2.- Población total por grupos quinquenales de edad
-createChart(
-  'bar',
-  'chart-poblacion-2',
-  'Población por grupo de edad',
-  [
-    municipio.cuadro10Poblacion["04"],
-    municipio.cuadro10Poblacion["59"],
-    municipio.cuadro10Poblacion["1014"],
-    municipio.cuadro10Poblacion["1519"],
-    municipio.cuadro10Poblacion["2024"],
-    municipio.cuadro10Poblacion["2529"],
-    municipio.cuadro10Poblacion["3034"],
-    municipio.cuadro10Poblacion["3539"],
-    municipio.cuadro10Poblacion["4044"],
-    municipio.cuadro10Poblacion["4549"],
-    municipio.cuadro10Poblacion["5054"],
-  ],
-  [
-    "0-4",
-    "5-9",
-    "15-19",
-    "20-24",
-    "25-29",
-    "30-34",
-    "35-39",
-    "40-44",
-    "45-49",
-    "50-54",
-  ],
-  // Esto talvez lo mejoro usando la funcionalidad de defaults de ChartJS.
-  {
-    scales: {
-      xAxes: [
-        {
-          display: true,
-          gridLines: {
-            lineWidth: 1,
-            drawOnChartArea: false,
-          },
-        },
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            drawOnChartArea: false,
-          },
-          ticks: {
-            beginAtZero: true,
-          },
-          ticks: {
-            callback: function (
-              value
-            ) {
-              return parseFloat(value).toLocaleString('lan');
-            }
-          }
-        }
-      ]
-    }
-  }
-);
-
-// 3.- Población total por área
-createChart(
-  'pie',
-  'chart-poblacion-3',
-  'Tipo de área',
-  [
-    municipio.cuadro10Poblacion.urbana,
-    municipio.cuadro10Poblacion.rural,
-  ],
-  ["Urbana", "Rural"]
-);
-
-// 4.- Población según parentesco con el jefe(a) del hogar
-createChart(
-  'bar',
-  'chart-poblacion-4',
-  "Población según parentesco con el jefe(a) del hogar",
-  [
-    municipio.cuadro11Poblacion["jefe(a)deHogar"],
-    municipio.cuadro11Poblacion["esposa(o)oPareja"],
-    municipio.cuadro11Poblacion["hija(o)hijastra(o)"],
-    municipio.cuadro11Poblacion["nueraOYerno"],
-    municipio.cuadro11Poblacion["nietaONieto"],
-    municipio.cuadro11Poblacion["hermanaOHermano"],
-    municipio.cuadro11Poblacion["madreOPadre"],
-    municipio.cuadro11Poblacion["suegraOSuegro"],
-    municipio.cuadro11Poblacion["cuñadaOCuñado"],
-    municipio.cuadro11Poblacion["otra(o)pariente"],
-    municipio.cuadro11Poblacion["noParientes"],
-    municipio.cuadro11Poblacion[
-    "poblaciónEnViviendasColectivasOEnSituaciónDeCalle"
+if (municipio.cuadro10Poblacion) {
+  createChart(
+    'pie',
+    'chart-poblacion-1',
+    'Sexo',
+    [
+      municipio.cuadro10Poblacion.hombres,
+      municipio.cuadro10Poblacion.mujeres,
     ],
-  ],
-  [
-    "Jefe(a) de hogar",
-    "Esposa(o) o pareja",
-    "Hija(o) hijastra(o)",
-    "Nuera o yerno",
-    "Nieta o nieto",
-    "Hermana o hermano",
-    "Madre o padre",
-    "Suegra o suegro",
-    "Cuñada o cuñado",
-    "Otra(o) pariente",
-    "No parientes",
-    "Viviendas colectivas o en situación de calle",
-  ]
-);
+    ["Hombres", "Mujeres"]
+  );
 
-// 5.- Población de 10 años y más por estado conyugal
-createChart(
-  'bar',
-  'chart-poblacion-5',
-  "Población por estado conyugal",
-  [
-    municipio.cuadro12Poblacion["soltera(o)"],
-    municipio.cuadro12Poblacion["unida(o)"],
-    municipio.cuadro12Poblacion["casada(o)"],
-    municipio.cuadro12Poblacion["separada(o)"],
-    municipio.cuadro12Poblacion["divorciada(o)"],
-    municipio.cuadro12Poblacion["viuda(o)"],
-  ],
-  [
-    "Soltera(o)",
-    "Unida(o)",
-    "Casada(o)",
-    "Separada(o)",
-    "Divorciada(o)",
-    "Viuda(o)",
-  ]
-);
+  // 2.- Población total por grupos quinquenales de edad
+  createChart(
+    'bar',
+    'chart-poblacion-2',
+    'Población por grupo de edad',
+    [
+      municipio.cuadro10Poblacion["04"],
+      municipio.cuadro10Poblacion["59"],
+      municipio.cuadro10Poblacion["1014"],
+      municipio.cuadro10Poblacion["1519"],
+      municipio.cuadro10Poblacion["2024"],
+      municipio.cuadro10Poblacion["2529"],
+      municipio.cuadro10Poblacion["3034"],
+      municipio.cuadro10Poblacion["3539"],
+      municipio.cuadro10Poblacion["4044"],
+      municipio.cuadro10Poblacion["4549"],
+      municipio.cuadro10Poblacion["5054"],
+    ],
+    [
+      "0-4",
+      "5-9",
+      "15-19",
+      "20-24",
+      "25-29",
+      "30-34",
+      "35-39",
+      "40-44",
+      "45-49",
+      "50-54",
+    ]
+  );
 
-// 6.- Población total por lugar de nacimiento
-createChart(
-  'bar',
-  'chart-poblacion-6',
-  "Población total por lugar de nacimiento",
-  [
-    municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
-    municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
-  ],
-  [
-    "Mismo municipio",
-    "En otro municipio ",
-    "En otro pais",
-    "No declarado",
-  ]
-);
-// 7.- Población total por pueblos
-createChart(
-  'bar',
-  'chart-poblacion-7',
-  "Población total por pueblos",
-  [
-    municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
-    municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
-    municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
-  ],
-  [
-    "Maya",
-    "Gaifuna",
-    "Xinka",
-    "Afrodescendiente / Creole / Afromestizo",
-    "Ladina(o)",
-    "Extranjera(o)",
-  ]
-);
+  // 3.- Población total por área
+  createChart(
+    'pie',
+    'chart-poblacion-3',
+    'Tipo de área',
+    [
+      municipio.cuadro10Poblacion.urbana,
+      municipio.cuadro10Poblacion.rural,
+    ],
+    ["Urbana", "Rural"]
+  );
+}
 
-// 8.- Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
-createChart(
-  'pie',
-  'chart-poblacion-8',
-  "Población total por dificultades",
-  [
-    municipio.cuadro17Poblacion["sinDificultad"],
-    municipio.cuadro17Poblacion["personasConAlMenosUnaDificultad"],
-    municipio.cuadro17Poblacion["noDeclarado"],
-  ],
-  [
-    "Sin dificultad",
-    "Personas con al menos una dificultad",
-    "No declarado",
-  ]
-);
+if (municipio.cuadro11Poblacion) {
+  // 4.- Población según parentesco con el jefe(a) del hogar
+  createChart(
+    'bar',
+    'chart-poblacion-4',
+    "Población según parentesco con el jefe(a) del hogar",
+    [
+      municipio.cuadro11Poblacion["jefe(a)deHogar"],
+      municipio.cuadro11Poblacion["esposa(o)oPareja"],
+      municipio.cuadro11Poblacion["hija(o)hijastra(o)"],
+      municipio.cuadro11Poblacion["nueraOYerno"],
+      municipio.cuadro11Poblacion["nietaONieto"],
+      municipio.cuadro11Poblacion["hermanaOHermano"],
+      municipio.cuadro11Poblacion["madreOPadre"],
+      municipio.cuadro11Poblacion["suegraOSuegro"],
+      municipio.cuadro11Poblacion["cuñadaOCuñado"],
+      municipio.cuadro11Poblacion["otra(o)pariente"],
+      municipio.cuadro11Poblacion["noParientes"],
+      municipio.cuadro11Poblacion[
+      "poblaciónEnViviendasColectivasOEnSituaciónDeCalle"
+      ],
+    ],
+    [
+      "Jefe(a) de hogar",
+      "Esposa(o) o pareja",
+      "Hija(o) hijastra(o)",
+      "Nuera o yerno",
+      "Nieta o nieto",
+      "Hermana o hermano",
+      "Madre o padre",
+      "Suegra o suegro",
+      "Cuñada o cuñado",
+      "Otra(o) pariente",
+      "No parientes",
+      "Viviendas colectivas o en situación de calle",
+    ]
+  );
 
-// 9.- Población maya por comunidad lingüística
-createChart(
-  'bar',
-  'chart-poblacion-9',
-  "Población maya por comunidad lingüística",
-  [
-    municipio.cuadro15Poblacion["achi"],
-    municipio.cuadro15Poblacion["akateka"],
-    municipio.cuadro15Poblacion["awakateka"],
-    municipio.cuadro15Poblacion["ch'orti'"],
-    municipio.cuadro15Poblacion["chalchiteka"],
-    municipio.cuadro15Poblacion["chuj"],
-    municipio.cuadro15Poblacion["itza'"],
-    municipio.cuadro15Poblacion["ixil"],
-    municipio.cuadro15Poblacion["jakalteko /popti'"],
-    municipio.cuadro15Poblacion["k'iche'"],
-    municipio.cuadro15Poblacion["kaqchikel"],
-    municipio.cuadro15Poblacion["mam"],
-    municipio.cuadro15Poblacion["mopan"],
-    municipio.cuadro15Poblacion["poqomam"],
-    municipio.cuadro15Poblacion["poqomchi'"],
-    municipio.cuadro15Poblacion["q'anjob'al"],
-    municipio.cuadro15Poblacion["q'eqchi'"],
-    municipio.cuadro15Poblacion["sakapulteka"],
-    municipio.cuadro15Poblacion["sipakapense"],
-    municipio.cuadro15Poblacion["tektiteka"],
-    municipio.cuadro15Poblacion["tz'utujil"],
-    municipio.cuadro15Poblacion["uspanteka"],
-  ],
-  [
-    "Achi",
-    "Akateka",
-    "Awakateka",
-    "Ch'orti",
-    "Chalchiteka",
-    "Chuj",
-    "Itza",
-    "Ixil",
-    "Jakalteko /Popti",
-    "K'iche",
-    "Kaqchikel",
-    "Mam",
-    "Mopan",
-    "Poqomam",
-    "Poqomchi",
-    "Q'anjob'al",
-    "Q'eqchi",
-    "Sakapulteka",
-    "Sipakapense",
-    "Tektiteka",
-    "Tz'utujil",
-    "Uspanteka",
-  ]
-);
-// 10.- Población según dificultades
-createChart(
-  'bar',
-  'chart-poblacion-10',
-  "Población según dificultades",
-  [
-    municipio.cuadro17Poblacion["ver,aunSiUsaLentes"],
-    municipio.cuadro17Poblacion["oir,inclusoConAparato"],
-    municipio.cuadro17Poblacion["caminarOSubirEscaleras"],
-    municipio.cuadro17Poblacion["recordarOConcentrarse"],
-    municipio.cuadro17Poblacion["cuidadoPersonalOVestirse"],
-    municipio.cuadro17Poblacion["comunicarse"],
-  ],
-  [
-    "Ver, aun si usa lentes",
-    "Oir, incluso con aparato",
-    "Caminar o subir escaleras",
-    "Recordar o concentrarse",
-    "Cuidado personal o vestirse",
-    "Comunicarse",
-  ]
-);
+  // 5.- Población de 10 años y más por estado conyugal
+  createChart(
+    'bar',
+    'chart-poblacion-5',
+    "Población por estado conyugal",
+    [
+      municipio.cuadro12Poblacion["soltera(o)"],
+      municipio.cuadro12Poblacion["unida(o)"],
+      municipio.cuadro12Poblacion["casada(o)"],
+      municipio.cuadro12Poblacion["separada(o)"],
+      municipio.cuadro12Poblacion["divorciada(o)"],
+      municipio.cuadro12Poblacion["viuda(o)"],
+    ],
+    [
+      "Soltera(o)",
+      "Unida(o)",
+      "Casada(o)",
+      "Separada(o)",
+      "Divorciada(o)",
+      "Viuda(o)",
+    ]
+  );
+
+  // 6.- Población total por lugar de nacimiento
+  createChart(
+    'bar',
+    'chart-poblacion-6',
+    "Población total por lugar de nacimiento",
+    [
+      municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
+      municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
+    ],
+    [
+      "Mismo municipio",
+      "En otro municipio ",
+      "En otro pais",
+      "No declarado",
+    ]
+  );
+  // 7.- Población total por pueblos
+  createChart(
+    'bar',
+    'chart-poblacion-7',
+    "Población total por pueblos",
+    [
+      municipio.cuadro13Poblacion["lugarNacimientoEnElMismoMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroMunicipio"],
+      municipio.cuadro13Poblacion["lugarNacimientoEnOtroPais"],
+      municipio.cuadro13Poblacion["lugarNacimientoNoDeclarado"],
+    ],
+    [
+      "Maya",
+      "Gaifuna",
+      "Xinka",
+      "Afrodescendiente / Creole / Afromestizo",
+      "Ladina(o)",
+      "Extranjera(o)",
+    ]
+  );
+
+  // 8.- Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado personal o comunicarse
+  createChart(
+    'pie',
+    'chart-poblacion-8',
+    "Población total por dificultades",
+    [
+      municipio.cuadro17Poblacion["sinDificultad"],
+      municipio.cuadro17Poblacion["personasConAlMenosUnaDificultad"],
+      municipio.cuadro17Poblacion["noDeclarado"],
+    ],
+    [
+      "Sin dificultad",
+      "Personas con al menos una dificultad",
+      "No declarado",
+    ]
+  );
+
+  // 9.- Población maya por comunidad lingüística
+  createChart(
+    'bar',
+    'chart-poblacion-9',
+    "Población maya por comunidad lingüística",
+    [
+      municipio.cuadro15Poblacion["achi"],
+      municipio.cuadro15Poblacion["akateka"],
+      municipio.cuadro15Poblacion["awakateka"],
+      municipio.cuadro15Poblacion["ch'orti'"],
+      municipio.cuadro15Poblacion["chalchiteka"],
+      municipio.cuadro15Poblacion["chuj"],
+      municipio.cuadro15Poblacion["itza'"],
+      municipio.cuadro15Poblacion["ixil"],
+      municipio.cuadro15Poblacion["jakalteko /popti'"],
+      municipio.cuadro15Poblacion["k'iche'"],
+      municipio.cuadro15Poblacion["kaqchikel"],
+      municipio.cuadro15Poblacion["mam"],
+      municipio.cuadro15Poblacion["mopan"],
+      municipio.cuadro15Poblacion["poqomam"],
+      municipio.cuadro15Poblacion["poqomchi'"],
+      municipio.cuadro15Poblacion["q'anjob'al"],
+      municipio.cuadro15Poblacion["q'eqchi'"],
+      municipio.cuadro15Poblacion["sakapulteka"],
+      municipio.cuadro15Poblacion["sipakapense"],
+      municipio.cuadro15Poblacion["tektiteka"],
+      municipio.cuadro15Poblacion["tz'utujil"],
+      municipio.cuadro15Poblacion["uspanteka"],
+    ],
+    [
+      "Achi",
+      "Akateka",
+      "Awakateka",
+      "Ch'orti",
+      "Chalchiteka",
+      "Chuj",
+      "Itza",
+      "Ixil",
+      "Jakalteko /Popti",
+      "K'iche",
+      "Kaqchikel",
+      "Mam",
+      "Mopan",
+      "Poqomam",
+      "Poqomchi",
+      "Q'anjob'al",
+      "Q'eqchi",
+      "Sakapulteka",
+      "Sipakapense",
+      "Tektiteka",
+      "Tz'utujil",
+      "Uspanteka",
+    ]
+  );
+  // 10.- Población según dificultades
+  createChart(
+    'bar',
+    'chart-poblacion-10',
+    "Población según dificultades",
+    [
+      municipio.cuadro17Poblacion["ver,aunSiUsaLentes"],
+      municipio.cuadro17Poblacion["oir,inclusoConAparato"],
+      municipio.cuadro17Poblacion["caminarOSubirEscaleras"],
+      municipio.cuadro17Poblacion["recordarOConcentrarse"],
+      municipio.cuadro17Poblacion["cuidadoPersonalOVestirse"],
+      municipio.cuadro17Poblacion["comunicarse"],
+    ],
+    [
+      "Ver, aun si usa lentes",
+      "Oir, incluso con aparato",
+      "Caminar o subir escaleras",
+      "Recordar o concentrarse",
+      "Cuidado personal o vestirse",
+      "Comunicarse",
+    ]
+  );
+}
+
 // Educación
 // 1.- Educación
 createChart(
@@ -1066,6 +1275,43 @@ createChart(
   ]
 );
 
+// 6.- Educación 6
+let chart6Educacion = [];
+let chart6EducacionPromedio = [];
+
+municipio.cuadro5.forEach((item) => {
+  chart6Educacion.push({
+    data: Math.round(item.lecturaMunicipal),
+    label: item.periodo,
+    serie: 'Lectura'
+  });
+
+  chart6Educacion.push({
+    data: Math.round(item.matematicaMunicipal),
+    label: item.periodo,
+    serie: 'Matemática'
+  });
+});
+
+chart6EducacionPromedio = municipio.cuadro5
+  .sort((a, b) => a.periodo - b.periodo)
+  .map((item) => {
+    return item.lecturaDepartamental + item.matematicaDepartamental
+  }
+);
+
+createChart(
+  'areaStacked',
+  'chart-educacion-6',
+  'Desempeño Municipal en Matemáticas y Lectura',
+  chart6Educacion,
+  null,
+  {
+    isG2plotData: true,
+    maxLimit: 200
+  }
+);
+
 // Economia
 createChart(
   'pie',
@@ -1116,7 +1362,7 @@ createChart(
 );
 
 createChart(
-  'pie',
+  'bar',
   "chart-economia-4",
   "Uso de celular, computadora y/o internet",
   [
@@ -1309,7 +1555,7 @@ createChart(
 );
 
 createChart(
-  'bar',
+  'treemap',
   "chart-hogar-4",
   "Hogares por fuente principal de agua para consumo",
   [
@@ -1328,5 +1574,134 @@ createChart(
     "Manantial o nacimiento",
     "Camion o tonel",
     "Otro",
+  ]
+);
+
+// Vivienda
+createChart(
+  'bar',
+  "chart-vivienda-1",
+  "Distribución de viviendas por tipos de pisos",
+  [
+    municipio.cuadro34["ladrilloCeramico"],
+    municipio.cuadro34["ladrilloDeCemento"],
+    municipio.cuadro34["ladrilloDeBarro"],
+    municipio.cuadro34["tortaDeCemento"],
+    municipio.cuadro34["parqueOVinil"],
+    municipio.cuadro34["madera"],
+    municipio.cuadro34["tierra"],
+    municipio.cuadro34["otro"],
+  ],
+  [
+    "Ladrillo cerámico",
+    "Ladrillo de cemento",
+    "Ladrillo de barro",
+    "Torta de cemento",
+    "Parque o vinil",
+    "Madera",
+    "Tierra",
+    "Otro"
+  ]
+);
+
+createChart(
+  'treemap',
+  "chart-vivienda-2",
+  "Distribución de viviendas por tipo de techo",
+  [
+    municipio.cuadro33["techoConcreto"],
+    municipio.cuadro33["techoLaminaMetalica"],
+    municipio.cuadro33["techoAsbestoOCemento"],
+    municipio.cuadro33["techoTeja"],
+    municipio.cuadro33["techoPaja,palmaOSimilar"],
+    municipio.cuadro33["techoMaterialDeDesecho"],
+    municipio.cuadro33["techoOtro"],
+    municipio.cuadro33["techoIgnorado"]
+  ],
+  [
+    "Concreto",
+    "Lamina metalica",
+    "Asbesto o cemento",
+    "Teja",
+    "Paja palma o similar",
+    "Material de desecho",
+    "Otro",
+    "Ignorado"
+  ]
+);
+
+createChart(
+  'bar',
+  "chart-vivienda-3",
+  "Tipo de vivienda particular",
+  [
+    municipio.cuadro32["viviendaParticularTotal"],
+    municipio.cuadro32["viviendaParticularCasaFormal"],
+    municipio.cuadro32["viviendaParticularApartamento"],
+    municipio.cuadro32["viviendaParticularCuartoEnCasaDeVecindad"],
+    municipio.cuadro32["viviendaParticularRancho"],
+    municipio.cuadro32["viviendaParticularImprovisada"],
+    municipio.cuadro32["viviendaParticularOtro"],
+    municipio.cuadro32["viviendaParticularIgnorado"],
+  ],
+  [
+    'Particular total',
+    'Casa formal',
+    'Apartamento',
+    'Cuarto en casa de vecindad',
+    'Rancho',
+    'Particular improvisada',
+    'Otro',
+    'Ignorado',
+  ]
+);
+
+createChart(
+  'treemap',
+  "chart-vivienda-4",
+  "Distribución de viviendas por tipo de pared",
+  [
+    municipio.cuadro33['paredLadrillo'],
+    municipio.cuadro33['paredBlock'],
+    municipio.cuadro33['paredConcreto'],
+    municipio.cuadro33['paredAdobe'],
+    municipio.cuadro33['paredMadera'],
+    municipio.cuadro33['paredLaminaMetalica'],
+    municipio.cuadro33['paredBajareque'],
+    municipio.cuadro33['paredLepa'],
+    municipio.cuadro33['paredMaterialDeDesecho'],
+    municipio.cuadro33['paredOtro'],
+    municipio.cuadro33['paredIgnorado'],
+  ],
+  [
+    'Ladrillo',
+    'Block',
+    'Concreto',
+    'Adobe',
+    'Madera',
+    'Lamina metalica',
+    'Bajareque',
+    'Lepa',
+    'Material de desecho',
+    'Otro',
+    'Ignorado'
+  ]
+);
+
+createChart(
+  'bar',
+  "chart-vivienda-5",
+  "Condición de ocupación de viviendas",
+  [
+    municipio.cuadro32['condicionDeOcupacionViviendasColectivas'],
+    municipio.cuadro32['condicionDeOcupacionOcupada'],
+    municipio.cuadro32['condicionDeOcupacionDeUsoTemporal'],
+    municipio.cuadro32['condicionDeOcupacionDesocupada'],
+  ],
+  [
+    'Viviendas colectivas',
+    'Ocupada',
+    'De uso temporal',
+    'Desocupada',
   ]
 );

@@ -1,11 +1,25 @@
-const JsonNodeNormalizer = require('json-node-normalizer');
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.simple(),
+    transports: [
+        //
+        // - Write all logs with level `error` and below to `error.log`
+        // - Write all logs with level `info` and below to `combined.log`
+        //
+        new winston.transports.File({ filename: 'log/error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'log/combined.log' }),
+    ],
+});
+
 const camelcaseKeys = require('camelcase-keys');
 const fs = require('fs');
 
 let municipios = require('./src/_data/municipios.json');
 let ranking = require('./src/_data/ranking.json');
-let aip = require('./src/_data/aip.json');
-let ipm = require('./src/_data/ipm.json');
+let aip = require('./src/_data/aip_v2.json');
+let ipm = require('./src/_data/ipm_v2.json');
 let coorporacion = require('./src/_data/coorporacion.json');
 let desempeno5 = require('./src/_data/plataformaMunicipalDatosJSON/5DesempeñoDeEscuelasMunicipalesConsolidado20152019FinalXlsx.json');
 let _10Poblacion = require('./src/_data/plataformaMunicipalDatosJSON/10CuadroA1PoblaciónTotalPorSexo,GruposQuinquenalesDeEdadYÁreaXlsx.json');
@@ -35,395 +49,104 @@ let _cuadro33 = require('./src/_data/plataformaMunicipalDatosJSON/33CuadroC2Vivi
 let _cuadro34 = require('./src/_data/plataformaMunicipalDatosJSON/34CuadroC3ViviendasParticularesPorMaterialPredominanteEnElPisoXlsx.json');
 let desnutricion = require('./src/_data/plataformaMunicipalDatosJSON/3DesnutricionXlsx.json');
 let ejecucion6 = require('./src/_data/plataformaMunicipalDatosJSON/6EjecucionPresupuestariaIngresosFinalXlsx.json');
-let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7Xls.json');
+// let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7Xls.json');
+let ejecucion7 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion7_2.json');
 let finanzas8 = require('./src/_data/plataformaMunicipalDatosJSON/ejecucion8Xls.json');
+const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 
-const jsonSchema = {
-    id_dep: {
-        type: 'number'
-    },
-    departamento: {
-        type: 'string'
-    },
-    id_municipal: {
-        type: 'number'
-    },
-    municipio: {
-        type: 'string'
-    },
-    alcalde: {
-        type: 'string'
-    },
-    partido: {
-        type: 'string'
-    },
-    fundacion: {
-        type: 'string'
-    },
-    telefono: {
-        type: 'string'
-    },
-    email: {
-        type: 'string'
-    },
-    web: {
-        type: 'string'
-    },
-    twitter: {
-        type: 'string'
-    },
-    facebook: {
-        type: 'string'
-    },
-    ranking: {
-        type: 'object',
-        properties: {
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            segeplan2013: {
-                type: 'number'
-            },
-            segeplan2016: {
-                type: 'number'
-            },
-            segeplan2018: {
-                type: 'number'
-            },
-            promediosegeplan: {
-                type: 'number'
-            },
-        }
-    },
-    aip: {
-        type: 'object',
-        properties: {
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            aip2019: {
-                type: 'number'
-            },
-            aip2017: {
-                type: 'number'
-            },
-            aip2015: {
-                type: 'number'
-            },
-            aip2015insitu: {
-                type: 'string'
-            },
-            aipPromedio: {
-                type: 'string'
-            },
-        }
-    },
-    ipm: {
-        type: 'object',
-        properties: {
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            incidencia2000: {
-                type: 'number'
-            },
-            incidencia2006: {
-                type: 'number'
-            },
-            incidencia2011: {
-                type: 'number'
-            },
-            incidencia2014: {
-                type: 'number'
-            },
-            poblacion2000: {
-                type: 'number'
-            },
-            poblacion2006: {
-                type: 'number'
-            },
-            poblacion2011: {
-                type: 'number'
-            },
-            poblacion2014: {
-                type: 'number'
-            },
-            ipm2000: {
-                type: 'number'
-            },
-            ipm2006: {
-                type: 'number'
-            },
-            ipm2011: {
-                type: 'number'
-            },
-            ipm2014: {
-                type: 'number'
-            },
-        }
-    },
-    coorporacion: {
-        type: 'array',
-        items: {
-            idMunicipal: {
-                type: 'number'
-            },
-            municipio: {
-                type: 'string'
-            },
-            idDep: {
-                type: 'number'
-            },
-            departamento: {
-                type: 'string'
-            },
-            pais: {
-                type: 'string'
-            },
-            cargo: {
-                type: 'string'
-            },
-            partido: {
-                type: 'string'
-            },
-            nombre: {
-                type: 'string'
-            },
-        }
-    },
-    cuadro10Poblacion: {
-        type: 'object',
-        properties: {
-            _no: {
-                type: 'number'
-            },
-            _idMunicipal: {
-                type: 'number'
-            },
-            _municipio: {
-                type: 'string'
-            },
-            _codDepartamento: {
-                type: 'number'
-            },
-            _departamento: {
-                type: 'string'
-            },
-            _poblacionTotal: {
-                type: 'number'
-            },
-            _hombres: {
-                type: 'number'
-            },
-            _mujeres: {
-                type: 'number'
-            },
-            _04: {
-                type: 'number'
-            },
-            _59: {
-                type: 'number'
-            },
-            _1014: {
-                type: 'number'
-            },
-            _1519: {
-                type: 'number'
-            },
-            _2024: {
-                type: 'number'
-            },
-            _2529: {
-                type: 'number'
-            },
-            _3034: {
-                type: 'number'
-            },
-            _3539: {
-                type: 'number'
-            },
-            _4044: {
-                type: 'number'
-            },
-            _4549: {
-                type: 'number'
-            },
-            _5054: {
-                type: 'number'
-            },
-            _5559: {
-                type: 'number'
-            },
-            _6064: {
-                type: 'number'
-            },
-            _6569: {
-                type: 'number'
-            },
-            _7074: {
-                type: 'number'
-            },
-            _7579: {
-                type: 'number'
-            },
-            _8084: {
-                type: 'number'
-            },
-            _8589: {
-                type: 'number'
-            },
-            _9094: {
-                type: 'number'
-            },
-            _9599: {
-                type: 'number'
-            },
-            _100OMas: {
-                type: 'number'
-            },
-            _urbana: {
-                type: 'number'
-            },
-            _rural: {
-                type: 'number'
-            },
-        }
-    },
-    cuadro11Poblacion: {
-        type: 'object'
-    },
-    cuadro12Poblacion: {
-        type: 'object'
-    },
-    cuadro13Poblacion: {
-        type: 'object'
-    },
-    cuadro14Poblacion: {
-        type: 'object'
-    },
-    cuadro15Poblacion: {
-        type: 'object'
-    },
-    cuadro16Poblacion: {
-        type: 'object'
-    },
-    cuadro17Poblacion: {
-        type: 'object'
-    },
-    cuadro18: {
-        type: 'object'
-    },
-    cuadro19: {
-        type: 'object'
-    },
-    cuadro20: {
-        type: 'object'
-    },
-    cuadro21: {
-        type: 'object'
-    },
-    cuadro22: {
-        type: 'object'
-    },
-    cuadro23: {
-        type: 'object'
-    },
-    cuadro24: {
-        type: 'object'
-    },
-    cuadro25: {
-        type: 'object'
-    },
-    cuadro26: {
-        type: 'object'
-    },
-    cuadro27: {
-        type: 'object'
-    },
-    cuadro28: {
-        type: 'object'
-    },
-    cuadro29: {
-        type: 'object'
-    },
-    cuadro30: {
-        type: 'object'
-    },
-    cuadro31: {
-        type: 'object'
-    },
-    cuadro32: {
-        type: 'object'
-    },
-    cuadro33: {
-        type: 'object'
-    },
-    cuadro34: {
-        type: 'object'
-    },
-    desnutricion: {
-        type: 'object'
-    },
-    desempeno5: {
-        type: 'object'
-    },
-    cuadro5: {
-        type: 'object'
-    },
-    cuadro5Y2018: {
-        type: 'object'
-    },
-    ejecucion6: {
-        type: 'object'
-    },
-    ejecucion7: {
-        type: 'object'
-    },
-    finanzas8: {
-        type: 'object'
-    }
+promedios = {
 }
 
-promisesMunicipiosNormalize = municipios.map(function (municipio) {
+municipiosNormalize = municipios.map(function (municipio) {
+    let id_municipio = municipio.id_municipal;
+    let id_departamento = municipio.id_dep;
+
+    if (promedios[id_departamento] === undefined) {
+        promedios[id_departamento] = {
+            ranking: {
+                count: 0,
+                segeplan2013: 0,
+                segeplan2016: 0,
+                segeplan2018: 0
+            },
+            aip: {
+                count: 0,
+                aip2019: 0,
+                aip2017: 0,
+                aip2015: 0,
+                aip2015Insitu: 0
+            },
+            ipm: {
+                count: 0,
+                ipm2006: 0,
+                ipm2011: 0,
+                ipm2014: 0,
+            },
+            ejecucion7: {
+                count: 0,
+                asignado2016: 0,
+                asignado2017: 0,
+                asignado2018: 0,
+                asignado2019: 0,
+                devengado2016: 0,
+                devengado2017: 0,
+                devengado2018: 0,
+                devengado2019: 0,
+            },
+            desnutricion: {
+                count: 0,
+                cronicaYAguda2012: 0,
+                cronicaYAguda2013: 0,
+                cronicaYAguda2014: 0,
+                cronicaYAguda2015: 0,
+                cronicaYAguda2016: 0,
+                cronicaYAguda2017: 0,
+                cronicaYAguda2018: 0,
+                cronicaYAguda2019: 0
+            },
+            finanzas8: {
+                count: 0,
+                ingresos2016: 0,
+                ingresos2017: 0,
+                ingresos2018: 0,
+                ingresos2019: 0
+            }
+        };
+    }
+
     // Cargar ranking
     municipio.ranking = ranking.find((ranking) => {
         return ranking.id_municipal === municipio.id_municipal;
     });
 
+    if (municipio.ranking) {
+        promedios[id_departamento].ranking.segeplan2013 += municipio.ranking.segeplan2013;
+        promedios[id_departamento].ranking.segeplan2016 += municipio.ranking.segeplan2016;
+        promedios[id_departamento].ranking.segeplan2018 += municipio.ranking.segeplan2018;
+        promedios[id_departamento].ranking.count += 1;
+    }
+
     municipio.aip = aip.find((aip) => {
         return aip.id_municipal === municipio.id_municipal;
     });
 
+    if (municipio.aip) {
+        promedios[id_departamento].aip.aip2019 += municipio.aip.aip2019;
+        promedios[id_departamento].aip.aip2017 += municipio.aip.aip2017;
+        promedios[id_departamento].aip.aip2015 += municipio.aip.aip2015;
+        promedios[id_departamento].aip.count += 1;
+    }
+
     municipio.ipm = ipm.find((ipm) => {
         return ipm.id_municipal === municipio.id_municipal;
     });
+
+    if (municipio.ipm) {
+        promedios[id_departamento].ipm.ipm2006 += municipio.ipm.IPM2006;
+        promedios[id_departamento].ipm.ipm2011 += municipio.ipm.IPM2011;
+        promedios[id_departamento].ipm.ipm2014 += municipio.ipm.IPM2014;
+        promedios[id_departamento].ipm.count += 1;
+    }
 
     municipio.coorporacion = coorporacion.filter((coorporacion) => {
         return coorporacion.id_municipal === municipio.id_municipal;
@@ -531,42 +254,94 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
         return item._idMunicipal == municipio.id_municipal;
     });
 
-    municipio.ejecucion6 = ejecucion6.filter((item) => {
-        return item._idMunicipal == municipio.id_municipal;
-    });
-
-    municipio.ejecucion6_2019 = municipio
-        .ejecucion6
-        .find((item) => item._ejercicio === 2019);
-
     municipio.ejecucion7 = ejecucion7.filter((item) => {
-        return item._codMunicipal == municipio.id_municipal;
+        return item.codigo_municipal == municipio.id_municipal;
     });
 
-    municipio.ejecucion7_2019 = municipio
+    municipio.ejecucion72019_asignado = municipio
         .ejecucion7
-        .find((item) => item._ejercicio === 2019);
+        .filter((item) => item.ejercicio === 2019);
 
-    if (municipio.ejecucion7_2019) {
-        municipio.ejecucion7_2019.total =
-            municipio.ejecucion7_2019['_actividadesDeportivas,Recreativas,CulturaYReligion'] +
-            municipio.ejecucion7_2019['_asuntosEconomicos'] +
-            municipio.ejecucion7_2019['_atencionADesastresYGestionDeRiesgos'] +
-            municipio.ejecucion7_2019['_defensa'] +
-            municipio.ejecucion7_2019['_educacion'] +
-            municipio.ejecucion7_2019['_na'] +
-            municipio.ejecucion7_2019['_ordenPublicoYSeguridadCiudadana'] +
-            municipio.ejecucion7_2019['_proteccionAmbiental'] +
-            municipio.ejecucion7_2019['_proteccionSocial'] +
-            municipio.ejecucion7_2019['_salud'] +
-            municipio.ejecucion7_2019['_serviciosPublicosGenerales'] +
-            municipio.ejecucion7_2019['_transaccionesDeLaDeudaPublica'] +
-            municipio.ejecucion7_2019['_urbanizacionYServiciosComunitarios'];
-    } else {
-        console
-            .error(`El municipio ${municipio.id_municipal} ${municipio.departamento},
-                ${municipio.municipio} no tiene ejecucion 7 ejercicio 2019`);
+    if (municipio.ejecucion72019_asignado.length > 0) {
+        municipio.ejecucion72019_asignado = 
+            municipio.ejecucion72019_asignado
+                .map((item) => item.asignado)
+                .reduce((a, b) => {
+                    return a + b;
+                });
     }
+
+    municipio.ejecucion72019_devengado = municipio
+        .ejecucion7
+        .filter((item) => item.ejercicio === 2019);
+
+    if (municipio.ejecucion72019_devengado.length > 0) {
+        municipio.ejecucion72019_devengado =
+            municipio.ejecucion72019_devengado
+                .map((item) => item.devengado)
+                .reduce((a, b) => {
+                    return a + b;
+                });
+    }
+
+    let asignado2016 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2016)
+        .map((item) => item.asignado);
+    if (asignado2016.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2016 += asignado2016.reduce((a, b) => a + b);
+    }
+
+    let asignado2017 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2017)
+        .map((item) => item.asignado);
+    if (asignado2017.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2017 += asignado2017.reduce((a, b) => a + b);
+    }
+
+    let asignado2018 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2018)
+        .map((item) => item.asignado);
+    if (asignado2018.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2018 += asignado2018.reduce((a, b) => a + b);
+    }
+
+    let asignado2019 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2019)
+        .map((item) => item.asignado);
+    if (asignado2019.length > 0) {
+        promedios[id_departamento].ejecucion7.asignado2019 += asignado2019.reduce((a, b) => a + b);
+    }
+
+
+    let devengado2016 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2016)
+        .map((item) => item.devengado);
+    if (devengado2016.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2016 += devengado2016.reduce((a, b) => a + b);
+    }
+
+    let devengado2017 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2017)
+        .map((item) => item.devengado);
+    if (devengado2017.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2017 += devengado2017.reduce((a, b) => a + b);
+    }
+
+    let devengado2018 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2018)
+        .map((item) => item.devengado);
+    if (devengado2018.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2018 += devengado2018.reduce((a, b) => a + b);
+    }
+
+    let devengado2019 = municipio.ejecucion7
+        .filter((item) => item.ejercicio === 2019)
+        .map((item) => item.devengado);
+    if (devengado2019.length > 0) {
+        promedios[id_departamento].ejecucion7.devengado2019 += devengado2019.reduce((a, b) => a + b);
+    }
+
+    promedios[id_departamento].ejecucion7.count += 1;
 
     municipio.finanzas8 = finanzas8.filter((item) => {
         return item._idMunicipal == municipio.id_municipal;
@@ -604,8 +379,77 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
             municipio.finanzas8_2019['_donDeCapParaConstrDeBienesDeUsoCom'] +
             municipio.finanzas8_2019['_donDeCapP/ConstrDeBieUsoNoComYOtrasInv'] +
             municipio.finanzas8_2019['_disminucionDeCuentasACobrar'];
+
+        var getTotalEjecucion = function (item) {
+            if (!item) {
+                return 0;
+            }
+
+            let total = item['_impuestosDirectos'] +
+                item['_impuestosIndirectos'] +
+                item['_tasas'] +
+                item['_contribucionesPorMejoras'] +
+                item['_arrendamientoDeEdificios,EquiposEInstalaciones'] +
+                item['_multas'] +
+                item['_interesesPorMora'] +
+                item['_ventaDeServicios'] +
+                item['_intereses'] +
+                item['_arrendamientoDeTierrasYTerrenos'] +
+                item['_delSectorPrivado'] +
+                item['_donacionesCorrientes'] +
+                item['_delSectorPublico'] +
+                item['_disminucionDeDisponibilidades'] +
+                item['_obtencionDePrestamosInternosALargoPlazo'] +
+                item['_otrosIngresosNoTributarios'] +
+                item['_ventaDeBienes'] +
+                item['_dismDeActDiferidosYAnticiposAContratistas'] +
+                item['_ventaY/oDesincorporacionDeTierrasYTerrenos'] +
+                item['_dividendosY/oUtilidades'] +
+                item['_ventaY/oDesincorporacionDeActivosFijos'] +
+                item['_obtencionDePrestamosInternosACortoPlazo'] +
+                item['_delSectorExterno'] +
+                item['_donDeCapParaConstrDeBienesDeUsoCom'] +
+                item['_donDeCapP/ConstrDeBieUsoNoComYOtrasInv'] +
+                item['_disminucionDeCuentasACobrar'];
+
+            return total;
+        }
+
+        let ingresos2016 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2016));
+        
+        if (Number.isNaN(ingresos2016)) {
+            ingresos2016 = promedios[id_departamento].finanzas8.ingresos2016;
+        }
+        promedios[id_departamento].finanzas8.ingresos2016 += ingresos2016;
+
+        let ingresos2017 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2017));
+        
+        if (Number.isNaN(ingresos2017)) {
+            ingresos2017 = promedios[id_departamento].finanzas8.ingresos2017;
+        }
+        promedios[id_departamento].finanzas8.ingresos2017 += ingresos2017;
+
+        let ingresos2018 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2018));
+        
+        if (Number.isNaN(ingresos2018)) {
+            ingresos2018 = promedios[id_departamento].finanzas8.ingresos2018;
+        }
+        promedios[id_departamento].finanzas8.ingresos2018 += ingresos2018;
+
+        let ingresos2019 = getTotalEjecucion(municipio.finanzas8
+            .find((item) => item._ejercicio === 2019));
+        
+        if (Number.isNaN(ingresos2019)) {
+            ingresos2019 = promedios[id_departamento].finanzas8.ingresos2019;
+        }
+        promedios[id_departamento].finanzas8.ingresos2019 += ingresos2019;
+
+        promedios[id_departamento].finanzas8.count += 1;
     } else {
-        console
+        logger
             .error(`El municipio ${municipio.id_municipal} ${municipio.departamento},
                 ${municipio.municipio} no tiene finanzas 8 ejercicio 2019`);
     }
@@ -627,6 +471,16 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
         cronica2019: cronica.find((item) => item._periodo === 2019)
     };
 
+    aguda.forEach((item) => {
+        promedios[id_departamento].desnutricion['cronicaYAguda' + item._periodo] += item._cantidad;
+    });
+
+    cronica.forEach((item) => {
+        promedios[id_departamento].desnutricion['cronicaYAguda' + item._periodo] += item._cantidad;
+    });
+
+    promedios[id_departamento].desnutricion.count += 1;
+
     municipio.cuadro5 = desempeno5.filter((item) => {
         return item._idMunicipal === municipio.id_municipal;
     });
@@ -636,37 +490,143 @@ promisesMunicipiosNormalize = municipios.map(function (municipio) {
             && item._periodo === 2018;
     });
 
-    console.log(`${municipio.departamento}, ${municipio.municipio}`);
+    logger.info(`${municipio.departamento}, ${municipio.municipio}`);
 
     municipio = camelcaseKeys(municipio, { deep: true });
 
-    try {
-        return JsonNodeNormalizer.normalize(municipio, jsonSchema);
-    } catch (error) {
-        console.error(error);
-    }
+    // Calcular promedios
+    // municipio.ranking 
+
+    return municipio;
+});
+
+// Calcular y rendondear promedios
+Object.keys(promedios).forEach((dep) => {
+    Object.keys(promedios[dep]).forEach((topic) => {
+        Object.keys(promedios[dep][topic]).forEach((label) => {
+            if (label === 'count') {
+                return;
+            }
+
+            let value = promedios[dep][topic][label] / promedios[dep][topic].count;
+            promedios[dep][topic][label] = parseFloat(parseFloat(value).toFixed(2));
+        });
+    });
+});
+
+municipiosNormalize = municipiosNormalize.map((item) => {
+    item.promedios = promedios[item.idDep];
+
+    return item;
 });
 
 // Wait for all Promises to complete
-Promise.all(promisesMunicipiosNormalize)
-    .then(results => {
-        results = results.sort((a, b) => a.idMunicipal - b.idMunicipal);
-        fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(results), function (err) {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log('Success build src/_data/municipiosData.json');
-            }
-        });
+municipiosNormalize = municipiosNormalize.sort((a, b) => a.idMunicipal - b.idMunicipal);
 
-        fs.writeFile('./src/_data/municipioData.json', JSON.stringify(results[0]), function (err) {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log('Success build src/_data/municipioData.json');
-            }
-        });
-    })
-    .catch(e => {
-        console.error(e);
+fs.writeFile('./src/_data/municipiosData.json', JSON.stringify(municipiosNormalize), function (err) {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log('Success build src/_data/municipiosData.json');
+    }
+});
+
+fs.writeFile('./src/_data/municipioData.json', JSON.stringify(municipiosNormalize[0]), function (err) {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log('Success build src/_data/municipioData.json');
+    }
+});
+
+// Assets for json requests.
+
+municipiosNormalize.forEach((municipio) => {
+    fs.writeFile(`./assets/municipios/${municipio.idMunicipal}.json`, JSON.stringify(municipio), function (err) {
+        if (err) {
+            logger.error(err);
+        } else {
+            logger.info(`success build ./assets/municipios/${municipio.idMunicipal}.json`);
+        }
     });
+});
+
+let indices = municipiosNormalize.map((municipio) => {
+
+    let desnutricion = 0;
+    if (municipio.desnutricion.aguda2019) {
+        desnutricion =+ municipio.desnutricion.aguda2019.cantidad;
+    }
+
+    if (municipio.desnutricion.cronica2019) {
+        desnutricion = + municipio.desnutricion.cronica2019.cantidad;
+    }
+
+    let aip;
+    if (municipio.aip) {
+        aip = municipio.aip.aip2019;
+    }
+
+    let ipm;
+    if (municipio.ipm) {
+        ipm = municipio.ipm.ipm2014;
+    }
+
+    let igm;
+    if (municipio.ranking) {
+        igm = municipio.ranking.segeplan2018;
+    }
+
+    let matematica;
+    let lectura;
+
+    let cuadro5 = municipio.cuadro5.find((item) => item.periodo === 2019);
+
+    if (cuadro5) {
+        matematica = cuadro5.matematicaMunicipal;
+        lectura = cuadro5.lecturaMunicipal;
+    }
+
+    let hogares;
+    if (municipio.cuadro24) {
+        hogares = municipio.cuadro24.totalDeHogares;
+    }
+
+    let vivienda;
+    if (municipio.cuadro34) {
+        vivienda = municipio.cuadro34.tierra;
+    }
+
+    let economia;
+    if (municipio.cuadro22) {
+        economia = (municipio.cuadro22.totalPea / (municipio.cuadro22.totalPea + municipio.cuadro22.totalPei)) * 100;
+        economia = parseInt(economia);
+    }
+
+    let data = {
+        idMunicipio: municipio.idMunicipal,
+        idDepartamento: municipio.idDep,
+        municipio: municipio.municipio,
+        departamento: municipio.departamento,
+        desnutricion,
+        aip,
+        ipm,
+        igm,
+        matematica,
+        lectura,
+        /* COVID - NO TENEMOS DATOS */
+        hogares,
+        vivienda,
+        economia
+    };
+
+    return data;
+});
+
+fs.writeFile(`./assets/indices.json`, JSON.stringify(indices), function (err) {
+    if (err) {
+        logger.error(err);
+    } else {
+        logger.info(`Indices data generated`);
+    }
+});

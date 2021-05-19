@@ -1,0 +1,1273 @@
+---
+pagination:
+  data: municipiosData
+  size: 1
+  addAllPagesToCollections: true
+  alias: municipio
+permalink: "/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/pdf.html"
+---
+{% extends "src/_includes/base_pdf.njk" %}
+
+{% block content %}
+  <style>
+    .pdf-hide {
+      display: none !important;
+    }
+    .col-lg-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%;
+  }
+
+  .col-lg-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+  }
+
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+
+  .col-lg-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%;
+  }
+
+  .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-lg-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
+
+  .col-lg-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+
+  .col-lg-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .col-lg-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+
+  .col-lg-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%;
+  }
+
+  .col-lg-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  body {
+    background-color: white !important; 
+  }
+  </style>
+  <div class="container" id="page-container">
+    <div class="row" id="basic-info-row">
+      <div class="col-12 py-2">
+        <a href="/municipios/1">Municipios</a>
+        \
+        {{ municipio.municipio }}
+      </div>
+      <div class="col-12 mb-2 pdf-hide">
+        <div class="bg-white w-100 row m-0 p-0">
+          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/index.html"
+            class="col-12 col-md-3 m-0 p-2 bg-primary text-white text-left text-md-center font-weight-bold border-right">
+            <img src="/assets/img/general-white.png" height="25px" alt="Casa" class="mr-1">
+            Municipalidades
+          </a>
+          <a href="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}/corporacion.html"
+            class="col-12 col-md-3 m-0 p-2 text-left text-md-center font-weight-bold border-right">
+            <img src="/assets/img/coorporacion.png" height="25px" alt="Casa" class="mr-1">
+            Corporación municipal
+          </a>
+          <div class="col d-flex">
+            <div class="mx-auto ml-md-auto mr-md-0 my-auto d-flex py-2">
+              <!-- Corregir alineación con tweet  -->
+              <style>
+                .fb-share-button span {
+                  vertical-align: top !important;
+                }
+              </style>
+              <div class="fb-share-button my-auto mr-1" data-href="https://labmunicipal.redciudadana.org/"
+                data-layout="button" data-size="small"><a target="_blank"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flabmunicipal.redciudadana.org%2F&amp;src=sdkpreparse"
+                  class="fb-xfbml-parse-ignore">Compartir</a></div>
+              <a class="twitter-share-button my-auto"
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Flabmunicipal.redciudadana.org%2F&via=RedxGuate&text=Laboratorio%20Municipal&hashtags=%23LaboratorioMunicipal">
+                Tweet
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mb-2">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 col-lg-4 p-3 p-lg-4 d-flex">
+            <img src="/assets/img/mapa.png" alt="Municipalidad de Guatemala" class="m-auto img-fluid">
+          </div>
+          <div class="col-12 col-lg-4 p-3 p-lg-4 text-left">
+            <h3>
+              Municipalidad de
+              {{ municipio.municipio }}
+            </h3>
+            <div class="pb-1 border-bottom">
+              <p class="m-0 h6">
+                Departamento:
+                <span class="text-secondary font-weight-normal">{{municipio.departamento}}</span>
+              </p>
+            </div>
+            <div class="pt-1 pb-1 border-bottom">
+              <p class="m-0 h6">
+                Alcalde:
+                <span class="text-secondary font-weight-normal">{{municipio.alcalde}}</span>
+              </p>
+            </div>
+            <div class="pt-1 pb-1 border-bottom">
+              <p class="m-0 h6">
+                Partido Político:
+                <span class="text-secondary font-weight-normal">{{municipio.partido}}</span>
+              </p>
+            </div>
+            <div class="pt-1 pb-1 border-bottom">
+              <p class="m-0 h6">
+                Fundación:
+                <span class="text-secondary font-weight-normal">{{municipio.fundacion}}</span>
+              </p>
+            </div>
+            <div class="pt-1 pb-1 border-bottom">
+              <p class="m-0 h6">
+                Teléfonos:
+                <span class="text-secondary font-weight-normal">{{municipio.telefono}}</span>
+              </p>
+            </div>
+            <div class="pt-1 pb-1">
+              <p class="m-0 h6">
+                E-mail:
+                <span class="text-secondary font-weight-normal">{{municipio.email}}</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 p-3 p-lg-4 pdf-hide">
+            <h6>
+              Contacto
+            </h6>
+            <ul class="list-unstyled">
+              <li>
+                <img src="/assets/img/twitter.png" alt="Twitter" height="30px">
+                <a class="text-secondary" href="{{municipio.twitter}}">{{municipio.twitter}}</a>
+              </li>
+              <li>
+                <img src="/assets/img/facebook.png" alt="Facebook" height="30px">
+                <a class="text-secondary" href="{{municipio.facebook}}">{{municipio.facebook}}</a>
+              </li>
+            </ul>
+            <button class="btn btn-secondary btn-block text-uppercase">
+              <img src="/assets/img/download.png" alt="Descargar" height="20px" class="mr-2">
+              Descargar .XLSX
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 pdf-hide">
+        <div class="bg-white border w-100 row m-0 p-0 mb-2 justify-content-center py-3">
+          <div class="col-12 pt-2 text-center">
+            <h4 class="">
+              Elije la tematica de su interes
+            </h4>
+          </div>
+          <div class="col-12 col-lg-4 mb-2">
+            <select class="form-control" name="tematica" id="tematica">
+              <option value="General">General</option>
+              {% for tematica in collections.tematicas %}
+              <option value="{{ tematica.data.title }}">{{ tematica.data.title }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="tematicas-row">
+      {# General #}
+      <div class="col-12 mb-2" id="tematica-general">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-general-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              General
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#general-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="general-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=general" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=general" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Poblacion total
+                  </h3>
+                  <h1 class="mb-0">
+                    {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
+                  </h1>
+                  <h6>
+                    habitantes
+                  </h6>
+                  <small>
+                    Fuente: Instituto Nacional de Estadística (INE)
+                  </small>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población total por sexo
+                  </h6>
+                  <canvas height="210px" id="chart-general-1"></canvas>
+                  Fuente: Instituto Nacional de Estadística (INE)
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población total por área
+                  </h6>
+                  <canvas height="160px" id="chart-general-2"></canvas>
+                  Fuente: Instituto Nacional de Estadística (INE)
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desnutrición Crónica Total
+                  </h3>
+                  <h1 class="mb-0">
+                    {{ municipio.desnutricion.cronica2019.cantidad | toLocaleString }}
+                  </h1>
+                  <h6>
+                    casos
+                  </h6>
+                  <small>Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019</small>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desnutrición Aguda Total
+                  </h3>
+                  <h1 class="title-aguda-text mb-0">
+                    {{municipio.desnutricion.aguda2019.cantidad | toLocaleString}}
+                  </h1>
+                  <h6>
+                    casos
+                  </h6>
+                  <small>Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019</small>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desempeño Municipal en Matematica 2018
+                  </h3>
+                  <h1>
+                    {{municipio.cuadro5Y2018.matematicaMunicipal | toLocaleString}}%
+                  </h1>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h3>
+                    Desempeño Municipal en Lectura 2018
+                  </h3>
+                  <h1>
+                    {{municipio.cuadro5Y2018.lecturaMunicipal | toLocaleString}}%
+                  </h1>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Gestión Municipal #}
+      <div class="col-12 mb-2" id="tematica-gestion-municipal">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-gestion-municipal-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Gestión Municipal
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#gestión-municipal-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="gestión-municipal-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=gestion-municipal" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=gestion-municipal" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Índice de Gestión Municipal
+                  </h3>
+                  <h1>
+                    {{municipio.ranking.segeplan2018 | toLocaleString}}%
+                  </h1>
+                  <small>
+                    Fuente: Secretaría de Planificación y Programación de la Presidencia (SEGEPLAN) 2018
+                  </small>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Índice de Gestión Municipal
+                  </h6>
+                  <canvas height="120px" id="chart-gestion-municipal-1"></canvas>
+                  <small>Fuente: Secretaría de Planificación y Programación de la Presidencia (SEGEPLAN)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Transparencia #}
+      <div class="col-12 mb-2" id="tematica-transparencia">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-transparencia-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Transparencia
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#transparencia-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="transparencia-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=transparencia" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=transparencia" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Acceso a la información pública
+                  </h3>
+                  <h1>
+                    {{municipio.aip.aipPromedio}}%
+                  </h1>
+                  <small>
+                    Fuente: Procuraduría de los Derechos Humanos (PDH) 2019
+                  </small>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Índice de Acceso a la Información Pública
+                  </h6>
+                  <canvas height="120px" id="chart-transparencia-1"></canvas>
+                  <small>Fuente: Procuraduría de Derechos Humanos (PDH)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Nutrición / Alimentación #}
+      <div class="col-12 mb-2" id="tematica-nutricion-alimentacion">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-nutricion-alimentacion-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Nutrición / Alimentación
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#nutrición-alimentación-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="nutrición-alimentación-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=nutricion-alimentacion" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=nutricion-alimentacion" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 p-2 px-3 border">
+            <h3>
+              Desnutrición Crónica Total
+            </h3>
+            <h1 class="mb-0">
+              {{ municipio.desnutricion.cronica2019.cantidad | toLocaleString }}
+            </h1>
+            <h6>casos</h6>
+            <h3>
+              Desnutrición Aguda Total
+            </h3>
+            <h1 class="title-aguda-text mb-0">
+              {{municipio.desnutricion.aguda2019.cantidad | toLocaleString}}
+            </h1>
+            <h6>
+              casos
+            </h6>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS) 2019
+            </small>
+          </div>
+          <div class="col-12 col-lg-9 p-3 border">
+            <h6>
+              Numero de Casos de Desnutrición por año
+            </h6>
+            <div id="chart-nutricion-1"></div>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
+          </div>
+          <div class="col-12 col-lg-4 p-3 border">
+            <h6>
+              Casos de Desnutrición por sexo
+            </h6>
+            <canvas height="220px" id="chart-nutricion-2"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
+          </div>
+          {# break #}
+          <div class="col-12 col-lg-8 p-3 border">
+            <h6>
+              Casos de Desnutrición por Edad
+            </h6>
+            <canvas height="140px" id="chart-nutricion-3"></canvas>
+            <small>
+              Fuente: Ministerio de salud pública y asistencia social (MSPAS)
+            </small>
+          </div>
+        </div>
+      </div>
+      {# Pobreza #}
+      <div class="col-12 mb-2" id="tematica-pobreza">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-pobreza-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Pobreza
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#pobreza-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="pobreza-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=pobreza" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=pobreza" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h5>
+                    Índice de Pobreza Multidimensional
+                  </h5>
+                  <h1>
+                    {{municipio.ipm.ipm2014}} %
+                  </h1>
+                  <small>
+                    Fuente: Programa de las Naciones Unidas para el Desarrollo (PNUD) 2014
+                  </small>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Índice de pobreza Multidimensional
+                  </h6>
+                  <canvas height="100px" id="chart-pobreza-1"></canvas>
+                  <small>
+                    Fuente: Programa de las Naciones Unidas para el Desarrollo (PNUD)
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Finanzas #}
+      <div class="col-12 mb-2" id="tematica-finanzas">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-finanzas-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Finanzas
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#finanzas-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="finanzas-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=finanzas" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=finanzas" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Presupuesto Municipal 2019
+                  </h3>
+                  <h5 class="title-finanzas-text">
+                    Q{{municipio.ejecucion62019.devengado | toLocaleString}}
+                  </h5>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN) 2019</small>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Presupuesto Municipal por año
+                  </h6>
+                  <canvas height="80px" id="chart-finanzas-1"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                </div>
+                <div class="col-12 col-lg-12 p-3 border">
+                  <h6>
+                    Distribucion de Presupuesto Municipal 2019
+                  </h6>
+                  <canvas height="120px" id="chart-finanzas-2"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Ejecución Presupuestaria Municipal 2019
+                  </h3>
+                  <h5 class="title-finanzas-2-text">
+                    Q{{municipio.ejecucion72019.total | toLocaleString}}
+                  </h5>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN) 2019</small>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Ejecución Presupuestaria Municipal por año
+                  </h6>
+                  <canvas height="80px" id="chart-finanzas-3"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                </div>
+                <div class="col-12 col-lg-12 p-3 border">
+                  <h6>
+                    Distribucion de Ejecución Presupuestaria Municipal 2019
+                  </h6>
+                  <canvas height="120px" id="chart-finanzas-4"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Ingresos Municipales 2019
+                  </h3>
+                  <h5 class="title-finanzas-3-text">
+                    Q{{municipio.finanzas82019.total | toLocaleString}}
+                  </h5>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN) 2019</small>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Ingresos Municipales por año
+                  </h6>
+                  <canvas height="130px" id="chart-finanzas-5"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                </div>
+                <div class="col-12 col-lg-12 p-3 border">
+                  <h6>
+                    Ingresos Municipales 2019
+                  </h6>
+                  <canvas height="120px" id="chart-finanzas-6"></canvas>
+                  <small>Fuente: Ministerio de Finanzas Públicas (MINFIN)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Población #}
+      <div class="col-12 mb-2" id="tematica-poblacion">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-poblacion-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Población
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#población-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="población-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=poblacion" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=poblacion" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Poblacion total
+                  </h3>
+                  <h1 class="mb-0">
+                    {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
+                  </h1>
+                  <h6>habitantes</h6>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                    Población total por sexo
+                  </h6>
+                  <canvas height="280px" id="chart-poblacion-1"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-6 p-3 border">
+                  <h6>
+                    Población total por grupos quinquenales de edad
+                  </h6>
+                  <canvas id="chart-poblacion-2"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población total por área
+                  </h6>
+                  <canvas id="chart-poblacion-3"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-7 p-3 border">
+                  <h6>
+                    Población según parentesco con el jefe(a) del hogar
+                  </h6>
+                  <canvas id="chart-poblacion-4"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h3>
+                    Población de 10 años y más
+                  </h3>
+                  <h1 class="mb-0">
+                    {{municipio.cuadro10Poblacion.poblacionTotal | toLocaleString}}
+                  </h1>
+                  <h6>habitantes</h6>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población de 10 años y más por estado conyugal
+                  </h6>
+                  <canvas id="chart-poblacion-5"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población total por lugar de nacimiento y lugar de residencia en abril del 2013
+                  </h6>
+                  <canvas height="300px" id="chart-poblacion-6"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                    Total de poblacion pueblo maya
+                  </h6>
+                  <h1 class="mb-0">
+                    {{municipio.cuadro14Poblacion.maya | toLocaleString}}
+                  </h1>
+                  <h6>habitantes</h6>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-9 p-3 border">
+                  <h6>
+                    Población total por pueblos
+                  </h6>
+                  <canvas height="100px" id="chart-poblacion-7"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población con dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse, cuidado
+                    personal o comunicarse
+                  </h6>
+                  <canvas height="230px" id="chart-poblacion-8"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-8 p-3 border">
+                  <h6>
+                    Población maya por comunidad lingüística
+                  </h6>
+                  <canvas height="100px" id="chart-poblacion-9"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-12 p-3 border">
+                  <h6>
+                    Población con según dificultades para ver, oír, caminar o subir escaleras, recordar o concentrarse,
+                    cuidado personal o comunicarse
+                  </h6>
+                  <canvas height="40px" id="chart-poblacion-10"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Educación #}
+      <div class="col-12 mb-2" id="tematica-educacion">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-educacion-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Educación
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#educación-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="educación-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=educacion" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=educacion" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-2 px-3 border">
+                  <h5>
+                    Población de 4 a 29 años que no asiste a un establecimiento educativo
+                  </h5>
+                  <h1 class="mb-0">
+                    {{municipio.cuadro19['poblacionDe4A29AñosDeEdadQueNoAsiste'] | toLocaleString }}
+                  </h1>
+                  <h6>
+                    habitantes
+                  </h6>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-5 p-3 border">
+                  <h6>
+                    Población de 4 años y más por nivel educativo
+                  </h6>
+                  <canvas height="230px" id="chart-educacion-1"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población de 7 años o más con alfabetismo
+                  </h6>
+                  <canvas id="chart-educacion-3" height="220px"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Asistencia escolar
+                  </h6>
+                  <canvas id="chart-educacion-4" height="220px"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Causa principal de inasistencia
+                  </h6>
+                  <canvas height="230px" id="chart-educacion-2"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Lugar de estudio
+                  </h6>
+                  <canvas height="230px" id="chart-educacion-5"></canvas>
+                  <small>Fuente: Instituto Nacional de Estadistica (INE)</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Economía #}
+      <div class="col-12 mb-2" id="tematica-economia">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-economia-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Economía
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#economía-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="economía-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=economia" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=economia" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                    Uso de celular
+                  </h6>
+                  <canvas height="320px" id="chart-economia-1"></canvas>
+                </div>
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                    Uso de computadora y/o internet
+                  </h6>
+                  <canvas height="320px" id="chart-economia-2"></canvas>
+                </div>
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                    Uso de internet
+                  </h6>
+                  <canvas height="320px" id="chart-economia-3"></canvas>
+                </div>
+                <div class="col-12 col-lg-3 p-3 border">
+                  <h6>
+                    Uso de celular, computadora y/o internet
+                  </h6>
+                  <canvas height="460px" id="chart-economia-4"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Población económicamente activa e inactiva
+                  </h6>
+                  <canvas height="180px" id="chart-economia-5"></canvas>
+                </div>
+                <div class="col-12 col-lg-8 p-3 border">
+                  <h6>
+                    Población económicamente inactiva
+                  </h6>
+                  <canvas height="80px" id="chart-economia-7"></canvas>
+                </div>
+                <div class="col-12 col-lg-4 p-3 border">
+                  <h6>
+                    Condición de inactividad
+                  </h6>
+                  <canvas height="250px" id="chart-economia-6"></canvas>
+                </div>
+                <div class="col-12 col-lg-8 p-3 border">
+                  <h6>
+                    Lugar de trabajo
+                  </h6>
+                  <canvas height="80px" id="chart-economia-8"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {# Salud #}
+      <div class="col-12 mb-2" id="tematica-salud">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-salud-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Salud
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#salud-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="salud-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=salud" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=salud" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 p-2 px-3 border">
+            <h3>
+              Total de mujeres de 15 años y mas
+            </h3>
+            <h1 class="mb-0">
+              {{ municipio.cuadro23['totalDeMujeresDe15AñosYMas'] | toLocaleString }}
+            </h1>
+            <h6>
+              habitantes
+            </h6>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-9 p-3 border">
+            <h6>
+              Número de hijos nacidos vivos
+            </h6>
+            <canvas height="80px" id="chart-salud-1"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-12 p-3 border">
+            <h6>
+              Edad de la mujer al nacimiento de su primer hijo
+            </h6>
+            <canvas height="80px" id="chart-salud-2"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+        </div>
+      </div>
+      {# Hogar #}
+      <div class="col-12 mb-2" id="tematica-hogar">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-hogar-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Hogar
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#hogar-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="hogar-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=hogar" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=hogar" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 p-2 px-3 border">
+            <h3>
+              Total de hogares
+            </h3>
+            <h1>
+              {{ municipio.cuadro24['totalDeHogares'] | toLocaleString }}
+            </h1>
+            <h6>
+              hogares
+            </h6>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-9 p-3 border">
+            <h6>
+              Hogares por tipo de tenencia de la vivienda
+            </h6>
+            <canvas height="80px" id="chart-hogar-1"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-6 p-3 border">
+            <h6>
+              Hogares por sexo del propietario de la vivienda
+            </h6>
+            <canvas height="80px" id="chart-hogar-2"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-6 p-3 border">
+            <h6>
+              Sexo de la persona que toma las principales decisiones en el hogar
+            </h6>
+            <canvas height="80px" id="chart-hogar-3"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+          <div class="col-12 col-lg-12 p-3 border">
+            <h6>
+              Hogares por fuente principal de agua para consumo
+            </h6>
+            <canvas height="80px" id="chart-hogar-4"></canvas>
+            <small>
+              Fuente: Instituto Nacional de Estadistica (INE)
+            </small>
+          </div>
+        </div>
+      </div>
+      {# Vivienda #}
+      <div class="col-12 mb-2" id="tematica-vivienda">
+        <div class="bg-white w-100 row m-0 p-0">
+          <div class="col-12 bg-secondary py-2 px-3 d-flex" id="tematica-vivienda-header">
+            <h4 class="text-white m-0 font-weight-normal">
+              Vivienda
+            </h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn bg-transparent border-0 text-white ml-auto my-auto" data-toggle="modal"
+              data-target="#vivienda-modal">
+              Compartir gráfica
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="vivienda-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Compartir gráfica
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="bg-light p-1 mb-2">
+                      <code id="code-embed">
+                              &lt;embed src="https://labmunicipal.redciudadana.org/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=vivienda" type="text/html" class="w-100" height="500px"&gt;
+                            </code>
+                    </div>
+                    <!-- <embed id="embed-embed" src="/{{ municipio.departamento | slug }}/{{ municipio.municipio | slug }}?embed=true&tematica=vivienda" type="text/html" class="w-100" height="500px"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="w-100">
+              <div class="row m-0 p-0">
+                <div class="col-12 col-lg-12 p-2 px-3 border">
+                  <p>
+                    Información en proceso
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // @ts-nocheck
+    window.municipio = {{ municipio | dump | safe }};
+  </script>
+  <script src="/assets/municipio.js"></script>
+{% endblock %}
