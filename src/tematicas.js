@@ -12,124 +12,125 @@ Promise.all([
   let GeoJSON = result[0];
   let indices = result[1];
 
-  let indiceName = 'desnutricion';
+  function createMap(container, indiceName, _colors, max) {
+    let colors = ['#30BF78', '#FAAD14', '#F4664A'];
 
-  const userData = [];
+    if (_colors) {
+      colors = _colors;
+    }
 
-  const geoDv = new DataSet.View().source(GeoJSON, {
-    type: 'GeoJSON'
-  }).transform({
-    type: 'map',
-    callback(row) {
-      userData.push({
-        longitude: row.centroidX,
-        latitude: row.centroidY,
-        name: row.properties.mun,
-        cod_mun: row.properties.cod_mun
+    const userData = [];
+
+    const geoDv = new DataSet.View().source(GeoJSON, {
+      type: 'GeoJSON'
+    }).transform({
+      type: 'map',
+      callback(row) {
+        userData.push({
+          longitude: row.centroidX,
+          latitude: row.centroidY,
+          name: row.properties.mun,
+          cod_mun: row.properties.cod_mun
+        });
+
+        row.nombre_municipio = row.properties.mun;
+        let indiceData = indices.find((item) => item.idMunicipio === row.properties.cod_mun);
+
+        if (indiceData) {
+          row.municipio = indiceData.municipio;
+          row.departamento = indiceData.departamento;
+          row.indice = indiceData[indiceName];
+        } else {
+          row.indice = 0;
+        }
+
+        return row;
+      }
+    });
+
+    const chart = new Chart({
+      container: container,
+      autoFit: false,
+      height: 650,
+      width: 650,
+      padding: 20
+    });
+
+    chart.scale({
+      latitude: { sync: true },
+      longitude: { sync: true }
+    });
+
+    chart.legend('indice', {
+      position: 'bottom',
+      layout: 'horizontal',
+      slidable: false,
+      min: 0,
+      // max: max
+    });
+
+    chart.axis(false);
+
+    chart.tooltip({
+      showTitle: false,
+      showMarkers: false
+    });
+
+    const geoView = chart.createView();
+    geoView.data(geoDv.rows);
+    geoView.polygon()
+      .style({
+        lineWidth: 2,
+        stroke: '#fff',
+      })
+      .position('longitude*latitude')
+      .color('indice', colors)
+      .tooltip('nombre_municipio*indice', (nombre_municipio, indice) => {
+        return {
+          title: 'Índice',
+          name: nombre_municipio,
+          value: indice
+        };
+      })
+      .animate({
+        leave: {
+          animation: 'fade-out'
+        }
       });
 
-      row.nombre_municipio = row.properties.mun;
-      let indiceData = indices.find((item) => item.idMunicipio === row.properties.cod_mun);
+    geoView.interaction('element-active');
 
-      if (indiceData) {
-        row.municipio = indiceData.municipio;
-        row.departamento = indiceData.departamento;
-        row.indice = indiceData[indiceName];
-      } else {
-        row.indice = 0;
-      }
+    const userView = chart.createView();
+    userView.data(userData);
 
-      return row;
+    function slug(string) {
+      return slugify(string, {
+        lower: true,
+        replacement: "-",
+        remove: /[*+~·,()'"`´%!?¿:@\/]/g,
+      });
     }
-  });
 
-  const chart = new Chart({
-    container: 'chart-container',
-    autoFit: false,
-    height: 650,
-    width: 650,
-    padding: 20
-  });
+    chart.on('polygon:click', (ev) => {
+      let properties = ev.data.data.properties;
+      let indiceData = indices.find((item) => item.idMunicipio === properties.cod_mun);
 
-  chart.scale({
-    latitude: { sync: true },
-    longitude: { sync: true }
-  });
+      console.log(indiceData);
+      let url = `/${slug(indiceData.departamento)}/${slug(indiceData.municipio)}`;
 
-  chart.legend('indice', {
-    position: 'bottom',
-    layout:  'horizontal',
-    slidable: false,
-    itemValue: () => {
-      console.log('item value');
-      return 1;
-    },
-    min: 0,
-    max: 10000
-    // track: {
-    //   style: {
-    //     fill: 'r(0.5, 0.5, 0.1) 0:#ffffff 1:#1890ff'
-    //   }
-    // },
-    // rail: {
-    //   type: 'color',
-    //   style: {
-    //     lineDash: [4, 5],
-    //   }
-    // }
-  });
-
-  chart.axis(false);
-
-  chart.tooltip({
-    showTitle: true,
-    showMarkers: false
-  });
-
-  const geoView = chart.createView();
-  geoView.data(geoDv.rows);
-  geoView.polygon()
-    .style({
-      lineWidth: 2,
-      stroke: '#fff',
-    })
-    .position('longitude*latitude')
-    .color('indice', ['#30BF78', '#FAAD14',  '#F4664A'])
-    .tooltip('nombre_municipio*indice', (nombre_municipio, indice) => {
-      return {
-        title: 'Índice aleatorio',
-        name: nombre_municipio,
-        value: indice
-      };
-    })
-    .animate({
-      leave: {
-        animation: 'fade-out'
-      }
+      window.location.href = url;
     });
 
-  geoView.interaction('element-active');
-
-  const userView = chart.createView();
-  userView.data(userData);
-
-  function slug(string) {
-    return slugify(string, {
-      lower: true,
-      replacement: "-",
-      remove: /[*+~·,()'"`´%!?¿:@\/]/g,
-    });
+    chart.render();
   }
 
-  chart.on('polygon:click', (ev) => {
-    let properties = ev.data.data.properties;
-    let indiceData = indices.find((item) => item.idMunicipio === properties.cod_mun);
+  let indiceName = 'desnutricion';
 
-    console.log(indiceData);
-    let url = `/${slug(indiceData.departamento)}/${slug(indiceData.municipio)}`;
+  if (window.tematicaCharts === undefined) {
+    return;
+  }
 
-    window.location.href = url;
+  window.tematicaCharts.forEach((chart) => {
+    createMap(chart.container, chart.indiceName, chart.colors, chart.max);
   });
-
-  chart.render();
 });

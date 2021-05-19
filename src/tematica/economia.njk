@@ -1,0 +1,62 @@
+---
+title: Economía
+tags: tematicas
+---
+{% extends "src/_includes/baseToExtend.njk" %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        Tematicas
+      </h1>
+      <p class="h5 text-secondary font-weight-normal">
+        Seleccione una de las siguientes tematicas de su interes.
+      </p>
+    </div>
+    {% for tematica in collections.tematicas %}
+    <div class="col-12 col-sm-6 col-lg-3 text-center py-1">
+      {% if tematica.url == page.url %}
+      <a href="{{tematica.url}}" class="btn btn-lg btn-primary text-white rounded-pill border-dark w-100">
+        {{ tematica.data.title }}
+      </a>
+      {% else %}
+      <a href="{{tematica.url}}" class="btn btn-lg btn-white rounded-pill border-dark w-100">
+        {{ tematica.data.title }}
+      </a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="bg-white w-100">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <h4>Población económicamente activa e inactiva</h4>
+        <h5 class="text-secondary font-weight-normal mb-3">
+          Interactúe con el gráfico para información adicional
+        </h5>
+      </div>
+      <div class="col-8">
+        <div class="mx-auto" id="chart-container-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block body_javascripts %}
+<script>
+  window.tematicaCharts = [
+    {
+      container: 'chart-container-1',
+      indiceName: 'economia',
+      colors: ['#c62300', '#f36f53', '#f8b127', '#f8d527', '#30BF78'],
+      // max: 8000
+    }
+  ]
+</script>
+<script src="/assets/tematicas.js"></script>
+{% endblock %}

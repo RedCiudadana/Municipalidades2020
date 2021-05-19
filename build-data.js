@@ -577,6 +577,32 @@ let indices = municipiosNormalize.map((municipio) => {
         igm = municipio.ranking.segeplan2018;
     }
 
+    let matematica;
+    let lectura;
+
+    let cuadro5 = municipio.cuadro5.find((item) => item.periodo === 2019);
+
+    if (cuadro5) {
+        matematica = cuadro5.matematicaMunicipal;
+        lectura = cuadro5.lecturaMunicipal;
+    }
+
+    let hogares;
+    if (municipio.cuadro24) {
+        hogares = municipio.cuadro24.totalDeHogares;
+    }
+
+    let vivienda;
+    if (municipio.cuadro34) {
+        vivienda = municipio.cuadro34.tierra;
+    }
+
+    let economia;
+    if (municipio.cuadro22) {
+        economia = (municipio.cuadro22.totalPea / (municipio.cuadro22.totalPea + municipio.cuadro22.totalPei)) * 100;
+        economia = parseInt(economia);
+    }
+
     let data = {
         idMunicipio: municipio.idMunicipal,
         idDepartamento: municipio.idDep,
@@ -585,7 +611,13 @@ let indices = municipiosNormalize.map((municipio) => {
         desnutricion,
         aip,
         ipm,
-        igm
+        igm,
+        matematica,
+        lectura,
+        /* COVID - NO TENEMOS DATOS */
+        hogares,
+        vivienda,
+        economia
     };
 
     return data;

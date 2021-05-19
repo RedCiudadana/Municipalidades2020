@@ -1,5 +1,5 @@
 ---
-title: Desnutricion
+title: Desnutrición
 tags: tematicas
 ---
 {% extends "src/_includes/baseToExtend.njk" %}
@@ -32,12 +32,15 @@ tags: tematicas
 </div>
 <div class="bg-white w-100">
   <div class="container py-4">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12">
+        <h4>Desnutrición Crónica y Aguda 2019</h4>
         <h5 class="text-secondary font-weight-normal mb-3">
-          Interactúe con gráficos y estadísticas para obtener márgenes de error e información adicional.
+          Interactúe con el gráfico para información adicional
         </h5>
-        <div id="chart-container"></div>
+      </div>
+      <div class="col-8">
+        <div class="mx-auto" id="chart-container"></div>
       </div>
     </div>
   </div>
@@ -45,5 +48,15 @@ tags: tematicas
 {% endblock %}
 
 {% block body_javascripts %}
+  <script>
+    window.tematicaCharts = [
+      {
+        container: 'chart-container',
+        indiceName: 'desnutricion',
+        colors: ['#fffbe7', '#f8d527', '#f8b127', '#f36f53', '#c62300'],
+        max: 8000
+      }
+    ]
+  </script>
   <script src="/assets/tematicas.js"></script>
 {% endblock %}
