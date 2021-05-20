@@ -42,6 +42,20 @@ tags: tematicas
       <div class="col-8">
         <div class="mx-auto" id="chart-container-1"></div>
       </div>
+      <div class="col-12">
+        <div class="mx-auto justify-content-center d-flex w-100">
+          <div class="box" style="background-color: #c62300;"></div>
+          <h6 class="mr-2">0-24</h6>
+          <div class="box" style="background-color: #f8b127;"></div>
+          <h6 class="mr-2">25-49</h6>
+          <div class="box" style="background-color: #f8d527;"></div>
+          <h6 class="mr-2">50-74</h6>
+          <div class="box" style="background-color: #23db25;"></div>
+          <h6 class="mr-2">75-99</h6>
+          <div class="box" style="background-color: #30BF78;"></div>
+          <h6 class="mr-2">100</h6>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -53,8 +67,17 @@ tags: tematicas
     {
       container: 'chart-container-1',
       indiceName: 'economia',
-      colors: ['#c62300', '#f36f53', '#f8b127', '#f8d527', '#30BF78'],
-      // max: 8000
+      colors: function (indice) {
+        let _colors = ['#c62300', '#f8b127', '#f8d527', '#23db25', '#00ae02'];
+        
+        let color = _colors[parseInt(indice / 25)];
+        if (!color) {
+          return '#bebebe';
+        }
+
+        return color;
+      },
+      max: 100
     }
   ]
 </script>

@@ -42,6 +42,20 @@ tags: tematicas
       <div class="col-8">
         <div class="mx-auto" id="chart-container"></div>
       </div>
+      <div class="col-12">
+        <div class="mx-auto justify-content-center d-flex w-100">
+          <div class="box" style="background-color: #fffbe7;"></div>
+          <h6 class="mr-2">0</h6>
+          <div class="box" style="background-color: #f8d527;"></div>
+          <h6 class="mr-2">1-1999</h6>
+          <div class="box" style="background-color: #f8b127;"></div>
+          <h6 class="mr-2">2000-3999</h6>
+          <div class="box" style="background-color: #c62300;"></div>
+          <h6 class="mr-2">4000-5999</h6>
+          <div class="box" style="background-color: #9b1b00;"></div>
+          <h6 class="mr-2">6000+</h6>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -53,7 +67,25 @@ tags: tematicas
     {
       container: 'chart-container',
       indiceName: 'vivienda',
-      colors: ['#fffbe7', '#f8d527', '#f8b127', '#f36f53', '#c62300'],
+      colors: function (indice) {
+        if (indice === 0) {
+          return '#fffbe7';
+        }
+
+        if (indice > 6000) {
+          return '#9b1b00';
+        }
+
+        let _colors = ['#9b1b00', '#c62300', '#f8b127', '#f8d527'];
+
+        let color = _colors[3 - parseInt(indice / 2000)];
+
+        if (!color) {
+          return '#bebebe' // Indefinido deberia tener su propio color?
+        }
+
+        return color;
+      },
       max: 8000
     }
   ]

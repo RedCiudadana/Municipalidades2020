@@ -15,7 +15,7 @@ Promise.all([
   function createMap(container, indiceName, _colors, max) {
     let colors = ['#30BF78', '#FAAD14', '#F4664A'];
 
-    if (_colors) {
+    if (_colors !== undefined) {
       colors = _colors;
     }
 
@@ -61,13 +61,15 @@ Promise.all([
       longitude: { sync: true }
     });
 
-    chart.legend('indice', {
-      position: 'bottom',
-      layout: 'horizontal',
-      slidable: false,
-      min: 0,
-      // max: max
-    });
+    chart.legend(false);
+
+    // chart.legend('indice', {
+    //   position: 'bottom',
+    //   layout: 'horizontal',
+    //   slidable: false,
+    //   min: 0,
+    //   max: max
+    // });
 
     chart.axis(false);
 
