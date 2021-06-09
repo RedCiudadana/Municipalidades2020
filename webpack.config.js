@@ -24,6 +24,9 @@ module.exports = {
         },
         comparar: {
             import: './src/comparar.js'
+        },
+        monitor: {
+            import: './src/monitor.js'
         }
     },
     output: {

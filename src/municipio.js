@@ -1,6 +1,25 @@
 import { Area, Column, Treemap, Pie } from '@antv/g2plot';
+import * as Sentry from "@sentry/browser";
+
+Array.prototype.reduceCatch = function (_function) {
+  if (this.length === 0) { return null }
+  return this.reduce(_function);
+};
+
+function ChartException(message, parameters) {
+  const error = new Error(message);
+
+  error.parameters = parameters;
+  return error;
+}
+
+ChartException.prototype = Object.create(Error.prototype);
 
 function abbreviateNumber(value) {
+  if (!value || Number.isNaN(value)) {
+    return null;
+  }
+
   return value.toLocaleString('lan');
   var newValue = value;
   if (value >= 1000) {
@@ -43,6 +62,7 @@ function createChart(type, id, title, data, labels, options) {
 
   if (!document.getElementById(id)) {
     console.error(`El elemento ${id} no se encontro.`);
+    Sentry.captureException(new Error(`El elemento ${id} no se encontro.`));
     return;
   }
 
@@ -73,6 +93,19 @@ function createChart(type, id, title, data, labels, options) {
         });
       }
     }
+  }
+
+  if (g2plotdata.length === 0) {
+    document.getElementById(id).innerText = 'No hay datos disponibles';
+    Sentry
+      .captureException(new Error(`No hay datos en chart ${id}`), {
+        level: Sentry.Severity.Warning,
+        contexts: {
+          municipio: municipio.idMunicipal
+        }
+      });
+
+    return;
   }
 
   let color = null;
@@ -145,8 +178,8 @@ function createChart(type, id, title, data, labels, options) {
       maxLimit = 100;
     } else {
       if (options.promedio) {
-        let maxPromedio = options.promedio.reduce((a, b) => Math.max(a, b));
-        let maxData = g2plotdata.map((item) => item.data).reduce((a, b) => Math.max(a, b));
+        let maxPromedio = options.promedio.reduceCatch((a, b) => Math.max(a, b));
+        let maxData = g2plotdata.map((item) => item.data).reduceCatch((a, b) => Math.max(a, b));
 
         if (maxPromedio > maxData) {
           maxLimit = maxPromedio * 1.2;
@@ -210,7 +243,15 @@ function createChart(type, id, title, data, labels, options) {
         //   },
         // },
 
-    line.render();
+    try {
+      line.render();
+    } catch {
+      console.error(`Error al renderizar ${id}`);
+      Sentry
+        .captureException(
+          new ChartException(`Error al renderizar ${id}`, ...arguments));
+      console.log(...arguments);
+    }
     return;
   }
 
@@ -230,7 +271,15 @@ function createChart(type, id, title, data, labels, options) {
       }
     });
 
-    bar.render();
+    try {
+      bar.render();
+    } catch {
+      console.error(`Error al renderizar ${id}`);
+      Sentry
+        .captureException(
+          new ChartException(`Error al renderizar ${id}`, ...arguments));
+      console.log(...arguments);
+    }
     return;
   }
 
@@ -256,7 +305,15 @@ function createChart(type, id, title, data, labels, options) {
       }
     });
 
-    pie.render();
+    try {
+      pie.render();
+    } catch {
+      console.error(`Error al renderizar ${id}`);
+      Sentry
+        .captureException(
+          new ChartException(`Error al renderizar ${id}`, ...arguments));
+      console.log(...arguments);
+    }
     return;
   }
 
@@ -284,7 +341,15 @@ function createChart(type, id, title, data, labels, options) {
       },
     });
 
-    stackedColumnPlot.render();
+    try {
+      stackedColumnPlot.render();
+    } catch {
+      console.error(`Error al renderizar ${id}`);
+      Sentry
+        .captureException(
+          new ChartException(`Error al renderizar ${id}`, ...arguments));
+      console.log(...arguments);
+    }
     return;
   }
 
@@ -335,14 +400,14 @@ function createChart(type, id, title, data, labels, options) {
       maxLimit = 200;
     } else {
       if (options.promedio) {
-        let maxPromedio = options.promedio.reduce((a, b) => Math.max(a, b));
+        let maxPromedio = options.promedio.reduceCatch((a, b) => Math.max(a, b));
         let labels = g2plotdata.map((item) => item.label);
         labels = labels.filter((item, i, ar) => ar.indexOf(item) === i);
 
-        let maxData = g2plotdata.map((item) => item.data).reduce((a, b) => Math.max(a, b));
+        let maxData = g2plotdata.map((item) => item.data).reduceCatch((a, b) => Math.max(a, b));
 
         labels.forEach((label) => {
-          let total = g2plotdata.filter((item) => item.label === label).map((item) => item.data).reduce((a, b) => a + b);
+          let total = g2plotdata.filter((item) => item.label === label).map((item) => item.data).reduceCatch((a, b) => a + b);
           maxData = Math.max(maxData, total);
         });
 
@@ -377,7 +442,15 @@ function createChart(type, id, title, data, labels, options) {
       annotations: annotations
     });
 
-    stackedColumnPlot.render();
+    try {
+      stackedColumnPlot.render();
+    } catch {
+      console.error(`Error al renderizar ${id}`);
+      Sentry
+        .captureException(
+          new ChartException(`Error al renderizar ${id}`, ...arguments));
+      console.log(...arguments);
+    }
     return;
   }
 
@@ -397,7 +470,15 @@ function createChart(type, id, title, data, labels, options) {
       }
     });
 
-    bar.render();
+    try {
+      bar.render();
+    } catch {
+      console.error(`Error al renderizar ${id}`);
+      Sentry
+        .captureException(
+          new ChartException(`Error al renderizar ${id}`, ...arguments));
+      console.log(...arguments);
+    }
     return;
   }
 }
@@ -697,19 +778,19 @@ createChart(
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
       .map((item) => Math.round(item.asignado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
       .map((item) => Math.round(item.asignado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
       .map((item) => Math.round(item.asignado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
       .map((item) => Math.round(item.asignado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
   ],
   [
     '2016',
@@ -749,19 +830,19 @@ createChart(
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2016)
       .map((item) => Math.round(item.devengado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2017)
       .map((item) => Math.round(item.devengado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2018)
       .map((item) => Math.round(item.devengado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
     municipio.ejecucion7
       .filter((item) => item.ejercicio === 2019)
       .map((item) => Math.round(item.devengado))
-      .reduce((a, b) => a + b),
+      .reduceCatch((a, b) => a + b),
   ],
   [
     '2016',

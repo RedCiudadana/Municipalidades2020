@@ -2,8 +2,20 @@ import { Chart } from '@antv/g2';
 import DataSet from '@antv/data-set';
 const slugify = require("slugify");
 
+function showLoader(container) {
+  let loader = document.createElement('div');
+  loader.className = 'loader';
+  
+  document.getElementById(container).appendChild(loader);
+}
 
-// WIP: Start loading here.
+function hideLoader(container) {
+  document.getElementById(container).firstChild.remove();
+}
+
+window.tematicaCharts.forEach((chart) => {
+  showLoader(chart.container);
+});
 
 Promise.all([
   fetch('/assets/municipios_limites_340_carto.geojson').then(res => res.json()),
@@ -126,13 +138,12 @@ Promise.all([
     chart.render();
   }
 
-  let indiceName = 'desnutricion';
-
   if (window.tematicaCharts === undefined) {
     return;
   }
 
   window.tematicaCharts.forEach((chart) => {
+    hideLoader(chart.container);
     createMap(chart.container, chart.indiceName, chart.colors, chart.max);
   });
 });
