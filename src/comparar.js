@@ -205,7 +205,6 @@ function createChart(type, id, title, data, labels, options) {
         maxLimit: maxLimit,
         label: {
           formatter: (text, item, index) => {
-            // console.log(text, item, index);
             return parseInt(text);
           }
         }
@@ -1873,9 +1872,6 @@ document.getElementById('form-comparar').addEventListener('submit', function (ev
   let municipio1 = document.getElementById('municipio1');
   let departamento2 = document.getElementById('departamento2');
   let municipio2 = document.getElementById('municipio2');
-  let tematica = document.getElementById('tematica');
-
-  console.log(tematica);
 
   if (!(
     departamento1.value &&
@@ -1915,8 +1911,6 @@ document.getElementById('form-comparar').addEventListener('submit', function (ev
     tematicasList.forEach((x) => x.classList.add('d-block'));
 
     window.prevTematica = tematica;
-
-    console.log(tematica);
 
     if (tematica === 'general') {
       renderGeneral(municipio1);
@@ -1977,5 +1971,14 @@ document.getElementById('form-comparar').addEventListener('submit', function (ev
       renderVivienda(municipio1);
       renderVivienda(municipio2);
     }
+
+    var elements = document.querySelectorAll("[data-municipio-id]");
+    elements = Array.from(elements);
+
+    elements.forEach((element) => {
+      element.innerText = 
+        eval(`municipio${element.getAttribute('data-municipio-id')}
+        .${element.getAttribute('data-municipio-property')}`);
+    });
   })
 });
